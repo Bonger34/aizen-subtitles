@@ -178,3 +178,27 @@ cloud_entries.json
 frames/
 /DataProcess/*.index
 /DataProcess/*.webp
+# VV_Rob 特有(本轮排查产生的临时脚本)
+_tmp_*.py
+_tmp_*.pyc
+# 审核/复核产物
+review/
+# 人脸资产(大文件, 不入库)
+target/
+faces_candidates/
+clusters/
+face_features_aisome_aug.npz
+face_features_insightface.npz
+cluster_embeddings.npz
+# 运行时缓存
+.workbuddy/
+.vl_deps/
+__pycache__/
+
+# 二进制工具/大文件(不应入库)
+tools/bbdown/
+api/subtitle_search_api
+archive/demo/
+archive/lab/
+*.png
+*.GIF

@@ -11,8 +11,8 @@ from paddleocr import PaddleOCR
 import traceback
 import logging
 from params import (
-    USE_GPU_OCR, GPU_MEMORY_OCR, 
-    OCR_MODEL_DIR
+    USE_GPU_OCR, GPU_MEMORY_OCR,
+    OCR_MODEL_DIR, SUBTITLE_AREA, REQUIRED_RESOLUTION
 )
 
 class SubtitleExtractor:
@@ -31,7 +31,7 @@ class SubtitleExtractor:
             cls=False
         )
         
-        self.subtitle_area = (235, 900, 235 + 1200, 900 + 90)
+        self.subtitle_area = SUBTITLE_AREA  # 来自 params.py，可针对《罗布奥特曼》字幕位置调整
         self.pattern = r'([^_]+)_(\d+m\d+s)_sim_(\d+\.\d+)'
         self.subtitles_dict = defaultdict(list)
 
@@ -55,15 +55,21 @@ class SubtitleExtractor:
         try:
             img = Image.open(img_path)
             
-            if img.size != (1920, 1080):
-                raise ValueError("Incorrect image size")
+            if img.size != REQUIRED_RESOLUTION:
+                raise ValueError(f"Incorrect image size: {img.size}，要求 {REQUIRED_RESOLUTION}")
             
             # 裁剪字幕区域
             subtitle_img = img.crop(self.subtitle_area)
             
             # 将PIL Image转换为numpy数组
             img_array = np.array(subtitle_img)
-            
+
+            # 白字二值化(上游 VV 机制, fork 时曾丢失):
+            # 字幕为白字黑描边 → 白色像素(>245)保留, 其余(彩色画面文字/招牌/片尾职员表)黑掉
+            mask = np.all(img_array > 245, axis=2)
+            img_array[mask] = [255, 255, 255]
+            img_array[~mask] = [0, 0, 0]
+
             # 只进行文字识别
             result = self.ocr.ocr(img_array, det=False, cls=False)
             

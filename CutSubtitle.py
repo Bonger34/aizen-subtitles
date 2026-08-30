@@ -9,14 +9,15 @@ import io
 import json
 import re
 from collections import defaultdict
+from params import SUBTITLE_AREA, REQUIRED_RESOLUTION
 
 class SubtitleExtractor:
     def __init__(self):
         # 只初始化 OCR
         self.ocr = ddddocr.DdddOcr()
-        
-        # 设置字幕区域裁剪范围
-        self.crop_box = (235, 900, 235 + 1200, 900 + 90)
+
+        # 设置字幕区域裁剪范围（来自 params.py，可针对《罗布奥特曼》字幕位置调整）
+        self.crop_box = SUBTITLE_AREA
         
         # 正则表达式模式
         self.pattern = r'\[([^]]+)\]([^_]+)_(\d+m\d+s)_sim_(\d+\.\d+)'
@@ -36,7 +37,7 @@ class SubtitleExtractor:
         """处理单个图像并提取文字"""
         img = Image.open(img_path)
         
-        if img.size != (1920, 1080):
+        if img.size != REQUIRED_RESOLUTION:
             return None
             
         # 裁剪图像

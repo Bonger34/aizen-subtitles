@@ -43,16 +43,7 @@ class FaceRecognizer:
     
         self.stored_features = np.load(features_file)
         self.known_face_encodings = self.stored_features['encodings']
-        
-        if USE_GPU_FACE:
-            import torch
-            self.known_face_encodings = torch.tensor(
-                self.known_face_encodings, 
-                device='cuda'
-            ).float()
-            self.use_cuda = True
-        else:
-            self.use_cuda = False
+        self.use_cuda = False  # 相似度计算统一走 numpy（95x512 小矩阵，GPU 无收益且免 torch 依赖）
 
 
     def load_features(self, features_file: str) -> None:

@@ -1,6 +1,14 @@
+# 《罗布奥特曼》集数 -> B 站番剧播放页 URL 映射。
+# 复刻说明：原文件是《这就是中国》280 集映射，已替换为《罗布奥特曼》模板。
+# 请在本地下载完成后，将每集对应的 B 站 ep 播放页路径（形如 /bangumi/play/epXXXXXX/）
+# 填入下方；key 必须与 main.py 生成的 subtitle/*.json 文件名保持一致（含 [P编号] 前缀）。
+# 下方示例为占位，正式使用前请替换为真实链接（可用 BBDown 解析得到 ep 编号）。
 VIDEO_MAPPING = {
-    "[P001]1 弹指一挥间：中国全方位崛起": "/bangumi/play/ep260416/",
-    "[P002]2 一出国就爱国": "/bangumi/play/ep260697/",
+    "[P001]罗布奥特曼_01": "/bangumi/play/epREPLACE01/",
+    "[P002]罗布奥特曼_02": "/bangumi/play/epREPLACE02/",
+    # 更多集数按此格式追加……
+    # "[P003]罗布奥特曼_03": "/bangumi/play/epXXXXXX/",
+}
     "[P003]3 防止盲人摸象": "/bangumi/play/ep261025/",
     "[P004]4 中国不寻常的崛起": "/bangumi/play/ep261791/",
     "[P005]5 把中国的事说清楚": "/bangumi/play/ep262474/",

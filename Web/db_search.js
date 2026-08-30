@@ -17,58 +17,49 @@
         this.isLoading = true;
         this.progressCallback = progressCallback;
         await this.checkVersion();
-        
-        try {
-            const cachedDB = await dbStorage.getItem("databases", "subtitleDB");
-            if (cachedDB) {
-                if (Array.isArray(cachedDB) && cachedDB.length > 0) {
-                    this.db = cachedDB;
-                    this.isLoaded = true;
-                    this.isLoading = false;
-                    return true;
-                }
-            }
-        } catch (e) { }
-        
+
+        // 方案1（file:// 直开优先）：subtitle_db.js 已通过 <script> 注入 window.SUBTITLE_DB
+        if (window.SUBTITLE_DB && Array.isArray(window.SUBTITLE_DB) && window.SUBTITLE_DB.length > 0) {
+            this.db = window.SUBTITLE_DB;
+            this.isLoaded = true;
+            this.isLoading = false;
+            try { await dbStorage.setItem("databases", "subtitleDB", this.db) } catch (e) { }
+            return true;
+        }
+
+        // 方案2（http 部署后备）：fetch gzip subtitle_db
         this.loadPromise = new Promise(async (resolve, reject) => {
             try {
-                const checkResponse = await fetch("https://vvdb.cicada000.work/subtitle_db", {
+                const checkResponse = await fetch("./subtitle_db", {
                     method: "HEAD",
                     referrerPolicy: 'no-referrer',
                     mode: 'cors',
                     credentials: 'omit'
                 });
-                
                 if (!checkResponse.ok) throw new Error(`Database file not found: ${checkResponse.status}`);
-                
-                const response = await fetch("https://vvdb.cicada000.work/subtitle_db", {
+                const response = await fetch("./subtitle_db", {
                     referrerPolicy: 'no-referrer',
                     mode: 'cors',
                     credentials: 'omit'
                 });
-                
                 if (!response.ok) throw new Error(`Failed to load database: ${response.status}`);
-                
                 const contentLength = response.headers.get("Content-Length");
                 const reader = response.body.getReader();
                 let receivedLength = 0;
                 const chunks = [];
-                
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
                     chunks.push(value);
                     receivedLength += value.length;
                 }
-                
                 const chunksAll = new Uint8Array(receivedLength);
                 let position = 0;
                 for (const chunk of chunks) {
                     chunksAll.set(chunk, position);
                     position += chunk.length
                 }
-                const ds =
-                    new DecompressionStream("gzip");
+                const ds = new DecompressionStream("gzip");
                 const decompressedStream = (new Response(chunksAll)).body.pipeThrough(ds);
                 const decompressedData = await (new Response(decompressedStream)).text();
                 const parsedData = JSON.parse(decompressedData);
@@ -77,8 +68,7 @@
                 this.isLoaded = true;
                 this.isLoading = false;
                 try { await dbStorage.setItem("databases", "subtitleDB", this.db) } catch (e) { }
-                if (window.subtitleDB !==
-                    this) window.subtitleDB = this;
+                if (window.subtitleDB !== this) window.subtitleDB = this;
                 resolve(true)
             } catch (error) {
                 this.isLoading = false;
@@ -88,7 +78,8 @@
             }
         });
         return this.loadPromise
-    } lcsRatio(str1, str2) { str1 = str1.toLowerCase(); str2 = str2.toLowerCase(); if (!str1 || !str2) return 0; const m = str1.length; const n = str2.length; const dp = Array(m + 1).fill().map(() => Array(n + 1).fill(0)); for (let i = 1; i <= m; i++)for (let j = 1; j <= n; j++)if (str1[i - 1] === str2[j - 1]) dp[i][j] = dp[i - 1][j - 1] + 1; else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]); return dp[m][n] / m * 100 } multiWordLcsRatio(queryWords,
+    } 
+lcsRatio(str1, str2) { str1 = str1.toLowerCase(); str2 = str2.toLowerCase(); if (!str1 || !str2) return 0; const m = str1.length; const n = str2.length; const dp = Array(m + 1).fill().map(() => Array(n + 1).fill(0)); for (let i = 1; i <= m; i++)for (let j = 1; j <= n; j++)if (str1[i - 1] === str2[j - 1]) dp[i][j] = dp[i - 1][j - 1] + 1; else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]); return dp[m][n] / m * 100 } multiWordLcsRatio(queryWords,
         text) {
             text = text.toLowerCase(); const totalQueryLength = queryWords.reduce((sum, word) => sum + word.length, 0); const usedChars = (new Array(text.length)).fill(false); let totalMatched = 0; for (const word of queryWords) {
                 const wordLower = word.toLowerCase(); let foundMatch = false; let startPos = 0; while (true) {
@@ -117,53 +108,6 @@
         const queryWords = hasSpaces ? query.replace(/%20/g, " ").split(/\s+/).filter(Boolean) : [query]; 
         const filteredBySimiliarity = this.db.filter(item => item.s >= minSimilarity); 
         
-        if (window.Worker && queryWords.length > 1) return new Promise(resolve => {
-            const worker = new Worker("search_worker.js"); 
-            worker.onmessage = e => {
-                const workerResults = e.data; 
-                worker.terminate(); 
-                
-                if (workerResults.status === "success") {
-                    if (workerResults.data.length === 0) {
-                        resolve({
-                            status: "success",
-                            data: [],
-                            count: 0,
-                            message: `未找到与 '${query}' 匹配的结果`,
-                            suggestions: [
-                                "检查输入是否正确",
-                                `尝试降低最小匹配率（当前：${minRatio}%）`,
-                                `尝试降低最小相似度（当前：${minSimilarity}）`,
-                                "尝试使用更简短的关键词"
-                            ]
-                        });
-                    } else {
-                        resolve(workerResults);
-                    }
-                } else {
-                    resolve({
-                        status: "error",
-                        data: [],
-                        count: 0,
-                        message: workerResults.message || "搜索失败",
-                        suggestions: ["请重试"]
-                    });
-                }
-            }; 
-            
-            worker.onerror = (error) => {
-                console.error("Worker error:", error);
-                resolve({ 
-                    status: "error", 
-                    message: "Search failed", 
-                    data: [], 
-                    count: 0 
-                });
-            };
-            
-            worker.postMessage({ db: filteredBySimiliarity, queryWords, minRatio });
-        }); 
-        
         const results = filteredBySimiliarity.map(item => { 
             const matchRatio = hasSpaces ? this.multiWordLcsRatio(queryWords, item.x) : this.lcsRatio(query, item.x); 
             return { 
@@ -184,7 +128,8 @@
             similarity: result.item.s, 
             text: result.item.x, 
             match_ratio: result.matchRatio, 
-            exact_match: result.exactMatch 
+            exact_match: result.exactMatch,
+            aisome: result.item.d ? 1 : 0
         })); 
         
         if (apiResults.length === 0) {
@@ -215,7 +160,7 @@
         };
     }
 }
-window.dbDebug = { clearCache: async () => { try { await window.subtitleDB.clearCache() } catch (error) { } }, info: () => { window.subtitleDB.printDebugInfo() }, reload: async () => { try { await window.subtitleDB.load() } catch (error) { } }, help: () => { } }; window.subtitleDB = new SubtitleDatabase; fetch("https://vvdb.cicada000.work/subtitle_db", { 
+window.dbDebug = { clearCache: async () => { try { await window.subtitleDB.clearCache() } catch (error) { } }, info: () => { window.subtitleDB.printDebugInfo() }, reload: async () => { try { await window.subtitleDB.load() } catch (error) { } }, help: () => { } }; window.subtitleDB = new SubtitleDatabase; fetch("./subtitle_db", { 
     method: "HEAD",
     referrerPolicy: 'no-referrer',
     mode: 'cors',

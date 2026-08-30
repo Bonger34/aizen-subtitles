@@ -99,300 +99,6 @@ const dbStorage = {
     }
   },
 };
-const RequestController = {
-  queue: new Map(),
-  maxConcurrent: 4,
-
-  async enqueue(key, requestFn) {
-    if (this.queue.has(key)) {
-      return this.queue.get(key);
-    }
-    while (this.queue.size >= this.maxConcurrent) {
-      await new Promise((resolve) => setTimeout(resolve, 50));
-    }
-
-    const promise = requestFn().finally(() => {
-      this.queue.delete(key);
-    });
-
-    this.queue.set(key, promise);
-    return promise;
-  },
-};
-const indexCache = {
-  data: new Map(),
-  preloadQueue: new Set(),
-  preloadPromises: new Map(),
-
-  async get(groupIndex, baseDir) {
-    const cacheKey = `${baseDir}/${groupIndex}`;
-
-    if (this.data.has(cacheKey)) {
-      return this.data.get(cacheKey);
-    }
-
-    if (this.preloadPromises.has(cacheKey)) {
-      return this.preloadPromises.get(cacheKey);
-    }
-
-    return RequestController.enqueue(cacheKey, async () => {
-      try {
-        if (this.data.has(cacheKey)) {
-          return this.data.get(cacheKey);
-        }
-
-        const cachedData = await dbStorage.getItem("indices", cacheKey);
-        if (cachedData) {
-          const arrayBuffer = this._base64ToArrayBuffer(cachedData);
-          this.data.set(cacheKey, arrayBuffer);
-          return arrayBuffer;
-        }
-
-        const indexData = await this._fetchIndex(groupIndex, baseDir);
-        this.data.set(cacheKey, indexData);
-
-        this._saveToCache(cacheKey, indexData).catch(() => {});
-
-        return indexData;
-      } catch (error) {
-        console.error(`Failed to load index ${cacheKey}:`, error);
-        throw error;
-      }
-    });
-  },
-
-  async _saveToCache(cacheKey, data) {
-    const base64Data = this._arrayBufferToBase64(data);
-    await dbStorage.setItem("indices", cacheKey, base64Data);
-  },
-
-  async preload(groupIndex, baseDir) {
-    const cacheKey = `${baseDir}/${groupIndex}`;
-    if (this.data.has(cacheKey) || this.preloadQueue.has(cacheKey)) {
-      return;
-    }
-
-    this.preloadQueue.add(cacheKey);
-    const promise = this.get(groupIndex, baseDir)
-      .catch(() => {})
-      .finally(() => {
-        this.preloadQueue.delete(cacheKey);
-        this.preloadPromises.delete(cacheKey);
-      });
-
-    this.preloadPromises.set(cacheKey, promise);
-  },
-
-  async _fetchIndex(groupIndex, baseDir) {
-    const cacheKey = `${baseDir}/${groupIndex}`;
-
-    const indexUrl = `${baseDir}/${groupIndex}.index`;
-
-    try {
-      const indexResponse = await fetch(indexUrl, {
-        method: "GET",
-        mode: "cors",
-        credentials: "omit",
-        cache: "no-cache",
-        headers: {
-          Accept: "application/octet-stream",
-        },
-        referrerPolicy: "no-referrer",
-      });
-
-      if (!indexResponse.ok) {
-        throw new Error(
-          `Failed to fetch index: ${indexResponse.status} ${indexResponse.statusText}`,
-        );
-      }
-
-      const headers = Object.fromEntries(indexResponse.headers.entries());
-      const contentType = headers["content-type"];
-
-      const compressedData = await indexResponse.arrayBuffer();
-
-      if (compressedData.byteLength === 0) {
-        throw new Error("Received empty response");
-      }
-
-      const header = new Uint8Array(compressedData.slice(0, 2));
-
-      let decompressedData;
-
-      if (header[0] === 0x1f && header[1] === 0x8b) {
-        try {
-          const ds = new DecompressionStream("gzip");
-          const decompressedStream = new Response(
-            compressedData,
-          ).body.pipeThrough(ds);
-          decompressedData = await new Response(
-            decompressedStream,
-          ).arrayBuffer();
-        } catch (error) {
-          console.error("Decompression failed:", error);
-          throw error;
-        }
-      } else {
-        decompressedData = compressedData;
-      }
-
-      if (decompressedData.byteLength < 16) {
-        throw new Error("Data too small");
-      }
-
-      const view = new DataView(decompressedData);
-      const gridW = view.getUint32(0, true);
-      const gridH = view.getUint32(4, true);
-      const folderCount = view.getUint32(8, true);
-
-      if (gridW === 0 || gridH === 0 || folderCount === 0) {
-        throw new Error("Invalid index format");
-      }
-
-      return decompressedData;
-    } catch (error) {
-      console.error(`Failed to fetch or process index ${indexUrl}:`, error);
-      throw error;
-    }
-  },
-
-  _arrayBufferToBase64(buffer) {
-    const binary = [];
-    const bytes = new Uint8Array(buffer);
-    for (let i = 0; i < bytes.byteLength; i++)
-      binary.push(String.fromCharCode(bytes[i]));
-    return btoa(binary.join(""));
-  },
-
-  _base64ToArrayBuffer(base64) {
-    const binaryString = atob(base64);
-    const len = binaryString.length;
-    const bytes = new Uint8Array(len);
-    for (let i = 0; i < len; i++) bytes[i] = binaryString.charCodeAt(i);
-    return bytes.buffer;
-  },
-
-  _cleanupLocalStorage() {
-    try {
-      const cacheKeys = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        if (key.startsWith("indexCache_")) cacheKeys.push(key);
-      }
-      if (cacheKeys.length > 20)
-        for (let i = 0; i < 5; i++) localStorage.removeItem(cacheKeys[i]);
-    } catch (e) {}
-  },
-};
-const watermarkImage = new Image();
-watermarkImage.src = "watermark.png";
-let watermarkLoaded = false;
-watermarkImage.onload = () => {
-  watermarkLoaded = true;
-};
-async function extractFrame(folderId, frameNum, baseDir = "") {
-  const groupIndex = Math.floor((folderId - 1) / 10);
-  const requestKey = `${baseDir}/${groupIndex}/${folderId}/${frameNum}`;
-
-  return RequestController.enqueue(requestKey, async () => {
-    try {
-      if (!baseDir) {
-        throw new Error("Base directory is required");
-      }
-
-      const indexData = await indexCache.get(groupIndex, baseDir);
-
-      const dataView = new DataView(indexData);
-      let offset = 0;
-
-      const gridW = dataView.getUint32(offset, true);
-      offset += 4;
-      const gridH = dataView.getUint32(offset, true);
-      offset += 4;
-      const folderCount = dataView.getUint32(offset, true);
-      offset += 4;
-      offset += folderCount * 4;
-      const fileCount = dataView.getUint32(offset, true);
-      offset += 4;
-
-      let left = 0;
-      let right = fileCount - 1;
-      let startOffset = null;
-      let endOffset = null;
-
-      while (left <= right) {
-        const mid = Math.floor((left + right) / 2);
-        const recordOffset = offset + mid * 16;
-        const currFolder = dataView.getUint32(recordOffset, true);
-        const currFrame = dataView.getUint32(recordOffset + 4, true);
-        const currFileOffset = Number(
-          dataView.getBigUint64(recordOffset + 8, true),
-        );
-
-        if (currFolder === folderId && currFrame === frameNum) {
-          startOffset = currFileOffset;
-          if (mid < fileCount - 1) {
-            endOffset = Number(dataView.getBigUint64(recordOffset + 24, true));
-          }
-          break;
-        } else if (
-          currFolder < folderId ||
-          (currFolder === folderId && currFrame < frameNum)
-        ) {
-          left = mid + 1;
-        } else {
-          right = mid - 1;
-        }
-      }
-
-      if (startOffset === null) {
-        throw new Error(`Frame ${frameNum} not found in folder ${folderId}`);
-      }
-
-      const imageUrl = `${baseDir}/${groupIndex}.webp`;
-
-      const response = await fetch(imageUrl, {
-        method: "GET",
-        headers: {
-          Range: `bytes=${startOffset}-${endOffset ? endOffset - 1 : ""}`,
-        },
-        mode: "cors",
-        credentials: "omit",
-        referrerPolicy: "no-referrer",
-      });
-
-      if (response.status === 416 || !response.ok) {
-        const fullResponse = await fetch(imageUrl, {
-          method: "GET",
-          mode: "cors",
-          credentials: "omit",
-          referrerPolicy: "no-referrer",
-        });
-
-        if (!fullResponse.ok) {
-          throw new Error(
-            `HTTP error: ${fullResponse.status} ${fullResponse.statusText}`,
-          );
-        }
-
-        return new Blob([await fullResponse.blob()], { type: "image/webp" });
-      }
-
-      const data = await response.blob();
-      if (!data || data.size === 0) {
-        throw new Error("Empty response");
-      }
-
-      return new Blob([data], { type: "image/webp" });
-    } catch (error) {
-      console.error(
-        `Error extracting frame ${frameNum} from folder ${folderId}:`,
-        error,
-      );
-      throw new Error(`Failed to load preview image: ${error.message}`);
-    }
-  });
-}
 async function loadMapping() {
   try {
     const cachedMapping = await dbStorage.getItem("mappings", "mapping");
@@ -442,15 +148,10 @@ const AppState = {
 };
 const CONFIG = {
   randomStrings: [
-    "\u63a2\u7d22VV\u7684\u5f00\u6e90\u4e16\u754c",
-    "\u4e3a\u4e1c\u5927\u52a9\u529b",
-    "\u641c\u7d22\u4f60\u60f3\u8981\u7684\u5185\u5bb9",
+    "搜索罗布奥特曼的经典台词",
+    "寻找爱染诚的身影",
+    "搜索你想要的内容",
   ],
-  apiBaseUrl: "https://vvapi.cicada000.work",
-  semanticApiUrl: "https://vvapi.cicada000.work",
-  imageBaseUrl: "https://vv.noxylva.org",
-  watermarkPath: "watermark.png",
-  indexPreloadCount: 26
 };
 class UIController {
   static updateSearchFormPosition(isSearching) {
@@ -494,105 +195,34 @@ class SearchController {
   }
 
   static async performSearch(query, minRatio, minSimilarity) {
-    const isSemanticSearch = document
-      .getElementById("semanticToggle")
-      .classList.contains("active");
-    if (!isSemanticSearch) {
-      if (window.subtitleDB && window.subtitleDB.isLoaded) {
-        try {
-          const localResults = await window.subtitleDB.search(
-            query,
-            minRatio,
-            minSimilarity,
-          );
-
-          if (localResults && Array.isArray(localResults)) {
-            return {
-              status: "success",
-              data: localResults,
-              count: localResults.length,
-            };
-          } else if (
-            localResults &&
-            localResults.status === "success" &&
-            Array.isArray(localResults.data)
-          ) {
-            return localResults;
-          }
-        } catch (error) {
-          console.log("本地搜索失败，使用vvapi", error);
-        }
-      }
-
-      const vvapiUrl = `${CONFIG.apiBaseUrl}/search?query=${encodeURIComponent(query)}&min_ratio=${minRatio}&min_similarity=${minSimilarity}`;
-
+    // 纯本地搜索：字幕数据已随站点部署（./subtitle_db），无需远程 API
+    if (window.subtitleDB && window.subtitleDB.isLoaded) {
       try {
-        console.log("使用普通搜索:", vvapiUrl);
-        const response = await fetch(vvapiUrl);
-        if (!response.ok)
-          throw new Error(
-            `API 请求失败: ${response.status} ${response.statusText}`,
-          );
+        const localResults = await window.subtitleDB.search(
+          query,
+          minRatio,
+          minSimilarity,
+        );
 
-        const text = await response.text();
-        const lines = text.trim().split("\n");
-        const results = [];
-
-        for (const line of lines) {
-          try {
-            if (line.trim()) {
-              const item = JSON.parse(line);
-              results.push(item);
-            }
-          } catch (e) {}
+        if (localResults && Array.isArray(localResults)) {
+          return {
+            status: "success",
+            data: localResults,
+            count: localResults.length,
+          };
+        } else if (
+          localResults &&
+          localResults.status === "success" &&
+          Array.isArray(localResults.data)
+        ) {
+          return localResults;
         }
-
-        return {
-          status: "success",
-          data: results,
-          count: results.length,
-        };
       } catch (error) {
+        console.log("本地搜索失败", error);
         throw error;
       }
     }
-
-    const emuUrl = `${CONFIG.semanticApiUrl}/search?query=${encodeURIComponent(query)}&min_ratio=${minRatio}&min_similarity=${minSimilarity}&rag=true`;
-
-    try {
-      console.log("使用语义搜索:", emuUrl);
-      const response = await fetch(emuUrl);
-      if (!response.ok)
-        throw new Error(
-          `API 请求失败: ${response.status} ${response.statusText}`,
-        );
-
-      const text = await response.text();
-      const lines = text.trim().split("\n");
-      const results = [];
-
-      for (const line of lines) {
-        try {
-          if (line.trim()) {
-            const item = JSON.parse(line);
-            
-            if (item.filename && !item.filename.endsWith('.json')) {
-              item.filename = item.filename + '.json';
-            }
-            
-            results.push(item);
-          }
-        } catch (e) {}
-      }
-
-      return {
-        status: "success",
-        data: results,
-        count: results.length,
-      };
-    } catch (error) {
-      throw error;
-    }
+    return { status: "success", data: [], count: 0 };
   }
 }
 async function handleSearch(event) {
@@ -614,11 +244,25 @@ async function handleSearch(event) {
     );
 
     if (results && results.status === "success") {
-      AppState.cachedResults = results.data;
-      AppState.hasMoreResults = results.data.length > AppState.itemsPerPage;
+      // 爱染诚画面优先 / 仅显示含爱染诚画面（高级选项）
+      const aisomeFirst = document.getElementById("aisomeFirst")?.checked !== false;
+      const aisomeOnly = document.getElementById("aisomeOnly")?.checked === true;
+      let data = results.data.slice();
+      if (aisomeOnly) data = data.filter((r) => r.aisome);
+      if (aisomeFirst) {
+        data.sort((a, b) => {
+          if ((b.aisome || 0) !== (a.aisome || 0)) return (b.aisome || 0) - (a.aisome || 0);
+          if (b.match_ratio !== a.match_ratio) return b.match_ratio - a.match_ratio;
+          return (b.exact_match || 0) - (a.exact_match || 0);
+        });
+      }
+      // 注意：results 是 const，不能重赋值，用新对象承载处理后的结果
+      const searchData = { status: "success", data, count: data.length };
+      AppState.cachedResults = searchData.data;
+      AppState.hasMoreResults = searchData.data.length > AppState.itemsPerPage;
       AppState.displayedCount = 0;
 
-      displayResults(results);
+      displayResults(searchData);
       completeLoadingBar();
     } else {
       throw new Error("Invalid search results format");
@@ -639,10 +283,6 @@ async function initializeApp() {
     await dbStorage.init().catch((error) => {});
     mapping = await loadMapping();
     initializeScrollListener();
-
-    for (let i = 0; i <= CONFIG.indexPreloadCount; i++) {
-      indexCache.preload(i, CONFIG.imageBaseUrl).catch((error) => {});
-    }
 
     if (
       window.subtitleDB &&
@@ -689,12 +329,6 @@ async function initializeApp() {
       .addEventListener("click", function () {
         location.reload();
       });
-
-    document
-      .getElementById("semanticToggle")
-      .addEventListener("click", function () {
-        this.classList.toggle("active");
-      });
   } catch (error) {}
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -723,40 +357,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     toggleButton.classList.toggle("active");
     toggleButton.setAttribute("aria-expanded", !isExpanded);
-  });
-  
-  const semanticToggle = document.getElementById("semanticToggle");
-  const semanticTooltip = document.getElementById("semanticTooltip");
-  
-  semanticToggle.addEventListener("mouseenter", () => {
-    semanticTooltip.classList.add("visible");
-  });
-  
-  semanticToggle.addEventListener("mouseleave", () => {
-    semanticTooltip.classList.remove("visible");
-  });
-  
-  const watermarkToggle = document.getElementById("watermarkToggle");
-  watermarkToggle.addEventListener("change", () => {
-    AppState.showWatermark = watermarkToggle.checked;
-    if (window.canvasRenderQueue)
-      window.canvasRenderQueue.forEach((canvas) => {
-        const ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(canvas.originalCanvas, 0, 0);
-        if (AppState.showWatermark && watermarkLoaded) {
-          const watermarkScale = (canvas.width * 0.25) / watermarkImage.width;
-          const watermarkWidth = watermarkImage.width * watermarkScale;
-          const watermarkHeight = watermarkImage.height * watermarkScale;
-          ctx.drawImage(
-            watermarkImage,
-            canvas.width - watermarkWidth - 5,
-            canvas.height - watermarkHeight - 5,
-            watermarkWidth,
-            watermarkHeight,
-          );
-        }
-      });
   });
 });
 function displayResults(data, append = false) {
@@ -846,9 +446,7 @@ function displayResults(data, append = false) {
     .map((result) => {
       if (!result || typeof result !== "object") return null;
       const card = document.createElement("div");
-      card.className = "result-card";
-      card.addEventListener("click", () => handleCardClick(result));
-      card.style.cursor = "pointer";
+      card.className = "result-card" + (result.aisome ? " is-aisome" : "");
 
       const episodeMatch = result.filename
         ? result.filename.match(/\[P(\d+)\]/)
@@ -863,37 +461,71 @@ function displayResults(data, append = false) {
             .trim()
         : "";
 
+      const frameKey = `${result.filename}|${result.timestamp}`;
+      const frameFile = window.FRAMES_MAP ? window.FRAMES_MAP[frameKey] : null;
+
+      // 时间戳超链接:跳转 bilibili
+      let jumpHref = "";
+      if (timeMatch && episodeMatch && frameFile) {
+        const totalSeconds =
+          parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2]);
+        jumpHref = getBilibiliUrl(result.filename, totalSeconds) || "";
+      }
+
       const cardContent = `
+            <span class="card-crystal" aria-hidden="true"></span>
+            ${result.aisome ? `<span class="seal" aria-hidden="true">\u8bda</span>` : ""}
             <div class="result-content">
-                <h3>${episodeMatch ? `<span class="tag">${episodeMatch[1]}</span>${cleanFilename.replace(/P\d+/, "").trim()}` : cleanFilename}</h3>
-                <p class="result-text">${result.text || ""}</p>
+                <div class="result-text-block">
+                    <h3>${episodeMatch ? `<span class="tag">${episodeMatch[1]}</span>${cleanFilename.replace(/P\d+/, "").trim()}` : cleanFilename}</h3>
+                    <p class="result-text">${result.text || ""}</p>
+                    ${
+                      result.timestamp
+                        ? `
+                    <p class="result-meta">
+                        ${
+                          jumpHref
+                            ? `<a class="ts-link" href="${jumpHref}" target="_blank" rel="noopener noreferrer" title="\u8df3\u8f6c bilibili \u89c6\u9891">${result.timestamp}</a>`
+                            : result.timestamp
+                        }
+                        \u00b7
+                        \u5339\u914d\u5ea6 ${result.match_ratio ? parseFloat(result.match_ratio).toFixed(1) : 0}% \u00b7
+                        \u76f8\u4f3c\u5ea6 ${result.similarity ? (result.similarity * 100).toFixed(1) : 0}%
+                    </p>`
+                        : ""
+                    }
+                </div>
                 ${
-                  result.timestamp
-                    ? `
-                <p class="result-meta">
-                    ${result.timestamp} \u00b7
-                    \u5339\u914d\u5ea6 ${result.match_ratio ? parseFloat(result.match_ratio).toFixed(1) : 0}% \u00b7
-                    \u76f8\u4f3c\u5ea6 ${result.similarity ? (result.similarity * 100).toFixed(1) : 0}%
-                </p>`
-                    : ""
+                  frameFile
+                    ? `<div class="frame-thumb frame-zoomable" data-frame="${frameFile}" data-info="${cleanFilename} \u00b7 ${result.timestamp || ""}" role="button" tabindex="0" title="\u70b9\u51fb\u653e\u5927"><img src="frames/${frameFile}" alt="${result.text || ""}" loading="lazy" onerror="this.parentNode.classList.add('frame-missing')"><span class="zoom-hint" aria-hidden="true">\U0001F50D</span></div>`
+                    : `<div class="frame-thumb frame-placeholder"><span>\u65e0\u5e27\u56fe</span></div>`
                 }
             </div>
         `;
 
       card.innerHTML = cardContent;
+      // 帧图:点击放大预览
+      const zoom = card.querySelector(".frame-zoomable");
+      if (zoom) {
+        const frameFile2 = zoom.getAttribute("data-frame");
+        const info = zoom.getAttribute("data-info");
+        zoom.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openPreviewFrame(frameFile2, info);
+        });
+        zoom.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openPreviewFrame(frameFile2, info);
+          }
+        });
+      }
       return card;
     })
     .filter(Boolean);
 
   cards.forEach((card) => fragment.appendChild(card));
   resultsDiv.appendChild(fragment);
-
-  requestAnimationFrame(() => {
-    cards.forEach((card, index) => {
-      const result = newResults[index];
-      loadPreviewImage(card, result);
-    });
-  });
 
   AppState.displayedCount = endIndex;
 
@@ -910,172 +542,6 @@ function displayResults(data, append = false) {
     }
     resultsDiv.appendChild(trigger);
   }
-}
-async function loadPreviewImage(card, result) {
-  const episodeMatch = result.filename?.match(/\[P(\d+)\]/);
-  const timeMatch = result.timestamp?.match(/^(\d+)m(\d+)s$/);
-
-  if (!episodeMatch || !timeMatch) return;
-
-  const episodeNum = parseInt(episodeMatch[1], 10);
-  const minutes = parseInt(timeMatch[1]);
-  const seconds = parseInt(timeMatch[2]);
-  const totalSeconds = minutes * 60 + seconds;
-
-  const imgContainer = document.createElement("div");
-  imgContainer.className = "preview-frame-container";
-
-  const placeholder = document.createElement("div");
-  placeholder.className = "preview-frame-placeholder";
-  imgContainer.appendChild(placeholder);
-  card.insertBefore(imgContainer, card.firstChild);
-
-  try {
-    const imageBlob = await extractFrame(
-      episodeNum,
-      totalSeconds,
-      CONFIG.imageBaseUrl,
-    );
-    const imageUrl = URL.createObjectURL(imageBlob);
-    const img = new Image();
-    img.src = imageUrl;
-    img.className = "preview-frame";
-    img.decoding = "async";
-
-    img.onerror = () => {
-      console.error("Failed to load preview image");
-      imgContainer.remove();
-      URL.revokeObjectURL(imageUrl);
-    };
-
-    img.onload = () => {
-      const originalCanvas = document.createElement("canvas");
-      originalCanvas.width = img.width;
-      originalCanvas.height = img.height;
-
-      try {
-        const originalCtx = originalCanvas.getContext("2d");
-        if (!originalCtx) {
-          throw new Error("Failed to get canvas context");
-        }
-
-        originalCtx.drawImage(img, 0, 0);
-
-        const displayCanvas = document.createElement("canvas");
-        displayCanvas.width = img.width;
-        displayCanvas.height = img.height;
-        displayCanvas.className = "preview-frame";
-        displayCanvas.originalCanvas = originalCanvas;
-
-        const renderCanvas = () => {
-          const ctx = displayCanvas.getContext("2d");
-          if (!ctx) {
-            throw new Error("Failed to get display canvas context");
-          }
-
-          ctx.clearRect(0, 0, displayCanvas.width, displayCanvas.height);
-          ctx.drawImage(originalCanvas, 0, 0);
-
-          if (watermarkLoaded && AppState.showWatermark) {
-            const watermarkScale =
-              (displayCanvas.width * 0.25) / watermarkImage.width;
-            const watermarkWidth = watermarkImage.width * watermarkScale;
-            const watermarkHeight = watermarkImage.height * watermarkScale;
-            ctx.drawImage(
-              watermarkImage,
-              displayCanvas.width - watermarkWidth - 5,
-              displayCanvas.height - watermarkHeight - 5,
-              watermarkWidth,
-              watermarkHeight,
-            );
-          }
-        };
-
-        renderCanvas();
-
-        if (!window.canvasRenderQueue) {
-          window.canvasRenderQueue = new Set();
-        }
-        window.canvasRenderQueue.add(displayCanvas);
-
-        displayCanvas.addEventListener("click", (e) => {
-          e.stopPropagation();
-          displayCanvas.toBlob((blob) => {
-            if (!blob) {
-              console.error("Failed to create image blob");
-              return;
-            }
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `VV_${result.filename.replace(/[^\w\s-]/g, "")}_${result.timestamp}.png`;
-            a.click();
-            URL.revokeObjectURL(url);
-          }, "image/png");
-        });
-        
-        // 添加复制按钮
-        const copyButton = document.createElement("button");
-        copyButton.className = "copy-button";
-        copyButton.title = "复制图片";
-        copyButton.innerHTML = `<img src="copy.svg" alt="复制" class="copy-icon">`;
-        
-        copyButton.addEventListener("click", (e) => {
-          e.stopPropagation();
-          displayCanvas.toBlob(async (blob) => {
-            if (!blob) {
-              console.error("Failed to create image blob");
-              return;
-            }
-            try {
-              // 尝试使用Clipboard API复制图片
-              await navigator.clipboard.write([
-                new ClipboardItem({
-                  [blob.type]: blob
-                })
-              ]);
-              
-              // 显示成功提示
-              const toast = document.createElement("div");
-              toast.className = "copy-toast";
-              toast.textContent = "已复制到剪贴板";
-              document.body.appendChild(toast);
-              
-              // 2秒后移除提示
-              setTimeout(() => {
-                toast.classList.add("fade-out");
-                setTimeout(() => toast.remove(), 300);
-              }, 2000);
-              
-            } catch (err) {
-              console.error("复制失败:", err);
-              alert("复制失败，请使用更新的浏览器或手动保存图片");
-            }
-          }, "image/png");
-        });
-        
-        imgContainer.appendChild(copyButton);
-        imgContainer.appendChild(displayCanvas);
-        setTimeout(() => {
-          displayCanvas.classList.add("loaded");
-          placeholder.style.opacity = "0";
-          setTimeout(() => placeholder.remove(), 300);
-        }, 50);
-      } catch (error) {
-        console.error("Canvas error:", error);
-        imgContainer.remove();
-      }
-
-      URL.revokeObjectURL(imageUrl);
-    };
-  } catch (error) {
-    console.error("加载预览图失败:", error);
-    imgContainer.remove();
-  }
-}
-function getEpisodeUrl(filename) {
-  for (let key in mapping) if (mapping[key] === filename) return key;
-  return null;
 }
 function startNaturalLoadingBar() {
   const loadingBar = document.getElementById("loadingBar");
@@ -1148,17 +614,173 @@ function handleCardClick(result) {
   const episodeMatch = result.filename.match(/\[P(\d+)\]/);
   const timeMatch = result.timestamp.match(/^(\d+)m(\d+)s$/);
   if (episodeMatch && timeMatch) {
-    const episodeNum = parseInt(episodeMatch[1], 10);
     const minutes = parseInt(timeMatch[1]);
     const seconds = parseInt(timeMatch[2]);
     const totalSeconds = minutes * 60 + seconds;
-    for (const [url, filename] of Object.entries(mapping))
-      if (filename === result.filename) {
-        const videoUrl = `https://www.bilibili.com${url}?t=${totalSeconds}`;
-        window.open(videoUrl, "_blank");
-        break;
-      }
+    const url = getBilibiliUrl(result.filename, totalSeconds);
+    if (url) {
+      // 优先原生 <a> 跳转(不受弹窗拦截),降级 window.open
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
   }
+}
+
+/* 根据文件名解析 bilibili 番剧 URL(优先 mapping,降级为按集号推算) */
+function getBilibiliUrl(filename, totalSeconds) {
+  for (const [path, fn] of Object.entries(mapping || {})) {
+    if (fn === filename) {
+      return `https://www.bilibili.com${path}?t=${totalSeconds}`;
+    }
+  }
+  // 降级:已知 ep396256 起连续对应 P01~P25
+  const m = filename && filename.match(/\[P(\d+)\]/);
+  if (m) {
+    const n = parseInt(m[1], 10);
+    if (n >= 1 && n <= 25) {
+      const ep = 396255 + n;
+      return `https://www.bilibili.com/bangumi/play/ep${ep}/?t=${totalSeconds}`;
+    }
+  }
+  return null;
+}
+
+/* 帧图放大预览模态:右上叉叉(圆形)、右下复制/下载(圆形,垂直分布) */
+function openPreviewFrame(frameFile, infoText) {
+  let overlay = document.getElementById("previewOverlay");
+  if (overlay) overlay.remove();
+
+  overlay = document.createElement("div");
+  overlay.id = "previewOverlay";
+  overlay.className = "preview-overlay";
+
+  const imgSrc = `frames/${frameFile}`;
+  overlay.innerHTML = `
+      <div class="preview-wrap" role="dialog" aria-modal="true" aria-label="\u5e27\u56fe\u9884\u89c8">
+        <img class="preview-img" src="${imgSrc}" alt="${infoText || frameFile}">
+        ${infoText ? `<p class="preview-info mono">${infoText}</p>` : ""}
+        <button type="button" class="preview-close" aria-label="\u5173\u95ed">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3 L13 13 M13 3 L3 13"/></svg>
+        </button>
+        <div class="preview-side">
+          <button type="button" class="preview-copy" title="\u590d\u5236\u56fe\u7247" aria-label="\u590d\u5236\u56fe\u7247">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+          </button>
+          <button type="button" class="preview-download" title="\u4e0b\u8f7d\u56fe\u7247" aria-label="\u4e0b\u8f7d\u56fe\u7247">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12 M7 11l5 5 5-5 M4 19h16"/></svg>
+          </button>
+        </div>
+      </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  const wrap = overlay.querySelector(".preview-wrap");
+  const closeBtn = overlay.querySelector(".preview-close");
+  const copyBtn = overlay.querySelector(".preview-copy");
+  const dlBtn = overlay.querySelector(".preview-download");
+
+  // 预览打开时预加载:图片 → Canvas → PNG blob 缓存(点击复制时零解码,手势内一步写入)
+  let pngBlobCache = null;
+  (async () => {
+    try {
+      const img = new Image();
+      img.src = imgSrc;   // 同源帧图
+      await img.decode();
+      const canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      canvas.getContext("2d").drawImage(img, 0, 0);
+      pngBlobCache = await new Promise((res) => canvas.toBlob(res, "image/png"));
+    } catch (e) {
+      pngBlobCache = null;
+    }
+  })();
+
+  const close = () => {
+    if (overlay.classList.contains("closing")) return;
+    overlay.classList.add("closing");
+    wrap.classList.add("closing");
+    setTimeout(() => overlay.remove(), 210);
+  };
+
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener("keydown", function esc(e) {
+    if (e.key === "Escape") {
+      close();
+      document.removeEventListener("keydown", esc);
+    }
+  });
+
+  // 复制图片到剪贴板:先给反馈,再尽力写(绝无"点了没反应")
+  copyBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const secureCtx = window.isSecureContext === true;
+    if (secureCtx && navigator.clipboard && window.ClipboardItem && pngBlobCache) {
+      navigator.clipboard
+        .write([new ClipboardItem({ "image/png": pngBlobCache })])
+        .then(() => showToast("\u5df2\u590d\u5236\u56fe\u7247\u5230\u526a\u8d34\u677f"))
+        .catch(() => {
+          legacyCopy(imgSrc);
+          showToast("\u5df2\u590d\u5236\u56fe\u7247\u5730\u5740");
+        });
+    } else if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(imgSrc)
+        .then(() => showToast("\u5df2\u590d\u5236\u56fe\u7247\u5730\u5740"))
+        .catch(() => {
+          legacyCopy(imgSrc);
+          showToast("\u5df2\u590d\u5236\u56fe\u7247\u5730\u5740");
+        });
+    } else {
+      legacyCopy(imgSrc);
+      showToast("\u5df2\u590d\u5236\u56fe\u7247\u5730\u5740");
+    }
+  });
+
+  // 旧版降级:execCommand textarea 复制文本
+  function legacyCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
+
+  // 下载图片
+  dlBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const a = document.createElement("a");
+    a.href = imgSrc;
+    a.download = frameFile;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
+}
+
+/* 轻量提示 */
+function showToast(msg) {
+  let t = document.getElementById("appToast");
+  if (t) t.remove();
+  t = document.createElement("div");
+  t.id = "appToast";
+  t.className = "copy-toast";
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add("fade-out"), 1600);
+  setTimeout(() => t.remove(), 2000);
 }
 function enableKeywordTags() {
   const keywordsContainer = document.getElementById("keywordsContainer");
