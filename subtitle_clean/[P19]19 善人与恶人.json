@@ -257,6 +257,11 @@
   "text": "那是什么啊"
  },
  {
+  "timestamp": "6m13s",
+  "text": "又是她召唤的吧",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "6m16s",
   "similarity": 0.097,
   "text": "不是我干的"
@@ -265,6 +270,11 @@
   "timestamp": "6m19s",
   "similarity": 0.158,
   "text": "有人入侵了系统"
+ },
+ {
+  "timestamp": "6m21s",
+  "text": "控制了达令",
+  "similarity": 0.0
  },
  {
   "timestamp": "6m23s",
@@ -300,6 +310,11 @@
   "timestamp": "6m43s",
   "similarity": 0.071,
   "text": "喂万一她说的是真的"
+ },
+ {
+  "timestamp": "6m45s",
+  "text": "朝阳就有性命之危了",
+  "similarity": 0.0
  },
  {
   "timestamp": "6m49s",
@@ -355,6 +370,11 @@
   "timestamp": "7m58s",
   "similarity": 0.0,
   "text": "罗索奥特曼跃水形态"
+ },
+ {
+  "timestamp": "8m35s",
+  "text": "有护罩啊",
+  "similarity": 0.0
  },
  {
   "timestamp": "8m36s",
@@ -518,6 +538,11 @@
   "text": "三名在行星上获得力量的战士"
  },
  {
+  "timestamp": "11m14s",
+  "text": "来到了这里",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "11m19s",
   "similarity": 0.0,
   "text": "没想到的是鲁格赛特太过强大"
@@ -538,6 +563,11 @@
   "text": "的三名战士用尽了所有的力量"
  },
  {
+  "timestamp": "11m38s",
+  "text": "最终坠落在了星球上",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "11m41s",
   "similarity": 0.118,
   "text": "但是那颗星球得救了吧"
@@ -551,6 +581,11 @@
   "timestamp": "11m47s",
   "similarity": 0.107,
   "text": "鲁格赛特将再次回到那颗星球上"
+ },
+ {
+  "timestamp": "11m53s",
+  "text": "肯定不会有事的",
+  "similarity": 0.0
  },
  {
   "timestamp": "11m55s",
@@ -579,8 +614,13 @@
  },
  {
   "timestamp": "12m12s",
-  "similarity": 0.064,
-  "text": "美剑我把达令重新启动了"
+  "similarity": 0.0,
+  "text": "快回答我"
+ },
+ {
+  "timestamp": "12m13s",
+  "text": "美剑我把达令重新启动了",
+  "similarity": 0.064
  },
  {
   "timestamp": "12m17s",
@@ -606,6 +646,11 @@
   "timestamp": "12m32s",
   "similarity": 0.0,
   "text": "它没有停止行动啊"
+ },
+ {
+  "timestamp": "12m37s",
+  "text": "快点啊",
+  "similarity": 0.0
  },
  {
   "timestamp": "12m48s",
@@ -754,6 +799,11 @@
   "text": "罗布奥特曼"
  },
  {
+  "timestamp": "19m13s",
+  "text": "达令启动拘捕怪兽系统",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "19m15s",
   "similarity": 0.157,
   "text": "明白启动拘捕怪兽系统"
@@ -880,20 +930,5 @@
   "timestamp": "24m25s",
   "similarity": 0.0,
   "text": "我们不能见死不救啊"
- },
- {
-  "timestamp": "19m13s",
-  "text": "达令启动拘捕怪兽系统",
-  "similarity": 0.0
- },
- {
-  "timestamp": "6m13s",
-  "text": "又是她召唤的吧",
-  "similarity": 0.0
- },
- {
-  "timestamp": "6m21s",
-  "text": "控制了达令",
-  "similarity": 0.0
  }
 ]
