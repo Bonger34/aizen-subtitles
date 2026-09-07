@@ -56,6 +56,11 @@
   "text": "来吧上吧"
  },
  {
+  "timestamp": "2m12s",
+  "text": "我打我打",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "2m17s",
   "similarity": 0.0,
   "text": "哥哥似乎觉得只要把球投出去就行了"
@@ -74,6 +79,11 @@
   "timestamp": "2m28s",
   "similarity": 0.0,
   "text": "可以说他比较像小孩子吧"
+ },
+ {
+  "timestamp": "2m31s",
+  "text": "不对不对不对",
+  "similarity": 0.0
  },
  {
   "timestamp": "2m34s",
@@ -139,6 +149,11 @@
   "timestamp": "3m25s",
   "similarity": 0.135,
   "text": "这是什么情况"
+ },
+ {
+  "timestamp": "3m26s",
+  "text": "话说这是谁啊",
+  "similarity": 0.0
  },
  {
   "timestamp": "3m28s",

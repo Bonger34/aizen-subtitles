@@ -148,6 +148,11 @@
   "vl_rechecked": true
  },
  {
+  "timestamp": "4m55s",
+  "text": "小澪",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "4m56s",
   "similarity": 0.122,
   "text": "小潮",
@@ -450,6 +455,16 @@
   "timestamp": "9m45s",
   "similarity": 0.128,
   "text": "看来美剑说的是真的了"
+ },
+ {
+  "timestamp": "9m46s",
+  "text": "什么什么什么",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m47s",
+  "text": "嗯是的",
+  "similarity": 0.0
  },
  {
   "timestamp": "9m48s",
@@ -836,6 +851,11 @@
   "text": "泰罗奥特曼"
  },
  {
+  "timestamp": "17m23s",
+  "text": "银河奥特曼",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "17m30s",
   "similarity": 0.0,
   "text": "罗索奥特曼烈火形态"
@@ -1064,15 +1084,5 @@
   "timestamp": "24m27s",
   "similarity": 0.0,
   "text": "下一集 罗布奥特曼"
- },
- {
-  "timestamp": "4m55s",
-  "text": "小澪",
-  "similarity": 0.0
- },
- {
-  "timestamp": "17m23s",
-  "text": "银河奥特曼",
-  "similarity": 0.0
  }
 ]

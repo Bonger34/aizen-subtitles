@@ -56,6 +56,11 @@
   "text": "邪恶的外星人经常干的事"
  },
  {
+  "timestamp": "2m16s",
+  "text": "我这不是抢",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "2m20s",
   "similarity": 0.0,
   "text": "我来集齐哥哥们散落在空中的力量结晶"
@@ -111,6 +116,11 @@
   "timestamp": "4m40s",
   "similarity": 0.195,
   "text": "那那个欢迎光临"
+ },
+ {
+  "timestamp": "4m40s",
+  "text": "有客人来了",
+  "similarity": 0.0
  },
  {
   "timestamp": "4m44s",
@@ -970,9 +980,14 @@
   "text": "地球的危机靠我们三个人"
  },
  {
-  "timestamp": "24m20s",
+  "timestamp": "24m19s",
   "similarity": 0.054,
   "text": "齐心协力解决不好吗"
+ },
+ {
+  "timestamp": "24m20s",
+  "text": "没用的",
+  "similarity": 0.0
  },
  {
   "timestamp": "24m21s",
@@ -983,10 +998,5 @@
   "timestamp": "24m24s",
   "similarity": 0.174,
   "text": "你们的母亲凑澪失踪的真相吧"
- },
- {
-  "timestamp": "4m40s",
-  "text": "有客人来了",
-  "similarity": 0.0
  }
 ]

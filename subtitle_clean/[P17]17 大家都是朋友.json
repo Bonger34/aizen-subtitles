@@ -1,5 +1,10 @@
 [
  {
+  "timestamp": "0m00s",
+  "text": "真是够呛啊",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "0m01s",
   "similarity": 0.229,
   "text": "朝阳她竟然会离家出走"
@@ -194,6 +199,11 @@
   "timestamp": "4m16s",
   "similarity": 0.076,
   "text": "说到底所谓的万圣节"
+ },
+ {
+  "timestamp": "4m17s",
+  "text": "行了行了行了",
+  "similarity": 0.0
  },
  {
   "timestamp": "4m21s",

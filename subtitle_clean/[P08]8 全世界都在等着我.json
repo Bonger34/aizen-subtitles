@@ -91,6 +91,11 @@
   "text": "喂怪兽过来这里啊喂怪兽"
  },
  {
+  "timestamp": "1m58s",
+  "text": "我们上吧",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "2m04s",
   "similarity": 0.0,
   "text": "那不是怪兽阿里蓬塔可是超兽"
@@ -218,6 +223,11 @@
   "timestamp": "6m17s",
   "similarity": 0.168,
   "text": "看到了没这就是火焰龙卷风"
+ },
+ {
+  "timestamp": "6m20s",
+  "text": "预备喊谢谢你们",
+  "similarity": 0.0
  },
  {
   "timestamp": "6m22s",
@@ -440,6 +450,11 @@
   "timestamp": "9m39s",
   "similarity": 0.143,
   "text": "有人要订购件"
+ },
+ {
+  "timestamp": "9m42s",
+  "text": "真的假的",
+  "similarity": 0.0
  },
  {
   "timestamp": "9m43s",
@@ -838,6 +853,11 @@
   "text": "银河奥特曼"
  },
  {
+  "timestamp": "16m32s",
+  "text": "银河奥特曼",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "16m34s",
   "similarity": 0.083,
   "text": "炽火绊身红莲之焰"
@@ -1063,10 +1083,5 @@
   "timestamp": "24m25s",
   "similarity": 0.022,
   "text": "下一集罗布奥特曼"
- },
- {
-  "timestamp": "16m32s",
-  "text": "银河奥特曼",
-  "similarity": 0.0
  }
 ]
