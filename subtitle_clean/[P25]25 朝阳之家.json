@@ -10,6 +10,11 @@
   "text": "不管是谁获胜地球都会完蛋的"
  },
  {
+  "timestamp": "0m04s",
+  "text": "再这样下去",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "0m35s",
   "similarity": 0.069,
   "text": "小剑"
@@ -28,6 +33,11 @@
   "timestamp": "1m15s",
   "similarity": 0.071,
   "text": "罗布极限水晶"
+ },
+ {
+  "timestamp": "1m19s",
+  "text": "就你了罗布水晶",
+  "similarity": 0.0
  },
  {
   "timestamp": "1m21s",
@@ -55,6 +65,11 @@
   "text": "备用电源无法继续供电"
  },
  {
+  "timestamp": "2m12s",
+  "text": "电缆受损",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "2m36s",
   "similarity": 0.134,
   "text": "刚刚那是什么"
@@ -69,6 +84,11 @@
   "similarity": 0.0,
   "text": "正在地下流动的光之轨迹光谱图",
   "vl_rechecked": true
+ },
+ {
+  "timestamp": "2m53s",
+  "text": "马上调出",
+  "similarity": 0.0
  },
  {
   "timestamp": "2m56s",
@@ -92,9 +112,19 @@
   "text": "被妈妈锁上了吗"
  },
  {
+  "timestamp": "3m55s",
+  "text": "系统关联完毕",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "3m56s",
   "similarity": 0.114,
   "text": "拘捕光线已强化"
+ },
+ {
+  "timestamp": "3m59s",
+  "text": "已锁定怪兽",
+  "similarity": 0.0
  },
  {
   "timestamp": "4m09s",
@@ -145,6 +175,11 @@
   "vl_rechecked": true
  },
  {
+  "timestamp": "4m50s",
+  "text": "以后再也无法回来了",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "4m52s",
   "similarity": 0.082,
   "text": "这就是我的目的达令"
@@ -167,10 +202,20 @@
   "vl_rechecked": true
  },
  {
+  "timestamp": "5m12s",
+  "text": "妈妈增幅了洞口的力量",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "5m14s",
   "similarity": 0.051,
   "text": "想要把那个怪兽扔进异次元中",
   "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m17s",
+  "text": "恐怕妈妈也会一起被吸进去",
+  "similarity": 0.0
  },
  {
   "timestamp": "5m19s",
@@ -183,6 +228,11 @@
   "similarity": 0.0,
   "text": "你们快离开这里",
   "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m29s",
+  "text": "快点逃得远远的",
+  "similarity": 0.0
  },
  {
   "timestamp": "5m30s",
@@ -198,6 +248,11 @@
   "timestamp": "5m34s",
   "similarity": 0.085,
   "text": "为了保护你们保护地球"
+ },
+ {
+  "timestamp": "5m40s",
+  "text": "只能这么做了",
+  "similarity": 0.0
  },
  {
   "timestamp": "5m41s",
@@ -229,6 +284,16 @@
   "similarity": 0.138,
   "text": "通话结束",
   "vl_rechecked": true
+ },
+ {
+  "timestamp": "6m04s",
+  "text": "哥哥我们走",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m09s",
+  "text": "朝阳你快和爸爸一起逃吧",
+  "similarity": 0.0
  },
  {
   "timestamp": "6m16s",
@@ -266,6 +331,11 @@
   "text": "你们为什么不听妈妈的话"
  },
  {
+  "timestamp": "6m57s",
+  "text": "快点离开这栋大楼",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "6m58s",
   "similarity": 0.124,
   "text": "我们不会逃跑的",
@@ -280,6 +350,11 @@
   "timestamp": "7m03s",
   "similarity": 0.066,
   "text": "这是唯一的办法了"
+ },
+ {
+  "timestamp": "7m04s",
+  "text": "我只能这么做",
+  "similarity": 0.0
  },
  {
   "timestamp": "7m08s",
@@ -305,6 +380,11 @@
   "timestamp": "7m19s",
   "similarity": 0.151,
   "text": "为什么你不肯相信我们啊"
+ },
+ {
+  "timestamp": "7m22s",
+  "text": "爸爸肯定也会这么说的",
+  "similarity": 0.0
  },
  {
   "timestamp": "7m23s",
@@ -439,6 +519,11 @@
   "vl_rechecked": true
  },
  {
+  "timestamp": "9m51s",
+  "text": "奥特战士",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "10m00s",
   "similarity": 0.106,
   "text": "染上我的本色吧罗布"
@@ -524,6 +609,11 @@
   "text": "所以我也要"
  },
  {
+  "timestamp": "15m02s",
+  "text": "一起战斗",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "15m43s",
   "similarity": 0.071,
   "text": "我就是那时候诞生的",
@@ -541,9 +631,19 @@
   "text": "朝阳"
  },
  {
+  "timestamp": "16m15s",
+  "text": "原来你是水晶啊",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "16m48s",
   "similarity": 0.107,
   "text": "闪耀吧希望之光"
+ },
+ {
+  "timestamp": "16m49s",
+  "text": "真谛水晶",
+  "similarity": 0.0
  },
  {
   "timestamp": "16m55s",
@@ -658,10 +758,205 @@
   "similarity": 0.0
  },
  {
+  "timestamp": "21m02s",
+  "text": "小池亮介",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m07s",
+  "text": "觀阳淡其原有沙",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m08s",
+  "text": "朝阳美剣木下彩音",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m09s",
+  "text": "大到不彩首",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m10s",
+  "text": "爱染卜深水元基",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m13s",
+  "text": "一广",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m15s",
+  "text": "白川之介新井宏幸",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m27s",
+  "text": "伍一汽田",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m28s",
+  "text": "春山二",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m29s",
+  "text": "我一一鶴田伸",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m30s",
+  "text": "告野售人",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m34s",
+  "text": "特撮助监督内田之寺井大介",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m38s",
+  "text": "视觉効果三智章二一一",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m40s",
+  "text": "爸爸妈妈渡将",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m42s",
+  "text": "爸爸妈妈装饰小林美智子",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m43s",
+  "text": "爸爸妈妈藤山子",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m44s",
+  "text": "报影古馆佳史小山二",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m45s",
+  "text": "窝川秀男花谷齐秦",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m54s",
+  "text": "伊藤",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m55s",
+  "text": "田健太郎",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m17s",
+  "text": "鎌田大比古",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m22s",
+  "text": "市川走吧實彦",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m23s",
+  "text": "走吧貴彦長千都世",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m24s",
+  "text": "長井千都世有村悠佑",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m42s",
+  "text": "鎌田大比古",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m43s",
+  "text": "你怎么了爸爸車盛川一男",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m44s",
+  "text": "怎么了小酒井介小",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m45s",
+  "text": "怎么了小神野貴嗣心",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m46s",
+  "text": "小神野黄爸爸面川忠久",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m47s",
+  "text": "我的腰折",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m48s",
+  "text": "我的腰長谷川哲久",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m49s",
+  "text": "袁谷久三好智",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m50s",
+  "text": "作任一",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m51s",
+  "text": "潮汽川政上田茂",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m52s",
+  "text": "爸爸就像奥特战士一样啊勝又拓海",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m53s",
+  "text": "爸爸就像奥特战士一样啊及川将人小船有紀子",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m54s",
+  "text": "你没事吧林慧",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "22m55s",
   "similarity": 0.0,
   "text": "野七香\n丹羽春乃",
   "vl_rechecked": true
+ },
+ {
+  "timestamp": "22m59s",
+  "text": "王林你没事吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m00s",
+  "text": "你没事吧小林裕佐大良太",
+  "similarity": 0.0
  },
  {
   "timestamp": "23m29s",
@@ -674,15 +969,35 @@
   "text": "伊藤公志"
  },
  {
+  "timestamp": "23m46s",
+  "text": "真是的江川千恵子黑本道",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "23m47s",
   "similarity": 0.203,
   "text": "监督 武居正能",
   "vl_rechecked": true
  },
  {
+  "timestamp": "23m48s",
+  "text": "真是的冷林",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "23m49s",
   "similarity": 0.128,
   "text": "我们兄弟之间的故事"
+ },
+ {
+  "timestamp": "23m50s",
+  "text": "真是的林",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m51s",
+  "text": "好咧又增田実子一",
+  "similarity": 0.0
  },
  {
   "timestamp": "23m53s",
@@ -691,8 +1006,248 @@
   "vl_rechecked": true
  },
  {
+  "timestamp": "23m55s",
+  "text": "好咧田実子",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m56s",
+  "text": "西川石林谷",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "23m57s",
   "similarity": 0.02,
   "text": "我们一家人的故事了"
+ },
+ {
+  "timestamp": "23m58s",
+  "text": "楊查登你这说得什么啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m59s",
+  "text": "你这说得什么啊藤瀬理香子北澤得",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m00s",
+  "text": "能起个像样点的名字吗谷",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m01s",
+  "text": "能起个像样点的名字吗広報宣李野子",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m02s",
+  "text": "能起个像样点的名字吗広報宣李野子北澤淳子",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m03s",
+  "text": "别管那些了吉村尚志小西",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m04s",
+  "text": "爸爸的恤上要写的只木商本有将十",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m05s",
+  "text": "太谷公应该是大团圆吧竹田聡",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m06s",
+  "text": "应该是大团圆吧幼",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m07s",
+  "text": "有大圆团这个词吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m08s",
+  "text": "这不是也挺好的嘛富十通池",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m09s",
+  "text": "人这不是也挺好的嘛映像一",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m10s",
+  "text": "映像给糖果",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m11s",
+  "text": "快乐示特",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m12s",
+  "text": "日本照期快乐",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m13s",
+  "text": "各位開米",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m14s",
+  "text": "東宝我们今天吃寿喜锅哦日本",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m15s",
+  "text": "我们今天吃寿喜锅哦日本活動装置日映装美",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m16s",
+  "text": "太棒了和泉",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m17s",
+  "text": "和泉好咧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m18s",
+  "text": "工回来的路上",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m19s",
+  "text": "会社我会买豆腐和葱的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m20s",
+  "text": "株会社我会买豆腐和葱的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m21s",
+  "text": "株式会社黑姫",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m22s",
+  "text": "公域環境開発袜式会社青梅",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m23s",
+  "text": "神奈川県立相模原公園",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m24s",
+  "text": "另柏市東葛",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m25s",
+  "text": "彩国本庄拠点",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m26s",
+  "text": "小澪",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m27s",
+  "text": "你这次一定要回来啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m28s",
+  "text": "好咧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m29s",
+  "text": "开工干活吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m30s",
+  "text": "开工干活吧原田笙太",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m31s",
+  "text": "中本",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m32s",
+  "text": "八頭司",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m33s",
+  "text": "那我也走",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m34s",
+  "text": "那我也走了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m35s",
+  "text": "日本映像",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m36s",
+  "text": "日本映像好",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m37s",
+  "text": "林工務店",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m38s",
+  "text": "路上小",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m39s",
+  "text": "我走了天横成中野貴",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m40s",
+  "text": "我走了人成中野貴武上",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m41s",
+  "text": "上上播",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m42s",
+  "text": "就到此结束了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m43s",
+  "text": "宁東京電通",
+  "similarity": 0.0
  }
 ]
