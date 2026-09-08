@@ -173,6 +173,11 @@
   "vl_rechecked": true
  },
  {
+  "timestamp": "4m50s",
+  "text": "你回来了",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "4m51s",
   "text": "佳巳元加",
   "similarity": 0.0
@@ -216,11 +221,6 @@
  {
   "timestamp": "4m59s",
   "text": "第佳巳次二加",
-  "similarity": 0.0
- },
- {
-  "timestamp": "5m00s",
-  "text": "你回来了",
   "similarity": 0.0
  },
  {
@@ -1421,6 +1421,11 @@
   "vl_rechecked": true
  },
  {
+  "timestamp": "24m08s",
+  "text": "下集也要收看哦",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "24m11s",
   "text": "日人白工从人户",
   "similarity": 0.0
@@ -1468,11 +1473,6 @@
  {
   "timestamp": "24m20s",
   "text": "集也要收看哦",
-  "similarity": 0.0
- },
- {
-  "timestamp": "24m21s",
-  "text": "下集也要收看哦",
   "similarity": 0.0
  },
  {

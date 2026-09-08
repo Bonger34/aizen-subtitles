@@ -624,6 +624,11 @@
   "text": "站好了我要过去了"
  },
  {
+  "timestamp": "9m59s",
+  "text": "好的",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "10m01s",
   "similarity": 0.138,
   "text": "喂你们可别眨眼"
@@ -646,11 +651,6 @@
  {
   "timestamp": "10m08s",
   "text": "好就是那里",
-  "similarity": 0.0
- },
- {
-  "timestamp": "10m09s",
-  "text": "好的",
   "similarity": 0.0
  },
  {
@@ -790,6 +790,11 @@
   "timestamp": "11m07s",
   "similarity": 0.492,
   "text": "毕竟现在是多元化经营的时代"
+ },
+ {
+  "timestamp": "11m08s",
+  "text": "活海哥",
+  "similarity": 0.0
  },
  {
   "timestamp": "11m09s",
