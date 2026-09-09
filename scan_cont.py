@@ -39,9 +39,11 @@ VIDEO_DIR = os.path.join(BASE, 'Videos')
 CLEAN = os.path.join(BASE, 'subtitle_clean')
 OUT_DIR = os.path.join(BASE, 'review', 'cont_frames')
 AREA = (100, 895, 1820, 985)          # x0,y0,x1,y1 (1920x1080 字幕带)
-ON_TH = 0.02          # 白像素占比达到视为字幕出现
-OFF_TH = 0.01         # 回落到视为字幕消失(滞后防抖)
-SAMPLE_STEP = 0.7     # 区间内采样间隔(秒)
+# 参数化(环境变量可覆盖, 用于灵敏度检验)
+ON_TH = float(os.environ.get('SCAN_ON_TH', '0.02'))    # 白像素占比达到视为字幕出现
+OFF_TH = float(os.environ.get('SCAN_OFF_TH', '0.01'))  # 回落到视为字幕消失(滞后防抖)
+SAMPLE_STEP = float(os.environ.get('SCAN_STEP', '0.7'))  # 区间内采样间隔(秒)
+TAG = os.environ.get('SCAN_TAG', '')                   # 输出文件名前缀(避免覆盖基线, 如 dense_)
 LIB_WIN = 5           # 库匹配窗口 ±5s
 BEF_TAU = 0.6         # 字符重合度低于此视为漏句
 
@@ -235,7 +237,7 @@ def scan_episode(ep, ocr):
         for t, tn, raw in uniq:
             seqs.append({'t': f'{round(t / fps) // 60}m{round(t / fps) % 60:02d}s',
                          'text': tn, 'raw': raw, 'fidx': t})
-    out = os.path.join(BASE, 'review', f'cont_{ep}.json')
+    out = os.path.join(BASE, 'review', f'{TAG}cont_{ep}.json')
     json.dump({'ep': ep, 'fps': fps, 'total': total,
                'intervals': len(intervals), 'samples': len(samples),
                'cands': cands, 'seqs': seqs, 'lib': len(lib)},
