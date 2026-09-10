@@ -157,6 +157,11 @@
   "text": "身体不受控制了"
  },
  {
+  "timestamp": "3m09s",
+  "text": "站住",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "3m10s",
   "similarity": 0.093,
   "text": "休想逃"
@@ -289,6 +294,11 @@
   "similarity": 0.117,
   "text": "泡澡泡澡",
   "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m38s",
+  "text": "好咧",
+  "similarity": 0.0
  },
  {
   "timestamp": "5m40s",
@@ -455,6 +465,11 @@
   "timestamp": "7m45s",
   "similarity": 0.0,
   "text": "什么事"
+ },
+ {
+  "timestamp": "7m46s",
+  "text": "达令",
+  "similarity": 0.0
  },
  {
   "timestamp": "7m47s",
@@ -1106,6 +1121,11 @@
   "timestamp": "16m31s",
   "similarity": 0.105,
   "text": "无论如何我都要保护住光之轨迹"
+ },
+ {
+  "timestamp": "16m32s",
+  "text": "少啰嗦",
+  "similarity": 0.0
  },
  {
   "timestamp": "16m46s",

@@ -773,6 +773,11 @@
   "text": "你挺能抗的嘛"
  },
  {
+  "timestamp": "10m05s",
+  "text": "混蛋",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "10m10s",
   "similarity": 0.078,
   "text": "哥哥怪兽出现了"
@@ -860,6 +865,16 @@
  {
   "timestamp": "11m35s",
   "text": "启动拘捕怪兽系统",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "11m36s",
+  "text": "明白",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "11m37s",
+  "text": "发射",
   "similarity": 0.0
  },
  {
@@ -1162,6 +1177,11 @@
   "text": "快走"
  },
  {
+  "timestamp": "16m43s",
+  "text": "好痛",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "16m44s",
   "similarity": 0.0,
   "text": "走开快走开啊勇海"
@@ -1174,6 +1194,11 @@
  {
   "timestamp": "16m54s",
   "text": "而你们两个人类却能启动呢",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "16m58s",
+  "text": "警告",
   "similarity": 0.0
  },
  {

@@ -96,6 +96,11 @@
   "similarity": 0.0
  },
  {
+  "timestamp": "1m10s",
+  "text": "好痛",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "1m12s",
   "similarity": 0.103,
   "text": "你没事吧二宫"
@@ -497,6 +502,11 @@
  {
   "timestamp": "7m31s",
   "text": "谢谢夸奖",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m32s",
+  "text": "不对",
   "similarity": 0.0
  },
  {
@@ -1242,6 +1252,11 @@
   "timestamp": "21m57s",
   "similarity": 0.381,
   "text": "古厄巴萨的水晶已回收完毕"
+ },
+ {
+  "timestamp": "22m00s",
+  "text": "谢了",
+  "similarity": 0.0
  },
  {
   "timestamp": "22m02s",

@@ -1037,6 +1037,11 @@
   "text": "狂沙风暴"
  },
  {
+  "timestamp": "16m41s",
+  "text": "太棒了",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "16m43s",
   "similarity": 0.122,
   "text": "好咧我们上"
@@ -1249,6 +1254,11 @@
   "timestamp": "21m59s",
   "similarity": 0.526,
   "text": "接下来我想骑着自行车环游世界"
+ },
+ {
+  "timestamp": "22m03s",
+  "text": "再见了",
+  "similarity": 0.0
  },
  {
   "timestamp": "22m06s",

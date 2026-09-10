@@ -601,6 +601,11 @@
   "text": "气势很重要"
  },
  {
+  "timestamp": "8m46s",
+  "text": "很好",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "8m47s",
   "similarity": 0.075,
   "text": "不错不错不错不错",
@@ -1289,6 +1294,11 @@
   "timestamp": "21m43s",
   "similarity": 0.122,
   "text": "但我们不会再让你使用这个了"
+ },
+ {
+  "timestamp": "21m52s",
+  "text": "慢着",
+  "similarity": 0.0
  },
  {
   "timestamp": "22m03s",

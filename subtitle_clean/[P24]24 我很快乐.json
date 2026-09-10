@@ -432,6 +432,11 @@
   "text": "大家要一起在这里等小澪"
  },
  {
+  "timestamp": "9m17s",
+  "text": "来了",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "9m18s",
   "similarity": 0.055,
   "text": "光之轨迹启动了"
@@ -816,6 +821,11 @@
   "timestamp": "17m53s",
   "similarity": 0.062,
   "text": "光之能量数值急速上升"
+ },
+ {
+  "timestamp": "17m56s",
+  "text": "不好",
+  "similarity": 0.0
  },
  {
   "timestamp": "17m57s",

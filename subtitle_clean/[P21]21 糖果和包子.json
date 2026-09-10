@@ -90,6 +90,11 @@
   "text": "给我站住"
  },
  {
+  "timestamp": "1m22s",
+  "text": "等下",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "1m27s",
   "similarity": 0.132,
   "text": "你们没事吧"
@@ -613,6 +618,11 @@
  {
   "timestamp": "9m05s",
   "text": "湊活海",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m06s",
+  "text": "算了",
   "similarity": 0.0
  },
  {

@@ -122,6 +122,16 @@
   "text": "三个回旋闪光已经放置在指定地点了"
  },
  {
+  "timestamp": "1m16s",
+  "text": "多亏了你",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "1m17s",
+  "text": "应该能赶上了",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "1m18s",
   "similarity": 0.114,
   "text": "一上来就动真格"
@@ -150,6 +160,11 @@
   "timestamp": "1m33s",
   "similarity": 0.138,
   "text": "达令麻烦你当转接口了"
+ },
+ {
+  "timestamp": "1m36s",
+  "text": "明白",
+  "similarity": 0.0
  },
  {
   "timestamp": "1m38s",
@@ -235,6 +250,11 @@
   "similarity": 0.0
  },
  {
+  "timestamp": "4m11s",
+  "text": "没关系",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "4m13s",
   "similarity": 0.079,
   "text": "用这个增幅机应该能搞定"
@@ -243,6 +263,11 @@
   "timestamp": "4m30s",
   "similarity": 0.099,
   "text": "饭已经做好了"
+ },
+ {
+  "timestamp": "4m47s",
+  "text": "好烫",
+  "similarity": 0.0
  },
  {
   "timestamp": "4m50s",
@@ -315,6 +340,11 @@
   "text": "你们给我马上行动起来"
  },
  {
+  "timestamp": "5m21s",
+  "text": "冲啊",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "5m29s",
   "similarity": 0.16,
   "text": "怎么又来这里了啊"
@@ -344,6 +374,11 @@
   "similarity": 0.097,
   "text": "把这个扔到那里去",
   "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m53s",
+  "text": "扔掉",
+  "similarity": 0.0
  },
  {
   "timestamp": "5m56s",
@@ -740,6 +775,11 @@
   "similarity": 0.0
  },
  {
+  "timestamp": "10m50s",
+  "text": "其实",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "10m51s",
   "similarity": 0.161,
   "text": "给这次是草莓味的"
@@ -990,6 +1030,11 @@
   "text": "谢了"
  },
  {
+  "timestamp": "15m37s",
+  "text": "站住",
+  "similarity": 0.0
+ },
+ {
   "timestamp": "15m38s",
   "similarity": 0.116,
   "text": "真是的"
@@ -1114,6 +1159,11 @@
   "timestamp": "18m57s",
   "similarity": 0.0,
   "text": "罗布奥特曼"
+ },
+ {
+  "timestamp": "19m31s",
+  "text": "滚开",
+  "similarity": 0.0
  },
  {
   "timestamp": "19m37s",
