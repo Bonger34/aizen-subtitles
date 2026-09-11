@@ -770,6 +770,11 @@
   "text": "就是这个"
  },
  {
+  "timestamp": "7m58s",
+  "similarity": 0.0,
+  "text": "这个蓝色表示的就是地球"
+ },
+ {
   "timestamp": "8m03s",
   "similarity": 0.0,
   "text": "能够想起地球曾经是蓝色的"
@@ -788,6 +793,16 @@
   "timestamp": "8m15s",
   "text": "你不会感到愤怒吗",
   "similarity": 0.0
+ },
+ {
+  "timestamp": "8m19s",
+  "similarity": 0.0,
+  "text": "没关系的"
+ },
+ {
+  "timestamp": "8m21s",
+  "similarity": 0.0,
+  "text": "明天我仍然会继续制作T恤"
  },
  {
   "timestamp": "8m28s",
@@ -891,7 +906,7 @@
  },
  {
   "timestamp": "9m26s",
-  "text": "一人",
+  "text": "奥特战士的爸爸哦",
   "similarity": 0.0
  },
  {
