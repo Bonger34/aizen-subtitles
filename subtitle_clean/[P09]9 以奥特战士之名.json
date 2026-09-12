@@ -20,6 +20,11 @@
   "similarity": 0.0
  },
  {
+  "timestamp": "0m08s",
+  "similarity": 0.0,
+  "text": "这是重点吗"
+ },
+ {
   "timestamp": "0m09s",
   "similarity": 0.168,
   "text": "话说他的名字"
@@ -73,6 +78,11 @@
   "timestamp": "0m28s",
   "similarity": 0.175,
   "text": "我还是不说了"
+ },
+ {
+  "timestamp": "0m29s",
+  "similarity": 0.0,
+  "text": "他是白痴吗"
  },
  {
   "timestamp": "0m34s",
@@ -509,6 +519,11 @@
   "timestamp": "7m49s",
   "similarity": 0.024,
   "text": "超级黑之王暗黑欧布奥特曼"
+ },
+ {
+  "timestamp": "7m54s",
+  "similarity": 0.0,
+  "text": "你怎么把全名都记住了"
  },
  {
   "timestamp": "7m58s",

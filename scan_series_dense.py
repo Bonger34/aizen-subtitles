@@ -113,12 +113,12 @@ def main():
         n, occ, cands, samples, ocred = 0, 0, [], 0, 0
         last = None
         for f in sorted(want):
-            while n < f:
+            # n = 已消费的帧数(= 下一个待取帧号)。抓到 n == f+1 时, 最后一次 grab 得到的正是第 f 帧。
+            while n <= f:
                 if not cap.grab():
                     break
                 n += 1
             ok, fr = cap.retrieve()
-            n += 1
             if not ok:
                 continue
             h, w = fr.shape[:2]
