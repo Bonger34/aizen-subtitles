@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+"""q_sheet5.py — 为帧图验证"读不出"的条目生成对照表(帧图 + 旧文本 + 帧图读数), 用于找成因。
+用法: python q_sheet5.py [每张行数=12] [--max-old 0.55] [--limit 60]
+输出: review/q_sheet5_<k>.jpg
+"""
+import json
+import os
+import sys
+
+import cv2
+from PIL import Image, ImageDraw, ImageFont
+
+B = os.path.dirname(os.path.abspath(__file__))
+REVIEW = os.path.join(B, 'review')
+FR = os.path.join(B, 'Web', 'frames')
+FONTS = [r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\simhei.ttf']
+ROW_H = 250
+
+
+def font(sz):
+    for f in FONTS:
+        if os.path.exists(f):
+            try:
+                return ImageFont.truetype(f, sz)
+            except Exception:
+                pass
+    return ImageFont.load_default()
+
+
+def main():
+    per = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 12
+    mx = float(sys.argv[sys.argv.index('--max-old') + 1]) if '--max-old' in sys.argv else 0.55
+    limit = int(sys.argv[sys.argv.index('--limit') + 1]) if '--limit' in sys.argv else 60
+    items = json.load(open(os.path.join(REVIEW, 'q_verifyall.json'), encoding='utf-8'))['items']
+    rows = [r for r in items if r['sim_old'] < mx][:limit]
+    print(f'{len(rows)} 条 (共 {len(items)} 条已验证)')
+    f1, f2 = font(26), font(22)
+    for k in range(0, len(rows), per):
+        chunk = rows[k:k + per]
+        im = Image.new('RGB', (1560, len(chunk) * ROW_H), (24, 24, 24))
+        dr = ImageDraw.Draw(im)
+        for i, r in enumerate(chunk):
+            y = i * ROW_H
+            img = cv2.imread(os.path.join(FR, r['frame'])) if r.get('frame') else None
+            if img is not None:
+                h = img.shape[0]
+                band = img[int(800 * h / 1080):h]
+                band = cv2.resize(band, (1000, int(band.shape[0] * 1000 / band.shape[1])),
+                                  interpolation=cv2.INTER_CUBIC)
+                bh = min(band.shape[0], ROW_H - 4)
+                im.paste(Image.fromarray(cv2.cvtColor(band[:bh], cv2.COLOR_BGR2RGB)), (548, y + 2))
+            dr.text((8, y + 4), f'{k + i + 1}. {r["ep"]} {r["ts"]} sim={r["sim_old"]:.2f}',
+                    font=f1, fill=(255, 220, 120))
+            dr.text((8, y + 40), f"seg={len(r['segs'])} white={sum(s['fill'] for s in r['segs'])}",
+                    font=f2, fill=(160, 200, 255))
+            dr.text((8, y + 76), '旧: ' + r['old'][:16], font=f1, fill=(230, 230, 230))
+            if len(r['old']) > 16:
+                dr.text((8, y + 108), '    ' + r['old'][16:32], font=f2, fill=(200, 200, 200))
+            ft = r.get('frame_text') or ''
+            dr.text((8, y + 142), '帧读: ' + ft[:16], font=f1, fill=(255, 180, 180))
+            if len(ft) > 16:
+                dr.text((8, y + 174), '    ' + ft[16:32], font=f2, fill=(230, 160, 160))
+            dr.line([(0, y + ROW_H - 1), (1560, y + ROW_H - 1)], fill=(90, 90, 90), width=1)
+        out = os.path.join(REVIEW, f'q_sheet5_{k // per + 1}.jpg')
+        im.save(out, quality=92)
+        print('saved', out)
+
+
+if __name__ == '__main__':
+    main()
