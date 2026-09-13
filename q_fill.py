@@ -44,7 +44,7 @@ def merge_intervals(spans, gap=1.0):
     return out
 
 
-def run_ep(ocr, ep, targets, step=4, half=3.5, paths=('bin', 'raw')):
+def run_ep(ocr, ep, targets, step=4, half=3.5, paths=('bin', 'raw'), gap=4, th=0.006):
     vid = [os.path.join(VIDEO_DIR, v) for v in os.listdir(VIDEO_DIR)
            if v.startswith(f'[{ep}]') and v.lower().endswith('.mp4')][0]
     cap = cv2.VideoCapture(vid)
@@ -75,7 +75,9 @@ def run_ep(ocr, ep, targets, step=4, half=3.5, paths=('bin', 'raw')):
                     pt = {'t': round(n / fps, 2), 'white': int(sig.sum()), 'diff': round(diff, 4)}
                     if pt['white'] == 0:
                         pt['ocr'] = False
-                    elif last < f_lo or diff > 0.006:
+                    elif (last < f_lo or diff > th) and n - last >= gap:
+                        # gap: 距上次识别至少这么多帧。逐帧扫描时画面运动会让 diff 频繁超阈值,
+                        # 不加限流实测 91 秒窗口触发 716 次识别(7.9 次/秒), 成本不可接受。
                         last = n
                         pt['ocr'] = True
                         segs = [s for s in split_lines(frame, SCAN_TOP, SCAN_BOT)
@@ -98,7 +100,7 @@ def run_ep(ocr, ep, targets, step=4, half=3.5, paths=('bin', 'raw')):
             n += 1
     cap.release()
     el = time.time() - t0
-    out = {'ep': ep, 'fps': round(fps, 4), 'step': step, 'half': half, 'paths': list(paths),
+    out = {'ep': ep, 'fps': round(fps, 4), 'step': step, 'half': half, 'gap': gap, 'paths': list(paths),
            'n_targets': len(targets), 'n_windows': len(ivs), 'n_points': len(points),
            'n_ocr': sum(1 for p in points if p.get('ocr')), 'n_rec': n_rec,
            'elapsed': round(el, 1), 'elapsed_ocr': round(t_ocr, 1), 'points': points}
@@ -109,34 +111,44 @@ def run_ep(ocr, ep, targets, step=4, half=3.5, paths=('bin', 'raw')):
 
 
 def main():
-    args = sys.argv[1:]
-    step, half = 4, 3.5
-    for k in ('--step', '--half'):
-        if k in args:
-            j = args.index(k)
-            v = float(args[j + 1])
-            del args[j:j + 2]
-            if k == '--step':
-                step = int(v)
-            else:
-                half = v
-    eps_arg = [a for a in args if not a.startswith('-')]
-    res = json.load(open(os.path.join(OUT_DIR, 'q_unmatched_resolved.json'), encoding='utf-8'))
-    todo = res['unknown'] + res['no_reading']
+    # 统一循环解析: 之前用"挑出不以 - 开头的参数"当集号, 会把 --src 的值误当成集号
+    step, half, src, gap, th, eps_arg = 4, 3.5, None, 4, 0.006, []
+    argv = sys.argv[1:]
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == '--step':
+            step = int(argv[i + 1]); i += 2
+        elif a == '--half':
+            half = float(argv[i + 1]); i += 2
+        elif a == '--src':
+            src = argv[i + 1]; i += 2
+        elif a == '--gap':
+            gap = int(argv[i + 1]); i += 2
+        elif a == '--th':
+            th = float(argv[i + 1]); i += 2
+        else:
+            eps_arg.append(a); i += 1
+    if src:
+        todo = json.load(open(os.path.join(OUT_DIR, src), encoding='utf-8'))
+    else:
+        res = json.load(open(os.path.join(OUT_DIR, 'q_unmatched_resolved.json'), encoding='utf-8'))
+        todo = res['unknown'] + res['no_reading']
     by_ep = {}
     for r in todo:
         sec = parse_ts(r['ts'])
         if sec is not None:
             by_ep.setdefault(r['ep'], []).append(sec)
     eps = eps_arg or sorted(by_ep)
-    print(f'补扫 {len(todo)} 条 / {len(eps)} 集 (step={step}, half={half})', flush=True)
+    print(f'补扫 {len(todo)} 条 / {len(eps)} 集 (step={step}, half={half}, gap={gap}, th={th})',
+          flush=True)
 
     ocr = build_engine()
     from rapidocr.ch_ppocr_rec.typings import TextRecInput
     ocr.text_rec(TextRecInput(img=np.zeros((64, 512, 3), np.uint8)))
     for ep in eps:
         if ep in by_ep:
-            run_ep(ocr, ep, by_ep[ep], step, half)
+            run_ep(ocr, ep, by_ep[ep], step, half, gap=gap, th=th)
 
 
 if __name__ == '__main__':

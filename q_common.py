@@ -119,14 +119,22 @@ def split_lines(img, top=SCAN_TOP, bot=SCAN_BOT, max_density=None, white_min=Non
     return out
 
 
-def build_engine(use_cuda=True, model_type=None, rec_shape=(3, 48, 1536), rec_batch_num=1):
+def build_engine(use_cuda=True, model_type=None, rec_shape=(3, 48, 1536), rec_batch_num=1,
+                 rec_model_type=None):
+    """构造识别引擎。
+
+    rec_model_type 可单独指定: PP-OCRv6 的 server 模型只支持 Det.lang 为特定值,
+    实测 Det 用 SERVER 会报 "Unsupported det.lang_type='ch' for PP-OCRv6 server model",
+    因此只把 Rec 换成 SERVER(参数量更大, 用于救回帧图上漏读的字)。
+    """
     from rapidocr import RapidOCR
     from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, LangRec
     mt = model_type or ModelType.MEDIUM
+    rm = rec_model_type or mt
     return RapidOCR(params={
         'EngineConfig.onnxruntime.use_cuda': use_cuda,
         'Det.model_type': mt, 'Det.ocr_version': OCRVersion.PPOCRV6, 'Det.lang': LangDet.MULTI,
-        'Rec.model_type': mt, 'Rec.ocr_version': OCRVersion.PPOCRV6,
+        'Rec.model_type': rm, 'Rec.ocr_version': OCRVersion.PPOCRV6,
         'Rec.lang': LangRec.CH, 'Rec.rec_img_shape': list(rec_shape),
         'Rec.rec_batch_num': rec_batch_num,
     })

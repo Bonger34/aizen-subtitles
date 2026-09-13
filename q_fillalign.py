@@ -44,9 +44,21 @@ def edit_kind(old, new):
 
 
 def main():
-    eps = [a for a in sys.argv[1:] if not a.startswith('-')] or None
-    res = json.load(open(os.path.join(REVIEW, 'q_unmatched_resolved.json'), encoding='utf-8'))
-    todo = res['unknown'] + res['no_reading']
+    # 统一循环解析: 不能简单的"挑出不以 - 开头的参数"当集号, 否则 --src/--half 的值会被误认成集号
+    src, pat, half, eps = 'q_targets.json', 'q_fill_{ep}.json', 3.5, []
+    argv = sys.argv[1:]
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == '--src':
+            src = argv[i + 1]; i += 2
+        elif a == '--pat':
+            pat = argv[i + 1]; i += 2
+        elif a == '--half':
+            half = float(argv[i + 1]); i += 2
+        else:
+            eps.append(a); i += 1
+    todo = json.load(open(os.path.join(REVIEW, src), encoding='utf-8'))
     by_ep = {}
     for r in todo:
         by_ep.setdefault(r['ep'], []).append(r)
@@ -56,7 +68,7 @@ def main():
     for ep in sorted(by_ep):
         if eps and ep not in eps:
             continue
-        p = os.path.join(REVIEW, f'q_fill_{ep}.json')
+        p = os.path.join(REVIEW, pat.format(ep=ep))
         if not os.path.exists(p):
             continue
         fill = json.load(open(p, encoding='utf-8'))
@@ -66,7 +78,7 @@ def main():
             sec = parse_ts(r['ts'])
             if sec is None:
                 continue
-            inw = [q for q in pts if abs(q['t'] - sec) <= 3.5]
+            inw = [q for q in pts if abs(q['t'] - sec) <= half]
             texts = [to_simp(s.get(pp, '')) for q in inw for s in q['segs'] for pp in paths]
             scored = sorted(((sim(t, r['old']), t) for t in texts if t), key=lambda z: -z[0])
             best, best_text = (scored[0] if scored else (0.0, ''))
