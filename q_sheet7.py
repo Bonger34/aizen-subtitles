@@ -71,7 +71,7 @@ def main():
             if len(bt) > 16:
                 dr.text((8, y + 174), '    ' + bt[16:32], font=f2, fill=(140, 230, 140))
             dr.line([(0, y + ROW_H - 1), (1560, y + ROW_H - 1)], fill=(90, 90, 90), width=1)
-        out = os.path.join(REVIEW, f'q_sheet7_{k // per + 1}.jpg')
+        out = os.path.join(REVIEW, f'q_sheet7_{want}_{k // per + 1}.jpg')
         im.save(out, quality=92)
         print('saved', out)
 
