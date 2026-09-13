@@ -58,7 +58,7 @@
  {
   "timestamp": "2m04s",
   "similarity": 0.0,
-  "text": "好了让我们先回到小时之前吧"
+  "text": "好了让我们先回到24小时之前吧"
  },
  {
   "timestamp": "2m08s",
@@ -250,7 +250,7 @@
  {
   "timestamp": "4m00s",
   "similarity": 0.0,
-  "text": "以此来调查大约年前的地层",
+  "text": "以此来调查大约1300年前的地层",
   "vl_rechecked": true
  },
  {
@@ -301,7 +301,7 @@
  {
   "timestamp": "5m19s",
   "similarity": 0.163,
-  "text": "欢迎大家收看电视分爱染拯救地球"
+  "text": "欢迎大家收看电视24分爱染拯救地球"
  },
  {
   "timestamp": "5m21s",
@@ -392,7 +392,7 @@
  {
   "timestamp": "6m09s",
   "similarity": 0.175,
-  "text": "今天是你妈妈的生日不"
+  "text": "今天是你妈妈的生日"
  },
  {
   "timestamp": "6m14s",
@@ -407,7 +407,7 @@
  {
   "timestamp": "6m18s",
   "similarity": 0.171,
-  "text": "儿也不知道她现在在哪里干什么呢"
+  "text": "也不知道她现在在哪里干什么呢"
  },
  {
   "timestamp": "6m22s",
@@ -586,7 +586,7 @@
  {
   "timestamp": "8m42s",
   "similarity": 0.102,
-  "text": "在年前的今天"
+  "text": "在15年前的今天"
  },
  {
   "timestamp": "8m44s",
@@ -657,7 +657,7 @@
  {
   "timestamp": "9m19s",
   "similarity": 0.0,
-  "text": "我很担勇海"
+  "text": "我很担心勇海"
  },
  {
   "timestamp": "9m22s",
@@ -768,7 +768,7 @@
  {
   "timestamp": "10m55s",
   "similarity": 0.0,
-  "text": "好烫店"
+  "text": "好烫"
  },
  {
   "timestamp": "10m59s",
@@ -902,7 +902,7 @@
  },
  {
   "timestamp": "13m15s",
-  "text": "那一起喊之后就用吧",
+  "text": "那一起喊123之后就用吧",
   "similarity": 0.0
  },
  {
@@ -1394,6 +1394,6 @@
  {
   "timestamp": "24m24s",
   "similarity": 0.226,
-  "text": "下罗布奥特曼"
+  "text": "下一集罗布奥特曼"
  }
 ]

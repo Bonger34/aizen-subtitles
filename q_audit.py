@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""q_audit.py — 从 subtitle_clean 反查全部文本修正是否已落盘, 生成统一审计文件。
+
+不依赖各次运行的中间结果(它们可能被后续运行覆盖), 直接以库内容为准:
+  读 review/q_apply_result.json(apply_add 76 条) 与 review/q_manual_verdicts.json(frame_apply 36 条),
+  逐条核对库里该 timestamp 的当前文本是否等于目标新文本。
+输出: review/q_fixes_final.json + 控制台汇总
+"""
+import json
+import os
+from collections import Counter, defaultdict
+
+B = os.path.dirname(os.path.abspath(__file__))
+REVIEW = os.path.join(B, 'review')
+CLEAN = os.path.join(B, 'subtitle_clean')
+
+fixes = []
+p1 = os.path.join(REVIEW, 'q_apply_result.json')
+if os.path.exists(p1):
+    for a in json.load(open(p1, encoding='utf-8')).get('applied', []):
+        fixes.append({'ep': a['ep'], 'ts': a['ts'], 'old': a['from'], 'new': a['to'],
+                      'src': 'apply_add', 'sim': a.get('sim'), 'support': a.get('support')})
+p2 = os.path.join(REVIEW, 'q_manual_verdicts.json')
+if os.path.exists(p2):
+    for a in json.load(open(p2, encoding='utf-8')).get('frame_apply', []):
+        fixes.append({'ep': a['ep'], 'ts': a['ts'], 'old': a['old'], 'new': a['new'],
+                      'src': 'frame_apply', 'why': a.get('why')})
+
+lib = {}
+for fn in os.listdir(CLEAN):
+    if fn.endswith('.json'):
+        ep = fn.split(']')[0].lstrip('[')
+        for e in json.load(open(os.path.join(CLEAN, fn), encoding='utf-8')):
+            lib[(ep, e['timestamp'])] = e.get('text')
+
+applied, problem = [], []
+for f in fixes:
+    cur = lib.get((f['ep'], f['ts']))
+    if cur == f['new']:
+        applied.append(f)
+    else:
+        problem.append(dict(f, current=cur))
+
+by_src, by_ep = Counter(), Counter()
+for a in applied:
+    by_src[a['src']] += 1
+    by_ep[a['ep']] += 1
+out = {'n_total': len(fixes), 'n_applied': len(applied), 'n_problem': len(problem),
+       'by_src': dict(by_src), 'by_ep': dict(sorted(by_ep.items())),
+       'applied': applied, 'problem': problem}
+json.dump(out, open(os.path.join(REVIEW, 'q_fixes_final.json'), 'w', encoding='utf-8'),
+          ensure_ascii=False, indent=1)
+print(f"修正总数 {len(fixes)} | 已落盘 {len(applied)} | 异常 {len(problem)}")
+print('来源分布:', dict(by_src))
+print('按集:', dict(sorted(by_ep.items())))
+if problem:
+    for p in problem[:10]:
+        print('  异常:', p)
