@@ -139,6 +139,10 @@ def main():
         out_dir = args[args.index('--out') + 1]
     if '--step' in args:
         step = int(args[args.index('--step') + 1])
+    tag = ''
+    if '--tag' in args:
+        tag = args[args.index('--tag') + 1]
+    eps_arg = [a for a in args if a.startswith('P') and a[1:].isdigit()]
     todo = json.load(open(os.path.join(REVIEW, src), encoding='utf-8'))
     by_ep = {}
     for r in todo:
@@ -153,14 +157,16 @@ def main():
     from rapidocr.ch_ppocr_rec.typings import TextRecInput
     ocr.text_rec(TextRecInput(img=np.zeros((64, 512, 3), np.uint8)))
     rows = []
-    for ep in sorted(by_ep):
-        rows.extend(run_ep(ocr, ep, by_ep[ep], out_dir, dry, step))
+    todo_eps = eps_arg or sorted(by_ep)
+    for ep in todo_eps:
+        if ep in by_ep:
+            rows.extend(run_ep(ocr, ep, by_ep[ep], out_dir, dry, step))
     out = {'time': time.strftime('%Y-%m-%d %H:%M:%S'), 'dry': dry, 'n': len(rows),
            'n_hit': sum(1 for r in rows if r['hit_fno'] is not None), 'rows': rows}
-    json.dump(out, open(os.path.join(REVIEW, 'q_reframe_report.json'), 'w', encoding='utf-8'),
+    json.dump(out, open(os.path.join(REVIEW, f'q_reframe_report{tag}.json'), 'w', encoding='utf-8'),
               ensure_ascii=False, indent=1)
     print(f"\n合计 {out['n']} 条, 找到匹配帧 {out['n_hit']} 条")
-    print('输出: review/q_reframe_report.json')
+    print(f'输出: review/q_reframe_report{tag}.json')
 
 
 if __name__ == '__main__':
