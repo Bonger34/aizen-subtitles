@@ -181,8 +181,11 @@ frames/
 # VV_Rob 特有(本轮排查产生的临时脚本)
 _tmp_*.py
 _tmp_*.pyc
-# 审核/复核产物
-review/
+# 审核/复核产物(大文件不入库, 但报告类 md 要入库 —— 注意必须写 review/*, 写 review/ 会把整目录排除、negation 失效)
+review/*
+!review/*.md
+# 帧图重抽的暂存目录(确认后再覆盖 Web/frames)
+Web/frames_fix/
 # 人脸资产(大文件, 不入库)
 target/
 faces_candidates/

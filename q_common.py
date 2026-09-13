@@ -75,6 +75,26 @@ def kana_ratio(s):
     return sum(1 for ch in s if ord(ch) in KANA) / len(s)
 
 
+def is_subseq(a, b):
+    """a 是否为 b 的子序列 —— 判定"旧文本只是少读了几个字"(方向可靠, 只增不删)。"""
+    it = iter(b)
+    return all(c in it for c in a)
+
+
+def diff_rel(old, new):
+    """比较旧文本与新读数, 返回 same/add/del/diff。add=新读数只是旧文本插入了字符。"""
+    a, b = norm(old), norm(new)
+    if not b:
+        return ''
+    if sim(a, b) >= 0.95:
+        return 'same'
+    if len(b) > len(a) and is_subseq(a, b):
+        return 'add'
+    if len(b) < len(a) and is_subseq(b, a):
+        return 'del'
+    return 'diff'
+
+
 def gray_white(img, thr=WHITE_MIN):
     """近白掩膜(BGR -> bool)。"""
     if img.ndim == 2:
@@ -83,7 +103,8 @@ def gray_white(img, thr=WHITE_MIN):
     return np.minimum(np.minimum(b, g), r) > thr
 
 
-def split_lines(img, top=SCAN_TOP, bot=SCAN_BOT, max_density=None, white_min=None):
+def split_lines(img, top=SCAN_TOP, bot=SCAN_BOT, max_density=None, white_min=None,
+                row_th_ratio=None):
     """把扫描区按白像素行剖面切成文字行带, 返回 [(y0, y1, fill), ...] (1080p 坐标)。
 
     fill = 段内白像素总数的相对强度, 用于区分主字幕行与稀疏小字(演职员表)。
@@ -91,6 +112,9 @@ def split_lines(img, top=SCAN_TOP, bot=SCAN_BOT, max_density=None, white_min=Non
     连成一大段, 混进 OCR 只会产生噪声(实测 Web 帧上有 13.8% 条目因此读不出东西)。
     white_min: 白像素阈值。帧图(960x540)上"明亮天空/彩虹背景"在 200 阈值下整片算白,
     会把字幕行一起吃掉(实测 1052 条里大片 seg=0), 故对帧图用更高的 230。
+    row_th_ratio: 行带阈值(相对峰值的比例)。默认 0.12 —— 但 1080p 画面里大面积白色
+    (人物白衬衫等)会让大部分行都超过该阈值, 把衬衫与字幕连成一段 235px 高的大块,
+    OCR 读不出任何东西; 实测提到 0.6 可只保留白像素密集的字幕行。
     """
     h = img.shape[0]
     sy = 1080.0 / h
@@ -100,7 +124,8 @@ def split_lines(img, top=SCAN_TOP, bot=SCAN_BOT, max_density=None, white_min=Non
     prof = mask.sum(axis=1)
     if prof.max() < 5:
         return []
-    thr = max(3, int(prof.max() * ROW_TH_RATIO))
+    ratio = ROW_TH_RATIO if row_th_ratio is None else row_th_ratio
+    thr = max(3, int(prof.max() * ratio))
     ys = np.where(prof >= thr)[0]
     runs = []
     for y in ys:
