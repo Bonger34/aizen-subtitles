@@ -202,3 +202,7 @@ archive/demo/
 archive/lab/
 *.png
 *.GIF
+
+# 文本修正时的库备份(不应入库)
+subtitle_clean/*.bak_qapply*
+*_commit_msg.txt
