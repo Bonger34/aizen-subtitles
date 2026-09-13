@@ -53,15 +53,20 @@ def tight_x(img, y0, y1, pad=X_PAD):
             min(X1, int(X0 + (nz[-1] + pad) / sx)))
 
 
-def rec_pair(ocr, frame, y0, y1, tx, paths=('bin', 'raw')):
-    """同段多路识别: bin=二值化(白底黑字, 与原管线一致) / raw=原始彩色 —— 互为独立投票。"""
+def rec_pair(ocr, frame, y0, y1, tx, paths=('bin', 'raw'), upscale=1.0):
+    """同段多路识别: bin=二值化(白底黑字, 与原管线一致) / raw=原始彩色 —— 互为独立投票。
+
+    upscale>1 时二值化图先放大再送识别。帧图(960x540)上字幕只有约 30px 高, rec 会把输入
+    归一化到 48px 高 —— 从 30px 直接上采样与"先双三次放大到 60px 再下采样"相比, 后者保留了
+    更多笔画细节(实测用于救回帧图验证中读不出的条目)。
+    """
     from rapidocr.ch_ppocr_rec.typings import TextRecInput
     out = {}
     for tag in ('bin', 'raw'):
         if tag not in paths:
             continue
         if tag == 'bin':
-            img = crop_norm(frame, (tx[0], y0 - PAD_Y, tx[1], y1 + PAD_Y), upscale=1.0)
+            img = crop_norm(frame, (tx[0], y0 - PAD_Y, tx[1], y1 + PAD_Y), upscale=upscale)
         else:
             sx, sy = frame.shape[1] / 1920.0, frame.shape[0] / 1080.0
             img = frame[max(0, int((y0 - PAD_Y) * sy)):int((y1 + PAD_Y) * sy),

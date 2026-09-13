@@ -33,18 +33,30 @@ def main():
     args = sys.argv[1:]
     limit = int(args[args.index('--limit') + 1]) if '--limit' in args else 0
     eps = set(args[args.index('--eps') + 1].split(',')) if '--eps' in args else None
+    below = float(args[args.index('--below') + 1]) if '--below' in args else None
+    upscale = float(args[args.index('--upscale') + 1]) if '--upscale' in args else 1.0
+    src = args[args.index('--in') + 1] if '--in' in args else None
+    out_path = args[args.index('--out') + 1] if '--out' in args else OUT
 
-    res = json.load(open(os.path.join(REVIEW, 'q_unmatched_resolved.json'), encoding='utf-8'))
-    todo = res['unknown'] + res['no_reading']
+    if src and below is not None:
+        # 二轮: 只对上一轮"读不出"的条目用更大的放大倍数重试
+        prev = json.load(open(os.path.join(REVIEW, src), encoding='utf-8'))['items']
+        res = json.load(open(os.path.join(REVIEW, 'q_unmatched_resolved.json'), encoding='utf-8'))
+        meta = {(r['ep'], r['ts']): r for r in res['unknown'] + res['no_reading']}
+        todo = [meta[(r['ep'], r['ts'])] for r in prev
+                if r['sim_old'] < below and (r['ep'], r['ts']) in meta]
+    else:
+        res = json.load(open(os.path.join(REVIEW, 'q_unmatched_resolved.json'), encoding='utf-8'))
+        todo = res['unknown'] + res['no_reading']
     if eps:
         todo = [r for r in todo if r['ep'] in eps]
     if limit:
         todo = todo[:limit]
     done = {}
-    if os.path.exists(OUT):
-        for r in json.load(open(OUT, encoding='utf-8')).get('items', []):
+    if os.path.exists(out_path):
+        for r in json.load(open(out_path, encoding='utf-8')).get('items', []):
             done[(r['ep'], r['ts'])] = r
-    print(f'待验证 {len(todo)} 条 / 已完成 {len(done)} 条', flush=True)
+    print(f'待验证 {len(todo)} 条 / 已完成 {len(done)} 条 / upscale={upscale}', flush=True)
 
     MAP = load_map()
     ocr = build_engine()
@@ -75,7 +87,7 @@ def main():
                     tx = tight_x(img, y0, y1)
                     if not tx:
                         continue
-                    rr = rec_pair(ocr, img, y0, y1, tx, paths)
+                    rr = rec_pair(ocr, img, y0, y1, tx, paths, upscale=upscale)
                     rec['segs'].append(dict(rr, y0=y0, y1=y1, fill=fill))
         except Exception as e:
             rec['error'] = str(e)[:120]
@@ -85,17 +97,18 @@ def main():
         if cands:
             rec['sim_old'], rec['frame_text'] = max(cands)
             rec['sim_old'] = round(rec['sim_old'], 3)
+        rec['upscale'] = upscale
         items.append(rec)
         if k % 50 == 0:      # 逐段落盘, 便于中断续跑
-            json.dump({'items': items}, open(OUT, 'w', encoding='utf-8'),
+            json.dump({'items': items}, open(out_path, 'w', encoding='utf-8'),
                       ensure_ascii=False, indent=1)
-    json.dump({'items': items}, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    json.dump({'items': items}, open(out_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     n_conf = sum(1 for r in items if r['sim_old'] >= 0.9)
     n_part = sum(1 for r in items if 0.55 <= r['sim_old'] < 0.9)
     n_no = sum(1 for r in items if r['sim_old'] < 0.55)
     print(f'完成 {len(items)} 条 / {time.time() - t0:.0f}s: 帧图证实旧文本 {n_conf} | '
           f'部分 {n_part} | 读不出 {n_no} | 异常 {n_fail}')
-    print('输出:', OUT)
+    print('输出:', out_path)
 
 
 if __name__ == '__main__':

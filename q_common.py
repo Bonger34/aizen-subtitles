@@ -75,26 +75,28 @@ def kana_ratio(s):
     return sum(1 for ch in s if ord(ch) in KANA) / len(s)
 
 
-def gray_white(img):
+def gray_white(img, thr=WHITE_MIN):
     """近白掩膜(BGR -> bool)。"""
     if img.ndim == 2:
-        return img > WHITE_MIN
+        return img > thr
     b, g, r = img[:, :, 0], img[:, :, 1], img[:, :, 2]
-    return np.minimum(np.minimum(b, g), r) > WHITE_MIN
+    return np.minimum(np.minimum(b, g), r) > thr
 
 
-def split_lines(img, top=SCAN_TOP, bot=SCAN_BOT, max_density=None):
+def split_lines(img, top=SCAN_TOP, bot=SCAN_BOT, max_density=None, white_min=None):
     """把扫描区按白像素行剖面切成文字行带, 返回 [(y0, y1, fill), ...] (1080p 坐标)。
 
     fill = 段内白像素总数的相对强度, 用于区分主字幕行与稀疏小字(演职员表)。
     max_density: 若给定, 丢弃"白像素占比高于该值"的段 —— 画面亮部(整片白)会被行剖面
     连成一大段, 混进 OCR 只会产生噪声(实测 Web 帧上有 13.8% 条目因此读不出东西)。
+    white_min: 白像素阈值。帧图(960x540)上"明亮天空/彩虹背景"在 200 阈值下整片算白,
+    会把字幕行一起吃掉(实测 1052 条里大片 seg=0), 故对帧图用更高的 230。
     """
     h = img.shape[0]
     sy = 1080.0 / h
     y0, y1 = max(0, int(top / sy)), min(h, int(bot / sy))
     band = img[y0:y1, int(X0 * img.shape[1] / 1920.0):int(X1 * img.shape[1] / 1920.0)]
-    mask = gray_white(band)
+    mask = gray_white(band, white_min) if white_min else gray_white(band)
     prof = mask.sum(axis=1)
     if prof.max() < 5:
         return []
