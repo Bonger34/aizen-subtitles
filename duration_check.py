@@ -21,6 +21,10 @@ for f in os.listdir(V):
 
 lines, total, bad = ['库条目 vs 视频长度 一致性'], 0, 0
 for fn in sorted(os.listdir(CLEAN)):
+    # 只认 .json —— 之前的写法把落盘前的 .bak_qapply2 / .bak_outscope 备份也当库读了一遍,
+    # 于是每集被统计两次(且两次条目数不同), 容易掩盖真问题
+    if not fn.endswith('.json'):
+        continue
     m = re.match(r'\[(P\d+)\]', fn)
     if not m:
         continue
