@@ -224,3 +224,4 @@ _swap.py
 !review/q_reframe_tg.json
 # 落盘前的自动备份(可再生产物)
 subtitle_clean/*.bak_*
+!review/q_revert_result.json
