@@ -20,12 +20,29 @@ import sys
 from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from q_common import diff_rel, is_subseq, norm, sim  # noqa: E402
+from q_common import diff_rel, norm, to_simp  # noqa: E402
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
 FR = os.path.join(B, 'Web', 'frames')
 FRAME_PAT = re.compile(r'^P(\d{1,2})_(\d+)m(\d+)s([+-]\d+s)?\.jpg$')
+
+
+def sim(a, b):
+    """**先繁简归一再比对** —— 库里与识别结果混用繁体(別/奧/強/裡), 不归一会把
+    「朝阳你千万别过来 vs 朝阳你千万別过来」这类同句判成不一致。实测核验集 1364 条里
+    有 17 条、150 条疑似正片台词里有 15 条, 只有归一后才被证实。"""
+    a, b = norm(to_simp(a)), norm(to_simp(b))
+    if not a or not b:
+        return 0.0
+    m, n = len(a), len(b)
+    prev = list(range(n + 1))
+    for i in range(1, m + 1):
+        cur = [i] + [0] * n
+        for j in range(1, n + 1):
+            cur[j] = min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] != b[j - 1]))
+        prev = cur
+    return 1.0 - prev[n] / min(m, n)
 
 
 def parse_ts(ts):

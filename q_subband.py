@@ -43,7 +43,7 @@ def edge_white(img, w_thr=W_THR, d_thr=D_THR, near=NEAR):
     return white, white & near_d
 
 
-def band_rows(img, top=SCAN_TOP, bot=SCAN_BOT, ratio=BAND_RATIO):
+def band_rows(img, top=SCAN_TOP, bot=SCAN_BOT, ratio=BAND_RATIO, w_thr=W_THR, d_thr=D_THR):
     """定位字幕行带, 返回 img 坐标的 [(y0, y1)] —— 0/1/2 段(两行字幕时为 2 段)。
 
     掩膜只在扫描区上下各留 NEAR*2 行内计算 —— 对整幅 1080p 做 dilate 会白花约 4 倍时间。
@@ -54,7 +54,7 @@ def band_rows(img, top=SCAN_TOP, bot=SCAN_BOT, ratio=BAND_RATIO):
         return []
     o = max(0, t - NEAR * 2)
     e = min(h, b + NEAR * 2)
-    _, edge = edge_white(img[o:e])
+    _, edge = edge_white(img[o:e], w_thr, d_thr)
     x0, x1 = int(X0 * img.shape[1] / 1920.0), int(X1 * img.shape[1] / 1920.0)
     prof = edge[t - o:b - o, x0:x1].sum(axis=1)
     if prof.max() < 5:
@@ -75,19 +75,25 @@ def band_rows(img, top=SCAN_TOP, bot=SCAN_BOT, ratio=BAND_RATIO):
     return out
 
 
-def glyph_crop(img, y0, y1, pad=12):
-    """在 [y0,y1) 内剔除大块白(衣物/背景), 返回 (x0, x1, 实心字形二值图) 或 None。"""
+def glyph_crop(img, y0, y1, pad=12, w_thr=W_THR, max_cc_w=MAX_CC_W, max_cc_h=MAX_CC_H,
+               min_cc_a=MIN_CC_A):
+    """在 [y0,y1) 内剔除大块白(衣物/背景), 返回 (x0, x1, 实心字形二值图) 或 None。
+
+    w_thr / max_cc_w / max_cc_h / min_cc_a 可在"放宽档"下调 —— 实测残留条目的主因是
+    **识别读漏**(如库[真不愧是爱染先生] 只读到[真不愧先生]), 用更松的白阈值与连通域
+    上下限能把偏暗/偏小的字捞回来。
+    """
     h, w = img.shape[:2]
     a, b = max(0, int(y0)), min(h, int(y1))
     sub = img[a:b]
     if sub.size == 0:
         return None
-    white = (sub.min(axis=2) > W_THR)
+    white = (sub.min(axis=2) > w_thr)
     n, lab, stats, _ = cv2.connectedComponentsWithStats(white.astype(np.uint8), 8)
     if n <= 1:
         return None
     w_, h_, a_ = stats[1:, cv2.CC_STAT_WIDTH], stats[1:, cv2.CC_STAT_HEIGHT], stats[1:, cv2.CC_STAT_AREA]
-    good = np.where((w_ <= MAX_CC_W) & (h_ <= MAX_CC_H) & (a_ >= MIN_CC_A))[0] + 1
+    good = np.where((w_ <= max_cc_w) & (h_ <= max_cc_h) & (a_ >= min_cc_a))[0] + 1
     if good.size == 0:
         return None
     # 用一次 isin 取掩膜: 逐个连通域做 keep[lab==i] 是 O(连通域数 × 全图), 演职员表那种
@@ -101,15 +107,18 @@ def glyph_crop(img, y0, y1, pad=12):
     return x0, x1, cv2.cvtColor(out, cv2.COLOR_GRAY2BGR)
 
 
-def read_subs(ocr, img, top=SCAN_TOP, bot=SCAN_BOT, ratio=BAND_RATIO, paths=('bin', 'raw')):
+def read_subs(ocr, img, top=SCAN_TOP, bot=SCAN_BOT, ratio=BAND_RATIO, paths=('bin', 'raw'),
+              w_thr=W_THR, d_thr=D_THR, max_cc_w=MAX_CC_W, max_cc_h=MAX_CC_H, min_cc_a=MIN_CC_A):
     """在 img 的 y∈[top,bot) 区域定位字幕行并识别。
 
     返回 [(y0, y1, x0, x1, txt_bin, txt_raw)], y/x 均为 img 坐标。空列表 = 该帧无字幕。
+    放宽档用法: read_subs(..., w_thr=180, max_cc_w=400, min_cc_a=60) —— 用于救回偏暗/偏小的字。
     """
     from rapidocr.ch_ppocr_rec.typings import TextRecInput
     out = []
-    for y0, y1 in band_rows(img, top, bot, ratio):
-        g = glyph_crop(img, y0, y1)
+    for y0, y1 in band_rows(img, top, bot, ratio, w_thr, d_thr):
+        g = glyph_crop(img, y0, y1, w_thr=w_thr, max_cc_w=max_cc_w, max_cc_h=max_cc_h,
+                       min_cc_a=min_cc_a)
         if g is None:
             continue
         x0, x1, binimg = g

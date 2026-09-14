@@ -29,13 +29,17 @@ VIDEO_DIR = os.path.join(B, 'Videos')
 REVIEW = os.path.join(B, 'review')
 OFFS = (-0.8, -0.4, 0.0, 0.4, 0.8)   # 秒; 库时间戳只有秒级精度, 且实测显示时刻与库时间戳
                                      # 有 ±1s 级别的错位, 取五点覆盖该秒前后各一档
+# 宽松档: 实测残留条目的主因是"识别读漏"(库[真不愧是爱染先生]只读到[真不愧先生]),
+# 偏暗/偏小的字在默认白阈值 200 下会被丢掉, 故严格档读不出时用这组参数再读一次。
+RELAX = {'w_thr': 180, 'max_cc_w': 400, 'max_cc_h': 160, 'min_cc_a': 60, 'ratio': 0.25}
+
 
 def parse_ts(ts):
     m = re.match(r'(\d+)m(\d+)s', ts or '')
     return int(m.group(1)) * 60 + int(m.group(2)) if m else None
 
 
-def read_times(ocr, ep, times):
+def read_times(ocr, ep, times, relax=True):
     """顺序读该集一次, 返回 {t: [文本, ...]}。"""
     vid = [os.path.join(VIDEO_DIR, v) for v in os.listdir(VIDEO_DIR)
            if v.startswith(f'[{ep}]') and v.lower().endswith('.mp4')][0]
@@ -49,27 +53,32 @@ def read_times(ocr, ep, times):
             want.setdefault(max(0, int(round((t + o) * fps))), []).append((t, o))
     idx = sorted(want)
     out = {t: [] for t in times}
-    n, i = 0, 0
+    n, i, n_relax = 0, 0, 0
     while i < len(idx):
         if not cap.grab():
             break
         if n == idx[i]:
             ok, fr = cap.retrieve()
             if ok:
-                txts = []
-                for y0, y1, x0, x1, tb, tr in read_subs(ocr, fr):
-                    txts += [v for v in (tb, tr) if v]
+                txts = [v for y0, y1, x0, x1, tb, tr in read_subs(ocr, fr) for v in (tb, tr) if v]
+                if relax:
+                    # 只在严格档没读到"够长"的句子时才跑宽松档, 避免全量双倍开销
+                    good = max((len(t) for t in txts), default=0) >= 4
+                    if not good:
+                        n_relax += 1
+                        txts += [v for y0, y1, x0, x1, tb, tr in read_subs(ocr, fr, **RELAX)
+                                 for v in (tb, tr) if v]
                 for t, o in want[n]:
                     out[t].append({'off': o, 'texts': txts})
             i += 1
         n += 1
     cap.release()
-    return out
+    return out, n_relax
 
 
 def main():
     args = sys.argv[1:]
-    src, tag, eps_arg = 'q_targets.json', '', []
+    src, tag, eps_arg, relax = 'q_targets.json', '', [], True
     i = 0
     while i < len(args):
         a = args[i]
@@ -77,6 +86,8 @@ def main():
             src = args[i + 1]; i += 2
         elif a == '--tag':
             tag = args[i + 1]; i += 2
+        elif a == '--no-relax':
+            relax = False; i += 1
         else:
             eps_arg.append(a); i += 1
     todo = json.load(open(os.path.join(REVIEW, src), encoding='utf-8'))
@@ -86,7 +97,7 @@ def main():
         if sec is not None:
             by_ep.setdefault(r['ep'], {})[sec] = r
     eps = eps_arg or sorted(by_ep)
-    print(f'q_tsread{tag}: {len(todo)} 条 / {len(eps)} 集 (src={src})', flush=True)
+    print(f'q_tsread{tag}: {len(todo)} 条 / {len(eps)} 集 (src={src}, 宽松档={relax})', flush=True)
 
     ocr = build_engine()
     from rapidocr.ch_ppocr_rec.typings import TextRecInput
@@ -97,12 +108,12 @@ def main():
         if ep not in by_ep:
             continue
         t0 = time.time()
-        res = read_times(ocr, ep, sorted(by_ep[ep]))
+        res, n_relax = read_times(ocr, ep, sorted(by_ep[ep]), relax)
         n_sub = 0
         for sec, r in sorted(by_ep[ep].items()):
             reads = res.get(sec, [])
             texts = [t for rd in reads for t in rd['texts']]
-            # 三点里出现次数最多的读数作为代表
+            # 读数里出现次数最多者作代表
             best, bestn = '', 0
             for t in texts:
                 c = texts.count(t)
@@ -115,7 +126,8 @@ def main():
                          'all': sorted(set(texts))})
         json.dump(rows, open(os.path.join(REVIEW, f'q_tsread{tag}_{ep}.json'), 'w',
                              encoding='utf-8'), ensure_ascii=False, indent=1)
-        print(f'  {ep}: {len(by_ep[ep])} 条, 有字幕 {n_sub} / {time.time() - t0:.0f}s', flush=True)
+        print(f'  {ep}: {len(by_ep[ep])} 条, 有字幕 {n_sub}, 宽松档补读 {n_relax} 帧 / '
+              f'{time.time() - t0:.0f}s', flush=True)
     json.dump(rows, open(os.path.join(REVIEW, f'q_tsread{tag}.json'), 'w', encoding='utf-8'),
               ensure_ascii=False, indent=1)
     print(f'输出: review/q_tsread{tag}.json')
