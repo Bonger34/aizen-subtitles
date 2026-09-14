@@ -66,18 +66,19 @@ def save_frame(frame, fname, out_dir):
     cv2.imwrite(os.path.join(out_dir, fname), canvas, [cv2.IMWRITE_JPEG_QUALITY, 80])
 
 
-def run_ep(ocr, ep, items, out_dir, dry, step=1):
+def run_ep(ocr, ep, items, out_dir, dry, step=1, half=None):
     vid = [os.path.join(VIDEO_DIR, v) for v in os.listdir(VIDEO_DIR)
            if v.startswith(f'[{ep}]') and v.lower().endswith('.mp4')][0]
     cap = cv2.VideoCapture(vid)
     fps = cap.get(cv2.CAP_PROP_FPS)
     total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     # 展开每个条目的候选帧号: 从中心向两侧, 每 step 帧采一次(字幕持续 >=0.5s, step=2 不会漏)
+    half = HALF if half is None else half
     plan = {}
     for it in items:
         c = int(round(it['sec'] * fps))
         order = [c]
-        for d in range(1, int(HALF * fps) + 1):
+        for d in range(1, int(half * fps) + 1):
             if c - d >= 0:
                 order.append(c - d)
             if c + d < total:
@@ -139,6 +140,9 @@ def main():
         out_dir = args[args.index('--out') + 1]
     if '--step' in args:
         step = int(args[args.index('--step') + 1])
+    half = None
+    if '--half' in args:
+        half = float(args[args.index('--half') + 1])
     tag = ''
     if '--tag' in args:
         tag = args[args.index('--tag') + 1]
@@ -160,7 +164,7 @@ def main():
     todo_eps = eps_arg or sorted(by_ep)
     for ep in todo_eps:
         if ep in by_ep:
-            rows.extend(run_ep(ocr, ep, by_ep[ep], out_dir, dry, step))
+            rows.extend(run_ep(ocr, ep, by_ep[ep], out_dir, dry, step, half))
     out = {'time': time.strftime('%Y-%m-%d %H:%M:%S'), 'dry': dry, 'n': len(rows),
            'n_hit': sum(1 for r in rows if r['hit_fno'] is not None), 'rows': rows}
     json.dump(out, open(os.path.join(REVIEW, f'q_reframe_report{tag}.json'), 'w', encoding='utf-8'),
