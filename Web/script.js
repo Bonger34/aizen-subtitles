@@ -278,6 +278,24 @@ async function handleSearch(event) {
     searchForm.classList.remove("searching");
   }
 }
+// 归档统计随语料实时计算 —— 原先写死在 index.html 里(显示"归档 4929 条"), 而语料经多轮
+// 审核已增至 7206 条, 页面数字长期偏小。这类数字不应有第二个来源。
+async function refreshArchiveStats() {
+  const el = document.querySelector(".hero-stats");
+  if (!el || !window.subtitleDB) return;
+  try {
+    if (!window.subtitleDB.isLoaded) await window.subtitleDB.load();
+    const db = window.subtitleDB.db || [];
+    if (!db.length) return;
+    const eps = new Set(db.map((r) => String(r.f || "").slice(0, 4)));
+    // 裸库记录用 d 表示"该帧命中爱染诚人脸集"; 检索结果里才被映射成 aisome(db_search.js)
+    const aisome = db.filter((r) => r.d).length;
+    el.textContent = `全 ${eps.size} 集 · 归档 ${db.length} 条 · 爱染诚登场 ${aisome} 条`;
+  } catch (error) {
+    /* 统计失败不影响检索, 保留 HTML 里的兜底文案 */
+  }
+}
+
 async function initializeApp() {
   try {
     await dbStorage.init().catch((error) => {});
@@ -300,6 +318,7 @@ async function initializeApp() {
           }, 3000);
         });
     }
+    refreshArchiveStats();
 
     document
       .getElementById("searchForm")

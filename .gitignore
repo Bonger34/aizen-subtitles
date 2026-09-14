@@ -10,3 +10,5 @@ review/*
 !review/q_reframe_tg.json
 # 帧图重抽的暂存目录(确认后再覆盖 Web/frames)
 Web/frames_fix/
+# 落盘前的自动备份(可再生产物; 曾误入库一次)
+subtitle_clean/*.bak_*

@@ -33,11 +33,22 @@ for fn in os.listdir(CLEAN):
         for e in json.load(open(os.path.join(CLEAN, fn), encoding='utf-8')):
             lib[(ep, e['timestamp'])] = e.get('text')
 
-applied, problem = [], []
+# 已回退的修正(review/q_revert_result.json)不算异常: 它们是经原片复核**主动撤销**的,
+# 库里应当回到旧文本。不区分的话审计会长期报红, 掩盖真正的漏落盘。
+reverted = set()
+pr = os.path.join(REVIEW, 'q_revert_result.json')
+if os.path.exists(pr):
+    for r in json.load(open(pr, encoding='utf-8')).get('reverted', []):
+        # 回退记录里 from=被撤销的修正文本, to=恢复后的原文本; 换算成 (ep, ts, 原文本, 修正文本)
+        reverted.add((r['ep'], r['ts'], r['to'], r['from']))
+
+applied, undone, problem = [], [], []
 for f in fixes:
     cur = lib.get((f['ep'], f['ts']))
     if cur == f['new']:
         applied.append(f)
+    elif (f['ep'], f['ts'], f['old'], f['new']) in reverted and cur == f['old']:
+        undone.append(dict(f, current=cur))
     else:
         problem.append(dict(f, current=cur))
 
@@ -45,14 +56,17 @@ by_src, by_ep = Counter(), Counter()
 for a in applied:
     by_src[a['src']] += 1
     by_ep[a['ep']] += 1
-out = {'n_total': len(fixes), 'n_applied': len(applied), 'n_problem': len(problem),
-       'by_src': dict(by_src), 'by_ep': dict(sorted(by_ep.items())),
-       'applied': applied, 'problem': problem}
+out = {'n_total': len(fixes), 'n_applied': len(applied), 'n_reverted': len(undone),
+       'n_problem': len(problem), 'by_src': dict(by_src), 'by_ep': dict(sorted(by_ep.items())),
+       'applied': applied, 'reverted': undone, 'problem': problem}
 json.dump(out, open(os.path.join(REVIEW, 'q_fixes_final.json'), 'w', encoding='utf-8'),
           ensure_ascii=False, indent=1)
-print(f"修正总数 {len(fixes)} | 已落盘 {len(applied)} | 异常 {len(problem)}")
+print(f"修正总数 {len(fixes)} | 已落盘 {len(applied)} | 已回退 {len(undone)} | 异常 {len(problem)}")
 print('来源分布:', dict(by_src))
 print('按集:', dict(sorted(by_ep.items())))
+if undone:
+    for p in undone:
+        print('  已回退:', p['ep'], p['ts'], f"[{p['old']}] -> [{p['new']}]")
 if problem:
     for p in problem[:10]:
         print('  异常:', p)
