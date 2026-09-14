@@ -59,9 +59,14 @@ def main():
         print(f'  {ep}: 回退 {n} 条')
     out = {'time': time.strftime('%Y-%m-%d %H:%M:%S'), 'dry': dry,
            'n': len(applied), 'reverted': applied, 'mismatch': bad}
+    if dry:
+        # 预演**不能写结果文件** —— 它会被写成 reverted: [], 让 q_audit 把已回退的 2 条
+        # 重新当成"异常"(实际踩过这个坑)。
+        print(f"合计回退 {len(applied)} 条（预演, 未写盘）/ 不匹配 {len(bad)} 条")
+        return
     json.dump(out, open(os.path.join(REVIEW, 'q_revert_result.json'), 'w', encoding='utf-8'),
               ensure_ascii=False, indent=1)
-    print(f"合计回退 {len(applied)} 条{'（预演）' if dry else ''} / 不匹配 {len(bad)} 条")
+    print(f"合计回退 {len(applied)} 条 / 不匹配 {len(bad)} 条")
     for a in applied:
         print(f"  {a['ep']} {a['ts']:>7s} [{a['from']}] -> [{a['to']}]")
 
