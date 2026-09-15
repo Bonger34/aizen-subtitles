@@ -21,6 +21,16 @@ def main():
     dry = '--dry' in sys.argv
     man = json.load(open(os.path.join(REVIEW, 'q_manual_verdicts.json'), encoding='utf-8'))
     items = man.get('frame_apply', [])
+    # 已被 q_revert.py 回退掉的修正不能在这里再改回去 —— 判定仍留在 frame_apply 里,
+    # 每跑一次本脚本就会被"重新应用"一次(实测踩过: P02 9m50s 与 P04 3m39s 被改回错文本)。
+    reverted = set()
+    pr = os.path.join(REVIEW, 'q_revert_result.json')
+    if os.path.exists(pr):
+        for r in json.load(open(pr, encoding='utf-8')).get('reverted', []):
+            reverted.add((r['ep'], r['ts']))
+    if reverted:
+        items = [r for r in items if (r['ep'], r['ts']) not in reverted]
+        print(f'跳过已回退的 {len(reverted)} 条')
     print(f'待应用 {len(items)} 条')
     by_ep = {}
     for r in items:
