@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=14">
+    <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
     <button type="button" class="site-header" id="refreshDiv" title="刷新档案室">
@@ -55,8 +55,13 @@
                 </div>
                 <div class="control-bottom">
                     <div class="aisome-row">
-                        <label class="switch-line"><span class="crys-lit" aria-hidden="true"></span><input type="checkbox" id="aisomeOnly"> 仅列爱染诚档案</label>
-                        <label class="switch-line"><span class="crys-dim" aria-hidden="true"></span><input type="checkbox" id="aisomeFirst" checked> 爱染诚优先</label>
+                        <!-- 这两个开关原先各带一个水晶装饰(<span class="crys-lit/crys-dim">)。
+                             实测: 亮的那个对应【未勾选】的"仅列爱染诚档案", 暗的对应【已勾选】的
+                             "爱染诚优先" —— 明暗与真实状态相反, 且都不随勾选变化。做成水晶形状时
+                             还能当纹样看, 一旦简化成圆点就会被读成"状态指示灯", 于是成了假指示。
+                             直接删掉: 开关滑块自己已经在准确表达开/关(金=开)。 -->
+                        <label class="switch-line"><input type="checkbox" id="aisomeOnly"> 仅列爱染诚档案</label>
+                        <label class="switch-line"><input type="checkbox" id="aisomeFirst" checked> 爱染诚优先</label>
                     </div>
                 </div>
             </form>

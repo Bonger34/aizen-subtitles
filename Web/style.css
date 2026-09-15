@@ -523,25 +523,9 @@ body {
     box-shadow: var(--shadow-gold);
 }
 
-/* 开关行前的状态点(原为水晶多边形; 水晶图案收敛到卡片角标一处, 这里退成纯圆点) */
-.crys-lit, .crys-dim {
-    width: 12px;
-    height: 12px;
-    flex-shrink: 0;
-    display: inline-block;
-    border-radius: 50%;
-}
-
-.crys-lit {
-    background: linear-gradient(160deg, #F2DDA0 10%, var(--gold) 55%, var(--gold-deep));
-    box-shadow: none;
-    filter: drop-shadow(0 0 5px rgba(232, 200, 122, 0.85));
-}
-
-.crys-dim {
-    background: linear-gradient(160deg, #43465C, #23273A);
-    filter: none;
-}
+/* 开关行前的装饰点已删除(2026-08-21): 它是一枚写死的假指示灯 ——
+   亮的那个对应"未勾选"的开关、暗的对应"已勾选"的, 明暗与真实状态相反。
+   开关滑块本身已经在准确表达开/关, 不需要第二个指示。 */
 
 /* ---------- 进度与提示 ---------- */
 
