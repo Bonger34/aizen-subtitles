@@ -104,15 +104,25 @@ body {
 
 .mono { font-family: var(--font-mono); }
 
-/* ---------- 顶带：爱染科技铭牌(特摄幕布) ---------- */
+/* ---------- 顶带：爱染科技铭牌(特摄幕布) ----------
+   它是个**真按钮**(整条顶带可点=刷新), 所以键盘 Enter/Space 天然可用;
+   旧版是 <header role="button" tabindex="0"> 只绑 click, 实测键盘 Enter 完全没反应。 */
 
 .site-header {
+    display: block;
+    width: 100%;
     padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    text-align: left;
     cursor: pointer;
 }
 
 .header-band {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
@@ -233,13 +243,20 @@ body {
     margin-bottom: 0;
 }
 
-/* ---------- 搜索台：帧背景 + 分区控件(人脸/字幕零遮挡) ---------- */
+/* ---------- 搜索台：帧背景 + 分区控件(人脸/字幕零遮挡) ----------
+   布局: 弹性列 + 左列宽度(46%)。上下留白走 padding、两段控件之间走 gap —— 数值是从旧版
+   绝对定位的几何反推出来的(97 / 49 / 129), 所以折叠态的观感与旧版一致。
+   关键差别: **台面高度由内容决定**, 展开「高级选项」时整台自然长高, 不会再压住下面的开关。
+   (旧写法是 position:absolute + min-height:440px, 实测展开后面板底 518 压过开关行顶 495 共 23px。) */
 
 .search-form {
     position: relative;
     max-width: 820px;
     margin: 0 auto;
-    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    padding: 97px 0 129px;
+    gap: 49px;
     border-radius: var(--r-lg);
     border: 1px solid rgba(255, 255, 255, 0.14);
     box-shadow:
@@ -285,11 +302,8 @@ body {
 
 /* 左列控件(帐篷区,避开右上人脸) */
 .control-top {
-    position: absolute;
-    top: 96px;
-    left: 22px;
-    right: auto;
     width: 46%;
+    margin-left: 22px;
     display: grid;
     gap: 0.65rem;
 }
@@ -418,13 +432,10 @@ body {
 
 .input-row input:focus { outline: none; border-color: rgba(232, 200, 122, 0.85); }
 
-/* 底部行动区:单选框与上列控件对齐(左列 46%) */
+/* 底部行动区:单选框与上列控件同宽对齐 */
 .control-bottom {
-    position: absolute;
-    left: 22px;
-    right: auto;
-    bottom: 128px;
     width: 46%;
+    margin-left: 22px;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -815,6 +826,9 @@ body {
     animation: overlay-in 0.24s var(--ease-out);
 }
 
+/* 模态打开时锁住页面滚动(JS 在开/关时加删这个类) */
+body.preview-open { overflow: hidden; }
+
 @keyframes overlay-in {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -1120,9 +1134,9 @@ body {
     .header-meta { display: none; }
     .brand-cn { font-size: 0.72rem; }
     /* 移动端:帧背景,控件改上部/下部,人脸中间留白 */
-    .search-form { min-height: 480px; background-position: center 30%; }
-    .control-top { top: 84px; left: 14px; right: 14px; width: auto; }
-    .control-bottom { left: 14px; right: 14px; width: auto; bottom: 88px; justify-content: flex-start; gap: 0.6rem; }
+    .search-form { padding: 112px 0 88px; gap: 48px; background-position: center 30%; }
+    .control-top { width: auto; margin: 0 14px; }
+    .control-bottom { width: auto; margin: 0 14px; justify-content: flex-start; gap: 0.6rem; }
     /* 窄屏卡片:纵向堆叠,帧图在上 */
     .result-card { flex-direction: column; align-items: stretch; padding: 0.95rem 0.9rem 0.8rem; }
     .result-content { flex-direction: column; }

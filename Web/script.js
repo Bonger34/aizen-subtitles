@@ -229,9 +229,11 @@ async function handleSearch(event) {
   event.preventDefault();
   const query = document.getElementById("query").value.trim();
   if (!query) return;
-  const minRatio = parseInt(document.getElementById("minRatio").value) || 50;
-  const minSimilarity =
-    parseFloat(document.getElementById("minSimilarity").value) || 0;
+  const minRatioRaw = parseInt(document.getElementById("minRatio").value, 10);
+  const minSimilarityRaw = parseFloat(document.getElementById("minSimilarity").value);
+  // 注意用 isFinite 而不是 ||: 用户输入 0 表示"不过滤", 用 || 会把 0 变成默认 50
+  const minRatio = Number.isFinite(minRatioRaw) ? minRatioRaw : 50;
+  const minSimilarity = Number.isFinite(minSimilarityRaw) ? minSimilarityRaw : 0;
   const searchForm = document.getElementById("searchForm");
   searchForm.classList.add("searching");
   startNaturalLoadingBar();
@@ -279,20 +281,39 @@ async function handleSearch(event) {
   }
 }
 // 归档统计随语料实时计算 —— 原先写死在 index.html 里(显示"归档 4929 条"), 而语料经多轮
-// 审核已增至 7206 条, 页面数字长期偏小。这类数字不应有第二个来源。
+// 审核已增至 6783 条, 页面数字长期偏小。这类数字不应有第二个来源。
+// 取库时两条路: window.SUBTITLE_DB(script 注入) 或 subtitleDB.load()(fetch gzip)。
+function getSubtitleDb() {
+  if (window.SUBTITLE_DB && Array.isArray(window.SUBTITLE_DB)) {
+    return window.SUBTITLE_DB;
+  }
+  if (window.subtitleDB && Array.isArray(window.subtitleDB.db)) {
+    return window.subtitleDB.db;
+  }
+  return null;
+}
+
 async function refreshArchiveStats() {
   const el = document.querySelector(".hero-stats");
   if (!el || !window.subtitleDB) return;
   try {
-    if (!window.subtitleDB.isLoaded) await window.subtitleDB.load();
-    const db = window.subtitleDB.db || [];
-    if (!db.length) return;
+    if (!getSubtitleDb()) {
+      // 兜底: 别让统计一直停在"加载中"(DB 拿不到时不该显示任何条数)
+      const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("subtitle db load timeout")), 5000),
+      );
+      await Promise.race([window.subtitleDB.load(), timeout]);
+    }
+    const db = getSubtitleDb();
+    if (!db || !db.length) return;
     const eps = new Set(db.map((r) => String(r.f || "").slice(0, 4)));
     // 裸库记录用 d 表示"该帧命中爱染诚人脸集"; 检索结果里才被映射成 aisome(db_search.js)
     const aisome = db.filter((r) => r.d).length;
     el.textContent = `全 ${eps.size} 集 · 归档 ${db.length} 条 · 爱染诚登场 ${aisome} 条`;
   } catch (error) {
-    /* 统计失败不影响检索, 保留 HTML 里的兜底文案 */
+    // 加载失败时给可辨认的占位, 而不是留一个过期的旧数字在页面上
+    el.textContent = "全 — 集 · 归档 — 条 · 爱染诚登场 — 条";
+    console.error("归档统计加载失败:", error);
   }
 }
 
@@ -334,7 +355,8 @@ async function initializeApp() {
       });
 
     document.getElementById("query").addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
+      // isComposing: 中文输入法选词时也会发 Enter, 不拦下来会把没打完的拼音当成检索词提交
+      if (e.key === "Enter" && !e.isComposing && e.keyCode !== 229) {
         e.preventDefault();
         if (AppState.isSearching) return;
         document
@@ -669,8 +691,11 @@ function getBilibiliUrl(filename, totalSeconds) {
   return null;
 }
 
-/* 帧图放大预览模态:右上叉叉(圆形)、右下复制/下载(圆形,垂直分布) */
+/* 帧图放大预览模态:右上叉叉(圆形)、右下复制/下载(圆形,垂直分布)
+   焦点管理: 打开时记下触发元素并把焦点移进模态、Tab 锁在模态内、关闭后焦点还给触发元素。 */
 function openPreviewFrame(frameFile, infoText) {
+  // 记住是谁打开的, 关闭时把键盘焦点还回去(否则焦点会留在被遮挡的页面上)
+  const prevFocus = document.activeElement;
   let overlay = document.getElementById("previewOverlay");
   if (overlay) overlay.remove();
 
@@ -721,23 +746,51 @@ function openPreviewFrame(frameFile, infoText) {
     }
   })();
 
+  // 三条关闭路径(叉叉 / 点遮罩 / Esc)统一走这里: 复位焦点、上锁、摘掉键盘监听
+  let closed = false;
   const close = () => {
-    if (overlay.classList.contains("closing")) return;
+    if (closed) return;
+    closed = true;
     overlay.classList.add("closing");
     wrap.classList.add("closing");
+    document.body.classList.remove("preview-open");
+    document.removeEventListener("keydown", onKeydown, true);
+    if (prevFocus && typeof prevFocus.focus === "function") prevFocus.focus();
     setTimeout(() => overlay.remove(), 210);
   };
+
+  // Tab 锁在模态内 —— 否则键盘用户能 Tab 到遮罩背后那几十个链接/按钮上
+  const focusables = () => [closeBtn, copyBtn, dlBtn];
+  function onKeydown(e) {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      close();
+      return;
+    }
+    if (e.key !== "Tab") return;
+    const items = focusables().filter((el) => el && el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    const active = document.activeElement;
+    const inside = items.indexOf(active) >= 0;
+    if (items.length === 1 || (!inside && e.shiftKey) || active === last) {
+      e.preventDefault();
+      (e.shiftKey ? last : first).focus();
+    } else if (!inside || active === first) {
+      e.preventDefault();
+      (e.shiftKey ? last : first).focus();
+    }
+  }
 
   closeBtn.addEventListener("click", close);
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) close();
   });
-  document.addEventListener("keydown", function esc(e) {
-    if (e.key === "Escape") {
-      close();
-      document.removeEventListener("keydown", esc);
-    }
-  });
+  // 捕获阶段: 无论焦点落在哪里都能收到 Esc(之前挂在 document 冒泡阶段, 焦点在模态里也收不到)
+  document.addEventListener("keydown", onKeydown, true);
+  document.body.classList.add("preview-open");
+  closeBtn.focus();
 
   // 复制图片到剪贴板:先给反馈,再尽力写(绝无"点了没反应")
   copyBtn.addEventListener("click", (e) => {
@@ -796,6 +849,7 @@ function showToast(msg) {
   t = document.createElement("div");
   t.id = "appToast";
   t.className = "copy-toast";
+  t.setAttribute("role", "status");
   t.textContent = msg;
   document.body.appendChild(t);
   setTimeout(() => t.classList.add("fade-out"), 1600);

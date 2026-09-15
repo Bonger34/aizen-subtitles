@@ -23,7 +23,6 @@
             this.db = window.SUBTITLE_DB;
             this.isLoaded = true;
             this.isLoading = false;
-            try { await dbStorage.setItem("databases", "subtitleDB", this.db) } catch (e) { }
             return true;
         }
 
@@ -67,7 +66,6 @@
                 this.db = parsedData;
                 this.isLoaded = true;
                 this.isLoading = false;
-                try { await dbStorage.setItem("databases", "subtitleDB", this.db) } catch (e) { }
                 if (window.subtitleDB !== this) window.subtitleDB = this;
                 resolve(true)
             } catch (error) {

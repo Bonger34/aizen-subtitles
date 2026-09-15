@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
-    <header class="site-header" id="refreshDiv" role="button" tabindex="0" title="刷新档案室">
-        <div class="header-band">
-            <div class="header-brand">
+    <button type="button" class="site-header" id="refreshDiv" title="刷新档案室">
+        <span class="header-band">
+            <span class="header-brand">
                 <svg class="brand-crystal" viewBox="0 0 80 88" aria-hidden="true">
                     <polygon points="40,4 72,22 72,66 40,84 8,66 8,22" fill="none" stroke="#E8C87A" stroke-width="3"/>
                     <polygon points="40,4 72,22 40,40 8,22" fill="#E8C87A" opacity=".35"/>
@@ -21,10 +21,10 @@
                 </svg>
                 <span class="brand-name">AISOME SCIENCE</span>
                 <span class="brand-cn">爱染科技 · 档案科</span>
-            </div>
-            <div class="header-meta mono">《罗布奥特曼》· 全 25 集 · 对白检索</div>
-        </div>
-    </header>
+            </span>
+            <span class="header-meta mono">《罗布奥特曼》· 全 25 集 · 对白检索</span>
+        </span>
+    </button>
 
     <main class="main-content">
         <section class="hero">
@@ -32,7 +32,7 @@
                 <p class="hero-eyebrow mono">AISOME ARCHIVE · 怪兽水晶档案室</p>
                 <h1 class="hero-title">爱染诚 <span class="hero-sub">台词档案馆</span></h1>
                 <div class="hero-tie" aria-hidden="true"></div>
-                <p class="hero-stats mono">全 25 集 · 归档 4929 条 · 爱染诚登场 420 条</p>
+                <p class="hero-stats mono" aria-live="polite">全 — 集 · 归档 — 条 · 爱染诚登场 — 条</p>
             </div>
 
             <form id="searchForm" class="search-form">
@@ -72,8 +72,8 @@
                 <div class="loading-container">
                     <div id="loadingBar"></div>
                 </div>
-                <div id="randomStringDisplay" class="random-string"></div>
-                <div id="errorDisplay" class="error-display"></div>
+                <div id="randomStringDisplay" class="random-string" role="status" aria-live="polite"></div>
+                <div id="errorDisplay" class="error-display" role="alert" aria-live="assertive"></div>
             </div>
         </section>
 
@@ -89,6 +89,6 @@
     <script src="subtitle_db.js"></script>
     <script src="frames_map.js"></script>
     <script src="db_search.js"></script>
-    <script src="script.js?v=10"></script>
+    <script src="script.js?v=11"></script>
 </body>
 </html>
