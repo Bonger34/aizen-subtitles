@@ -44,9 +44,14 @@
     --r-lg: 24px;
     --r-full: 999px;
 
-    /* ---- 动效 ---- */
-    --ease-out: var(--ease-out);
-    --ease-spring: var(--ease-spring);
+    /* ---- 动效 ----
+       注意: 这两个值必须写成真正的缓动函数。曾经写成 `--ease-out: var(--ease-out)` 这种
+       自我引用 —— 自定义属性引用自身会让它在**计算值阶段失效**, 而 `transition` 的简写里
+       只要有一段的值无效, 浏览器会把**整条声明**丢掉(不是退回默认 ease, 而是连
+       `transition-property` 都变回初始值 all)。实测代价: 开关拇指、预览关闭/复制/下载
+       按钮、卡片入场、遮罩淡入、预览弹入 全部失去动效, 且控制台毫无提示。 */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     --press: scale(0.97);
 
     /* ---- 线(旧引用保持兼容) ---- */
