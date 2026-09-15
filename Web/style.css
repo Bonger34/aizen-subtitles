@@ -243,11 +243,15 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.18);
     backdrop-filter: var(--blur-l);
     overflow: hidden;
-    /* 帧背景:完整展示(人脸右上、字幕底部) */
+    /* 帧背景:完整展示(人脸右上、字幕底部)
+       注意: 这张图放在 assets/ 而不是 frames/ —— frames/ 整个是"可再生成"的库配图目录,
+       任何一次"清理未被库引用的帧"都会把它当孤儿删掉(2026-08-21 就发生过一次),
+       而 assets/ 是入库的站点素材目录, 不受那条清理规则影响。
+       末层那个深色是图加载失败时的兜底底色。 */
     background:
         linear-gradient(180deg, rgba(10, 13, 20, 0.28) 0%, transparent 30%, transparent 62%, rgba(10, 13, 20, 0.30) 100%),
-        url('frames/P10_10m59s_hd.jpg') center 52% / cover no-repeat,
-        rgba(20, 26, 42, 0.75);
+        url('assets/hero_aisome.jpg') center 52% / cover no-repeat,
+        #141A2A;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
