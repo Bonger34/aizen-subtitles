@@ -490,11 +490,6 @@
   "text": "维克特利奥特曼泰罗奥特曼"
  },
  {
-  "timestamp": "12m11s",
-  "text": "會十",
-  "similarity": 0.0
- },
- {
   "timestamp": "12m14s",
   "similarity": 0.072,
   "text": "岩土绊身琥珀大地"
@@ -576,7 +571,7 @@
  },
  {
   "timestamp": "15m01s",
-  "text": "无论如何都必须打败它役",
+  "text": "无论如何都必须打败它",
   "similarity": 0.0
  },
  {
@@ -879,7 +874,7 @@
  },
  {
   "timestamp": "21m48s",
-  "text": "麻利点雨",
+  "text": "麻利点",
   "similarity": 0.0
  },
  {
@@ -912,31 +907,6 @@
   "timestamp": "22m05s",
   "similarity": 0.191,
   "text": "快乐"
- },
- {
-  "timestamp": "23m22s",
-  "text": "東葛城市",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m32s",
-  "text": "野有",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m33s",
-  "text": "野有抄",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m34s",
-  "text": "八野日有抄",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m35s",
-  "text": "野日有少",
-  "similarity": 0.0
  },
  {
   "timestamp": "23m45s",
@@ -997,7 +967,7 @@
  },
  {
   "timestamp": "24m31s",
-  "text": "党妹之间无秘密",
+  "text": "兄妹之间无秘密",
   "similarity": 0.0
  }
 ]

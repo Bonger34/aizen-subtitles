@@ -381,11 +381,6 @@
   "text": "然后来这里找我们"
  },
  {
-  "timestamp": "8m06s",
-  "text": "上上",
-  "similarity": 0.0
- },
- {
   "timestamp": "8m09s",
   "similarity": 0.061,
   "text": "不对密码错误"
@@ -544,7 +539,7 @@
  {
   "timestamp": "10m10s",
   "similarity": 0.058,
-  "text": "没有这座城市哪来的之家"
+  "text": "没有这座城市哪来的M之家"
  },
  {
   "timestamp": "10m13s",
@@ -623,7 +618,7 @@
  },
  {
   "timestamp": "11m43s",
-  "text": "澳特战士",
+  "text": "奥特战士",
   "similarity": 0.0
  },
  {
@@ -1001,27 +996,6 @@
   "timestamp": "22m43s",
   "similarity": 0.157,
   "text": "小剑"
- },
- {
-  "timestamp": "23m56s",
-  "similarity": 0.0,
-  "text": "中国国家博物馆",
-  "vl_rechecked": true
- },
- {
-  "timestamp": "24m02s",
-  "text": "野有抄",
-  "similarity": 0.0
- },
- {
-  "timestamp": "24m03s",
-  "text": "野有抄主",
-  "similarity": 0.0
- },
- {
-  "timestamp": "24m04s",
-  "text": "野出有抄",
-  "similarity": 0.0
  },
  {
   "timestamp": "24m13s",

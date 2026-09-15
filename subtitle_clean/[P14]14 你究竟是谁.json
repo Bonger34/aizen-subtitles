@@ -271,11 +271,6 @@
   "text": "每个人都有自己要扮演的角色"
  },
  {
-  "timestamp": "5m15s",
-  "text": "威廉莎士比亚当",
-  "similarity": 0.0
- },
- {
   "timestamp": "5m16s",
   "text": "威廉·莎士比亚",
   "similarity": 0.0
@@ -583,13 +578,13 @@
  {
   "timestamp": "9m47s",
   "similarity": 0.153,
-  "text": "他只是借着恤开玩笑的",
+  "text": "他只是借着T恤开玩笑的",
   "vl_rechecked": true
  },
  {
   "timestamp": "9m48s",
   "similarity": 0.131,
-  "text": "他只是借着恤开玩笑的"
+  "text": "他只是借着T恤开玩笑的"
  },
  {
   "timestamp": "9m49s",
@@ -1357,31 +1352,6 @@
   "similarity": 0.0
  },
  {
-  "timestamp": "23m27s",
-  "text": "果易",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m28s",
-  "text": "果曷城",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m29s",
-  "text": "果易城中",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m31s",
-  "text": "出秒",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m34s",
-  "text": "门野抄少",
-  "similarity": 0.0
- },
- {
   "timestamp": "23m49s",
   "similarity": 0.045,
   "text": "接下来要介绍的是关于罗布水晶的研究"
@@ -1394,11 +1364,6 @@
  {
   "timestamp": "23m56s",
   "text": "是的今天的水晶是这个",
-  "similarity": 0.0
- },
- {
-  "timestamp": "24m06s",
-  "text": "小二二",
   "similarity": 0.0
  },
  {
@@ -1437,10 +1402,5 @@
   "timestamp": "24m33s",
   "similarity": 0.0,
   "text": "极致绊身"
- },
- {
-  "timestamp": "24m35s",
-  "text": "双致",
-  "similarity": 0.0
  }
 ]

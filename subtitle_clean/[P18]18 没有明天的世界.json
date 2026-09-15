@@ -141,12 +141,6 @@
   "text": "之前那里有颗行星也爆炸了"
  },
  {
-  "timestamp": "1m03s",
-  "similarity": 0.059,
-  "text": "助?",
-  "vl_rechecked": true
- },
- {
   "timestamp": "1m05s",
   "similarity": 0.0,
   "text": "我会在社交软件上"
@@ -194,7 +188,7 @@
  },
  {
   "timestamp": "1m30s",
-  "text": "之后",
+  "text": "广告之后",
   "similarity": 0.0
  },
  {
@@ -213,49 +207,9 @@
   "similarity": 0.0
  },
  {
-  "timestamp": "2m55s",
-  "text": "住几七品工的山用",
-  "similarity": 0.0
- },
- {
-  "timestamp": "2m56s",
-  "text": "住汽专品工业用",
-  "similarity": 0.0
- },
- {
-  "timestamp": "2m58s",
-  "similarity": 0.0,
-  "text": "拜托了铭10售机专用"
- },
- {
   "timestamp": "3m03s",
   "similarity": 0.0,
   "text": "绫香市明天的天气是"
- },
- {
-  "timestamp": "3m06s",
-  "similarity": 0.187,
-  "text": "今天欧洲协会"
- },
- {
-  "timestamp": "3m07s",
-  "text": "住汽专品工业用",
-  "similarity": 0.0
- },
- {
-  "timestamp": "3m08s",
-  "text": "住几七品工的山用",
-  "similarity": 0.0
- },
- {
-  "timestamp": "3m09s",
-  "text": "住汽七品工的山用",
-  "similarity": 0.0
- },
- {
-  "timestamp": "3m10s",
-  "text": "拜托了住九七品工的山用",
-  "similarity": 0.0
  },
  {
   "timestamp": "3m11s",
@@ -263,24 +217,9 @@
   "text": "之前在街头的那个采访"
  },
  {
-  "timestamp": "3m12s",
-  "text": "拜托了住九七品工的用",
-  "similarity": 0.0
- },
- {
   "timestamp": "3m13s",
   "similarity": 0.185,
   "text": "没有在任何电视台播出啊"
- },
- {
-  "timestamp": "3m14s",
-  "text": "住九七品工的山用",
-  "similarity": 0.0
- },
- {
-  "timestamp": "3m15s",
-  "text": "生九七品工的山田",
-  "similarity": 0.0
  },
  {
   "timestamp": "3m16s",
@@ -681,7 +620,7 @@
  },
  {
   "timestamp": "6m26s",
-  "text": "这些可都是我们店里最棒的恤了",
+  "text": "这些可都是我们店里最棒的T恤了",
   "similarity": 0.0
  },
  {
@@ -747,16 +686,6 @@
   "text": "是从那个摄像机里发出的"
  },
  {
-  "timestamp": "7m05s",
-  "text": "見見茶感動",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m06s",
-  "text": "見見感動",
-  "similarity": 0.0
- },
- {
   "timestamp": "7m07s",
   "similarity": 0.0,
   "text": "当你发现一件从未见过的T恤的时候"
@@ -788,49 +717,9 @@
   "text": "是M之家的老板"
  },
  {
-  "timestamp": "7m18s",
-  "text": "見見茶感動",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m19s",
-  "text": "見見驚感動",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m20s",
-  "similarity": 0.17,
-  "text": "潮品牌发源于地球"
- },
- {
   "timestamp": "7m21s",
   "similarity": 0.105,
   "text": "该品牌的产品不仅在地球很受欢迎"
- },
- {
-  "timestamp": "7m22s",
-  "text": "見日",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m23s",
-  "text": "験少",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m24s",
-  "text": "体験",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m25s",
-  "text": "体験一",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m26s",
-  "text": "休験",
-  "similarity": 0.0
  },
  {
   "timestamp": "7m27s",
@@ -843,35 +732,15 @@
   "text": "当感受到T恤上进发出的热情时"
  },
  {
-  "timestamp": "7m32s",
-  "text": "熱感阿",
-  "similarity": 0.0
- },
- {
-  "timestamp": "7m33s",
-  "text": "熱感图",
-  "similarity": 0.0
- },
- {
   "timestamp": "7m34s",
   "similarity": 0.165,
   "text": "坚持着这份信念",
   "vl_rechecked": true
  },
  {
-  "timestamp": "7m35s",
-  "text": "緒感",
-  "similarity": 0.0
- },
- {
   "timestamp": "7m36s",
   "similarity": 0.137,
   "text": "凑潮经营了这间店20多年"
- },
- {
-  "timestamp": "7m37s",
-  "text": "皆感",
-  "similarity": 0.0
  },
  {
   "timestamp": "7m38s",
@@ -1042,11 +911,6 @@
   "timestamp": "9m25s",
   "similarity": 0.0,
   "text": "不是有个叫凑潮的T恤设计师吗"
- },
- {
-  "timestamp": "9m26s",
-  "text": "奥特战士的爸爸哦",
-  "similarity": 0.0
  },
  {
   "timestamp": "9m33s",
@@ -1547,7 +1411,7 @@
  {
   "timestamp": "16m23s",
   "similarity": 0.229,
-  "text": "不管任何时候都要继续制作恤"
+  "text": "不管任何时候都要继续制作T恤"
  },
  {
   "timestamp": "16m29s",
@@ -1762,16 +1626,6 @@
   "text": "好咧明天也继续制作T恤吧"
  },
  {
-  "timestamp": "22m13s",
-  "text": "演次精影图集",
-  "similarity": 0.0
- },
- {
-  "timestamp": "22m15s",
-  "text": "在父亲的感人之举日郎太陽第",
-  "similarity": 0.0
- },
- {
   "timestamp": "22m18s",
   "text": "整座城市得救了",
   "similarity": 0.0
@@ -1782,38 +1636,13 @@
   "text": "反正最后全都要爆炸的"
  },
  {
-  "timestamp": "23m30s",
-  "text": "野有抄",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m33s",
-  "text": "野有彩",
-  "similarity": 0.0
- },
- {
-  "timestamp": "23m34s",
-  "text": "有抄",
-  "similarity": 0.0
- },
- {
   "timestamp": "23m48s",
   "similarity": 0.06,
   "text": "接下来要介绍的是关于罗布水晶的研究"
  },
  {
   "timestamp": "23m54s",
-  "text": "是的今天的永晶是这个",
-  "similarity": 0.0
- },
- {
-  "timestamp": "24m07s",
-  "text": "日人上小",
-  "similarity": 0.0
- },
- {
-  "timestamp": "24m08s",
-  "text": "八立十山方击",
+  "text": "是的今天的水晶是这个",
   "similarity": 0.0
  },
  {
@@ -1821,16 +1650,6 @@
   "similarity": 0.061,
   "text": "它可以轻松接住哥哥扔出的高速球哦",
   "vl_rechecked": true
- },
- {
-  "timestamp": "24m12s",
-  "text": "六八立十代",
-  "similarity": 0.0
- },
- {
-  "timestamp": "24m13s",
-  "text": "一八立卡山方击",
-  "similarity": 0.0
  },
  {
   "timestamp": "24m14s",
