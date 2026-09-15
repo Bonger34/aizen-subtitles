@@ -8,8 +8,9 @@
     /* ---- 色彩体系(爱染诚世界) ---- */
     --black: #0A0D14;          /* 变身宇宙深空 */
     --deep: #1A2236;           /* 星云蓝 */
-    --violet: #4A3F8C;         /* 星际紫 */
-    --violet-soft: #6E5FB8;    /* 星际紫亮 */
+    --violet: #4A3F8C;         /* 星际紫(仅作大面积装饰/渐变, 不承担正文对比度) */
+    --violet-soft: #9F8FE8;    /* 星际紫亮: 同色相提亮。原 #6E5FB8 实测 3.01:1(不达标),
+                                  改 #8E7BD8 只有 4.51:1 擦线, 最终取 #9F8FE8 = 5.72:1 */
     --gold: #E8C87A;           /* 主色:光柱金(品牌/主操作) */
     --gold-deep: #B8862F;      /* 金色深 */
     --gold-light: #F2DDA0;     /* 金色亮 */
@@ -19,7 +20,7 @@
     --wine: #8C2F39;           /* 警示:红伞/火漆 */
     --ink: #E9E4DA;            /* 正文亮 */
     --ink-soft: #B8AFA3;       /* 次级文本 */
-    --ink-faint: #7A7387;      /* 弱化文本 */
+    --ink-faint: #A9A3B2;      /* 弱化文本: 偏紫的中性灰, 4.5:1 达标(原 #7A7387 只有 3.49:1) */
 
     /* ---- 液态玻璃体系(miuix) ---- */
     --glass-dark-start: rgba(28, 36, 58, 0.72);    /* 深玻璃上 */
@@ -61,9 +62,14 @@
     --shadow-blush: 0 0 0 3px rgba(242, 167, 188, 0.22), 0 6px 26px rgba(242, 167, 188, 0.20);
     --shadow-deep: 0 14px 44px rgba(0, 0, 0, 0.55);
 
-    /* ---- 字体 ---- */
-    --font-display: "ZCOOL XiaoWei", "Noto Serif SC", serif;
-    --font-body: "Noto Sans SC", "Segoe UI", sans-serif;
+    /* ---- 字体 ----
+       标题从站酷小薇(手写毛笔感)换成黑体 900 —— 顶栏已经是 IBM Plex Mono、概念是"爱染科技档案室",
+       手写体与科技铭牌气质相反。字体全部走系统栈, 在线字体只保留正文与等宽两个角色:
+       离线时标题也不再掉回 serif(而 ZCOOL XiaoWei 是远程字体, 断网必掉)。
+       注意: 栈里要写系统真实存在的 family 名 —— 本机是 "Noto Sans SC"(无 Black 静态族)、
+       思源黑体、微软雅黑; 不要写 web 端的 "Noto Sans SC Black" 族名, 那在本机并不存在。 */
+    --font-display: "Noto Sans SC", "思源黑体", "Source Han Sans SC", "Microsoft YaHei", "微软雅黑", sans-serif;
+    --font-body: "Noto Sans SC", "Segoe UI", "Microsoft YaHei", sans-serif;
     --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
 }
 
@@ -141,13 +147,6 @@ body {
     min-width: 0;
 }
 
-.brand-crystal {
-    width: 22px;
-    height: 24px;
-    flex-shrink: 0;
-    align-self: center;
-}
-
 .brand-name {
     font-family: var(--font-mono);
     font-weight: 500;
@@ -192,27 +191,18 @@ body {
     padding: 0.45rem 0 0.55rem;
 }
 
-.hero-eyebrow {
-    font-size: 0.68rem;
-    letter-spacing: 0.32em;
-    color: var(--violet-soft);
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-    text-shadow: 0 0 14px rgba(110, 95, 184, 0.6);
-}
-
 .hero-title {
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: 900;
     font-size: clamp(2.2rem, 5.8vw, 3.2rem);
     line-height: 1.08;
     letter-spacing: 0.08em;
     color: var(--gold);
     transform: skewX(-4deg);
     text-shadow:
-        0 0 22px rgba(232, 200, 122, 0.45),
-        0 2px 0 rgba(184, 134, 47, 0.6),
-        0 0 60px rgba(232, 200, 122, 0.25);
+        0 0 22px rgba(232, 200, 122, 0.38),
+        0 2px 0 rgba(184, 134, 47, 0.55),
+        0 0 60px rgba(232, 200, 122, 0.18);
     margin-bottom: 0.35rem;
 }
 
@@ -223,17 +213,6 @@ body {
     color: var(--white);
     text-shadow: 0 0 14px rgba(247, 242, 234, 0.4);
     margin-top: 0.22em;
-}
-
-/* 爱染诚签名领带线:粉领带 → 金色水晶的过渡 */
-.hero-tie {
-    width: 112px;
-    height: 3px;
-    margin: 0.45rem auto 0.5rem;
-    border-radius: 3px;
-    background: linear-gradient(90deg, transparent, var(--blush) 32%, var(--gold) 68%, transparent);
-    box-shadow: 0 0 16px rgba(242, 167, 188, 0.55);
-    opacity: 0.95;
 }
 
 .hero-stats {
@@ -544,13 +523,13 @@ body {
     box-shadow: var(--shadow-gold);
 }
 
-/* 小水晶（开关行装饰 + 卡片角标共用形态） */
+/* 开关行前的状态点(原为水晶多边形; 水晶图案收敛到卡片角标一处, 这里退成纯圆点) */
 .crys-lit, .crys-dim {
-    width: 14px;
-    height: 13px;
+    width: 12px;
+    height: 12px;
     flex-shrink: 0;
     display: inline-block;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    border-radius: 50%;
 }
 
 .crys-lit {
@@ -1115,7 +1094,7 @@ body.preview-open { overflow: hidden; }
 
 /* 键盘可达性:所有可交互元素 focus 金环 */
 :where(button, .ts-link, .frame-zoomable, .keyword-tag, #query, .switch-line input,
-       .input-row input, .brand-crystal, .site-header):focus-visible {
+       .input-row input, .site-header):focus-visible {
     outline: none;
     box-shadow: 0 0 0 3px rgba(232, 200, 122, 0.35);
 }
