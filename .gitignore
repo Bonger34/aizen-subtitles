@@ -171,7 +171,6 @@ output_frames/
 shibing624_chinese-text-correction-1.5b/
 dlib_module/
 ch_PP-OCRv4_rec_infer/
-search/local/index/
 node_modules/
 entries.json
 cloud_entries.json
@@ -179,8 +178,6 @@ cloud_entries.json
 # 那 6775 张帧图是站点唯一的核心资产, 必须入库,
 # 否则 GitHub Pages 上每一格都是「无帧图」占位符。
 /frames/
-/DataProcess/*.index
-/DataProcess/*.webp
 # VV_Rob 特有(本轮排查产生的临时脚本)
 _tmp_*.py
 _tmp_*.pyc
@@ -205,9 +202,6 @@ __pycache__/
 
 # 二进制工具/大文件(不应入库)
 tools/bbdown/
-api/subtitle_search_api
-archive/demo/
-archive/lab/
 *.png
 *.GIF
 
