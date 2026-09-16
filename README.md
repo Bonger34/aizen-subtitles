@@ -50,8 +50,7 @@ python scripts/pipeline/q_audit.py             # 历史修正 195 处, 异常 0
 VV_Rob/
 ├─ README.md                 本文件
 ├─ 复刻运行手册.md            完整复刻流程（环境 → 取视频 → 人脸 → 字幕 → 站点）
-├─ 漏句检测方法论.md          漏句检测的采样数学保证与踩坑记录
-├─ 字幕核对方法论.md          判定口径 / 帧图 / 带外剔除 / 去重 / 时间戳
+├─ 字幕核对方法论.md          判定口径 / 漏句检测 / 帧图 / 带外剔除 / 去重 / 时间戳 / 参数表
 ├─ requirements.txt
 ├─ LICENSE                   GPL-3.0（继承自上游 VV）
 │
@@ -69,8 +68,11 @@ VV_Rob/
 │   └─ pipeline/             【23 个 .py + 1 个 .js】复刻必需 —— 构建链 + 六项校验
 │
 ├─ review/                   复核报告与判定记录；同时是校验链的工作目录
+│   ├─ 复核总报告.md          全过程记录与证据清单（合并了原先 10 篇分轮报告）
+│   ├─ 带外垃圾条目清单.md     待人工决定的 3 条
+│   └─ *.json                 8 个判定源文件
 ├─ archive/                  历史归档
-│   └─ datasets/             早期数据集：各轮清洗快照 + 另两次 OCR/VL 跑的结果
+│   └─ datasets/             早期数据集：各轮清洗快照（5232 / 5797 等）+ 另两次 OCR/VL 跑的结果
 │
 └─ tools/                     爱染诚人脸候选抽取脚本（手册第 3 步用）
 
@@ -78,7 +80,7 @@ VV_Rob/
 —— 它们是什么、为什么不需要，见手册第 6.2 节；需要对照时去上游仓库取。
 
 本地目录（未入库，clone 后不存在）：
-Videos/ 24.4 GB 原片 · target/ 人脸训练图 · clusters/ · faces_candidates/
+Videos/ 23.85 GB 原片 · target/ 人脸训练图 · clusters/ · faces_candidates/ · output_frames/
 ```
 
 ### 过程留档去哪了
@@ -88,7 +90,8 @@ Videos/ 24.4 GB 原片 · target/ 人脸训练图 · clusters/ · faces_candidat
 的中间产物一起移出仓库。
 
 它们写下的判据、参数与踩坑已提炼进 **[字幕核对方法论.md](字幕核对方法论.md)**
-（判定口径 / 字幕定位 / 帧图 / 带外与去重 / 时间戳 / 环境 / 流程自身的坑 / 参数表）。
+（判定口径 / 字幕定位 / **漏句检测** / 帧图 / 带外与去重 / 时间戳 / 环境 / 流程自身的坑 / 参数表）；
+各轮的实测数据、推导过程与证据清单在 **[review/复核总报告.md](review/复核总报告.md)**。
 需要看某个结论的原始实现时：
 
 ```bash
@@ -101,7 +104,10 @@ git show <提交>:scripts/oneoff/q_tsread.py    # 取回单个脚本
 改字幕区域、换人脸目标、重跑全流程 —— 见 **[复刻运行手册.md](复刻运行手册.md)**。
 手册里的路径已与 `scripts/` 结构对齐，可直接照抄执行。
 
-只想改站点外观：直接编辑 `docs/` 下的 5 个文件即可，无需重新构建数据。
+只想改站点外观：直接编辑 `docs/` 下的 `index.html` / `style.css` / `script.js` / `db_search.js`
+这 4 个文件即可，无需重新构建数据。（`docs/` 下其余文件是数据产物：`subtitle_db` /
+`subtitle_db.js` 由 `make_subtitle_db.py` 生成，`frames_map.js` 由 `rebuild_map.py` 生成，
+`frames/` 由 `make_frames_full.py` 生成。）
 
 ## 上游与许可
 
@@ -116,7 +122,11 @@ fork。上游提供了一整套"视频 → 人脸识别 → 字幕 OCR → 静�
 | 数据 | 全部替换为《罗布奥特曼》—— 25 集字幕、6775 张帧图、爱染诚人脸特征 |
 | 管线 | `params.py` 新增 `SUBTITLE_AREA` / `REQUIRED_RESOLUTION`；解出"白边掩膜"字幕行切分法 |
 | 前端 | 品牌与文案改为爱染诚档案室；新增爱染诚筛选与优先排序 |
-| 数据源 | 站点改用本地 `docs/subtitle_db`，不再请求上游域名 |
+| 数据源 | 站点改用本地 `docs/subtitle_db`，不再请求上游域名（`vvdb.cicada000.work` 已移除） |
+
+站点剩下的对外请求只有两处：跳转原片的 `bilibili.com` 链接，以及 `index.html` 里引的
+Google Fonts（Noto Sans SC / IBM Plex Mono）。字体有完整的系统字体兜底链
+（`微软雅黑` / `Segoe UI` / `Consolas`），取不到时只是字形变化，不影响功能。
 | 已移除 | 上游的 `api/`、`search/`、`DataProcess/`、`vercel.json`、Telegram bot、云端 RAG、口吧水印等本站用不到的能力 |
 
 逐条改动见 `git log` —— 每个提交只做一件事，提交信息写明了改动前后的状态。
