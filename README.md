@@ -68,18 +68,14 @@ VV_Rob/
 │   ├─ pipeline/             【23 个 .py + 1 个 .js】复刻必需 —— 构建链 + 六项校验
 │   └─ oneoff/               【285 个】一次性脚本，研究过程留档
 │
-├─ review/                   复核报告与判定记录（q_*.json + *.md）
+├─ review/                   复核报告与判定记录；同时是校验链的工作目录
 ├─ archive/                  历史归档
-│   ├─ datasets/             早期数据集：各轮清洗快照 + 另两次 OCR/VL 跑的结果
-│   ├─ lab/  demo/  logs/    实验脚本、演示、日志
+│   └─ datasets/             早期数据集：各轮清洗快照 + 另两次 OCR/VL 跑的结果
 │
-├─ api/         ┐
-├─ search/      ├ 上游 VV 遗留的可选组件。本站不使用，复刻本站也不需要。
-├─ DataProcess/ ┘ 保留是为了尊重上游；手册第 6/9 节有它们的用法。
-│                 ⚠️ DataProcess/compress_subtitle.py 已废弃，建库请用
-│                 scripts/pipeline/make_subtitle_db.py（文件头有说明）
-├─ tools/                     BBDown 视频下载器 + 爱染诚人脸候选抽取
-└─ vercel.json                上游的 Vercel 部署配置（本站走 GitHub Pages）
+└─ tools/                     BBDown 视频下载器 + 爱染诚人脸候选抽取
+
+上游 VV 的 api/ · search/ · DataProcess/ · vercel.json 本站一个都不用，因此没有收录
+—— 它们是什么、为什么不需要，见手册第 6.2 节；需要对照时去上游仓库取。
 
 本地目录（未入库，clone 后不存在）：
 Videos/ 24.4 GB 原片 · target/ 人脸训练图 · clusters/ · faces_candidates/ ·
@@ -124,9 +120,9 @@ fork。上游提供了一整套"视频 → 人脸识别 → 字幕 OCR → 静�
 | 管线 | `params.py` 新增 `SUBTITLE_AREA` / `REQUIRED_RESOLUTION`；解出"白边掩膜"字幕行切分法 |
 | 前端 | 品牌与文案改为爱染诚档案室；新增爱染诚筛选与优先排序 |
 | 数据源 | 站点改用本地 `docs/subtitle_db`，不再请求上游域名 |
-| 已移除 | 上游的 Telegram bot、云端 RAG、口吧水印等本站用不到的能力 |
+| 已移除 | 上游的 `api/`、`search/`、`DataProcess/`、`vercel.json`、Telegram bot、云端 RAG、口吧水印等本站用不到的能力 |
 
-完整清单见手册第 10 节。
+逐条改动见 `git log` —— 每个提交只做一件事，提交信息写明了改动前后的状态。
 
 **许可**：GPL-3.0（见 [LICENSE](LICENSE)）。沿用上游许可，二次分发请保留同样的自由。
 
