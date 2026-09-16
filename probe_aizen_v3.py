@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""probe_aisome_v3.py — 命中率提升实验（P03 精测）
+"""probe_aizen_v3.py — 命中率提升实验（P03 精测）
 
 实验 A：0.5s 步长窗口细扫（vs 现 1s 步长 + 800ms 偏移）
   对每条字幕的显示窗口按 0.5s 采样，OCR 校验 + 爱染诚 sim 评分，取最优帧；
@@ -9,7 +9,7 @@
   P03 剖面中 sim>=0.55 的人脸 embedding 补充进锚点集（覆盖不同角度/妆造），
   用增强锚点重新给已选帧评分，对比命中率。
 
-用法: python probe_aisome_v3.py [P03]（默认 P03）
+用法: python probe_aizen_v3.py [P03]（默认 P03）
 """
 import json
 import os
@@ -175,7 +175,7 @@ def main():
         print(f'[B] {ep}: 已选帧 {len(files)} | 基线锚点命中 {n_base} ({n_base / len(files) * 100:.1f}%) '
               f'vs 自增强锚点 {(len(nk_aug))} 个: {n_augb} ({n_augb / len(files) * 100:.1f}%)', flush=True)
 
-    out = os.path.join(REVIEW_DIR, 'probe_aisome_v3.json')
+    out = os.path.join(REVIEW_DIR, 'probe_aizen_v3.json')
     json.dump(report, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
     print(f'保存: {out}')
 

@@ -251,7 +251,7 @@ body {
        末层那个深色是图加载失败时的兜底底色。 */
     background:
         linear-gradient(180deg, rgba(10, 13, 20, 0.28) 0%, transparent 30%, transparent 62%, rgba(10, 13, 20, 0.30) 100%),
-        url('assets/hero_aisome.jpg') center 52% / cover no-repeat,
+        url('assets/hero_aizen.jpg') center 52% / cover no-repeat,
         #141A2A;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -421,7 +421,7 @@ body {
     gap: 0.5rem 0.9rem;
 }
 
-.aisome-row {
+.aizen-row {
     display: flex;
     justify-content: flex-start;
     gap: 0.5rem 0.9rem;
@@ -601,7 +601,7 @@ body {
     transform: translateY(-2px) scale(1.004);
 }
 
-.result-card.is-aisome:hover {
+.result-card.is-aizen:hover {
     border-color: var(--blush);
     box-shadow: var(--shadow-blush);
 }
@@ -620,13 +620,13 @@ body {
     transition: filter 0.25s ease, transform 0.25s ease;
 }
 
-.result-card.is-aisome .card-crystal {
+.result-card.is-aizen .card-crystal {
     background: linear-gradient(160deg, #F2DDA0 8%, var(--gold) 55%, var(--gold-deep));
     filter: drop-shadow(0 0 6px rgba(232, 200, 122, 0.9));
 }
 
-.result-card.is-aisome:hover .card-crystal,
-.result-card:hover.is-aisome .card-crystal {
+.result-card.is-aizen:hover .card-crystal,
+.result-card:hover.is-aizen .card-crystal {
     filter: drop-shadow(0 0 10px rgba(232, 200, 122, 1));
 }
 
@@ -700,7 +700,7 @@ body {
     margin: 0.1rem 0 0;
 }
 
-.aisome-badge {
+.aizen-badge {
     display: inline-block;
     font-family: var(--font-display);
     font-size: 0.74rem;

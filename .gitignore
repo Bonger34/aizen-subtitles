@@ -195,7 +195,7 @@ docs/frames_fix/
 target/
 faces_candidates/
 clusters/
-face_features_aisome_aug.npz
+face_features_aizen_aug.npz
 face_features_insightface.npz
 cluster_embeddings.npz
 # 运行时缓存

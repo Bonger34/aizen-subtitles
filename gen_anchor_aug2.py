@@ -5,7 +5,7 @@
 - 输入: docs/frames/ 全部 4664 张台词帧（960x540）
 - 对每帧取与现有锚点最大相似度 >= AUG_SIM_MIN 的人脸 embedding 加入增强集
 - 查重（与已有锚点相似度 > DUP_SIM_MAX 跳过）
-- 输出: face_features_aisome_aug.npz（95 基 + 增强）
+- 输出: face_features_aizen_aug.npz（95 基 + 增强）
 
 台词帧本身就是「窗口最优」帧，构图覆盖各集台词场景，对评分的增益与剖面等价。
 用法: python gen_anchor_aug2.py  （预计 5-8 分钟）
@@ -61,7 +61,7 @@ def main():
             print(f'... {n_scan}/{len(files)} 帧，候选 {n_cand}，增强 {len(aug)}', flush=True)
 
     all_emb = np.concatenate([base, np.stack(aug)], axis=0) if aug else base
-    np.savez(os.path.join(BASE, 'face_features_aisome_aug.npz'), encodings=all_emb)
+    np.savez(os.path.join(BASE, 'face_features_aizen_aug.npz'), encodings=all_emb)
     print(f'完成: 基锚点 {len(base)} + 增强 {len(aug)} = {len(all_emb)} '
           f'（扫描 {n_scan} 帧，高置信候选 {n_cand}）')
 

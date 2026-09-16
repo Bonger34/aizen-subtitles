@@ -65,7 +65,7 @@ def main():
     app = FaceAnalysis(name='buffalo_l', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
     app.prepare(ctx_id=0, det_size=(640, 640))
     # 优先使用增强锚点（95 基锚点 + 全 25 集高置信爱染诚 embedding），不存在则回退原锚点
-    aug_path = os.path.join(BASE, 'face_features_aisome_aug.npz')
+    aug_path = os.path.join(BASE, 'face_features_aizen_aug.npz')
     anchor_path = aug_path if os.path.exists(aug_path) else os.path.join(BASE, 'face_features_insightface.npz')
     features = np.load(anchor_path)
     norm_known = features['encodings'] / np.linalg.norm(features['encodings'], axis=1, keepdims=True)

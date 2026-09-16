@@ -5,7 +5,7 @@
 用「与现有锚点最大相似度 >= AUG_SIM_MIN 的剖面人脸 embedding」补充锚点集，
 这些高置信人脸极大概率就是爱染诚，可显著提升边缘镜头的识别率。
 
-输出: face_features_aisome_aug.npz（encodings = 95 基锚点 + 增强锚点）
+输出: face_features_aizen_aug.npz（encodings = 95 基锚点 + 增强锚点）
 用法: python gen_anchor_aug.py   （后台运行，约 25 集 × 736 帧 ≈ 15 分钟）
 """
 import json
@@ -76,11 +76,11 @@ def main():
         print(f'{ep}: 本集新增 {n_add}（累计 {len(aug)}）', flush=True)
 
     all_emb = np.concatenate([base, np.stack(aug)], axis=0) if aug else base
-    np.savez(os.path.join(BASE, 'face_features_aisome_aug.npz'), encodings=all_emb)
+    np.savez(os.path.join(BASE, 'face_features_aizen_aug.npz'), encodings=all_emb)
     json.dump(per_ep, open(os.path.join(BASE, 'review', 'anchor_aug_per_ep.json'), 'w',
                            encoding='utf-8'), ensure_ascii=False, indent=2)
     print(f'完成: 基锚点 {len(base)} + 增强 {len(aug)} = {len(all_emb)}，'
-          f'保存 face_features_aisome_aug.npz')
+          f'保存 face_features_aizen_aug.npz')
 
 
 if __name__ == '__main__':

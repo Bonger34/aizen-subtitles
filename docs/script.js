@@ -247,13 +247,13 @@ async function handleSearch(event) {
 
     if (results && results.status === "success") {
       // 爱染诚画面优先 / 仅显示含爱染诚画面（高级选项）
-      const aisomeFirst = document.getElementById("aisomeFirst")?.checked !== false;
-      const aisomeOnly = document.getElementById("aisomeOnly")?.checked === true;
+      const aizenFirst = document.getElementById("aizenFirst")?.checked !== false;
+      const aizenOnly = document.getElementById("aizenOnly")?.checked === true;
       let data = results.data.slice();
-      if (aisomeOnly) data = data.filter((r) => r.aisome);
-      if (aisomeFirst) {
+      if (aizenOnly) data = data.filter((r) => r.aizen);
+      if (aizenFirst) {
         data.sort((a, b) => {
-          if ((b.aisome || 0) !== (a.aisome || 0)) return (b.aisome || 0) - (a.aisome || 0);
+          if ((b.aizen || 0) !== (a.aizen || 0)) return (b.aizen || 0) - (a.aizen || 0);
           if (b.match_ratio !== a.match_ratio) return b.match_ratio - a.match_ratio;
           return (b.exact_match || 0) - (a.exact_match || 0);
         });
@@ -307,9 +307,9 @@ async function refreshArchiveStats() {
     const db = getSubtitleDb();
     if (!db || !db.length) return;
     const eps = new Set(db.map((r) => String(r.f || "").slice(0, 4)));
-    // 裸库记录用 d 表示"该帧命中爱染诚人脸集"; 检索结果里才被映射成 aisome(db_search.js)
-    const aisome = db.filter((r) => r.d).length;
-    el.textContent = `全 ${eps.size} 集 · 归档 ${db.length} 条 · 爱染诚登场 ${aisome} 条`;
+    // 裸库记录用 d 表示"该帧命中爱染诚人脸集"; 检索结果里才被映射成 aizen(db_search.js)
+    const aizen = db.filter((r) => r.d).length;
+    el.textContent = `全 ${eps.size} 集 · 归档 ${db.length} 条 · 爱染诚登场 ${aizen} 条`;
   } catch (error) {
     // 加载失败时给可辨认的占位, 而不是留一个过期的旧数字在页面上
     el.textContent = "全 — 集 · 归档 — 条 · 爱染诚登场 — 条";
@@ -487,7 +487,7 @@ function displayResults(data, append = false) {
     .map((result) => {
       if (!result || typeof result !== "object") return null;
       const card = document.createElement("div");
-      card.className = "result-card" + (result.aisome ? " is-aisome" : "");
+      card.className = "result-card" + (result.aizen ? " is-aizen" : "");
 
       const episodeMatch = result.filename
         ? result.filename.match(/\[P(\d+)\]/)
@@ -515,7 +515,7 @@ function displayResults(data, append = false) {
 
       const cardContent = `
             <span class="card-crystal" aria-hidden="true"></span>
-            ${result.aisome ? `<span class="seal" aria-hidden="true">\u8bda</span>` : ""}
+            ${result.aizen ? `<span class="seal" aria-hidden="true">\u8bda</span>` : ""}
             <div class="result-content">
                 <div class="result-text-block">
                     <h3>${episodeMatch ? `<span class="tag">${episodeMatch[1]}</span>${cleanFilename.replace(/P\d+/, "").trim()}` : cleanFilename}</h3>

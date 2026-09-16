@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""probe_aisome_v2.py — 提升爱染诚命中率的对照实验
+"""probe_aizen_v2.py — 提升爱染诚命中率的对照实验
 
 对比 baseline（det 640 + 全 95 锚点）与改进（det 1280 + 精选锚点）：
 - 精选锚点：锚点自检相似度矩阵里与其他锚点平均相似度 < 0.55 的坏图剔除
@@ -7,7 +7,7 @@
 - det_size 1280：1080p 原帧不再被压到 1/3，中远景小脸召回提升
 - 另测 0.5s 步长对窗口内逐帧细扫的增益（用已选帧模拟：同秒内多帧取最优）
 
-用法: python probe_aisome_v2.py [P03 P11 ...]（默认 P03 P11）
+用法: python probe_aizen_v2.py [P03 P11 ...]（默认 P03 P11）
 """
 import json
 import os
@@ -115,7 +115,7 @@ def main():
         print(f'{ep}: 已选帧 n={len(sims)} 命中={hs} ({hs / len(sims) * 100:.1f}%) '
               f'buckets={bs}', flush=True)
 
-    out = os.path.join(REVIEW_DIR, 'probe_aisome_v2.json')
+    out = os.path.join(REVIEW_DIR, 'probe_aizen_v2.json')
     json.dump(report, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
     print(f'\n保存: {out}')
 

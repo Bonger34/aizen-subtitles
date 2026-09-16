@@ -24,9 +24,9 @@ def load_js_object(path):
 def main():
     os.makedirs(SITE_DIR, exist_ok=True)
     # 爱染诚标记：帧名 -> 1（画面含爱染诚）；映射：f|t -> 帧名
-    AISOME = load_js_object(os.path.join(SITE_DIR, 'aisome_frames.js'))
+    AIZEN = load_js_object(os.path.join(SITE_DIR, 'aizen_frames.js'))
     FMAP = load_js_object(os.path.join(SITE_DIR, 'frames_map.js'))
-    print(f'加载: 爱染诚帧标记 {len(AISOME)} 个，帧映射 {len(FMAP)} 条')
+    print(f'加载: 爱染诚帧标记 {len(AIZEN)} 个，帧映射 {len(FMAP)} 条')
     records = []
     files = sorted(f for f in os.listdir(SUBTITLE_DIR)
                    if f.endswith(".json") and PATTERN.match(f))
@@ -47,7 +47,7 @@ def main():
             ts = entry.get("timestamp", "")
             # 该条字幕对应帧若「画面含爱染诚」→ d=1（爱染诚相关台词）
             frame = FMAP.get(f"{video_title}|{ts}")
-            d = 1 if (frame and frame in AISOME) else 0
+            d = 1 if (frame and frame in AIZEN) else 0
             records.append({
                 "f": video_title,
                 "t": ts,

@@ -127,7 +127,7 @@ lcsRatio(str1, str2) { str1 = str1.toLowerCase(); str2 = str2.toLowerCase(); if 
             text: result.item.x, 
             match_ratio: result.matchRatio, 
             exact_match: result.exactMatch,
-            aisome: result.item.d ? 1 : 0
+            aizen: result.item.d ? 1 : 0
         })); 
         
         if (apiResults.length === 0) {

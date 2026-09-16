@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""probe_aisome.py — 诊断爱染诚命中率
+"""probe_aizen.py — 诊断爱染诚命中率
 
 问题背景：全量帧统计爱染诚命中率仅 8.7%，需区分两种可能：
 1) 剧集本身台词期间爱染诚出现少（物理在场率低）→ 命中率合理
@@ -11,7 +11,7 @@ A) 全剖面：对指定集每 2s 抽一帧（1080p 原帧），统计与爱染�
 B) 已选帧：统计该集 docs/frames 现有帧（960x540 缩略图）的相似度分布 →
    得到「台词期间命中率」，与 A 对比。
 
-用法: python probe_aisome.py [P01] [P03] ...   （不带参数 = 默认 P03 P11 P01 P19 P24）
+用法: python probe_aizen.py [P01] [P03] ...   （不带参数 = 默认 P03 P11 P01 P19 P24）
 """
 import json
 import os
@@ -125,7 +125,7 @@ def main():
         print(f'{ep}: 已选帧 n={len(sel)}  命中={hit_s} ({hit_s / len(sel) * 100:.1f}%)  '
               f'buckets={sb}', flush=True)
 
-    out = os.path.join(REVIEW_DIR, 'probe_aisome.json')
+    out = os.path.join(REVIEW_DIR, 'probe_aizen.json')
     json.dump(report, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
     print(f'\n结果已保存: {out}')
 
