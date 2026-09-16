@@ -26,7 +26,7 @@ import sys
 import cv2
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-V5_DIR = os.path.join(BASE, 'subtitle_paddle_v5')   # v5 server 全量结果
+V5_DIR = os.path.join(BASE, 'archive/datasets/subtitle_paddle_v5')   # v5 server 全量结果
 HYB_DIR = os.path.join(BASE, 'subtitle_hybrid')     # VL 复核后（含 vl_rechecked 标记）
 CLEAN_DIR = os.path.join(BASE, 'subtitle_clean')    # Web 数据源（最终入库文本）
 VIDEO_DIR = os.path.join(BASE, 'Videos')

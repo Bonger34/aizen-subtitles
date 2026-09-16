@@ -18,7 +18,7 @@ os.environ.setdefault("FLAGS_allocator_strategy", "auto_growth")
 
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 VIDEO_DIR = os.path.join(BASE, "Videos")
-SRC_DIR = os.path.join(BASE, "subtitle_paddle_v5")   # v5 server 全量结果
+SRC_DIR = os.path.join(BASE, "archive/datasets/subtitle_paddle_v5")   # v5 server 全量结果
 DST_DIR = os.path.join(BASE, "subtitle_hybrid")       # hybrid 复核结果
 PATTERN = re.compile(r'^\[P(0[1-9]|1[0-9]|2[0-5])\]')
 

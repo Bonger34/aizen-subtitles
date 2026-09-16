@@ -40,7 +40,7 @@ python scripts/pipeline/verify_consistency.py  # 缺键 0 / 缺文件 0 / 孤儿
 python scripts/pipeline/duration_check.py      # 无条目超出视频长度
 python scripts/pipeline/dup_check.py           # 同秒重复组 0
 python scripts/pipeline/stat_coverage.py       # 覆盖率 100.0%
-node verify_search.js                          # 408 命中 / 缺帧 0
+node   scripts/pipeline/verify_search.js       # 408 命中 / 缺帧 0
 python scripts/pipeline/q_audit.py             # 历史修正 195 处, 异常 0
 ```
 
@@ -55,7 +55,7 @@ VV_Rob/
 ├─ LICENSE                   GPL-3.0（继承自上游 VV）
 │
 ├─ subtitle_clean/           【权威库】25 集 / 6783 条台词，站点的唯一数据源
-├─ subtitle/                 管线步骤 5 的原始输出目录（站点不读它）
+├─ subtitle/                 管线第 5 步的输出目录（站点不读它）
 ├─ docs/                     GitHub Pages 站点本体
 │   ├─ index.html  style.css  script.js  db_search.js
 │   ├─ subtitle_db           gzip 压缩的字幕库（前端 IndexedDB 缓存）
@@ -63,22 +63,27 @@ VV_Rob/
 │   ├─ aizen_frames.js       539 张"含爱染诚"的帧名单（编译期输入）
 │   └─ frames/               6775 张帧图
 │
-├─ scripts/                  全部 Python 脚本
-│   ├─ README.md             命名前缀速查表
-│   ├─ pipeline/             【22 个】复刻必需 —— 手册引用 + 依赖闭包
-│   └─ oneoff/               【286 个】一次性脚本，研究过程留档
+├─ scripts/                  全部 308 个 Python 脚本
+│   ├─ README.md             逐个脚本的索引（机器生成，不会漂移）
+│   ├─ pipeline/             【23 个 .py + 1 个 .js】复刻必需 —— 构建链 + 六项校验
+│   └─ oneoff/               【285 个】一次性脚本，研究过程留档
 │
 ├─ review/                   复核报告与判定记录（q_*.json + *.md）
-├─ archive/                  历史归档：早期数据集、实验、日志
+├─ archive/                  历史归档
+│   ├─ datasets/             早期数据集：各轮清洗快照 + 另两次 OCR/VL 跑的结果
+│   ├─ lab/  demo/  logs/    实验脚本、演示、日志
 │
 ├─ api/         ┐
 ├─ search/      ├ 上游 VV 遗留的可选组件。本站不使用，复刻本站也不需要。
-├─ DataProcess/ ┘ 保留是为了尊重上游、便于对照；手册第 6/9 节有它们的用法。
+├─ DataProcess/ ┘ 保留是为了尊重上游；手册第 6/9 节有它们的用法。
+│                 ⚠️ DataProcess/compress_subtitle.py 已废弃，建库请用
+│                 scripts/pipeline/make_subtitle_db.py（文件头有说明）
 ├─ tools/                     BBDown 视频下载器 + 爱染诚人脸候选抽取
 └─ vercel.json                上游的 Vercel 部署配置（本站走 GitHub Pages）
 
-本地目录（未入库）：Videos/（24.4 GB 原片）、target/、clusters/、
-faces_candidates/、models_ppocrv5/、docs/frames_removed/
+本地目录（未入库，clone 后不存在）：
+Videos/ 24.4 GB 原片 · target/ 人脸训练图 · clusters/ · faces_candidates/ ·
+docs/frames_removed/ 566 张已删条目留档帧
 ```
 
 ### 关于 `scripts/oneoff/`

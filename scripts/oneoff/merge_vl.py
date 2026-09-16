@@ -14,7 +14,7 @@ import re
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN_DIR = os.path.join(BASE, 'subtitle_clean')
-VL_OUT = os.path.join(BASE, 'vl_out')
+VL_OUT = os.path.join(BASE, 'archive/datasets/vl_out')
 SNAP_DIR = os.path.join(BASE, 'archive', 'datasets', 'vl_input_snapshot')
 
 # VL 输出可能把画面文字拼入头尾（如「…郊游Schallplatt」「CH₄谁会…」）：

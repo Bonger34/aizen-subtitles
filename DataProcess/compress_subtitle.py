@@ -1,3 +1,12 @@
+# ⚠️ 已废弃, 不要用它建本站的库 —— 用 scripts/pipeline/make_subtitle_db.py
+#
+# 这是一个会静默产出"看起来正常但更差"的库的陷阱, 两处硬伤:
+#   1. 它读 subtitle/, 本站的权威库是 subtitle_clean/  (少 986 条)
+#   2. 它产出的记录没有 d 字段, 而 docs/db_search.js:130 读 item.d 判"画面含爱染诚"
+#      -> 539 条爱染诚标记会全部归零, 前端"仅列爱染诚档案"开关点下去返回空
+#
+# 上游 VV 用它是没问题的(上游没有 d 字段的需求); 本站已由 make_subtitle_db.py 取代。
+# 保留此文件仅为尊重上游、便于对照。
 import json
 import os
 import gzip

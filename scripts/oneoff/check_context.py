@@ -30,5 +30,5 @@ def dump(dirs, ep, lo, hi):
             print(f"   {r['timestamp']:>7}  {r['text'][:44]}")
 
 
-dump(['subtitle', 'subtitle_paddle_v5', 'vl_out', 'subtitle_clean'], 'P06', 1305, 1325)
-dump(['subtitle', 'subtitle_paddle_v5', 'vl_out', 'subtitle_clean'], 'P19', 1145, 1165)
+dump(['subtitle', 'archive/datasets/subtitle_paddle_v5', 'archive/datasets/vl_out', 'subtitle_clean'], 'P06', 1305, 1325)
+dump(['subtitle', 'archive/datasets/subtitle_paddle_v5', 'archive/datasets/vl_out', 'subtitle_clean'], 'P19', 1145, 1165)
