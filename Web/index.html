@@ -35,7 +35,10 @@
                         <span class="search-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 L21 21"/></svg>
                         </span>
-                        <input type="text" id="query" placeholder="检索爱染诚的台词，如：我是爱与善意的传播者、水晶" required>
+                        <!-- placeholder 必须能整句显示: 原句「…如：我是爱与善意的传播者、水晶」实测需 365px,
+                             而输入框内容宽在 1280 下只有 293px(46% 列)、375 下 237px —— 任何视口都放不下,
+                             会被拦腰切断。换成下面这句(198px), 375/640/1024/1280 四个视口全部放得下(CDP 实测)。 -->
+                        <input type="text" id="query" placeholder="检索爱染诚的台词，如：水晶" required>
                     </div>
                     <button type="button" id="toggleAdvancedOptions" class="toggle-button" aria-expanded="false">
                         高级选项
