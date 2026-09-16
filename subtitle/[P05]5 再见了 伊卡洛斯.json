@@ -1,1137 +1,1314 @@
 [
-  {
-    "timestamp": "0m00s",
-    "similarity": 0.15,
-    "text": "那个上一集讲了一个什么故事来着"
-  },
-  {
-    "timestamp": "0m04s",
-    "similarity": 0.086,
-    "text": "讲的是从哥哥你的恩师教练那里"
-  },
-  {
-    "timestamp": "0m06s",
-    "similarity": 0.106,
-    "text": "从熊城教练家代代相传下来的物品正是罗布水晶"
-  },
-  {
-    "timestamp": "0m13s",
-    "similarity": 0.0,
-    "text": "奥特战士也曾托梦给教练家的先人"
-  },
-  {
-    "timestamp": "0m15s",
-    "similarity": 0.615,
-    "text": "话说虽然我们能变身成奥特战士"
-  },
-  {
-    "timestamp": "0m18s",
-    "similarity": 0.0,
-    "text": "但奥特战士到底是什么存在啊"
-  },
-  {
-    "timestamp": "0m20s",
-    "similarity": 0.0,
-    "text": "算了反正我们也获得了新的必杀技"
-  },
-  {
-    "timestamp": "0m24s",
-    "similarity": 0.0,
-    "text": "好想赶紧试试新的罗布水晶啊"
-  },
-  {
-    "timestamp": "0m35s",
-    "similarity": 0.0,
-    "text": "我是在入学后不久认识的她"
-  },
-  {
-    "timestamp": "0m40s",
-    "similarity": 0.116,
-    "text": "她叫二宫悠叶"
-  },
-  {
-    "timestamp": "0m43s",
-    "similarity": 0.089,
-    "text": "出身于名门"
-  },
-  {
-    "timestamp": "0m45s",
-    "similarity": 0.065,
-    "text": "所以她是个大小姐"
-  },
-  {
-    "timestamp": "0m54s",
-    "similarity": 0.0,
-    "text": "她想利用自己制造的机器飞向天空",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "1m11s",
-    "similarity": 0.103,
-    "text": "你没事吧二宫"
-  },
-  {
-    "timestamp": "1m14s",
-    "similarity": 0.167,
-    "text": "凑同学你好"
-  },
-  {
-    "timestamp": "1m40s",
-    "similarity": 0.095,
-    "text": "放这就可以了吧"
-  },
-  {
-    "timestamp": "1m48s",
-    "similarity": 0.042,
-    "text": "很不错嘛"
-  },
-  {
-    "timestamp": "1m50s",
-    "similarity": 0.091,
-    "text": "你在大学里还有自己的研究室啊"
-  },
-  {
-    "timestamp": "1m56s",
-    "similarity": 0.0,
-    "text": "老师出的研究课题就是人造肌肉和外骨骼的应用"
-  },
-  {
-    "timestamp": "2m02s",
-    "similarity": 0.094,
-    "text": "听起来很有趣嘛"
-  },
-  {
-    "timestamp": "2m04s",
-    "similarity": 0.105,
-    "text": "一次也没成功过好吗"
-  },
-  {
-    "timestamp": "2m07s",
-    "similarity": 0.1,
-    "text": "好羡慕奥特战士啊"
-  },
-  {
-    "timestamp": "2m10s",
-    "similarity": 0.145,
-    "text": "我说的奥特战士就是之前出现的那两个巨人"
-  },
-  {
-    "timestamp": "2m16s",
-    "similarity": 0.154,
-    "text": "他们能轻易地在空中飞翔"
-  },
-  {
-    "timestamp": "2m21s",
-    "similarity": 0.159,
-    "text": "我知道我知道嗯"
-  },
-  {
-    "timestamp": "2m24s",
-    "similarity": 0.151,
-    "text": "希望你也能够飞起来"
-  },
-  {
-    "timestamp": "2m28s",
-    "similarity": 0.182,
-    "text": "只有凑同学你是支持我的"
-  },
-  {
-    "timestamp": "2m31s",
-    "similarity": 0.148,
-    "text": "其实我一开始也觉得你挺奇葩的"
-  },
-  {
-    "timestamp": "2m35s",
-    "similarity": 0.158,
-    "text": "为什么你不像其他人那样嘲笑我呢"
-  },
-  {
-    "timestamp": "2m39s",
-    "similarity": 0.176,
-    "text": "嗯因为你很努力啊",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "2m44s",
-    "similarity": 0.166,
-    "text": "我不讨厌努力的人"
-  },
-  {
-    "timestamp": "2m52s",
-    "similarity": 0.0,
-    "text": "飞行支援型人工翼"
-  },
-  {
-    "timestamp": "2m56s",
-    "similarity": 0.142,
-    "text": "这是我的研究课题"
-  },
-  {
-    "timestamp": "2m59s",
-    "similarity": 0.108,
-    "text": "C不过凑同学"
-  },
-  {
-    "timestamp": "3m01s",
-    "similarity": 0.148,
-    "text": "我需要一个助手"
-  },
-  {
-    "timestamp": "3m04s",
-    "similarity": 0.085,
-    "text": "你可以当我助手吗"
-  },
-  {
-    "timestamp": "3m08s",
-    "similarity": 0.134,
-    "text": "我吗可我有自己的研究要做"
-  },
-  {
-    "timestamp": "3m14s",
-    "similarity": 0.132,
-    "text": "没关系两者是可以兼顾的"
-  },
-  {
-    "timestamp": "3m20s",
-    "similarity": 0.136,
-    "text": "那么明天见啦"
-  },
-  {
-    "timestamp": "3m24s",
-    "similarity": 0.156,
-    "text": "凑同学你刚刚弄坏的是专门定制的零件"
-  },
-  {
-    "timestamp": "3m27s",
-    "similarity": 0.141,
-    "text": "价值20万日元"
-  },
-  {
-    "timestamp": "3m34s",
-    "similarity": 0.141,
-    "text": "好想有个助手呢"
-  },
-  {
-    "timestamp": "3m53s",
-    "similarity": 0.0,
-    "text": "けつきすなあきら決して絆を諦めない"
-  },
-  {
-    "timestamp": "4m04s",
-    "similarity": 0.028,
-    "text": "君の笑顔それは希望",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m07s",
-    "similarity": 0.083,
-    "text": "君の勇気それは未来",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m10s",
-    "similarity": 0.081,
-    "text": "まもせんぶ守らなきや全部たからもの"
-  },
-  {
-    "timestamp": "4m11s",
-    "similarity": 0.119,
-    "text": "まもぜんぶ守らなきや全部たからもの"
-  },
-  {
-    "timestamp": "4m16s",
-    "similarity": 0.088,
-    "text": "僕の声と君の声が",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m24s",
-    "similarity": 0.205,
-    "text": "(Ohルーブ!)何百回何千回何万回",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m26s",
-    "similarity": 0.048,
-    "text": "（Ohルーブ！）何百回何千回何万回",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m30s",
-    "similarity": 0.0,
-    "text": "かだむす飞飞せらだいはな手と手は(Go!)堅く結んだ絶対(Go!)離さない!"
-  },
-  {
-    "timestamp": "4m40s",
-    "similarity": 0.0,
-    "text": "しゆんかんおきせきうtこの瞬間起こった奇跡きつと嘘じゃない"
-  },
-  {
-    "timestamp": "4m49s",
-    "similarity": 0.0,
-    "text": "決して明日を諦めない",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m02s",
-    "similarity": 0.075,
-    "text": "No.3中国大陆地区独家版权所",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m10s",
-    "similarity": 0.0,
-    "text": "要勒紧这里对吗"
-  },
-  {
-    "timestamp": "5m13s",
-    "similarity": 0.0,
-    "text": "是的要勒得紧一点"
-  },
-  {
-    "timestamp": "5m17s",
-    "similarity": 0.141,
-    "text": "好的",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m20s",
-    "similarity": 0.124,
-    "text": "他们说想来参观一下"
-  },
-  {
-    "timestamp": "5m26s",
-    "similarity": 0.056,
-    "text": "我可得好好表现"
-  },
-  {
-    "timestamp": "5m32s",
-    "similarity": 0.095,
-    "text": "应该能刷新飞行记录"
-  },
-  {
-    "timestamp": "5m35s",
-    "similarity": 0.1,
-    "text": "为什么"
-  },
-  {
-    "timestamp": "5m43s",
-    "similarity": 0.148,
-    "text": "你仔细看下这个风向"
-  },
-  {
-    "timestamp": "5m52s",
-    "similarity": 0.0,
-    "text": "由于奥特战士和怪兽的战斗"
-  },
-  {
-    "timestamp": "6m00s",
-    "similarity": 0.0,
-    "text": "我的目标飞行距离是超过一百米"
-  },
-  {
-    "timestamp": "6m04s",
-    "similarity": 0.0,
-    "text": "我的目标飞行距离是超过一百米"
-  },
-  {
-    "timestamp": "6m20s",
-    "similarity": 0.029,
-    "text": "二宫"
-  },
-  {
-    "timestamp": "6m25s",
-    "similarity": 0.115,
-    "text": "真是麻烦你了"
-  },
-  {
-    "timestamp": "6m27s",
-    "similarity": 0.088,
-    "text": "以防万一我们还是去下医院吧"
-  },
-  {
-    "timestamp": "6m31s",
-    "similarity": 0.0,
-    "text": "这个地方好神奇啊"
-  },
-  {
-    "timestamp": "6m33s",
-    "similarity": 0.0,
-    "text": "那很危险不要靠太近"
-  },
-  {
-    "timestamp": "6m36s",
-    "similarity": 0.135,
-    "text": "那边也好赞"
-  },
-  {
-    "timestamp": "6m38s",
-    "similarity": 0.128,
-    "text": "喂朝阳"
-  },
-  {
-    "timestamp": "6m39s",
-    "similarity": 0.105,
-    "text": "算了先处理下伤口吧"
-  },
-  {
-    "timestamp": "6m51s",
-    "similarity": 0.0,
-    "text": "水晶有反应"
-  },
-  {
-    "timestamp": "6m54s",
-    "similarity": 0.137,
-    "text": "我说还是劝阻那个女生停止实验吧"
-  },
-  {
-    "timestamp": "6m58s",
-    "similarity": 0.142,
-    "text": "感觉她迟早要受重伤的"
-  },
-  {
-    "timestamp": "7m01s",
-    "similarity": 0.148,
-    "text": "这我也知道啊伝说"
-  },
-  {
-    "timestamp": "7m06s",
-    "similarity": 0.167,
-    "text": "上为音力世\n品克\n中加市\n标说",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "7m11s",
-    "similarity": 0.0,
-    "text": "有种说不上来的感觉"
-  },
-  {
-    "timestamp": "7m15s",
-    "similarity": 0.106,
-    "text": "我来点评一下"
-  },
-  {
-    "timestamp": "7m17s",
-    "similarity": 0.059,
-    "text": "你的创新精神可嘉"
-  },
-  {
-    "timestamp": "7m22s",
-    "similarity": 0.689,
-    "text": "我是爱染诚"
-  },
-  {
-    "timestamp": "7m24s",
-    "similarity": 0.506,
-    "text": "爱染先生"
-  },
-  {
-    "timestamp": "7m26s",
-    "similarity": 0.171,
-    "text": "活海之前的那场业余棒球比赛"
-  },
-  {
-    "timestamp": "7m29s",
-    "similarity": 0.119,
-    "text": "可真是很精彩呀"
-  },
-  {
-    "timestamp": "7m30s",
-    "similarity": 0.099,
-    "text": "喝杯咖啡怎么样"
-  },
-  {
-    "timestamp": "7m33s",
-    "similarity": 0.563,
-    "text": "我记得你好像是更喜欢喝红茶吧"
-  },
-  {
-    "timestamp": "7m36s",
-    "similarity": 0.58,
-    "text": "话说都过了十五年了这里还是老样子呀"
-  },
-  {
-    "timestamp": "7m41s",
-    "similarity": 0.652,
-    "text": "应该说是潮先生你守护着这里"
-  },
-  {
-    "timestamp": "7m45s",
-    "similarity": 0.525,
-    "text": "仿佛就像小澪现在还在这里一样"
-  },
-  {
-    "timestamp": "7m49s",
-    "similarity": 0.161,
-    "text": "你们的母亲是一位十分出色的女性"
-  },
-  {
-    "timestamp": "7m56s",
-    "similarity": 0.132,
-    "text": "怎么了FLAT"
-  },
-  {
-    "timestamp": "7m59s",
-    "similarity": 0.677,
-    "text": "我想买这件这个多少钱啊"
-  },
-  {
-    "timestamp": "8m02s",
-    "similarity": 0.408,
-    "text": "不好意思啊这是展示用的"
-  },
-  {
-    "timestamp": "8m07s",
-    "similarity": 0.738,
-    "text": "我出这个数怎么样"
-  },
-  {
-    "timestamp": "8m10s",
-    "similarity": 0.137,
-    "text": "谢谢惠顾"
-  },
-  {
-    "timestamp": "8m12s",
-    "similarity": 0.538,
-    "text": "不行啊这个衣服不值这个钱啊"
-  },
-  {
-    "timestamp": "8m17s",
-    "similarity": 0.302,
-    "text": "不卖也得卖啊"
-  },
-  {
-    "timestamp": "8m23s",
-    "similarity": 0.0,
-    "text": "都回收好了"
-  },
-  {
-    "timestamp": "8m26s",
-    "similarity": 0.0,
-    "text": "回去得好好修理一番了"
-  },
-  {
-    "timestamp": "8m31s",
-    "similarity": 0.0,
-    "text": "其实我早就预料到是这个结果了"
-  },
-  {
-    "timestamp": "8m34s",
-    "similarity": 0.077,
-    "text": "你真行"
-  },
-  {
-    "timestamp": "8m36s",
-    "similarity": 0.085,
-    "text": "我的梦想就是能像鸟儿一样在空中自由飞翔"
-  },
-  {
-    "timestamp": "8m43s",
-    "similarity": 0.053,
-    "text": "为什么啊"
-  },
-  {
-    "timestamp": "8m46s",
-    "similarity": 0.063,
-    "text": "你家不是很有钱吗"
-  },
-  {
-    "timestamp": "8m47s",
-    "similarity": 0.073,
-    "text": "应该活得很自在才对啊"
-  },
-  {
-    "timestamp": "8m53s",
-    "similarity": 0.035,
-    "text": "结婚对象都是家里安排好的"
-  },
-  {
-    "timestamp": "8m58s",
-    "similarity": 0.072,
-    "text": "我要和一个从未谋面的人结婚"
-  },
-  {
-    "timestamp": "9m03s",
-    "similarity": 0.058,
-    "text": "居然还有这种事啊"
-  },
-  {
-    "timestamp": "9m14s",
-    "similarity": 0.095,
-    "text": "有水晶埋在那下面吗"
-  },
-  {
-    "timestamp": "9m17s",
-    "similarity": 0.109,
-    "text": "我检测到了和这两个一样的共振波"
-  },
-  {
-    "timestamp": "9m20s",
-    "similarity": 0.064,
-    "text": "那些风就是受水晶影响形成的"
-  },
-  {
-    "timestamp": "9m23s",
-    "similarity": 0.108,
-    "text": "我觉得如果水晶是有属性的话"
-  },
-  {
-    "timestamp": "9m28s",
-    "similarity": 0.566,
-    "text": "风吗不过是谁埋在那里的呢"
-  },
-  {
-    "timestamp": "9m30s",
-    "similarity": 0.575,
-    "text": "类似化石的形成原理吧"
-  },
-  {
-    "timestamp": "9m32s",
-    "similarity": 0.691,
-    "text": "由于土壤的堆积被埋至地下"
-  },
-  {
-    "timestamp": "9m35s",
-    "similarity": 0.721,
-    "text": "真好喝嗯"
-  },
-  {
-    "timestamp": "9m37s",
-    "similarity": 0.613,
-    "text": "之前爱染先生不是说过有关绫香星的事吗"
-  },
-  {
-    "timestamp": "9m41s",
-    "similarity": 0.684,
-    "text": "根据这三点我进行了观测"
-  },
-  {
-    "timestamp": "9m44s",
-    "similarity": 0.135,
-    "text": "我发现那里的地层有1300年前的土壤"
-  },
-  {
-    "timestamp": "9m48s",
-    "similarity": 0.169,
-    "text": "和当时的时期是重合的"
-  },
-  {
-    "timestamp": "9m53s",
-    "similarity": 0.128,
-    "text": "你们两个在干什么呢"
-  },
-  {
-    "timestamp": "9m58s",
-    "similarity": 0.146,
-    "text": "你俩真奇怪"
-  },
-  {
-    "timestamp": "10m00s",
-    "similarity": 0.102,
-    "text": "我先吃点东西啦"
-  },
-  {
-    "timestamp": "10m03s",
-    "similarity": 0.543,
-    "text": "好烫"
-  },
-  {
-    "timestamp": "10m06s",
-    "similarity": 0.141,
-    "text": "好硬这是什么啊"
-  },
-  {
-    "timestamp": "10m09s",
-    "similarity": 0.117,
-    "text": "又是勇海哥搞的恶作剧吗"
-  },
-  {
-    "timestamp": "10m15s",
-    "similarity": 0.126,
-    "text": "我和二宫通宵维修了机翼"
-  },
-  {
-    "timestamp": "10m18s",
-    "similarity": 0.151,
-    "text": "我还重新计算了强度"
-  },
-  {
-    "timestamp": "10m23s",
-    "similarity": 0.0,
-    "text": "我们的口号是制造不会折断的机翼"
-  },
-  {
-    "timestamp": "10m30s",
-    "similarity": 0.153,
-    "text": "我可能以后就不在这里上学了"
-  },
-  {
-    "timestamp": "10m34s",
-    "similarity": 0.148,
-    "text": "我家里人觉得我不该来这种学校"
-  },
-  {
-    "timestamp": "10m40s",
-    "similarity": 0.122,
-    "text": "我父母的意思是"
-  },
-  {
-    "timestamp": "10m41s",
-    "similarity": 0.154,
-    "text": "打算送我去国外的贵族学校"
-  },
-  {
-    "timestamp": "10m48s",
-    "similarity": 0.154,
-    "text": "你父母的意思吗"
-  },
-  {
-    "timestamp": "10m50s",
-    "similarity": 0.185,
-    "text": "等我毕业后"
-  },
-  {
-    "timestamp": "10m53s",
-    "similarity": 0.082,
-    "text": "估计就是回到老家和某个不认识的人结婚吧"
-  },
-  {
-    "timestamp": "10m57s",
-    "similarity": 0.12,
-    "text": "飞行试验也就到此为止了"
-  },
-  {
-    "timestamp": "11m04s",
-    "similarity": 0.064,
-    "text": "伊卡洛斯要从大学里消失了啊"
-  },
-  {
-    "timestamp": "11m07s",
-    "similarity": 0.072,
-    "text": "伊卡洛斯那是大家给我取的外号吧"
-  },
-  {
-    "timestamp": "11m12s",
-    "similarity": 0.097,
-    "text": "伊卡洛斯过于接近太阳"
-  },
-  {
-    "timestamp": "11m16s",
-    "similarity": 0.074,
-    "text": "导致蜡做的双翼融化"
-  },
-  {
-    "timestamp": "11m20s",
-    "similarity": 0.052,
-    "text": "原来是个悲剧啊"
-  },
-  {
-    "timestamp": "11m23s",
-    "similarity": 0.142,
-    "text": "不我倒觉得挺光荣的"
-  },
-  {
-    "timestamp": "11m26s",
-    "similarity": 0.149,
-    "text": "他相信自己的双翼可以高飞"
-  },
-  {
-    "timestamp": "11m31s",
-    "similarity": 0.123,
-    "text": "我也一样"
-  },
-  {
-    "timestamp": "11m44s",
-    "similarity": 0.0,
-    "text": "后来机翼被我们修好了"
-  },
-  {
-    "timestamp": "11m49s",
-    "similarity": 0.129,
-    "text": "之前真是见笑了活海朝阳"
-  },
-  {
-    "timestamp": "11m57s",
-    "similarity": 0.176,
-    "text": "这次肯定能飞起来的"
-  },
-  {
-    "timestamp": "12m03s",
-    "similarity": 0.095,
-    "text": "勇海"
-  },
-  {
-    "timestamp": "12m07s",
-    "similarity": 0.137,
-    "text": "绫香市是我所知道的最棒的城市"
-  },
-  {
-    "timestamp": "12m16s",
-    "similarity": 0.002,
-    "text": "我真的是很佩服你"
-  },
-  {
-    "timestamp": "12m22s",
-    "similarity": 0.117,
-    "text": "佩服我我可以问一下理由吗"
-  },
-  {
-    "timestamp": "12m28s",
-    "similarity": 0.004,
-    "text": "很多人即便有梦想也不敢去挑战"
-  },
-  {
-    "timestamp": "12m37s",
-    "similarity": 0.114,
-    "text": "你给我带来了不少的勇气"
-  },
-  {
-    "timestamp": "12m46s",
-    "similarity": 0.119,
-    "text": "要是做的是个双人飞行器就好了"
-  },
-  {
-    "timestamp": "12m56s",
-    "similarity": 0.125,
-    "text": "SVo"
-  },
-  {
-    "timestamp": "13m04s",
-    "similarity": 0.583,
-    "text": "那枚水晶是古厄巴萨吧"
-  },
-  {
-    "timestamp": "13m08s",
-    "similarity": 0.67,
-    "text": "就让它去探查下情况"
-  },
-  {
-    "timestamp": "13m10s",
-    "similarity": 0.859,
-    "text": "那里应该有风属性的水晶"
-  },
-  {
-    "timestamp": "13m16s",
-    "similarity": 0.0,
-    "text": "出来吧古厄巴萨"
-  },
-  {
-    "timestamp": "13m21s",
-    "similarity": 0.236,
-    "text": "123123123"
-  },
-  {
-    "timestamp": "14m11s",
-    "similarity": 0.069,
-    "text": "它朝这里飞过来了"
-  },
-  {
-    "timestamp": "14m13s",
-    "similarity": 0.08,
-    "text": "二宫我和哥哥会拿器材的"
-  },
-  {
-    "timestamp": "14m15s",
-    "similarity": 0.091,
-    "text": "二宫我和哥哥会拿器材的",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "14m24s",
-    "similarity": 0.063,
-    "text": "染上我的本色吧罗布"
-  },
-  {
-    "timestamp": "14m29s",
-    "similarity": 0.254,
-    "text": "就你了罗布水晶"
-  },
-  {
-    "timestamp": "14m35s",
-    "similarity": 0.18,
-    "text": "泰罗奥特曼"
-  },
-  {
-    "timestamp": "14m38s",
-    "similarity": 0.114,
-    "text": "炽火绊身红莲之焰"
-  },
-  {
-    "timestamp": "14m48s",
-    "similarity": 0.0,
-    "text": "罗索奥特曼 烈火形态"
-  },
-  {
-    "timestamp": "14m59s",
-    "similarity": 0.117,
-    "text": "就你了罗布水晶",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "15m05s",
-    "similarity": 0.043,
-    "text": "银河奥特曼"
-  },
-  {
-    "timestamp": "15m08s",
-    "similarity": 0.044,
-    "text": "水流绊身碧蓝之海"
-  },
-  {
-    "timestamp": "15m18s",
-    "similarity": 0.0,
-    "text": "布鲁奥特曼跃水形态"
-  },
-  {
-    "timestamp": "15m51s",
-    "similarity": 0.104,
-    "text": "我们快跑吧"
-  },
-  {
-    "timestamp": "16m15s",
-    "similarity": 0.903,
-    "text": "如蝶飞舞却祸不单行"
-  },
-  {
-    "timestamp": "16m18s",
-    "similarity": 0.8,
-    "text": "要是得意忘形的话会吃苦头的"
-  },
-  {
-    "timestamp": "16m22s",
-    "similarity": 0.734,
-    "text": "达令把我刚刚这句话记录下来"
-  },
-  {
-    "timestamp": "16m28s",
-    "similarity": 0.0,
-    "text": "风好大"
-  },
-  {
-    "timestamp": "16m37s",
-    "similarity": 0.0,
-    "text": "二宫姐姐"
-  },
-  {
-    "timestamp": "16m51s",
-    "similarity": 0.088,
-    "text": "我们制造的双翼是不会轻易折断的"
-  },
-  {
-    "timestamp": "16m56s",
-    "similarity": 0.111,
-    "text": "哥哥用风属性的水晶吧"
-  },
-  {
-    "timestamp": "17m01s",
-    "similarity": 0.0,
-    "text": "可是水晶还在地底下啊"
-  },
-  {
-    "timestamp": "17m03s",
-    "similarity": 0.0,
-    "text": "用之前火焰和水流配合的那招"
-  },
-  {
-    "timestamp": "17m36s",
-    "similarity": 0.037,
-    "text": "这就是"
-  },
-  {
-    "timestamp": "17m38s",
-    "similarity": 0.123,
-    "text": "就你了罗布水晶"
-  },
-  {
-    "timestamp": "17m45s",
-    "similarity": 0.058,
-    "text": "迪迦奥特曼"
-  },
-  {
-    "timestamp": "17m48s",
-    "similarity": 0.072,
-    "text": "旋风绊身紫电疾风"
-  },
-  {
-    "timestamp": "17m58s",
-    "similarity": 0.0,
-    "text": "布鲁奥特曼旋风形态"
-  },
-  {
-    "timestamp": "18m23s",
-    "similarity": 0.23,
-    "text": "风属性的水晶啊"
-  },
-  {
-    "timestamp": "18m24s",
-    "similarity": 0.606,
-    "text": "又被他们给抢先拿走了啊"
-  },
-  {
-    "timestamp": "18m46s",
-    "similarity": 0.0,
-    "text": "布鲁罗布头镖"
-  },
-  {
-    "timestamp": "19m22s",
-    "similarity": 0.0,
-    "text": "嗯"
-  },
-  {
-    "timestamp": "19m34s",
-    "similarity": 0.0,
-    "text": "糟了"
-  },
-  {
-    "timestamp": "19m45s",
-    "similarity": 0.148,
-    "text": "你仔细看下这个风向"
-  },
-  {
-    "timestamp": "19m51s",
-    "similarity": 0.0,
-    "text": "原来如此"
-  },
-  {
-    "timestamp": "20m15s",
-    "similarity": 0.0,
-    "text": "消失了"
-  },
-  {
-    "timestamp": "20m17s",
-    "similarity": 0.115,
-    "text": "是逆转的龙卷风"
-  },
-  {
-    "timestamp": "20m19s",
-    "similarity": 0.0,
-    "text": "让作用力相互抵消"
-  },
-  {
-    "timestamp": "20m29s",
-    "similarity": 0.0,
-    "text": "赛罗奥特曼"
-  },
-  {
-    "timestamp": "20m37s",
-    "similarity": 0.0,
-    "text": "赛罗双斩"
-  },
-  {
-    "timestamp": "20m40s",
-    "similarity": 0.0,
-    "text": "旋风光线"
-  },
-  {
-    "timestamp": "21m19s",
-    "similarity": 0.165,
-    "text": "二宫乘着风飞行了很久"
-  },
-  {
-    "timestamp": "21m30s",
-    "similarity": 0.096,
-    "text": "你好啊"
-  },
-  {
-    "timestamp": "21m34s",
-    "similarity": 0.06,
-    "text": "不久之后她就转学了"
-  },
-  {
-    "timestamp": "21m39s",
-    "similarity": 0.209,
-    "text": "在家里的安排下"
-  },
-  {
-    "timestamp": "21m44s",
-    "similarity": 0.223,
-    "text": "离开绫香市时"
-  },
-  {
-    "timestamp": "21m46s",
-    "similarity": 0.143,
-    "text": "她露出了灿烂的笑容"
-  },
-  {
-    "timestamp": "21m53s",
-    "similarity": 0.561,
-    "text": "穿上了刚刚好"
-  },
-  {
-    "timestamp": "21m56s",
-    "similarity": 0.381,
-    "text": "古厄巴萨的水晶已回收完毕"
-  },
-  {
-    "timestamp": "22m02s",
-    "similarity": 0.367,
-    "text": "我也是呢"
-  },
-  {
-    "timestamp": "22m37s",
-    "similarity": 0.07,
-    "text": "演技事務稻垣千春\nスーツアクターサポート大野圭迎み",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m40s",
-    "similarity": 0.158,
-    "text": "制作進行岩崎僚宿邊"
-  },
-  {
-    "timestamp": "22m45s",
-    "similarity": 0.105,
-    "text": "制作進行岩崎僚道邊"
-  },
-  {
-    "timestamp": "22m51s",
-    "similarity": 0.433,
-    "text": "岡本直樹坂井孝祥豊万理子渡邊亮太"
-  },
-  {
-    "timestamp": "22m56s",
-    "similarity": 0.277,
-    "text": "岡本直樹坂井孝祥豊方理子渡邊亮太"
-  },
-  {
-    "timestamp": "23m27s",
-    "similarity": 0.178,
-    "text": "時谷堂百貨",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m45s",
-    "similarity": 0.036,
-    "text": "接下来要介绍的是关于罗布水晶的研究"
-  },
-  {
-    "timestamp": "24m07s",
-    "similarity": 0.066,
-    "text": "下集也要收看哦SoPLANET IN THESYSTEM"
-  },
-  {
-    "timestamp": "24m13s",
-    "similarity": 0.194,
-    "text": "四年一次决胜负的日子终于来临了"
-  },
-  {
-    "timestamp": "24m18s",
-    "similarity": 0.067,
-    "text": "我们的天敌小牧姐回来了"
-  },
-  {
-    "timestamp": "24m20s",
-    "similarity": 0.076,
-    "text": "话说为什么小牧姐会在怪兽身体里啊"
-  },
-  {
-    "timestamp": "24m24s",
-    "similarity": 0.085,
-    "text": "这可怎么办才好啊"
-  },
-  {
-    "timestamp": "24m26s",
-    "similarity": 0.0,
-    "text": "宿敌大姐头的必杀拳"
-  }
+ {
+  "timestamp": "0m00s",
+  "similarity": 0.15,
+  "text": "那个上一集讲了一个什么故事来着"
+ },
+ {
+  "timestamp": "0m02s",
+  "similarity": 0.086,
+  "text": "讲的是从哥哥你的恩师教练那里"
+ },
+ {
+  "timestamp": "0m05s",
+  "text": "得到了三个新的罗布水晶啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m07s",
+  "similarity": 0.106,
+  "text": "从熊城教练家代代相传下来的物品正是罗布水晶"
+ },
+ {
+  "timestamp": "0m11s",
+  "similarity": 0.0,
+  "text": "奥特战士也曾托梦给教练家的先人"
+ },
+ {
+  "timestamp": "0m13s",
+  "similarity": 0.615,
+  "text": "话说虽然我们能变身成奥特战士"
+ },
+ {
+  "timestamp": "0m16s",
+  "similarity": 0.0,
+  "text": "但奥特战士到底是什么存在啊"
+ },
+ {
+  "timestamp": "0m19s",
+  "text": "也是哦这个问题问得好",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m20s",
+  "similarity": 0.0,
+  "text": "算了反正我们也获得了新的必杀技"
+ },
+ {
+  "timestamp": "0m24s",
+  "similarity": 0.0,
+  "text": "好想赶紧试试新的罗布水晶啊"
+ },
+ {
+  "timestamp": "0m25s",
+  "text": "已经很幸运啦别太贪心",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m27s",
+  "text": "到底是怎么回事啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m35s",
+  "similarity": 0.0,
+  "text": "我是在入学后不久认识的她"
+ },
+ {
+  "timestamp": "0m40s",
+  "similarity": 0.116,
+  "text": "她叫二宫悠叶"
+ },
+ {
+  "timestamp": "0m43s",
+  "similarity": 0.089,
+  "text": "出身于名门"
+ },
+ {
+  "timestamp": "0m45s",
+  "similarity": 0.065,
+  "text": "所以她是个大小姐"
+ },
+ {
+  "timestamp": "0m47s",
+  "text": "不过却是个怪人",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m54s",
+  "similarity": 0.0,
+  "text": "她想利用自己制造的机器飞向天空",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "0m59s",
+  "text": "她的外号叫做伊卡洛斯",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "1m10s",
+  "text": "好痛",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "1m12s",
+  "similarity": 0.103,
+  "text": "你没事吧二宫"
+ },
+ {
+  "timestamp": "1m14s",
+  "similarity": 0.167,
+  "text": "凑同学你好"
+ },
+ {
+  "timestamp": "1m40s",
+  "similarity": 0.095,
+  "text": "放这就可以了吧"
+ },
+ {
+  "timestamp": "1m43s",
+  "text": "麻烦你了凑同学",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "1m48s",
+  "similarity": 0.042,
+  "text": "很不错嘛"
+ },
+ {
+  "timestamp": "1m50s",
+  "similarity": 0.091,
+  "text": "你在大学里还有自己的研究室啊"
+ },
+ {
+  "timestamp": "1m54s",
+  "text": "那是因为没有人和我一起做",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "1m56s",
+  "similarity": 0.0,
+  "text": "老师出的研究课题就是人造肌肉和外骨骼的应用"
+ },
+ {
+  "timestamp": "2m02s",
+  "similarity": 0.094,
+  "text": "听起来很有趣嘛"
+ },
+ {
+  "timestamp": "2m04s",
+  "similarity": 0.105,
+  "text": "一次也没成功过好吗"
+ },
+ {
+  "timestamp": "2m07s",
+  "similarity": 0.1,
+  "text": "好羡慕奥特战士啊"
+ },
+ {
+  "timestamp": "2m10s",
+  "similarity": 0.145,
+  "text": "我说的奥特战士就是之前出现的那两个巨人"
+ },
+ {
+  "timestamp": "2m16s",
+  "similarity": 0.154,
+  "text": "他们能轻易地在空中飞翔"
+ },
+ {
+  "timestamp": "2m20s",
+  "text": "你知道他们吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m21s",
+  "similarity": 0.159,
+  "text": "嗯我知道我知道"
+ },
+ {
+  "timestamp": "2m24s",
+  "similarity": 0.151,
+  "text": "希望你也能够飞起来"
+ },
+ {
+  "timestamp": "2m27s",
+  "text": "在所有同学里",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m28s",
+  "similarity": 0.182,
+  "text": "只有凑同学你是支持我的"
+ },
+ {
+  "timestamp": "2m31s",
+  "similarity": 0.148,
+  "text": "其实我一开始也觉得你挺奇葩的"
+ },
+ {
+  "timestamp": "2m35s",
+  "similarity": 0.158,
+  "text": "为什么你不像其他人那样嘲笑我呢"
+ },
+ {
+  "timestamp": "2m39s",
+  "similarity": 0.176,
+  "text": "嗯因为你很努力啊",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "2m44s",
+  "similarity": 0.166,
+  "text": "我不讨厌努力的人"
+ },
+ {
+  "timestamp": "2m52s",
+  "similarity": 0.0,
+  "text": "飞行支援型人工翼"
+ },
+ {
+  "timestamp": "2m56s",
+  "similarity": 0.142,
+  "text": "这是我的研究课题"
+ },
+ {
+  "timestamp": "2m59s",
+  "similarity": 0.108,
+  "text": "不过凑同学"
+ },
+ {
+  "timestamp": "3m01s",
+  "similarity": 0.148,
+  "text": "我需要一个助手"
+ },
+ {
+  "timestamp": "3m04s",
+  "similarity": 0.085,
+  "text": "你可以当我助手吗"
+ },
+ {
+  "timestamp": "3m08s",
+  "similarity": 0.134,
+  "text": "我吗可我有自己的研究要做"
+ },
+ {
+  "timestamp": "3m13s",
+  "text": "是宇宙考古学吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m14s",
+  "similarity": 0.132,
+  "text": "没关系两者是可以兼顾的"
+ },
+ {
+  "timestamp": "3m16s",
+  "similarity": 0.0,
+  "text": "不行的不行的"
+ },
+ {
+  "timestamp": "3m20s",
+  "similarity": 0.136,
+  "text": "那么明天见啦"
+ },
+ {
+  "timestamp": "3m24s",
+  "similarity": 0.156,
+  "text": "凑同学你刚刚弄坏的是专门定制的零件"
+ },
+ {
+  "timestamp": "3m27s",
+  "similarity": 0.141,
+  "text": "价值20万日元"
+ },
+ {
+  "timestamp": "3m31s",
+  "text": "这东西可贵了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m32s",
+  "text": "这东西可贵了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m34s",
+  "similarity": 0.141,
+  "text": "好想有个助手呢"
+ },
+ {
+  "timestamp": "5m10s",
+  "similarity": 0.0,
+  "text": "要勒紧这里对吗"
+ },
+ {
+  "timestamp": "5m12s",
+  "similarity": 0.0,
+  "text": "是的要勒得紧一点"
+ },
+ {
+  "timestamp": "5m17s",
+  "similarity": 0.141,
+  "text": "好的",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m19s",
+  "text": "固定好了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m20s",
+  "similarity": 0.124,
+  "text": "他们说想来参观一下"
+ },
+ {
+  "timestamp": "5m24s",
+  "text": "你们好",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m26s",
+  "similarity": 0.056,
+  "text": "我可得好好表现"
+ },
+ {
+  "timestamp": "5m30s",
+  "text": "在这座笛鸣山上",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m32s",
+  "similarity": 0.095,
+  "text": "应该能刷新飞行记录"
+ },
+ {
+  "timestamp": "5m35s",
+  "similarity": 0.1,
+  "text": "为什么"
+ },
+ {
+  "timestamp": "5m43s",
+  "similarity": 0.148,
+  "text": "你仔细看下这个风向"
+ },
+ {
+  "timestamp": "5m52s",
+  "similarity": 0.0,
+  "text": "由于奥特战士和怪兽的战斗"
+ },
+ {
+  "timestamp": "5m55s",
+  "text": "导致地面出现了龟裂",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m58s",
+  "text": "这些裂缝里能够喷出强烈的风",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m00s",
+  "similarity": 0.0,
+  "text": "我的目标飞行距离是超过一百米"
+ },
+ {
+  "timestamp": "6m05s",
+  "text": "利用这些风的话应该可以做到吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m20s",
+  "similarity": 0.029,
+  "text": "二宫"
+ },
+ {
+  "timestamp": "6m25s",
+  "similarity": 0.115,
+  "text": "真是麻烦你了"
+ },
+ {
+  "timestamp": "6m27s",
+  "similarity": 0.088,
+  "text": "以防万一我们还是去下医院吧"
+ },
+ {
+  "timestamp": "6m28s",
+  "text": "没事的没事的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m31s",
+  "similarity": 0.0,
+  "text": "这个地方好神奇啊"
+ },
+ {
+  "timestamp": "6m33s",
+  "similarity": 0.0,
+  "text": "那很危险不要靠太近"
+ },
+ {
+  "timestamp": "6m36s",
+  "similarity": 0.135,
+  "text": "那边也好赞"
+ },
+ {
+  "timestamp": "6m38s",
+  "similarity": 0.128,
+  "text": "喂朝阳"
+ },
+ {
+  "timestamp": "6m39s",
+  "similarity": 0.105,
+  "text": "算了先处理下伤口吧"
+ },
+ {
+  "timestamp": "6m51s",
+  "similarity": 0.0,
+  "text": "水晶有反应"
+ },
+ {
+  "timestamp": "6m54s",
+  "similarity": 0.137,
+  "text": "我说还是劝阻那个女生停止实验吧"
+ },
+ {
+  "timestamp": "6m58s",
+  "similarity": 0.142,
+  "text": "感觉她迟早要受重伤的"
+ },
+ {
+  "timestamp": "7m01s",
+  "similarity": 0.148,
+  "text": "这我也知道啊"
+ },
+ {
+  "timestamp": "7m08s",
+  "text": "你们来看这个",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m09s",
+  "text": "我又设计了新的款式",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m11s",
+  "similarity": 0.0,
+  "text": "有种说不上来的感觉"
+ },
+ {
+  "timestamp": "7m15s",
+  "similarity": 0.106,
+  "text": "我来点评一下"
+ },
+ {
+  "timestamp": "7m16s",
+  "similarity": 0.059,
+  "text": "你的创新精神可嘉"
+ },
+ {
+  "timestamp": "7m19s",
+  "text": "不过我是不会买的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m22s",
+  "similarity": 0.689,
+  "text": "我是爱染诚"
+ },
+ {
+  "timestamp": "7m23s",
+  "similarity": 0.506,
+  "text": "爱染先生"
+ },
+ {
+  "timestamp": "7m26s",
+  "similarity": 0.171,
+  "text": "活海之前的那场业余棒球比赛"
+ },
+ {
+  "timestamp": "7m27s",
+  "similarity": 0.119,
+  "text": "可真是很精彩呀"
+ },
+ {
+  "timestamp": "7m28s",
+  "text": "您好",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m30s",
+  "similarity": 0.099,
+  "text": "喝杯咖啡怎么样"
+ },
+ {
+  "timestamp": "7m31s",
+  "text": "谢谢夸奖",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m32s",
+  "text": "不对",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m33s",
+  "similarity": 0.563,
+  "text": "我记得你好像是更喜欢喝红茶吧"
+ },
+ {
+  "timestamp": "7m36s",
+  "similarity": 0.58,
+  "text": "话说都过了十五年了这里还是老样子呀"
+ },
+ {
+  "timestamp": "7m37s",
+  "text": "说得没错",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m41s",
+  "similarity": 0.652,
+  "text": "应该说是潮先生你守护着这里"
+ },
+ {
+  "timestamp": "7m43s",
+  "text": "让这里和以前保持一样的吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m45s",
+  "similarity": 0.525,
+  "text": "仿佛就像小澪现在还在这里一样"
+ },
+ {
+  "timestamp": "7m48s",
+  "text": "湊澪啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m50s",
+  "similarity": 0.161,
+  "text": "你们的母亲是一位十分出色的女性"
+ },
+ {
+  "timestamp": "7m56s",
+  "similarity": 0.132,
+  "text": "怎么了"
+ },
+ {
+  "timestamp": "7m59s",
+  "similarity": 0.677,
+  "text": "我想买这件这个多少钱啊"
+ },
+ {
+  "timestamp": "8m00s",
+  "similarity": 0.408,
+  "text": "不好意思啊这是展示用的"
+ },
+ {
+  "timestamp": "8m02s",
+  "text": "不是用来卖的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "8m06s",
+  "similarity": 0.738,
+  "text": "我出这个数怎么样"
+ },
+ {
+  "timestamp": "8m10s",
+  "similarity": 0.137,
+  "text": "谢谢惠顾"
+ },
+ {
+  "timestamp": "8m11s",
+  "similarity": 0.538,
+  "text": "不行啊这个衣服不值这个钱啊"
+ },
+ {
+  "timestamp": "8m14s",
+  "text": "哥哥你怎么能跟钱过不去呢",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "8m17s",
+  "similarity": 0.302,
+  "text": "不卖也得卖啊"
+ },
+ {
+  "timestamp": "8m23s",
+  "similarity": 0.0,
+  "text": "都回收好了"
+ },
+ {
+  "timestamp": "8m26s",
+  "similarity": 0.0,
+  "text": "回去得好好修理一番了"
+ },
+ {
+  "timestamp": "8m30s",
+  "similarity": 0.0,
+  "text": "其实我早就预料到是这个结果了"
+ },
+ {
+  "timestamp": "8m34s",
+  "similarity": 0.077,
+  "text": "你真行"
+ },
+ {
+  "timestamp": "8m35s",
+  "text": "不过你也真是不长记性",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "8m36s",
+  "similarity": 0.085,
+  "text": "我的梦想就是能像鸟儿一样在空中自由飞翔"
+ },
+ {
+  "timestamp": "8m43s",
+  "similarity": 0.053,
+  "text": "为什么啊"
+ },
+ {
+  "timestamp": "8m46s",
+  "similarity": 0.063,
+  "text": "你家不是很有钱吗"
+ },
+ {
+  "timestamp": "8m47s",
+  "similarity": 0.073,
+  "text": "应该活得很自在才对啊"
+ },
+ {
+  "timestamp": "8m51s",
+  "text": "一点都不自在好吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "8m53s",
+  "similarity": 0.035,
+  "text": "结婚对象都是家里安排好的"
+ },
+ {
+  "timestamp": "8m57s",
+  "similarity": 0.072,
+  "text": "我要和一个从未谋面的人结婚"
+ },
+ {
+  "timestamp": "9m03s",
+  "similarity": 0.058,
+  "text": "居然还有这种事啊"
+ },
+ {
+  "timestamp": "9m14s",
+  "similarity": 0.095,
+  "text": "有水晶埋在那下面吗"
+ },
+ {
+  "timestamp": "9m17s",
+  "similarity": 0.109,
+  "text": "我检测到了和这两个一样的共振波"
+ },
+ {
+  "timestamp": "9m20s",
+  "similarity": 0.064,
+  "text": "那些风就是受水晶影响形成的"
+ },
+ {
+  "timestamp": "9m23s",
+  "similarity": 0.108,
+  "text": "我觉得如果水晶是有属性的话"
+ },
+ {
+  "timestamp": "9m26s",
+  "similarity": 0.566,
+  "text": "风鸣不过是谁埋在那里的呢"
+ },
+ {
+  "timestamp": "9m30s",
+  "similarity": 0.575,
+  "text": "类似化石的形成原理吧"
+ },
+ {
+  "timestamp": "9m31s",
+  "text": "请用餐",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m32s",
+  "similarity": 0.691,
+  "text": "由于土壤的堆积被埋至地下"
+ },
+ {
+  "timestamp": "9m35s",
+  "similarity": 0.721,
+  "text": "嗯真好喝"
+ },
+ {
+  "timestamp": "9m37s",
+  "similarity": 0.613,
+  "text": "之前爱染先生不是说过有关绫香星的事吗"
+ },
+ {
+  "timestamp": "9m41s",
+  "similarity": 0.684,
+  "text": "根据这三点我进行了观测"
+ },
+ {
+  "timestamp": "9m43s",
+  "text": "在调查了深度之后",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m44s",
+  "similarity": 0.135,
+  "text": "我发现那里的地层有1300年前的土壤"
+ },
+ {
+  "timestamp": "9m46s",
+  "similarity": 0.169,
+  "text": "和当时的时期是重合的"
+ },
+ {
+  "timestamp": "9m50s",
+  "text": "那么那个",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m51s",
+  "text": "我回来了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m53s",
+  "similarity": 0.128,
+  "text": "你们两个在干什么呢"
+ },
+ {
+  "timestamp": "9m57s",
+  "text": "没干什么啊对吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m58s",
+  "similarity": 0.146,
+  "text": "你俩真奇怪"
+ },
+ {
+  "timestamp": "10m00s",
+  "similarity": 0.102,
+  "text": "我先吃点东西啦"
+ },
+ {
+  "timestamp": "10m03s",
+  "similarity": 0.543,
+  "text": "好烫"
+ },
+ {
+  "timestamp": "10m06s",
+  "similarity": 0.141,
+  "text": "好硬这是什么啊"
+ },
+ {
+  "timestamp": "10m09s",
+  "similarity": 0.117,
+  "text": "又是勇海哥搞的恶作剧吗"
+ },
+ {
+  "timestamp": "10m15s",
+  "similarity": 0.126,
+  "text": "我和二宫通宵维修了机翼"
+ },
+ {
+  "timestamp": "10m18s",
+  "similarity": 0.151,
+  "text": "我还重新计算了强度"
+ },
+ {
+  "timestamp": "10m21s",
+  "text": "有点快了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "10m23s",
+  "similarity": 0.0,
+  "text": "我们的口号是制造不会折断的机翼"
+ },
+ {
+  "timestamp": "10m30s",
+  "similarity": 0.153,
+  "text": "我可能以后就不在这里上学了"
+ },
+ {
+  "timestamp": "10m34s",
+  "similarity": 0.148,
+  "text": "我家里人觉得我不该来这种学校"
+ },
+ {
+  "timestamp": "10m40s",
+  "similarity": 0.122,
+  "text": "我父母的意思是"
+ },
+ {
+  "timestamp": "10m41s",
+  "similarity": 0.154,
+  "text": "打算送我去国外的贵族学校"
+ },
+ {
+  "timestamp": "10m47s",
+  "similarity": 0.154,
+  "text": "你父母的意思吗"
+ },
+ {
+  "timestamp": "10m50s",
+  "similarity": 0.185,
+  "text": "等我毕业后"
+ },
+ {
+  "timestamp": "10m53s",
+  "similarity": 0.082,
+  "text": "估计就是回到老家和某个不认识的人结婚吧"
+ },
+ {
+  "timestamp": "10m57s",
+  "similarity": 0.12,
+  "text": "飞行试验也就到此为止了"
+ },
+ {
+  "timestamp": "11m04s",
+  "similarity": 0.064,
+  "text": "伊卡洛斯要从大学里消失了啊"
+ },
+ {
+  "timestamp": "11m07s",
+  "similarity": 0.072,
+  "text": "伊卡洛斯那是大家给我取的外号吧"
+ },
+ {
+  "timestamp": "11m12s",
+  "similarity": 0.097,
+  "text": "伊卡洛斯过于接近太阳"
+ },
+ {
+  "timestamp": "11m13s",
+  "text": "在神话里",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "11m14s",
+  "similarity": 0.074,
+  "text": "导致蜡做的双翼融化"
+ },
+ {
+  "timestamp": "11m17s",
+  "text": "最后不幸坠落",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "11m19s",
+  "similarity": 0.052,
+  "text": "原来是个悲剧啊"
+ },
+ {
+  "timestamp": "11m23s",
+  "similarity": 0.142,
+  "text": "不我倒觉得挺光荣的"
+ },
+ {
+  "timestamp": "11m26s",
+  "similarity": 0.149,
+  "text": "他相信自己的双翼可以高飞"
+ },
+ {
+  "timestamp": "11m30s",
+  "similarity": 0.123,
+  "text": "我也一样"
+ },
+ {
+  "timestamp": "11m44s",
+  "similarity": 0.0,
+  "text": "后来机翼被我们修好了"
+ },
+ {
+  "timestamp": "11m49s",
+  "similarity": 0.129,
+  "text": "之前真是见笑了活海朝阳"
+ },
+ {
+  "timestamp": "11m57s",
+  "similarity": 0.176,
+  "text": "这次肯定能飞起来的"
+ },
+ {
+  "timestamp": "12m03s",
+  "similarity": 0.095,
+  "text": "勇海"
+ },
+ {
+  "timestamp": "12m07s",
+  "similarity": 0.137,
+  "text": "绫香市是我所知道的最棒的城市"
+ },
+ {
+  "timestamp": "12m13s",
+  "text": "能来这里真是太棒了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "12m16s",
+  "similarity": 0.002,
+  "text": "我真的是很佩服你"
+ },
+ {
+  "timestamp": "12m22s",
+  "similarity": 0.117,
+  "text": "佩服我我可以问一下理由吗"
+ },
+ {
+  "timestamp": "12m28s",
+  "similarity": 0.004,
+  "text": "很多人即便有梦想也不敢去挑战"
+ },
+ {
+  "timestamp": "12m35s",
+  "text": "但你不一样",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "12m37s",
+  "similarity": 0.114,
+  "text": "你给我带来了不少的勇气"
+ },
+ {
+  "timestamp": "12m46s",
+  "similarity": 0.119,
+  "text": "要是做的是个双人飞行器就好了"
+ },
+ {
+  "timestamp": "12m50s",
+  "similarity": 0.0,
+  "text": "真想和你一起飞上天空呢"
+ },
+ {
+  "timestamp": "13m04s",
+  "similarity": 0.583,
+  "text": "那枚水晶是古厄巴萨吧"
+ },
+ {
+  "timestamp": "13m06s",
+  "similarity": 0.67,
+  "text": "就让它去探查下情况"
+ },
+ {
+  "timestamp": "13m09s",
+  "text": "找出风的来源吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m10s",
+  "similarity": 0.859,
+  "text": "那里应该有风属性的水晶"
+ },
+ {
+  "timestamp": "13m15s",
+  "similarity": 0.0,
+  "text": "出来吧古厄巴萨"
+ },
+ {
+  "timestamp": "14m11s",
+  "similarity": 0.069,
+  "text": "它朝这里飞过来了"
+ },
+ {
+  "timestamp": "14m13s",
+  "similarity": 0.08,
+  "text": "二宫我和哥哥会拿器材的",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "14m16s",
+  "text": "你和朝阳快去避难",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m18s",
+  "text": "别废话了快跑吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m24s",
+  "similarity": 0.063,
+  "text": "染上我的本色吧罗布"
+ },
+ {
+  "timestamp": "14m30s",
+  "similarity": 0.254,
+  "text": "就你了罗布水晶",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "14m35s",
+  "similarity": 0.18,
+  "text": "泰罗奥特曼"
+ },
+ {
+  "timestamp": "14m38s",
+  "similarity": 0.114,
+  "text": "炽火绊身红莲之焰"
+ },
+ {
+  "timestamp": "14m48s",
+  "similarity": 0.0,
+  "text": "罗索奥特曼烈火形态"
+ },
+ {
+  "timestamp": "14m59s",
+  "similarity": 0.117,
+  "text": "就你了罗布水晶",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "15m05s",
+  "similarity": 0.043,
+  "text": "银河奥特曼"
+ },
+ {
+  "timestamp": "15m08s",
+  "similarity": 0.044,
+  "text": "水流绊身碧蓝之海"
+ },
+ {
+  "timestamp": "15m18s",
+  "similarity": 0.0,
+  "text": "布鲁奥特曼跃水形态"
+ },
+ {
+  "timestamp": "15m51s",
+  "similarity": 0.104,
+  "text": "我们快跑吧"
+ },
+ {
+  "timestamp": "16m15s",
+  "similarity": 0.903,
+  "text": "如蝶飞舞却祸不单行"
+ },
+ {
+  "timestamp": "16m19s",
+  "similarity": 0.8,
+  "text": "要是得意忘形的话会吃苦头的"
+ },
+ {
+  "timestamp": "16m20s",
+  "text": "这句话的意思是",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "16m22s",
+  "similarity": 0.734,
+  "text": "达令把我刚刚这句话记录下来"
+ },
+ {
+  "timestamp": "16m28s",
+  "similarity": 0.0,
+  "text": "风好大"
+ },
+ {
+  "timestamp": "16m37s",
+  "similarity": 0.0,
+  "text": "二宫姐姐"
+ },
+ {
+  "timestamp": "16m51s",
+  "similarity": 0.088,
+  "text": "我们制造的双翼是不会轻易折断的"
+ },
+ {
+  "timestamp": "16m55s",
+  "text": "对吧二宫",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "16m56s",
+  "similarity": 0.111,
+  "text": "哥哥用风属性的水晶吧"
+ },
+ {
+  "timestamp": "17m00s",
+  "text": "用风来对付风吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "17m01s",
+  "similarity": 0.0,
+  "text": "可是水晶还在地底下啊"
+ },
+ {
+  "timestamp": "17m03s",
+  "similarity": 0.0,
+  "text": "用之前火焰和水流配合的那招"
+ },
+ {
+  "timestamp": "17m07s",
+  "text": "水蒸气爆炸啊好咧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "17m11s",
+  "text": "看我的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "17m36s",
+  "similarity": 0.037,
+  "text": "这就是"
+ },
+ {
+  "timestamp": "17m38s",
+  "similarity": 0.123,
+  "text": "就你了罗布水晶",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "17m45s",
+  "similarity": 0.058,
+  "text": "迪迦奥特曼"
+ },
+ {
+  "timestamp": "17m48s",
+  "similarity": 0.072,
+  "text": "旋风绊身紫电疾风"
+ },
+ {
+  "timestamp": "17m58s",
+  "similarity": 0.0,
+  "text": "布鲁奥特曼旋风形态"
+ },
+ {
+  "timestamp": "18m23s",
+  "similarity": 0.23,
+  "text": "风属性的水晶啊"
+ },
+ {
+  "timestamp": "18m25s",
+  "similarity": 0.606,
+  "text": "又被他们给抢先拿走了啊"
+ },
+ {
+  "timestamp": "18m47s",
+  "similarity": 0.0,
+  "text": "布鲁罗布头镖"
+ },
+ {
+  "timestamp": "19m22s",
+  "similarity": 0.0,
+  "text": "嗯"
+ },
+ {
+  "timestamp": "19m34s",
+  "similarity": 0.0,
+  "text": "糟了"
+ },
+ {
+  "timestamp": "19m45s",
+  "similarity": 0.148,
+  "text": "你仔细看下这个风向"
+ },
+ {
+  "timestamp": "19m50s",
+  "similarity": 0.0,
+  "text": "原来如此"
+ },
+ {
+  "timestamp": "20m15s",
+  "similarity": 0.0,
+  "text": "消失了"
+ },
+ {
+  "timestamp": "20m17s",
+  "similarity": 0.115,
+  "text": "是逆转的龙卷风"
+ },
+ {
+  "timestamp": "20m19s",
+  "similarity": 0.0,
+  "text": "让作用力相互抵消"
+ },
+ {
+  "timestamp": "20m22s",
+  "text": "就你了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "20m29s",
+  "similarity": 0.0,
+  "text": "赛罗奥特曼"
+ },
+ {
+  "timestamp": "20m37s",
+  "similarity": 0.0,
+  "text": "赛罗双斩"
+ },
+ {
+  "timestamp": "20m39s",
+  "similarity": 0.0,
+  "text": "旋风光线"
+ },
+ {
+  "timestamp": "21m19s",
+  "similarity": 0.165,
+  "text": "二宫乘着风飞行了很久"
+ },
+ {
+  "timestamp": "21m30s",
+  "similarity": 0.096,
+  "text": "你好啊"
+ },
+ {
+  "timestamp": "21m34s",
+  "similarity": 0.06,
+  "text": "不久之后她就转学了"
+ },
+ {
+  "timestamp": "21m39s",
+  "similarity": 0.209,
+  "text": "在家里的安排下"
+ },
+ {
+  "timestamp": "21m41s",
+  "text": "去国外留学了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m44s",
+  "similarity": 0.223,
+  "text": "离开绫香市时"
+ },
+ {
+  "timestamp": "21m46s",
+  "similarity": 0.143,
+  "text": "她露出了灿烂的笑容"
+ },
+ {
+  "timestamp": "21m53s",
+  "similarity": 0.561,
+  "text": "穿上了刚刚好"
+ },
+ {
+  "timestamp": "21m57s",
+  "similarity": 0.381,
+  "text": "古厄巴萨的水晶已回收完毕"
+ },
+ {
+  "timestamp": "22m00s",
+  "text": "谢了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m02s",
+  "similarity": 0.367,
+  "text": "我也是呢"
+ },
+ {
+  "timestamp": "22m03s",
+  "text": "爱你哟",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m45s",
+  "similarity": 0.036,
+  "text": "接下来要介绍的是关于罗布水晶的研究"
+ },
+ {
+  "timestamp": "24m07s",
+  "similarity": 0.066,
+  "text": "下集也要收看哦"
+ },
+ {
+  "timestamp": "24m13s",
+  "similarity": 0.194,
+  "text": "四年一次决胜负的日子终于来临了"
+ },
+ {
+  "timestamp": "24m16s",
+  "similarity": 0.067,
+  "text": "我们的天敌小牧姐回来了"
+ },
+ {
+  "timestamp": "24m20s",
+  "similarity": 0.076,
+  "text": "话说为什么小牧姐会在怪兽身体里啊"
+ },
+ {
+  "timestamp": "24m21s",
+  "text": "我们不会认输的小牧姐",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m22s",
+  "similarity": 0.085,
+  "text": "这可怎么办才好啊"
+ },
+ {
+  "timestamp": "24m25s",
+  "text": "下一集罗布奥特曼",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m26s",
+  "similarity": 0.0,
+  "text": "宿敌大姐头的必杀拳"
+ }
 ]

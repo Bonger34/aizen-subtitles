@@ -31,7 +31,7 @@ _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__
 | 文件 | 说明 |
 |---|---|
 | `q_align_tl.py` | q_align.py — 把全片字幕时间线(q_timeline_<EP>.json)与库条目对齐, 判定每条文本该不该改。 |
-| `q_audit.py` | 从 subtitle_clean 反查全部文本修正是否已落盘, 生成统一审计文件。 |
+| `q_audit.py` | 从 subtitle 反查全部文本修正是否已落盘, 生成统一审计文件。 |
 | `q_common.py` | 文本质量提升共用的字幕行切分与 OCR 引擎构造。 |
 | `q_reframe.py` | 重新抽取"帧图与文本对不上"的条目的画面帧。 |
 | `q_rescan.py` | 全库文本质量提升: 原帧重扫(自适应行切分 + 双路识别 + 多帧投票)。 |

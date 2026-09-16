@@ -7,7 +7,7 @@ from collections import Counter
 
 sys.stdout.reconfigure(encoding='utf-8')
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 仓库根(scripts/pipeline 的上三级)
-CLEAN = os.path.join(_ROOT, "subtitle_clean")
+CLEAN = os.path.join(_ROOT, "subtitle")
 total = 0
 dups = []
 for fn in sorted(os.listdir(CLEAN)):

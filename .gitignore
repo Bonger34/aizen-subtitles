@@ -205,7 +205,7 @@ __pycache__/
 *.GIF
 
 # 文本修正时的库备份(不应入库)
-subtitle_clean/*.bak_qapply*
+subtitle/*.bak_qapply*
 *_commit_msg.txt
 
 # 临时探针脚本
@@ -221,7 +221,7 @@ _swap.py
 !review/q_targets.json
 !review/q_reframe_tg.json
 # 落盘前的自动备份(可再生产物)
-subtitle_clean/*.bak_*
+subtitle/*.bak_*
 !review/q_revert_result.json
 
 # 工具的运行期配置, 内含本机绝对路径(如 Chrome 的 exe 位置), 不是项目内容。

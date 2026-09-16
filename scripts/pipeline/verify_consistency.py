@@ -14,7 +14,7 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 仓库根(scripts/pipeline 的上三级)
 BASE = _ROOT
-CLEAN = os.path.join(BASE, 'subtitle_clean')
+CLEAN = os.path.join(BASE, 'subtitle')
 FRAMES = os.path.join(BASE, 'docs', 'frames')
 FMAP = os.path.join(BASE, 'docs', 'frames_map.js')
 

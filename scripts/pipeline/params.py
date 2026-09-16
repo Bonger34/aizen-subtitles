@@ -2,7 +2,7 @@
 VIDEOS_FOLDER = "Videos"  # 《罗布奥特曼》视频的文件夹
 FEATURES_FILE = "face_features_insightface.npz"  # 人脸特征向量文件（爱染诚）
 FRAMES_OUTPUT = "output_frames"  # 帧文件夹
-SUBTITLE_OUTPUT = "subtitle"  # 字幕输出文件夹
+SUBTITLE_OUTPUT = "subtitle_raw"  # 管线输出文件夹（权威库是 subtitle/，别指向它）
 FACE_IMAGES_FOLDER = "target"  # 爱染诚人脸图片文件夹
 
 # GPU配置

@@ -1,1150 +1,1330 @@
 [
-  {
-    "timestamp": "0m00s",
-    "similarity": 0.0,
-    "text": "果然说到英雄就不得不提起必杀武器呢"
-  },
-  {
-    "timestamp": "0m04s",
-    "similarity": 0.0,
-    "text": "果然说到英雄就不得不提起必杀武器呢"
-  },
-  {
-    "timestamp": "0m05s",
-    "similarity": 0.0,
-    "text": "说不定这里面还藏着我们不知道的秘密呢"
-  },
-  {
-    "timestamp": "0m09s",
-    "similarity": 0.098,
-    "text": "说不定这里面还藏着我们不知道的秘密呢"
-  },
-  {
-    "timestamp": "0m12s",
-    "similarity": 0.0,
-    "text": "比如嘛 我想想啊"
-  },
-  {
-    "timestamp": "0m14s",
-    "similarity": 0.761,
-    "text": "比如说不定是用地球上没有的金属制造出来的"
-  },
-  {
-    "timestamp": "0m18s",
-    "similarity": 0.048,
-    "text": "比如说不定是用地球上没有的金属制造出来的"
-  },
-  {
-    "timestamp": "0m19s",
-    "similarity": 0.091,
-    "text": "这可是奥特战士的武器啊"
-  },
-  {
-    "timestamp": "0m21s",
-    "similarity": 0.157,
-    "text": "那是必须的"
-  },
-  {
-    "timestamp": "0m25s",
-    "similarity": 0.0,
-    "text": "什么我们是在聊什么来着"
-  },
-  {
-    "timestamp": "0m43s",
-    "similarity": 0.0,
-    "text": "けつきすなあきら決して絆を諦めない"
-  },
-  {
-    "timestamp": "0m53s",
-    "similarity": 0.089,
-    "text": "君の笑顔それは希望",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "0m56s",
-    "similarity": 0.103,
-    "text": "君の勇気それは未来",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "1m00s",
-    "similarity": 0.151,
-    "text": "まもせんぶM守らなきや全部たからもの请"
-  },
-  {
-    "timestamp": "1m06s",
-    "similarity": 0.0,
-    "text": "僕の声と君の声が",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "1m14s",
-    "similarity": 0.174,
-    "text": "(Ohルーブ!)何百回何千回何万回",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "1m16s",
-    "similarity": 0.132,
-    "text": "(Ohルーブ!)何百回何千回何万回",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "1m20s",
-    "similarity": 0.0,
-    "text": "かだむす2飞ぜうたいはな堅く結んだ手と手は(Go!)绝対(Go!)離さない!"
-  },
-  {
-    "timestamp": "1m30s",
-    "similarity": 0.111,
-    "text": "しゆんかんおきせきうtこの瞬間起こった奇跡きつと嘘じゃない"
-  },
-  {
-    "timestamp": "1m39s",
-    "similarity": 0.0,
-    "text": "決して明日を諦めない",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "1m41s",
-    "similarity": 0.0,
-    "text": "つなかさみらい设繋がる重なる未来へ"
-  },
-  {
-    "timestamp": "2m06s",
-    "similarity": 0.166,
-    "text": "水岛跑起来"
-  },
-  {
-    "timestamp": "2m12s",
-    "similarity": 0.073,
-    "text": "快点快点"
-  },
-  {
-    "timestamp": "2m15s",
-    "similarity": 0.152,
-    "text": "今天的比赛辛苦了"
-  },
-  {
-    "timestamp": "2m19s",
-    "similarity": 0.147,
-    "text": "谢谢教练的关心"
-  },
-  {
-    "timestamp": "2m20s",
-    "similarity": 0.112,
-    "text": "大家都发挥出了自己的实力"
-  },
-  {
-    "timestamp": "2m26s",
-    "similarity": 0.218,
-    "text": "虽说输了比赛"
-  },
-  {
-    "timestamp": "2m32s",
-    "similarity": 0.132,
-    "text": "对了我还要和大家说一个事"
-  },
-  {
-    "timestamp": "2m37s",
-    "similarity": 0.0,
-    "text": "下下周我们有一场练习比赛"
-  },
-  {
-    "timestamp": "2m41s",
-    "similarity": 0.295,
-    "text": "我们的对手是"
-  },
-  {
-    "timestamp": "2m43s",
-    "similarity": 0.208,
-    "text": "常保久商店街"
-  },
-  {
-    "timestamp": "2m44s",
-    "similarity": 0.183,
-    "text": "那场比赛结束之后"
-  },
-  {
-    "timestamp": "2m52s",
-    "similarity": 0.119,
-    "text": "我知道这件事比较突然"
-  },
-  {
-    "timestamp": "2m58s",
-    "similarity": 0.14,
-    "text": "半年前"
-  },
-  {
-    "timestamp": "3m01s",
-    "similarity": 0.156,
-    "text": "我这里开了刀"
-  },
-  {
-    "timestamp": "3m03s",
-    "similarity": 0.289,
-    "text": "胃部的手术"
-  },
-  {
-    "timestamp": "3m07s",
-    "similarity": 0.123,
-    "text": "从体力上来说我继续当教练的话"
-  },
-  {
-    "timestamp": "3m13s",
-    "similarity": 0.108,
-    "text": "所以这次我下定决心要引退了"
-  },
-  {
-    "timestamp": "3m19s",
-    "similarity": 0.092,
-    "text": "这么久以来谢谢各位了"
-  },
-  {
-    "timestamp": "3m30s",
-    "similarity": 0.247,
-    "text": "下一场比赛我们一定会获胜的"
-  },
-  {
-    "timestamp": "3m34s",
-    "similarity": 0.134,
-    "text": "抛起教练庆祝胜利"
-  },
-  {
-    "timestamp": "3m38s",
-    "similarity": 0.203,
-    "text": "抛起教练庆祝胜利"
-  },
-  {
-    "timestamp": "3m41s",
-    "similarity": 0.229,
-    "text": "真的能打赢吗"
-  },
-  {
-    "timestamp": "3m44s",
-    "similarity": 0.205,
-    "text": "况且我们队今年还有三个人是厄运年"
-  },
-  {
-    "timestamp": "3m48s",
-    "similarity": 0.019,
-    "text": "为此"
-  },
-  {
-    "timestamp": "3m49s",
-    "similarity": 0.044,
-    "text": "我要对我们队进行魔鬼训练"
-  },
-  {
-    "timestamp": "3m53s",
-    "similarity": 0.127,
-    "text": "跨越艰难的道路"
-  },
-  {
-    "timestamp": "3m59s",
-    "similarity": 0.057,
-    "text": "从医学角度来说"
-  },
-  {
-    "timestamp": "4m01s",
-    "similarity": 0.069,
-    "text": "兔子跳对膝盖不太好"
-  },
-  {
-    "timestamp": "4m06s",
-    "similarity": 0.013,
-    "text": "凭借毅力和气势打造我们的队伍",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m08s",
-    "similarity": 0.007,
-    "text": "凭借毅力和气势打造我们的队伍",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m10s",
-    "similarity": 0.15,
-    "text": "鬼嗯这里所说的毅力",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m14s",
-    "similarity": 0.102,
-    "text": "光靠毅力是没有用的哦",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m17s",
-    "similarity": 0.049,
-    "text": "运营管理"
-  },
-  {
-    "timestamp": "4m19s",
-    "similarity": 0.146,
-    "text": "爸爸在这里写上气势两个大字"
-  },
-  {
-    "timestamp": "4m24s",
-    "similarity": 0.174,
-    "text": "会不会太土了点吗"
-  },
-  {
-    "timestamp": "4m32s",
-    "similarity": 0.149,
-    "text": "就很少看到哥哥像现在这么拼命了"
-  },
-  {
-    "timestamp": "4m37s",
-    "similarity": 0.111,
-    "text": "就很少看到哥哥像现在这么拼命了SYSTEM",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m40s",
-    "similarity": 0.0,
-    "text": "活海哥为什么会这么拼命啊"
-  },
-  {
-    "timestamp": "4m41s",
-    "similarity": 0.052,
-    "text": "是因为熊城教练对他有恩吧"
-  },
-  {
-    "timestamp": "4m44s",
-    "similarity": 0.075,
-    "text": "他是哥哥高中棒球社的棒球顾问"
-  },
-  {
-    "timestamp": "4m49s",
-    "similarity": 0.112,
-    "text": "是他发现了哥哥打棒球的才能",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m51s",
-    "similarity": 0.122,
-    "text": "因此有很多大学棒球队的人来挖哥哥",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m52s",
-    "similarity": 0.046,
-    "text": "因此有很多大学棒球队的人来挖哥哥"
-  },
-  {
-    "timestamp": "4m56s",
-    "similarity": 0.0,
-    "text": "因此有很多大学棒球队的人来挖哥哥"
-  },
-  {
-    "timestamp": "5m00s",
-    "similarity": 0.034,
-    "text": "不过后来因为哥哥放弃了上大学"
-  },
-  {
-    "timestamp": "5m02s",
-    "similarity": 0.142,
-    "text": "但是后来熊城教练又把哥哥带回到了棒球队里"
-  },
-  {
-    "timestamp": "5m06s",
-    "similarity": 0.0,
-    "text": "但是后来熊城教练又把哥哥带回到了棒球队里"
-  },
-  {
-    "timestamp": "5m09s",
-    "similarity": 0.21,
-    "text": "和常保久商店街的比赛就在明天了"
-  },
-  {
-    "timestamp": "5m13s",
-    "similarity": 0.197,
-    "text": "按现在的状态来看我们肯定还不行"
-  },
-  {
-    "timestamp": "5m14s",
-    "similarity": 0.209,
-    "text": "晚上也来特训吧"
-  },
-  {
-    "timestamp": "5m19s",
-    "similarity": 0.222,
-    "text": "这样下去不行的吧"
-  },
-  {
-    "timestamp": "5m22s",
-    "similarity": 0.203,
-    "text": "活海你自己也快撑不住了吧"
-  },
-  {
-    "timestamp": "5m28s",
-    "similarity": 0.23,
-    "text": "晚上好好休息以便备战明天的比赛"
-  },
-  {
-    "timestamp": "5m31s",
-    "similarity": 0.158,
-    "text": "不特训怎么赢明天的比赛"
-  },
-  {
-    "timestamp": "5m34s",
-    "similarity": 0.265,
-    "text": "你不想抛起教练庆祝胜利吗"
-  },
-  {
-    "timestamp": "5m38s",
-    "similarity": 0.242,
-    "text": "既然如此那就更加不能休息了"
-  },
-  {
-    "timestamp": "5m44s",
-    "similarity": 0.235,
-    "text": "现在哪有时间休息啊"
-  },
-  {
-    "timestamp": "5m48s",
-    "similarity": 0.247,
-    "text": "哥哥你快过来"
-  },
-  {
-    "timestamp": "5m52s",
-    "similarity": 0.129,
-    "text": "干什么啊",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m55s",
-    "similarity": 0.102,
-    "text": "无法山上出现怪兽了"
-  },
-  {
-    "timestamp": "6m01s",
-    "similarity": 0.0,
-    "text": "上午九点左右"
-  },
-  {
-    "timestamp": "6m02s",
-    "similarity": 0.0,
-    "text": "一头怪兽出现在无法山上"
-  },
-  {
-    "timestamp": "6m09s",
-    "similarity": 0.0,
-    "text": "再快一点就超速啦"
-  },
-  {
-    "timestamp": "6m12s",
-    "similarity": 0.063,
-    "text": "找到了"
-  },
-  {
-    "timestamp": "6m15s",
-    "similarity": 0.188,
-    "text": "我们要阻止它进入市区"
-  },
-  {
-    "timestamp": "6m19s",
-    "similarity": 0.095,
-    "text": "染上我的本色吧罗布"
-  },
-  {
-    "timestamp": "6m25s",
-    "similarity": 0.161,
-    "text": "就你了罗布水晶"
-  },
-  {
-    "timestamp": "6m31s",
-    "similarity": 0.096,
-    "text": "银河奥特曼"
-  },
-  {
-    "timestamp": "6m35s",
-    "similarity": 0.087,
-    "text": "水流绊身碧蓝之海"
-  },
-  {
-    "timestamp": "6m44s",
-    "similarity": 0.0,
-    "text": "罗索奥特曼 跃水形态"
-  },
-  {
-    "timestamp": "6m57s",
-    "similarity": 0.048,
-    "text": "就你了罗布水晶"
-  },
-  {
-    "timestamp": "7m02s",
-    "similarity": 0.083,
-    "text": "泰罗奥特曼"
-  },
-  {
-    "timestamp": "7m05s",
-    "similarity": 0.05,
-    "text": "炽火绊身红莲之焰"
-  },
-  {
-    "timestamp": "7m15s",
-    "similarity": 0.0,
-    "text": "布鲁奥特曼烈火形态"
-  },
-  {
-    "timestamp": "7m52s",
-    "similarity": 0.0,
-    "text": "这招如何"
-  },
-  {
-    "timestamp": "7m58s",
-    "similarity": 0.0,
-    "text": "看招"
-  },
-  {
-    "timestamp": "8m02s",
-    "similarity": 0.0,
-    "text": "竟然接住了"
-  },
-  {
-    "timestamp": "8m59s",
-    "similarity": 0.124,
-    "text": "城市出现了怪兽"
-  },
-  {
-    "timestamp": "9m01s",
-    "similarity": 0.128,
-    "text": "你又弄伤了肩膀"
-  },
-  {
-    "timestamp": "9m09s",
-    "similarity": 0.077,
-    "text": "我今天在电视上看到了"
-  },
-  {
-    "timestamp": "9m12s",
-    "similarity": 0.049,
-    "text": "最近经常出现的那个巨人"
-  },
-  {
-    "timestamp": "9m15s",
-    "similarity": 0.141,
-    "text": "最近经常出现的那个巨人",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "9m19s",
-    "similarity": 0.156,
-    "text": "他用了很完美的投球姿势呢"
-  },
-  {
-    "timestamp": "9m23s",
-    "similarity": 0.142,
-    "text": "感觉很像你",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "9m25s",
-    "similarity": 0.139,
-    "text": "感觉很像你",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "9m28s",
-    "similarity": 0.129,
-    "text": "因为你是家里的长子",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "9m31s",
-    "similarity": 0.169,
-    "text": "所以你总是把一切都背负在自己身上"
-  },
-  {
-    "timestamp": "9m37s",
-    "similarity": 0.067,
-    "text": "每个人都有自己的职责"
-  },
-  {
-    "timestamp": "9m45s",
-    "similarity": 0.19,
-    "text": "首先要先履行自己的职责才行"
-  },
-  {
-    "timestamp": "9m49s",
-    "similarity": 0.042,
-    "text": "我的职责就是再一次"
-  },
-  {
-    "timestamp": "9m51s",
-    "similarity": 0.012,
-    "text": "为庆祝胜利而把教练抛向天空"
-  },
-  {
-    "timestamp": "9m54s",
-    "similarity": 0.16,
-    "text": "这个是"
-  },
-  {
-    "timestamp": "9m57s",
-    "similarity": 0.139,
-    "text": "我们家祖祖辈辈流传下来的东西"
-  },
-  {
-    "timestamp": "10m02s",
-    "similarity": 0.0,
-    "text": "是绫香星坠落时四下飞散的光芒"
-  },
-  {
-    "timestamp": "10m06s",
-    "similarity": 0.0,
-    "text": "这些是我家祖先捡到的"
-  },
-  {
-    "timestamp": "10m10s",
-    "similarity": 0.052,
-    "text": "这是"
-  },
-  {
-    "timestamp": "10m12s",
-    "similarity": 0.155,
-    "text": "我梦到了两个光之巨人"
-  },
-  {
-    "timestamp": "10m20s",
-    "similarity": 0.142,
-    "text": "对我说"
-  },
-  {
-    "timestamp": "10m24s",
-    "similarity": 0.168,
-    "text": "时机来临时把这些交给适合之人"
-  },
-  {
-    "timestamp": "10m30s",
-    "similarity": 0.102,
-    "text": "我想适合之人指的就是你吧",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "10m36s",
-    "similarity": 0.12,
-    "text": "thedredjef"
-  },
-  {
-    "timestamp": "10m49s",
-    "similarity": 0.077,
-    "text": "这是我送你的钱别礼物",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "10m52s",
-    "similarity": 0.07,
-    "text": "我不能收下这么贵重的礼物",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "10m59s",
-    "similarity": 0.071,
-    "text": "你不愿收下我给你的饯别礼物吗"
-  },
-  {
-    "timestamp": "11m04s",
-    "similarity": 0.069,
-    "text": "We shor"
-  },
-  {
-    "timestamp": "11m05s",
-    "similarity": 0.069,
-    "text": "We sr"
-  },
-  {
-    "timestamp": "11m07s",
-    "similarity": 0.089,
-    "text": "我在无法山的各处都安装了"
-  },
-  {
-    "timestamp": "11m11s",
-    "similarity": 0.128,
-    "text": "检测共振波的装置"
-  },
-  {
-    "timestamp": "11m12s",
-    "similarity": 0.07,
-    "text": "我们就能马上通过这个软件知晓"
-  },
-  {
-    "timestamp": "11m26s",
-    "similarity": 0.221,
-    "text": "充哥各位"
-  },
-  {
-    "timestamp": "11m32s",
-    "similarity": 0.244,
-    "text": "昨天的事真是对不起了"
-  },
-  {
-    "timestamp": "11m50s",
-    "similarity": 0.184,
-    "text": "你也来吧"
-  },
-  {
-    "timestamp": "11m53s",
-    "similarity": 0.178,
-    "text": "让我们为教练打造一条最棒的引退之路吧"
-  },
-  {
-    "timestamp": "12m10s",
-    "similarity": 0.0,
-    "text": "行礼"
-  },
-  {
-    "timestamp": "12m12s",
-    "similarity": 0.0,
-    "text": "请多多关照"
-  },
-  {
-    "timestamp": "12m19s",
-    "similarity": 0.002,
-    "text": "上了上了"
-  },
-  {
-    "timestamp": "12m20s",
-    "similarity": 0.074,
-    "text": "给我打趴他们"
-  },
-  {
-    "timestamp": "12m31s",
-    "similarity": 0.232,
-    "text": "活海哥"
-  },
-  {
-    "timestamp": "12m32s",
-    "similarity": 0.112,
-    "text": "打得漂亮哥哥",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "12m41s",
-    "similarity": 0.122,
-    "text": "加油啊白熊队"
-  },
-  {
-    "timestamp": "12m42s",
-    "similarity": 0.118,
-    "text": "还不够哦"
-  },
-  {
-    "timestamp": "12m45s",
-    "similarity": 0.163,
-    "text": "再喊大声点"
-  },
-  {
-    "timestamp": "12m49s",
-    "similarity": 0.42,
-    "text": "不好意思啊 抱歉"
-  },
-  {
-    "timestamp": "12m54s",
-    "similarity": 0.674,
-    "text": "我听说今天这里有很重要的比赛"
-  },
-  {
-    "timestamp": "13m02s",
-    "similarity": 0.641,
-    "text": "放点让人情绪激昂的曲子"
-  },
-  {
-    "timestamp": "13m07s",
-    "similarity": 0.539,
-    "text": "现在开始播放让人情绪激昂的曲子"
-  },
-  {
-    "timestamp": "13m08s",
-    "similarity": 0.551,
-    "text": "加油加油",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "13m12s",
-    "similarity": 0.0,
-    "text": "加油啊"
-  },
-  {
-    "timestamp": "13m21s",
-    "similarity": 0.16,
-    "text": "耶耶",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "13m24s",
-    "similarity": 0.0,
-    "text": "加把劲啊"
-  },
-  {
-    "timestamp": "13m25s",
-    "similarity": 0.116,
-    "text": "再接再厉啊"
-  },
-  {
-    "timestamp": "13m29s",
-    "similarity": 0.551,
-    "text": "终于到最后一局比赛了"
-  },
-  {
-    "timestamp": "13m32s",
-    "similarity": 0.634,
-    "text": "只要哥哥不让对方得分"
-  },
-  {
-    "timestamp": "13m34s",
-    "similarity": 0.66,
-    "text": "白熊队就赢了"
-  },
-  {
-    "timestamp": "13m39s",
-    "similarity": 0.738,
-    "text": "不说为妙"
-  },
-  {
-    "timestamp": "13m41s",
-    "similarity": 0.38,
-    "text": "你是要去厕所吧"
-  },
-  {
-    "timestamp": "13m49s",
-    "similarity": 0.883,
-    "text": "开始吧"
-  },
-  {
-    "timestamp": "14m05s",
-    "similarity": 0.147,
-    "text": "怎么偏偏这时候出现怪兽"
-  },
-  {
-    "timestamp": "14m10s",
-    "similarity": 0.154,
-    "text": "朝阳你有带动力鞋袜装置吗"
-  },
-  {
-    "timestamp": "14m20s",
-    "similarity": 0.107,
-    "text": "心",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "14m33s",
-    "similarity": 0.0,
-    "text": "勇海那家伙"
-  },
-  {
-    "timestamp": "14m37s",
-    "similarity": 0.142,
-    "text": "那个"
-  },
-  {
-    "timestamp": "14m41s",
-    "similarity": 0.076,
-    "text": "看来时机已经到了啊"
-  },
-  {
-    "timestamp": "14m48s",
-    "similarity": 0.133,
-    "text": "你的职责是什么"
-  },
-  {
-    "timestamp": "14m51s",
-    "similarity": 0.16,
-    "text": "为庆祝胜利而把教练抛向天空"
-  },
-  {
-    "timestamp": "14m55s",
-    "similarity": 0.124,
-    "text": "你心里应该很清楚"
-  },
-  {
-    "timestamp": "14m58s",
-    "similarity": 0.19,
-    "text": "你的职责究竟是什么"
-  },
-  {
-    "timestamp": "15m03s",
-    "similarity": 0.03,
-    "text": "是为了大家而去战斗"
-  },
-  {
-    "timestamp": "15m09s",
-    "similarity": 0.147,
-    "text": "在他们把我抛起来之前回来吧"
-  },
-  {
-    "timestamp": "15m12s",
-    "similarity": 0.122,
-    "text": "去吧"
-  },
-  {
-    "timestamp": "15m19s",
-    "similarity": 0.041,
-    "text": "换人我来做投手"
-  },
-  {
-    "timestamp": "15m33s",
-    "similarity": 0.134,
-    "text": "我要一雪昨天的前耻"
-  },
-  {
-    "timestamp": "15m37s",
-    "similarity": 0.097,
-    "text": "染上我的本色吧罗布",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "15m43s",
-    "similarity": 0.0,
-    "text": "就你了罗布水晶"
-  },
-  {
-    "timestamp": "15m50s",
-    "similarity": 0.093,
-    "text": "银河奥特曼"
-  },
-  {
-    "timestamp": "15m53s",
-    "similarity": 0.036,
-    "text": "水流绊身碧蓝之海"
-  },
-  {
-    "timestamp": "16m03s",
-    "similarity": 0.0,
-    "text": "布鲁奥特曼跃水形态"
-  },
-  {
-    "timestamp": "16m46s",
-    "similarity": 0.033,
-    "text": "勇海我这就来"
-  },
-  {
-    "timestamp": "16m49s",
-    "similarity": 0.044,
-    "text": "fhegreafes"
-  },
-  {
-    "timestamp": "16m52s",
-    "similarity": 0.191,
-    "text": "就你了罗布水晶"
-  },
-  {
-    "timestamp": "16m59s",
-    "similarity": 0.121,
-    "text": "泰罗奥特曼"
-  },
-  {
-    "timestamp": "17m02s",
-    "similarity": 0.086,
-    "text": "炽火绊身红莲之焰"
-  },
-  {
-    "timestamp": "17m12s",
-    "similarity": 0.0,
-    "text": "罗索奥特曼 烈火形态"
-  },
-  {
-    "timestamp": "17m25s",
-    "similarity": 0.0,
-    "text": "你不是在比赛吗哥哥"
-  },
-  {
-    "timestamp": "17m33s",
-    "similarity": 0.0,
-    "text": "好痛"
-  },
-  {
-    "timestamp": "18m03s",
-    "similarity": 0.148,
-    "text": "那家伙好像知道你肩膀有伤"
-  },
-  {
-    "timestamp": "18m09s",
-    "similarity": 0.0,
-    "text": "勇海用罗布头镖"
-  },
-  {
-    "timestamp": "18m25s",
-    "similarity": 0.148,
-    "text": "两人出局满垒"
-  },
-  {
-    "timestamp": "18m27s",
-    "similarity": 0.144,
-    "text": "比赛进入高潮了啊"
-  },
-  {
-    "timestamp": "18m35s",
-    "similarity": 0.202,
-    "text": "好咧去吧"
-  },
-  {
-    "timestamp": "19m17s",
-    "similarity": 0.0,
-    "text": "坏球"
-  },
-  {
-    "timestamp": "19m36s",
-    "similarity": 0.111,
-    "text": "新的水晶"
-  },
-  {
-    "timestamp": "19m38s",
-    "similarity": 0.111,
-    "text": "就试用一下这个吧"
-  },
-  {
-    "timestamp": "19m44s",
-    "similarity": 0.0,
-    "text": "赛罗奥特曼"
-  },
-  {
-    "timestamp": "19m54s",
-    "similarity": 0.0,
-    "text": "这是罗布头镖的另一个模式吗"
-  },
-  {
-    "timestamp": "20m23s",
-    "similarity": 0.009,
-    "text": "必杀赛罗双斩"
-  },
-  {
-    "timestamp": "20m57s",
-    "similarity": 0.0,
-    "text": "打赢了哥哥"
-  },
-  {
-    "timestamp": "21m09s",
-    "similarity": 0.0,
-    "text": "水晶已回收"
-  },
-  {
-    "timestamp": "21m31s",
-    "similarity": 0.0,
-    "text": "在最后关头被对方打出了一记"
-  },
-  {
-    "timestamp": "21m37s",
-    "similarity": 0.106,
-    "text": "满垒全垒打"
-  },
-  {
-    "timestamp": "21m41s",
-    "similarity": 0.0,
-    "text": "对不起"
-  },
-  {
-    "timestamp": "21m42s",
-    "similarity": 0.023,
-    "text": "没什么的"
-  },
-  {
-    "timestamp": "21m44s",
-    "similarity": 0.016,
-    "text": "最后还是打出了一场很精彩的比赛"
-  },
-  {
-    "timestamp": "21m52s",
-    "similarity": 0.0,
-    "text": "对我来说是最棒的引退之路了"
-  },
-  {
-    "timestamp": "22m12s",
-    "similarity": 0.0,
-    "text": "雷德王"
-  },
-  {
-    "timestamp": "22m14s",
-    "similarity": 0.654,
-    "text": "你做得很好"
-  },
-  {
-    "timestamp": "22m16s",
-    "similarity": 0.629,
-    "text": "别泄气"
-  },
-  {
-    "timestamp": "22m21s",
-    "similarity": 0.133,
-    "text": "seekthe gleafest"
-  },
-  {
-    "timestamp": "22m32s",
-    "similarity": 0.166,
-    "text": "野球指導星野正男荒井芳之"
-  },
-  {
-    "timestamp": "22m38s",
-    "similarity": 0.223,
-    "text": "野球指導星野正男荒井芳之"
-  },
-  {
-    "timestamp": "22m43s",
-    "similarity": 0.381,
-    "text": "制作進行岩崎僚邊萌田"
-  },
-  {
-    "timestamp": "22m49s",
-    "similarity": 0.531,
-    "text": "岡本直树坂井孝祥豊万理子渡邉亮太"
-  },
-  {
-    "timestamp": "22m55s",
-    "similarity": 0.147,
-    "text": "岡本直树坂井孝祥豊万理子渡邊亮太"
-  },
-  {
-    "timestamp": "23m17s",
-    "similarity": 0.0,
-    "text": "法人大源学园CAINZ",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m22s",
-    "similarity": 0.0,
-    "text": "法人大源学園CAINZ",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m43s",
-    "similarity": 0.051,
-    "text": "接下来要介绍的是关于罗布水晶的研究"
-  },
-  {
-    "timestamp": "24m05s",
-    "similarity": 0.072,
-    "text": "下集也要收看哦PLANET IN THE SOLSYSTEM"
-  },
-  {
-    "timestamp": "24m11s",
-    "similarity": 0.066,
-    "text": "二宫悠叶想利用自己制作的机器飞上天空"
-  },
-  {
-    "timestamp": "24m15s",
-    "similarity": 0.169,
-    "text": "她的外号叫伊卡洛斯"
-  },
-  {
-    "timestamp": "24m17s",
-    "similarity": 0.084,
-    "text": "就让她见识一下你的旋风吧"
-  },
-  {
-    "timestamp": "24m21s",
-    "similarity": 0.0,
-    "text": "新的罗布水晶赐予我们力量吧"
-  },
-  {
-    "timestamp": "24m26s",
-    "similarity": 0.0,
-    "text": "下一集 罗布奥特曼"
-  },
-  {
-    "timestamp": "24m28s",
-    "similarity": 0.0,
-    "text": "NA"
-  }
+ {
+  "timestamp": "0m00s",
+  "similarity": 0.0,
+  "text": "果然说到英雄就不得不提起必杀武器呢"
+ },
+ {
+  "timestamp": "0m05s",
+  "similarity": 0.0,
+  "text": "说不定这里面还藏着我们不知道的秘密呢"
+ },
+ {
+  "timestamp": "0m08s",
+  "text": "对吧哥哥",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m09s",
+  "text": "秘密比如什么秘密啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m10s",
+  "text": "你指罗布头镖啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m11s",
+  "text": "你指罗布头镖啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m12s",
+  "similarity": 0.0,
+  "text": "比如嘛我想想啊"
+ },
+ {
+  "timestamp": "0m14s",
+  "similarity": 0.761,
+  "text": "比如说不定是用地球上没有的金属制造出来的"
+ },
+ {
+  "timestamp": "0m18s",
+  "similarity": 0.091,
+  "text": "这可是奥特战士的武器啊"
+ },
+ {
+  "timestamp": "0m19s",
+  "similarity": 0.157,
+  "text": "那是必须的"
+ },
+ {
+  "timestamp": "0m21s",
+  "text": "真没意思",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m23s",
+  "text": "这不是有没有意思的问题吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m24s",
+  "text": "那你来说说看啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m26s",
+  "similarity": 0.0,
+  "text": "什么我们是在聊什么来着"
+ },
+ {
+  "timestamp": "0m27s",
+  "text": "比如有什么秘密",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m06s",
+  "similarity": 0.166,
+  "text": "水岛跑起来"
+ },
+ {
+  "timestamp": "2m09s",
+  "text": "好疼",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m12s",
+  "similarity": 0.073,
+  "text": "快点快点"
+ },
+ {
+  "timestamp": "2m15s",
+  "similarity": 0.152,
+  "text": "今天的比赛辛苦了"
+ },
+ {
+  "timestamp": "2m18s",
+  "similarity": 0.147,
+  "text": "谢谢教练的关心"
+ },
+ {
+  "timestamp": "2m20s",
+  "similarity": 0.112,
+  "text": "大家都发挥出了自己的实力"
+ },
+ {
+  "timestamp": "2m24s",
+  "similarity": 0.218,
+  "text": "虽说输了比赛"
+ },
+ {
+  "timestamp": "2m29s",
+  "text": "但仍虽败犹荣",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m30s",
+  "text": "都别灰心",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m32s",
+  "similarity": 0.132,
+  "text": "对了我还要和大家说一个事"
+ },
+ {
+  "timestamp": "2m37s",
+  "similarity": 0.0,
+  "text": "下下周我们有一场练习比赛"
+ },
+ {
+  "timestamp": "2m41s",
+  "similarity": 0.295,
+  "text": "我们的对手是"
+ },
+ {
+  "timestamp": "2m42s",
+  "similarity": 0.208,
+  "text": "常保久商店街"
+ },
+ {
+  "timestamp": "2m44s",
+  "similarity": 0.183,
+  "text": "那场比赛结束之后"
+ },
+ {
+  "timestamp": "2m48s",
+  "text": "我就打算引退了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m52s",
+  "similarity": 0.119,
+  "text": "我知道这件事比较突然"
+ },
+ {
+  "timestamp": "2m56s",
+  "text": "发生什么事了吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m58s",
+  "similarity": 0.14,
+  "text": "半年前"
+ },
+ {
+  "timestamp": "3m00s",
+  "similarity": 0.156,
+  "text": "我这里开了刀"
+ },
+ {
+  "timestamp": "3m02s",
+  "similarity": 0.289,
+  "text": "胃部的手术"
+ },
+ {
+  "timestamp": "3m07s",
+  "similarity": 0.123,
+  "text": "从体力上来说我继续当教练的话"
+ },
+ {
+  "timestamp": "3m09s",
+  "similarity": 0.0,
+  "text": "说不定还会拖大家的后腿"
+ },
+ {
+  "timestamp": "3m13s",
+  "similarity": 0.108,
+  "text": "所以这次我下定决心要引退了"
+ },
+ {
+  "timestamp": "3m19s",
+  "similarity": 0.092,
+  "text": "这么久以来谢谢各位了"
+ },
+ {
+  "timestamp": "3m30s",
+  "similarity": 0.247,
+  "text": "下一场比赛我们一定会获胜的"
+ },
+ {
+  "timestamp": "3m33s",
+  "text": "赢得荣誉",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m34s",
+  "similarity": 0.134,
+  "text": "抛起教练庆祝胜利"
+ },
+ {
+  "timestamp": "3m39s",
+  "text": "嗯说的没错",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m40s",
+  "similarity": 0.229,
+  "text": "真的能打赢吗"
+ },
+ {
+  "timestamp": "3m44s",
+  "similarity": 0.205,
+  "text": "况且我们队今年还有三个人是厄运年"
+ },
+ {
+  "timestamp": "3m45s",
+  "text": "常保久可是很强的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m46s",
+  "similarity": 0.0,
+  "text": "我们能赢的"
+ },
+ {
+  "timestamp": "3m48s",
+  "similarity": 0.019,
+  "text": "为此"
+ },
+ {
+  "timestamp": "3m49s",
+  "similarity": 0.044,
+  "text": "我要对我们队进行魔鬼训练"
+ },
+ {
+  "timestamp": "3m52s",
+  "similarity": 0.127,
+  "text": "跨越艰难的道路"
+ },
+ {
+  "timestamp": "3m56s",
+  "text": "展现我们的毅力",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m58s",
+  "similarity": 0.0,
+  "text": "要想赢就上吧"
+ },
+ {
+  "timestamp": "3m59s",
+  "similarity": 0.057,
+  "text": "从医学角度来说"
+ },
+ {
+  "timestamp": "4m01s",
+  "similarity": 0.069,
+  "text": "兔子跳对膝盖不太好"
+ },
+ {
+  "timestamp": "4m06s",
+  "similarity": 0.013,
+  "text": "凭借毅力和气势打造我们的队伍",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m09s",
+  "text": "毅力和气势就是一切",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m10s",
+  "similarity": 0.15,
+  "text": "嗯这里所说的毅力",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m14s",
+  "similarity": 0.102,
+  "text": "光靠毅力是没有用的哦",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m16s",
+  "similarity": 0.049,
+  "text": "运营管理"
+ },
+ {
+  "timestamp": "4m19s",
+  "similarity": 0.146,
+  "text": "爸爸在这里写上气势两个大字"
+ },
+ {
+  "timestamp": "4m24s",
+  "similarity": 0.174,
+  "text": "会不会太土了点吗"
+ },
+ {
+  "timestamp": "4m28s",
+  "text": "很帅的好吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m29s",
+  "text": "是很土好吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m32s",
+  "similarity": 0.149,
+  "text": "就很少看到哥哥像现在这么拼命了",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m34s",
+  "text": "高中毕业后",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m38s",
+  "similarity": 0.0,
+  "text": "活海哥为什么会这么拼命啊"
+ },
+ {
+  "timestamp": "4m41s",
+  "similarity": 0.052,
+  "text": "是因为熊城教练对他有恩吧"
+ },
+ {
+  "timestamp": "4m42s",
+  "text": "你好好加油啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m43s",
+  "text": "什么恩情",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m44s",
+  "similarity": 0.075,
+  "text": "他是哥哥高中棒球社的棒球顾问"
+ },
+ {
+  "timestamp": "4m49s",
+  "similarity": 0.112,
+  "text": "是他发现了哥哥打棒球的才能",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m51s",
+  "similarity": 0.122,
+  "text": "因此有很多大学棒球队的人来挖哥哥",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m52s",
+  "similarity": 0.0,
+  "text": "二垒手"
+ },
+ {
+  "timestamp": "4m58s",
+  "similarity": 0.034,
+  "text": "不过后来因为哥哥放弃了上大学"
+ },
+ {
+  "timestamp": "5m00s",
+  "text": "所以这件事也就不了了之了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m02s",
+  "similarity": 0.142,
+  "text": "但是后来熊城教练又把哥哥带回到了棒球队里"
+ },
+ {
+  "timestamp": "5m03s",
+  "text": "所以这件事也就不了了之了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m07s",
+  "similarity": 0.0,
+  "text": "好左外场手"
+ },
+ {
+  "timestamp": "5m09s",
+  "similarity": 0.21,
+  "text": "和常保久商店街的比赛就在明天了"
+ },
+ {
+  "timestamp": "5m11s",
+  "similarity": 0.197,
+  "text": "按现在的状态来看我们肯定还不行"
+ },
+ {
+  "timestamp": "5m14s",
+  "similarity": 0.209,
+  "text": "晚上也来特训吧"
+ },
+ {
+  "timestamp": "5m18s",
+  "similarity": 0.222,
+  "text": "这样下去不行的吧"
+ },
+ {
+  "timestamp": "5m21s",
+  "text": "会适得其反的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m22s",
+  "similarity": 0.203,
+  "text": "活海你自己也快撑不住了吧"
+ },
+ {
+  "timestamp": "5m24s",
+  "text": "就是啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m27s",
+  "text": "我没事的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m28s",
+  "similarity": 0.23,
+  "text": "晚上好好休息以便备战明天的比赛"
+ },
+ {
+  "timestamp": "5m29s",
+  "similarity": 0.158,
+  "text": "不特训怎么赢明天的比赛"
+ },
+ {
+  "timestamp": "5m30s",
+  "text": "还是别特训了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m34s",
+  "similarity": 0.265,
+  "text": "你不想抛起教练庆祝胜利吗"
+ },
+ {
+  "timestamp": "5m35s",
+  "text": "我的意思是为了赢得比赛",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m36s",
+  "text": "才更要好好休息",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m37s",
+  "similarity": 0.0,
+  "text": "大家的心情和你是一样的"
+ },
+ {
+  "timestamp": "5m38s",
+  "similarity": 0.242,
+  "text": "既然如此那就更加不能休息了"
+ },
+ {
+  "timestamp": "5m42s",
+  "text": "什么你有完没完了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m44s",
+  "text": "你说什么",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m45s",
+  "similarity": 0.235,
+  "text": "现在哪有时间休息啊"
+ },
+ {
+  "timestamp": "5m47s",
+  "text": "你们俩都冷静点",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m48s",
+  "similarity": 0.247,
+  "text": "哥哥你快过来"
+ },
+ {
+  "timestamp": "5m50s",
+  "text": "抱歉了各位",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m52s",
+  "similarity": 0.129,
+  "text": "干什么啊",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m55s",
+  "similarity": 0.102,
+  "text": "无法山上出现怪兽了"
+ },
+ {
+  "timestamp": "6m01s",
+  "similarity": 0.0,
+  "text": "上午九点左右"
+ },
+ {
+  "timestamp": "6m02s",
+  "similarity": 0.0,
+  "text": "一头怪兽出现在无法山上"
+ },
+ {
+  "timestamp": "6m05s",
+  "text": "现在正朝市区前进",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m07s",
+  "similarity": 0.0,
+  "text": "再快一点"
+ },
+ {
+  "timestamp": "6m10s",
+  "text": "再快一点就超速啦",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m12s",
+  "similarity": 0.063,
+  "text": "找到了"
+ },
+ {
+  "timestamp": "6m15s",
+  "similarity": 0.188,
+  "text": "我们要阻止它进入市区"
+ },
+ {
+  "timestamp": "6m19s",
+  "similarity": 0.095,
+  "text": "染上我的本色吧罗布",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "6m25s",
+  "similarity": 0.161,
+  "text": "就你了罗布水晶"
+ },
+ {
+  "timestamp": "6m31s",
+  "similarity": 0.096,
+  "text": "银河奥特曼"
+ },
+ {
+  "timestamp": "6m35s",
+  "similarity": 0.087,
+  "text": "水流绊身碧蓝之海"
+ },
+ {
+  "timestamp": "6m44s",
+  "similarity": 0.0,
+  "text": "罗索奥特曼跃水形态"
+ },
+ {
+  "timestamp": "6m57s",
+  "similarity": 0.048,
+  "text": "就你了罗布水晶"
+ },
+ {
+  "timestamp": "7m01s",
+  "similarity": 0.083,
+  "text": "泰罗奥特曼"
+ },
+ {
+  "timestamp": "7m05s",
+  "similarity": 0.05,
+  "text": "炽火绊身红莲之焰"
+ },
+ {
+  "timestamp": "7m15s",
+  "similarity": 0.0,
+  "text": "布鲁奥特曼烈火形态"
+ },
+ {
+  "timestamp": "7m53s",
+  "similarity": 0.0,
+  "text": "这招如何"
+ },
+ {
+  "timestamp": "7m58s",
+  "similarity": 0.0,
+  "text": "看招"
+ },
+ {
+  "timestamp": "8m02s",
+  "similarity": 0.0,
+  "text": "竟然接住了"
+ },
+ {
+  "timestamp": "8m57s",
+  "text": "听说你们吵架了啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "8m58s",
+  "similarity": 0.124,
+  "text": "城市出现了怪兽"
+ },
+ {
+  "timestamp": "9m01s",
+  "similarity": 0.128,
+  "text": "你又弄伤了肩膀"
+ },
+ {
+  "timestamp": "9m09s",
+  "similarity": 0.077,
+  "text": "我今天在电视上看到了"
+ },
+ {
+  "timestamp": "9m12s",
+  "similarity": 0.049,
+  "text": "最近经常出现的那个巨人",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "9m16s",
+  "text": "对就叫奥特战士来着",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m19s",
+  "similarity": 0.156,
+  "text": "他用了很完美的投球姿势呢"
+ },
+ {
+  "timestamp": "9m23s",
+  "similarity": 0.142,
+  "text": "感觉很像你",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "9m28s",
+  "similarity": 0.129,
+  "text": "因为你是家里的长子",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "9m31s",
+  "similarity": 0.169,
+  "text": "所以你总是把一切都背负在自己身上"
+ },
+ {
+  "timestamp": "9m37s",
+  "similarity": 0.067,
+  "text": "每个人都有自己的职责"
+ },
+ {
+  "timestamp": "9m45s",
+  "similarity": 0.19,
+  "text": "首先要先履行自己的职责才行"
+ },
+ {
+  "timestamp": "9m49s",
+  "similarity": 0.042,
+  "text": "我的职责就是再一次"
+ },
+ {
+  "timestamp": "9m51s",
+  "similarity": 0.012,
+  "text": "为庆祝胜利而把教练抛向天空"
+ },
+ {
+  "timestamp": "9m54s",
+  "similarity": 0.16,
+  "text": "这个是"
+ },
+ {
+  "timestamp": "9m57s",
+  "similarity": 0.139,
+  "text": "我们家祖祖辈辈流传下来的东西"
+ },
+ {
+  "timestamp": "10m02s",
+  "similarity": 0.0,
+  "text": "是绫香星坠落时四下飞散的光芒"
+ },
+ {
+  "timestamp": "10m06s",
+  "similarity": 0.0,
+  "text": "这些是我家祖先捡到的"
+ },
+ {
+  "timestamp": "10m10s",
+  "similarity": 0.052,
+  "text": "这是"
+ },
+ {
+  "timestamp": "10m12s",
+  "similarity": 0.155,
+  "text": "我梦到了两个光之巨人"
+ },
+ {
+  "timestamp": "10m14s",
+  "text": "那天晚上",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "10m20s",
+  "similarity": 0.142,
+  "text": "对我说"
+ },
+ {
+  "timestamp": "10m24s",
+  "similarity": 0.168,
+  "text": "时机来临时把这些交给适合之人"
+ },
+ {
+  "timestamp": "10m30s",
+  "similarity": 0.102,
+  "text": "我想适合之人指的就是你吧",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "10m38s",
+  "similarity": 0.0,
+  "text": "逗你的我开玩笑的"
+ },
+ {
+  "timestamp": "10m49s",
+  "similarity": 0.077,
+  "text": "这是我送你的饯别礼物",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "10m51s",
+  "similarity": 0.0,
+  "text": "你就收下吧"
+ },
+ {
+  "timestamp": "10m52s",
+  "similarity": 0.07,
+  "text": "我不能收下这么贵重的礼物",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "10m59s",
+  "similarity": 0.071,
+  "text": "你不愿收下我给你的饯别礼物吗"
+ },
+ {
+  "timestamp": "11m05s",
+  "text": "那我就收下了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "11m07s",
+  "similarity": 0.089,
+  "text": "我在无法山的各处都安装了"
+ },
+ {
+  "timestamp": "11m09s",
+  "similarity": 0.128,
+  "text": "检测共振波的装置"
+ },
+ {
+  "timestamp": "11m11s",
+  "similarity": 0.0,
+  "text": "只要那家伙一出现"
+ },
+ {
+  "timestamp": "11m12s",
+  "similarity": 0.07,
+  "text": "我们就能马上通过这个软件知晓"
+ },
+ {
+  "timestamp": "11m19s",
+  "text": "加油哦",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "11m26s",
+  "similarity": 0.221,
+  "text": "充哥各位"
+ },
+ {
+  "timestamp": "11m32s",
+  "similarity": 0.244,
+  "text": "昨天的事真是对不起了"
+ },
+ {
+  "timestamp": "11m50s",
+  "similarity": 0.184,
+  "text": "你也来吧"
+ },
+ {
+  "timestamp": "11m53s",
+  "similarity": 0.178,
+  "text": "让我们为教练打造一条最棒的引退之路吧"
+ },
+ {
+  "timestamp": "12m10s",
+  "similarity": 0.0,
+  "text": "行礼"
+ },
+ {
+  "timestamp": "12m12s",
+  "similarity": 0.0,
+  "text": "请多多关照"
+ },
+ {
+  "timestamp": "12m19s",
+  "similarity": 0.002,
+  "text": "上了上了"
+ },
+ {
+  "timestamp": "12m20s",
+  "similarity": 0.074,
+  "text": "给我打趴他们"
+ },
+ {
+  "timestamp": "12m22s",
+  "text": "喂喂",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "12m31s",
+  "similarity": 0.232,
+  "text": "活海哥"
+ },
+ {
+  "timestamp": "12m32s",
+  "similarity": 0.112,
+  "text": "打得漂亮哥哥",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "12m41s",
+  "similarity": 0.122,
+  "text": "加油"
+ },
+ {
+  "timestamp": "12m42s",
+  "similarity": 0.118,
+  "text": "还不够哦"
+ },
+ {
+  "timestamp": "12m43s",
+  "text": "加油啊白熊队",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "12m45s",
+  "similarity": 0.163,
+  "text": "再喊大声点"
+ },
+ {
+  "timestamp": "12m48s",
+  "text": "爱染先生",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "12m49s",
+  "similarity": 0.42,
+  "text": "不好意思啊抱歉"
+ },
+ {
+  "timestamp": "12m52s",
+  "text": "让我过去一下",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "12m53s",
+  "text": "不好意思借过下借过下",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "12m54s",
+  "similarity": 0.674,
+  "text": "我听说今天这里有很重要的比赛"
+ },
+ {
+  "timestamp": "12m59s",
+  "text": "我是爱染诚",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m02s",
+  "similarity": 0.641,
+  "text": "放点让人情绪激昂的曲子"
+ },
+ {
+  "timestamp": "13m04s",
+  "text": "达令",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m05s",
+  "similarity": 0.539,
+  "text": "现在开始播放让人情绪激昂的曲子"
+ },
+ {
+  "timestamp": "13m07s",
+  "similarity": 0.551,
+  "text": "加油加油",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "13m10s",
+  "text": "上啊上啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m12s",
+  "similarity": 0.0,
+  "text": "加油啊"
+ },
+ {
+  "timestamp": "13m13s",
+  "text": "加油啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m15s",
+  "text": "好咧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m21s",
+  "similarity": 0.16,
+  "text": "耶耶",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "13m24s",
+  "similarity": 0.0,
+  "text": "加把劲啊"
+ },
+ {
+  "timestamp": "13m25s",
+  "similarity": 0.116,
+  "text": "再接再厉啊"
+ },
+ {
+  "timestamp": "13m29s",
+  "similarity": 0.551,
+  "text": "终于到最后一局比赛了"
+ },
+ {
+  "timestamp": "13m31s",
+  "similarity": 0.634,
+  "text": "只要哥哥不让对方得分"
+ },
+ {
+  "timestamp": "13m32s",
+  "similarity": 0.66,
+  "text": "白熊队就赢了"
+ },
+ {
+  "timestamp": "13m38s",
+  "text": "你要去哪里啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m39s",
+  "similarity": 0.738,
+  "text": "不说为妙"
+ },
+ {
+  "timestamp": "13m40s",
+  "similarity": 0.38,
+  "text": "你是要去厕所吧"
+ },
+ {
+  "timestamp": "13m43s",
+  "text": "嗯是的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m49s",
+  "similarity": 0.883,
+  "text": "开始吧"
+ },
+ {
+  "timestamp": "13m53s",
+  "text": "出来吧出来吧雷德王",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m05s",
+  "similarity": 0.147,
+  "text": "怎么偏偏这时候出现怪兽"
+ },
+ {
+  "timestamp": "14m09s",
+  "text": "怎么了吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m10s",
+  "similarity": 0.154,
+  "text": "朝阳你有带动力鞋袜装置吗"
+ },
+ {
+  "timestamp": "14m24s",
+  "text": "暂停",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m27s",
+  "text": "不好意思",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m33s",
+  "similarity": 0.0,
+  "text": "勇海那家伙"
+ },
+ {
+  "timestamp": "14m37s",
+  "similarity": 0.142,
+  "text": "那个"
+ },
+ {
+  "timestamp": "14m41s",
+  "similarity": 0.076,
+  "text": "看来时机已经到了啊"
+ },
+ {
+  "timestamp": "14m47s",
+  "similarity": 0.133,
+  "text": "你的职责是什么"
+ },
+ {
+  "timestamp": "14m49s",
+  "text": "当然就是再一次",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m51s",
+  "similarity": 0.16,
+  "text": "为庆祝胜利而把教练抛向天空"
+ },
+ {
+  "timestamp": "14m54s",
+  "text": "不对",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m55s",
+  "similarity": 0.124,
+  "text": "你心里应该很清楚"
+ },
+ {
+  "timestamp": "14m58s",
+  "similarity": 0.19,
+  "text": "你的职责究竟是什么"
+ },
+ {
+  "timestamp": "15m03s",
+  "similarity": 0.03,
+  "text": "是为了大家而去战斗"
+ },
+ {
+  "timestamp": "15m09s",
+  "similarity": 0.147,
+  "text": "在他们把我抛起来之前回来吧"
+ },
+ {
+  "timestamp": "15m12s",
+  "similarity": 0.122,
+  "text": "去吧"
+ },
+ {
+  "timestamp": "15m19s",
+  "similarity": 0.041,
+  "text": "换人我来做投手"
+ },
+ {
+  "timestamp": "15m33s",
+  "similarity": 0.134,
+  "text": "我要一雪昨天的前耻"
+ },
+ {
+  "timestamp": "15m37s",
+  "similarity": 0.097,
+  "text": "染上我的本色吧罗布",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "15m43s",
+  "similarity": 0.0,
+  "text": "就你了罗布水晶"
+ },
+ {
+  "timestamp": "15m49s",
+  "similarity": 0.093,
+  "text": "银河奥特曼"
+ },
+ {
+  "timestamp": "15m53s",
+  "similarity": 0.036,
+  "text": "水流绊身碧蓝之海"
+ },
+ {
+  "timestamp": "16m03s",
+  "similarity": 0.0,
+  "text": "布鲁奥特曼跃水形态"
+ },
+ {
+  "timestamp": "16m45s",
+  "similarity": 0.033,
+  "text": "勇海我这就来"
+ },
+ {
+  "timestamp": "16m52s",
+  "similarity": 0.191,
+  "text": "就你了罗布水晶"
+ },
+ {
+  "timestamp": "16m58s",
+  "similarity": 0.121,
+  "text": "泰罗奥特曼"
+ },
+ {
+  "timestamp": "17m02s",
+  "similarity": 0.086,
+  "text": "炽火绊身红莲之焰"
+ },
+ {
+  "timestamp": "17m12s",
+  "similarity": 0.0,
+  "text": "罗索奥特曼烈火形态"
+ },
+ {
+  "timestamp": "17m25s",
+  "similarity": 0.0,
+  "text": "哥哥你不是在比赛吗"
+ },
+ {
+  "timestamp": "17m28s",
+  "text": "先集中精神应付怪兽",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "17m33s",
+  "similarity": 0.0,
+  "text": "好痛"
+ },
+ {
+  "timestamp": "18m03s",
+  "similarity": 0.148,
+  "text": "那家伙好像知道你肩膀有伤"
+ },
+ {
+  "timestamp": "18m06s",
+  "text": "专门攻击你的肩膀",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "18m07s",
+  "similarity": 0.0,
+  "text": "勇海用罗布头镖"
+ },
+ {
+  "timestamp": "18m25s",
+  "similarity": 0.148,
+  "text": "两人出局满垒"
+ },
+ {
+  "timestamp": "18m27s",
+  "similarity": 0.144,
+  "text": "比赛进入高潮了啊"
+ },
+ {
+  "timestamp": "18m35s",
+  "similarity": 0.202,
+  "text": "好咧去吧"
+ },
+ {
+  "timestamp": "19m17s",
+  "similarity": 0.0,
+  "text": "坏球"
+ },
+ {
+  "timestamp": "19m36s",
+  "similarity": 0.111,
+  "text": "新的水晶"
+ },
+ {
+  "timestamp": "19m38s",
+  "similarity": 0.111,
+  "text": "就试用一下这个吧"
+ },
+ {
+  "timestamp": "19m44s",
+  "similarity": 0.0,
+  "text": "赛罗奥特曼"
+ },
+ {
+  "timestamp": "19m53s",
+  "similarity": 0.0,
+  "text": "这是罗布头镖的另一个模式吗"
+ },
+ {
+  "timestamp": "19m55s",
+  "text": "好厉害",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "20m23s",
+  "similarity": 0.009,
+  "text": "必杀赛罗双斩"
+ },
+ {
+  "timestamp": "20m57s",
+  "similarity": 0.0,
+  "text": "打赢了哥哥"
+ },
+ {
+  "timestamp": "21m09s",
+  "similarity": 0.0,
+  "text": "水晶已回收"
+ },
+ {
+  "timestamp": "21m32s",
+  "similarity": 0.0,
+  "text": "在最后关头被对方打出了一记"
+ },
+ {
+  "timestamp": "21m37s",
+  "similarity": 0.106,
+  "text": "满垒全垒打"
+ },
+ {
+  "timestamp": "21m41s",
+  "similarity": 0.0,
+  "text": "对不起"
+ },
+ {
+  "timestamp": "21m42s",
+  "similarity": 0.023,
+  "text": "没什么的"
+ },
+ {
+  "timestamp": "21m44s",
+  "similarity": 0.016,
+  "text": "最后还是打出了一场很精彩的比赛"
+ },
+ {
+  "timestamp": "21m52s",
+  "similarity": 0.0,
+  "text": "对我来说是最棒的引退之路了"
+ },
+ {
+  "timestamp": "22m12s",
+  "similarity": 0.0,
+  "text": "雷德王"
+ },
+ {
+  "timestamp": "22m13s",
+  "similarity": 0.654,
+  "text": "你做得很好"
+ },
+ {
+  "timestamp": "22m16s",
+  "similarity": 0.629,
+  "text": "别泄气"
+ },
+ {
+  "timestamp": "23m43s",
+  "similarity": 0.051,
+  "text": "接下来要介绍的是关于罗布水晶的研究"
+ },
+ {
+  "timestamp": "24m05s",
+  "similarity": 0.072,
+  "text": "下集也要收看哦"
+ },
+ {
+  "timestamp": "24m11s",
+  "similarity": 0.066,
+  "text": "二宫悠叶想利用自己制作的机器飞上天空"
+ },
+ {
+  "timestamp": "24m15s",
+  "similarity": 0.169,
+  "text": "她的外号叫伊卡洛斯"
+ },
+ {
+  "timestamp": "24m18s",
+  "similarity": 0.084,
+  "text": "就让她见识一下你的旋风吧"
+ },
+ {
+  "timestamp": "24m21s",
+  "similarity": 0.0,
+  "text": "新的罗布水晶赐予我们力量吧"
+ },
+ {
+  "timestamp": "24m24s",
+  "similarity": 0.0,
+  "text": "下一集 罗布奥特曼"
+ },
+ {
+  "timestamp": "24m28s",
+  "text": "再见了伊卡洛斯",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "24m29s",
+  "text": "再见了伊卡洛斯。",
+  "similarity": 0.0
+ }
 ]

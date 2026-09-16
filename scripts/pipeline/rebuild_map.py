@@ -9,7 +9,7 @@ import re
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 仓库根(scripts/pipeline 的上三级)
 B = _ROOT
-CLEAN = os.path.join(B, 'subtitle_clean')
+CLEAN = os.path.join(B, 'subtitle')
 FR = os.path.join(B, 'docs', 'frames')
 FMAP = os.path.join(B, 'docs', 'frames_map.js')
 

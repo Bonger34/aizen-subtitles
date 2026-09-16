@@ -9,7 +9,7 @@ import cv2
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 仓库根(scripts/pipeline 的上三级)
 B = _ROOT
 V = os.path.join(B, 'Videos')
-CLEAN = os.path.join(B, 'subtitle_clean')
+CLEAN = os.path.join(B, 'subtitle')
 
 dur = {}
 for f in os.listdir(V):

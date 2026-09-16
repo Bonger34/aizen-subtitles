@@ -1,10 +1,10 @@
 # 将 25 集罗布奥特曼字幕 JSON 转为纯前端搜索用的 gzip subtitle_db
 # 格式与原项目 VV/Web 一致：每条记录 {f: 文件名, t: 时间戳, s: 人脸相似度, x: 文本}
-# 数据源：subtitle_clean/（已清洗噪声）
+# 数据源：subtitle/（已清洗噪声）
 import os, json, gzip, re, sys
 
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SUBTITLE_DIR = os.path.join(BASE, "subtitle_clean")  # 使用清洗后数据
+SUBTITLE_DIR = os.path.join(BASE, "subtitle")  # 使用清洗后数据
 SITE_DIR = os.path.join(BASE, "docs")
 OUTPUT = os.path.join(SITE_DIR, "subtitle_db")
 

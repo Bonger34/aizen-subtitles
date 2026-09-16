@@ -1,11 +1,11 @@
 # 生成 docs/frames_map.js：filename|timestamp → 帧图文件名 映射
-# 扫描 docs/frames/ 下的正式帧（Pxx_时间戳[±偏移].jpg），与 subtitle_clean 记录建立映射
+# 扫描 docs/frames/ 下的正式帧（Pxx_时间戳[±偏移].jpg），与 subtitle 记录建立映射
 import os, re, json
 
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FRAMES_DIR = os.path.join(BASE, "docs", "frames")
 OUTPUT = os.path.join(BASE, "docs", "frames_map.js")
-SUBTITLE_DIR = os.path.join(BASE, "subtitle_clean")
+SUBTITLE_DIR = os.path.join(BASE, "subtitle")
 
 # 帧文件名格式: P01_5m41s.jpg / P03_13m25s+1s.jpg / P08_0m18s-1s.jpg
 FRAME_PATTERN = re.compile(r'^P(\d{1,2})_(\d+)m(\d+)s([+-]\d+s)?\.jpg$')
@@ -24,7 +24,7 @@ def main():
             frames[(ep, ts)] = fname
     print(f"正式帧总数: {len(frames)}")
 
-    # 2. 建立 subtitle_clean 记录 → 帧图映射（支持 ts±1s 回退：帧名=实际匹配帧时刻时仍可映射）
+    # 2. 建立 subtitle 记录 → 帧图映射（支持 ts±1s 回退：帧名=实际匹配帧时刻时仍可映射）
     def ts_sec(st):
         m = re.match(r'(\d+)m(\d+)s', st)
         return int(m.group(1)) * 60 + int(m.group(2)) if m else None

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""q_audit.py — 从 subtitle_clean 反查全部文本修正是否已落盘, 生成统一审计文件。
+"""q_audit.py — 从 subtitle 反查全部文本修正是否已落盘, 生成统一审计文件。
 
 不依赖各次运行的中间结果(它们可能被后续运行覆盖), 直接以库内容为准:
   读 review/q_apply_result.json(apply_add 76 条) 与 review/q_manual_verdicts.json(frame_apply 36 条),
@@ -12,7 +12,7 @@ from collections import Counter, defaultdict
 
 B = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REVIEW = os.path.join(B, 'review')
-CLEAN = os.path.join(B, 'subtitle_clean')
+CLEAN = os.path.join(B, 'subtitle')
 
 fixes = []
 p1 = os.path.join(REVIEW, 'q_apply_result.json')

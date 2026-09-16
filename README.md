@@ -25,7 +25,7 @@
 | 项 | 数量 | 说明 |
 |---|---:|---|
 | 集数 | 25 | 全剧 |
-| 归档台词 | **6783** 条 | `subtitle_clean/`，站点唯一数据源 |
+| 归档台词 | **6783** 条 | `subtitle/`，站点唯一数据源 |
 | 爱染诚登场条目 | **539** 条 | 说话时画面含爱染诚 |
 | 帧图 | **6775** 张 | 960×540 |
 | 帧图覆盖率 | **100.0%** | 6783 条全部有对应帧文件，无占位 |
@@ -55,8 +55,8 @@ VV_Rob/
 ├─ requirements.txt
 ├─ LICENSE                   GPL-3.0（继承自上游 VV）
 │
-├─ subtitle_clean/           【权威库】25 集 / 6783 条台词，站点的唯一数据源
-├─ subtitle/                 管线第 5 步的输出目录（站点不读它）
+├─ subtitle/                 【权威库】25 集 / 6783 条台词，站点的唯一数据源
+├─ subtitle_raw/             main.py 的输出目录（重跑管线时创建，站点不读它）
 ├─ docs/                     GitHub Pages 站点本体
 │   ├─ index.html  style.css  script.js  db_search.js
 │   ├─ subtitle_db           gzip 压缩的字幕库（前端 IndexedDB 缓存）

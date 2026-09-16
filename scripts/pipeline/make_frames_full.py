@@ -10,7 +10,7 @@ from rapidocr_onnxruntime import RapidOCR
 from insightface.app import FaceAnalysis
 
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SUBTITLE_DIR = os.path.join(BASE, "subtitle_clean")
+SUBTITLE_DIR = os.path.join(BASE, "subtitle")
 VIDEO_DIR = os.path.join(BASE, "Videos")
 FRAMES_DIR = os.path.join(BASE, "web", "frames")
 MISSING_FILE = os.path.join(BASE, "web", "frames_missing.json")

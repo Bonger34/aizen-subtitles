@@ -26,7 +26,7 @@ from q_common import (SCAN_TOP, SCAN_BOT, X0, X1, PAD_Y, build_engine, crop_norm
 
 B = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 VIDEO_DIR = os.path.join(B, 'Videos')
-CLEAN = os.path.join(B, 'subtitle_clean')
+CLEAN = os.path.join(B, 'subtitle')
 OUT_DIR = os.path.join(B, 'review')
 OFFSETS = (0.05, 0.3, 0.55, 0.8)  # 覆盖 [t, t+1): 时间戳只有秒级精度, 字幕实际起点在区间内任意处
 MIN_SEG_H = 18              # 段高下限: 低于此视为画面细线/噪声

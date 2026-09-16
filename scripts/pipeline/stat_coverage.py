@@ -14,7 +14,7 @@ FMAP = json.loads(m.group(1))
 
 total = miss = 0
 miss_list = []
-for f in sorted(glob.glob(os.path.join(BASE, 'subtitle_clean', '*.json'))):
+for f in sorted(glob.glob(os.path.join(BASE, 'subtitle', '*.json'))):
     name = os.path.basename(f)[:-5]
     d = json.load(open(f, encoding='utf-8'))
     total += len(d)

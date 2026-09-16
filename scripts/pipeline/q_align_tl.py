@@ -20,7 +20,7 @@ from q_common import kana_ratio, norm, sim, to_simp  # noqa: E402
 
 B = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REVIEW = os.path.join(B, 'review')
-CLEAN = os.path.join(B, 'subtitle_clean')
+CLEAN = os.path.join(B, 'subtitle')
 CLUSTER = 0.90     # 同一句的多次识别视为一条
 CONFIRM = 0.95
 SRC_LO = 0.55

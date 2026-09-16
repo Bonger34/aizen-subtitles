@@ -1,1018 +1,956 @@
 [
-  {
-    "timestamp": "0m00s",
-    "similarity": 0.052,
-    "text": "不好"
-  },
-  {
-    "timestamp": "0m03s",
-    "similarity": 0.07,
-    "text": "不管是谁获胜地球都会完蛋的"
-  },
-  {
-    "timestamp": "0m35s",
-    "similarity": 0.069,
-    "text": "小剑"
-  },
-  {
-    "timestamp": "0m36s",
-    "similarity": 0.132,
-    "text": "我真的很快乐"
-  },
-  {
-    "timestamp": "0m46s",
-    "similarity": 0.183,
-    "text": "小剑"
-  },
-  {
-    "timestamp": "1m15s",
-    "similarity": 0.071,
-    "text": "罗布极限水晶"
-  },
-  {
-    "timestamp": "1m21s",
-    "similarity": 0.0,
-    "text": "兄弟之力合二为一"
-  },
-  {
-    "timestamp": "1m30s",
-    "similarity": 0.028,
-    "text": "极致绊身金色宇宙"
-  },
-  {
-    "timestamp": "1m39s",
-    "similarity": 0.0,
-    "text": "罗布奥特曼"
-  },
-  {
-    "timestamp": "1m57s",
-    "similarity": 0.089,
-    "text": "罗布光轮"
-  },
-  {
-    "timestamp": "2m11s",
-    "similarity": 0.0,
-    "text": "备用电源无法继续供电"
-  },
-  {
-    "timestamp": "2m36s",
-    "similarity": 0.134,
-    "text": "刚刚那是什么"
-  },
-  {
-    "timestamp": "2m42s",
-    "similarity": 0.0,
-    "text": "屏障没有了"
-  },
-  {
-    "timestamp": "2m53s",
-    "similarity": 0.038,
-    "text": "正在地下流动的光之轨迹光谱图",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "2m54s",
-    "similarity": 0.0,
-    "text": "正在地下流动的光之轨迹光谱图",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "2m56s",
-    "similarity": 0.005,
-    "text": "将光之轨迹和怪兽拘捕系统关联到一起AIZENTECH",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "2m59s",
-    "similarity": 0.0,
-    "text": "将光之轨迹和怪兽拘捕系统关联到一起"
-  },
-  {
-    "timestamp": "3m29s",
-    "similarity": 0.065,
-    "text": "不要啊"
-  },
-  {
-    "timestamp": "3m46s",
-    "similarity": 0.109,
-    "text": "这是怎么回事啊"
-  },
-  {
-    "timestamp": "3m52s",
-    "similarity": 0.0,
-    "text": "被妈妈锁上了吗"
-  },
-  {
-    "timestamp": "3m56s",
-    "similarity": 0.114,
-    "text": "拘捕光线已强化"
-  },
-  {
-    "timestamp": "4m02s",
-    "similarity": 0.063,
-    "text": "No3ek"
-  },
-  {
-    "timestamp": "4m09s",
-    "similarity": 0.109,
-    "text": "成功拘捕怪兽"
-  },
-  {
-    "timestamp": "4m12s",
-    "similarity": 0.105,
-    "text": "强子冲突型加速器"
-  },
-  {
-    "timestamp": "4m19s",
-    "similarity": 0.0,
-    "text": "强子冲突型加速器"
-  },
-  {
-    "timestamp": "4m21s",
-    "similarity": 0.138,
-    "text": "系统正在运行"
-  },
-  {
-    "timestamp": "4m31s",
-    "similarity": 0.117,
-    "text": "朝阳你没事吧一"
-  },
-  {
-    "timestamp": "4m38s",
-    "similarity": 0.078,
-    "text": "传送到这个坐标轴上"
-  },
-  {
-    "timestamp": "4m41s",
-    "similarity": 0.0,
-    "text": "EMIHD按照这个数值传送的话ZENTEC",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m42s",
-    "similarity": 0.0,
-    "text": "EM2愛染之塔也会被传送到虛數次元的ZENTEO",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m45s",
-    "similarity": 0.0,
-    "text": "爱染之塔也会被传送到虚数次元的ZENTEC",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m48s",
-    "similarity": 0.0,
-    "text": "维度洞穴的入口已经损坏了ZENTEC",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "4m52s",
-    "similarity": 0.082,
-    "text": "这就是我的目的达令"
-  },
-  {
-    "timestamp": "5m03s",
-    "similarity": 0.073,
-    "text": "妈妈不会是要扭曲时空"
-  },
-  {
-    "timestamp": "5m05s",
-    "similarity": 0.068,
-    "text": "stould制造出维度洞穴吧",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m08s",
-    "similarity": 0.144,
-    "text": "简单来说就是连接异次元的洞穴"
-  },
-  {
-    "timestamp": "5m11s",
-    "similarity": 0.128,
-    "text": "简单来说就是连接异次元的洞穴",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m14s",
-    "similarity": 0.051,
-    "text": "想要把那个怪兽扔进异次元中",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m16s",
-    "similarity": 0.145,
-    "text": "想要把那个怪兽扔进异次元中",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m19s",
-    "similarity": 0.168,
-    "text": "should活海勇海朝阳",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m24s",
-    "similarity": 0.0,
-    "text": "你们快离开这里"
-  },
-  {
-    "timestamp": "5m26s",
-    "similarity": 0.154,
-    "text": "你们快离开这里",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "5m30s",
-    "similarity": 0.081,
-    "text": "妈妈快住手"
-  },
-  {
-    "timestamp": "5m31s",
-    "similarity": 0.074,
-    "text": "除此之外别无他法了"
-  },
-  {
-    "timestamp": "5m34s",
-    "similarity": 0.085,
-    "text": "为了保护你们保护地球"
-  },
-  {
-    "timestamp": "5m39s",
-    "similarity": 0.08,
-    "text": "为了保护你们保护地球"
-  },
-  {
-    "timestamp": "5m41s",
-    "similarity": 0.046,
-    "text": "妈妈"
-  },
-  {
-    "timestamp": "5m44s",
-    "similarity": 0.019,
-    "text": "我们已经等了你十五年了"
-  },
-  {
-    "timestamp": "5m52s",
-    "similarity": 0.032,
-    "text": "你要是再离开的话就太过分了"
-  },
-  {
-    "timestamp": "5m54s",
-    "similarity": 0.114,
-    "text": "是啊我真是个不称职的母亲"
-  },
-  {
-    "timestamp": "6m00s",
-    "similarity": 0.146,
-    "text": "should妈妈THIRD"
-  },
-  {
-    "timestamp": "6m03s",
-    "similarity": 0.138,
-    "text": "通话结束",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "6m16s",
-    "similarity": 0.084,
-    "text": "这栋大楼马上就要被传送到异次元了"
-  },
-  {
-    "timestamp": "6m27s",
-    "similarity": 0.034,
-    "text": "磁力脉冲上升"
-  },
-  {
-    "timestamp": "6m29s",
-    "similarity": 0.0,
-    "text": "距离传送到异次元还有5分钟"
-  },
-  {
-    "timestamp": "6m48s",
-    "similarity": 0.07,
-    "text": "你们两个"
-  },
-  {
-    "timestamp": "6m50s",
-    "similarity": 0.109,
-    "text": "妈妈先等一下"
-  },
-  {
-    "timestamp": "6m54s",
-    "similarity": 0.101,
-    "text": "你们为什么不听妈妈的话"
-  },
-  {
-    "timestamp": "6m59s",
-    "similarity": 0.124,
-    "text": "我们不会逃跑的",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "7m01s",
-    "similarity": 0.091,
-    "text": "所以妈妈你也不能去"
-  },
-  {
-    "timestamp": "7m03s",
-    "similarity": 0.066,
-    "text": "这是唯一的办法了"
-  },
-  {
-    "timestamp": "7m08s",
-    "similarity": 0.027,
-    "text": "在妈妈你眼中我们还是小孩子吧"
-  },
-  {
-    "timestamp": "7m13s",
-    "similarity": 0.008,
-    "text": "但是我们已经长大了能够独立了"
-  },
-  {
-    "timestamp": "7m15s",
-    "similarity": 0.054,
-    "text": "所以请相信我们"
-  },
-  {
-    "timestamp": "7m17s",
-    "similarity": 0.12,
-    "text": "我们可是一家人啊"
-  },
-  {
-    "timestamp": "7m19s",
-    "similarity": 0.151,
-    "text": "为什么你不肯相信我们啊"
-  },
-  {
-    "timestamp": "7m23s",
-    "similarity": 0.09,
-    "text": "距离传送到异次元还有4分钟"
-  },
-  {
-    "timestamp": "7m34s",
-    "similarity": 0.165,
-    "text": "NO3OK"
-  },
-  {
-    "timestamp": "7m36s",
-    "similarity": 0.198,
-    "text": "我好像听见有人提起了我啊",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "7m41s",
-    "similarity": 0.091,
-    "text": "小潮"
-  },
-  {
-    "timestamp": "7m44s",
-    "similarity": 0.121,
-    "text": "你受伤了吗"
-  },
-  {
-    "timestamp": "7m57s",
-    "similarity": 0.077,
-    "text": "孩子们比我们想的要更加成熟"
-  },
-  {
-    "timestamp": "8m07s",
-    "similarity": 0.134,
-    "text": "和他们生活在一起就会明白的"
-  },
-  {
-    "timestamp": "8m13s",
-    "similarity": 0.058,
-    "text": "我也我也想和他们一起生活啊"
-  },
-  {
-    "timestamp": "8m24s",
-    "similarity": 0.034,
-    "text": "我也想赚钱养家"
-  },
-  {
-    "timestamp": "8m27s",
-    "similarity": 0.052,
-    "text": "担心他们的升学"
-  },
-  {
-    "timestamp": "8m31s",
-    "similarity": 0.063,
-    "text": "和他们一起哭一起笑啊"
-  },
-  {
-    "timestamp": "8m40s",
-    "similarity": 0.121,
-    "text": "但是我能为他们做的只有这件事了"
-  },
-  {
-    "timestamp": "8m50s",
-    "similarity": 0.019,
-    "text": "因为"
-  },
-  {
-    "timestamp": "8m54s",
-    "similarity": 0.108,
-    "text": "因为这都是我的错啊"
-  },
-  {
-    "timestamp": "8m57s",
-    "similarity": 0.095,
-    "text": "要是我没有发现回旋闪光就好了"
-  },
-  {
-    "timestamp": "9m03s",
-    "similarity": 0.071,
-    "text": "我无法承受孩子们死去的那段未来"
-  },
-  {
-    "timestamp": "9m13s",
-    "similarity": 0.0,
-    "text": "拘捕光线负荷过载"
-  },
-  {
-    "timestamp": "9m17s",
-    "similarity": 0.0,
-    "text": "拘捕光线严重受损"
-  },
-  {
-    "timestamp": "9m21s",
-    "similarity": 0.184,
-    "text": "鲁格赛特的能量远远超过计算值"
-  },
-  {
-    "timestamp": "9m25s",
-    "similarity": 0.103,
-    "text": "鲁格赛特的能量远远超过计算值"
-  },
-  {
-    "timestamp": "9m27s",
-    "similarity": 0.058,
-    "text": "距离传送到异次元还有3分钟"
-  },
-  {
-    "timestamp": "9m31s",
-    "similarity": 0.038,
-    "text": "只是其中一种可能罢了"
-  },
-  {
-    "timestamp": "9m36s",
-    "similarity": 0.038,
-    "text": "未来并不是唯一的"
-  },
-  {
-    "timestamp": "9m39s",
-    "similarity": 0.092,
-    "text": "我们会改变未来的"
-  },
-  {
-    "timestamp": "9m43s",
-    "similarity": 0.022,
-    "text": "一定会做到的"
-  },
-  {
-    "timestamp": "9m47s",
-    "similarity": 0.091,
-    "text": "因为我们是",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "9m57s",
-    "similarity": 0.148,
-    "text": "ouractio"
-  },
-  {
-    "timestamp": "10m00s",
-    "similarity": 0.106,
-    "text": "染上我的本色吧罗布"
-  },
-  {
-    "timestamp": "12m12s",
-    "similarity": 0.088,
-    "text": "活海哥勇海哥"
-  },
-  {
-    "timestamp": "12m25s",
-    "similarity": 0.085,
-    "text": "未来"
-  },
-  {
-    "timestamp": "12m28s",
-    "similarity": 0.056,
-    "text": "改变了"
-  },
-  {
-    "timestamp": "13m04s",
-    "similarity": 0.0,
-    "text": "孩子们就长大了"
-  },
-  {
-    "timestamp": "13m09s",
-    "similarity": 0.12,
-    "text": "距离传送到异次元还有1分钟"
-  },
-  {
-    "timestamp": "13m16s",
-    "similarity": 0.0,
-    "text": "强子冲突型加速器"
-  },
-  {
-    "timestamp": "13m24s",
-    "similarity": 0.124,
-    "text": "是啊他们要超越我们了"
-  },
-  {
-    "timestamp": "13m28s",
-    "similarity": 0.175,
-    "text": "是啊他们要超越我们了"
-  },
-  {
-    "timestamp": "14m05s",
-    "similarity": 0.0,
-    "text": "罗比姆光线"
-  },
-  {
-    "timestamp": "14m47s",
-    "similarity": 0.137,
-    "text": "朝阳"
-  },
-  {
-    "timestamp": "14m51s",
-    "similarity": 0.154,
-    "text": "小剑说过"
-  },
-  {
-    "timestamp": "14m53s",
-    "similarity": 0.185,
-    "text": "只要我们兄妹三人齐心协力"
-  },
-  {
-    "timestamp": "14m57s",
-    "similarity": 0.198,
-    "text": "所以我也要"
-  },
-  {
-    "timestamp": "15m10s",
-    "similarity": 0.125,
-    "text": "hou"
-  },
-  {
-    "timestamp": "15m43s",
-    "similarity": 0.071,
-    "text": "我就是那时候诞生的"
-  },
-  {
-    "timestamp": "15m49s",
-    "similarity": 0.037,
-    "text": "我就是那时候诞生的",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "16m10s",
-    "similarity": 0.129,
-    "text": "广朝阳s"
-  },
-  {
-    "timestamp": "16m12s",
-    "similarity": 0.174,
-    "text": "shoulo"
-  },
-  {
-    "timestamp": "16m27s",
-    "similarity": 0.105,
-    "text": "shoul"
-  },
-  {
-    "timestamp": "16m48s",
-    "similarity": 0.107,
-    "text": "闪耀吧 希望之光"
-  },
-  {
-    "timestamp": "16m55s",
-    "similarity": 0.152,
-    "text": "真谛旋涡光线",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "17m03s",
-    "similarity": 0.042,
-    "text": "活海哥勇海哥"
-  },
-  {
-    "timestamp": "17m09s",
-    "similarity": 0.121,
-    "text": "爸爸妈妈"
-  },
-  {
-    "timestamp": "17m14s",
-    "similarity": 0.136,
-    "text": "我很高兴你们做我的家人"
-  },
-  {
-    "timestamp": "17m23s",
-    "similarity": 0.106,
-    "text": "快乐"
-  },
-  {
-    "timestamp": "18m13s",
-    "similarity": 0.119,
-    "text": "NO.3朝阳你不要走啊",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "18m48s",
-    "similarity": 0.158,
-    "text": "朝阳究竟是什么人呢"
-  },
-  {
-    "timestamp": "18m57s",
-    "similarity": 0.092,
-    "text": "她也许是我的一部分吧"
-  },
-  {
-    "timestamp": "19m01s",
-    "similarity": 0.108,
-    "text": "不仅快乐还相信着光明的未来"
-  },
-  {
-    "timestamp": "19m08s",
-    "similarity": 0.114,
-    "text": "是我所遗忘的东西"
-  },
-  {
-    "timestamp": "19m14s",
-    "similarity": 0.054,
-    "text": "真是不可思议"
-  },
-  {
-    "timestamp": "19m18s",
-    "similarity": 0.05,
-    "text": "怪不得有种似曾相识的感觉"
-  },
-  {
-    "timestamp": "19m25s",
-    "similarity": 0.011,
-    "text": "毕竟只有快乐的记忆嘛"
-  },
-  {
-    "timestamp": "19m29s",
-    "similarity": 0.055,
-    "text": "e"
-  },
-  {
-    "timestamp": "19m36s",
-    "similarity": 0.116,
-    "text": "朝阳是快乐之心的结晶"
-  },
-  {
-    "timestamp": "19m40s",
-    "similarity": 0.153,
-    "text": "是光明的未来是希望"
-  },
-  {
-    "timestamp": "19m45s",
-    "similarity": 0.201,
-    "text": "即便她不存在于这个世上"
-  },
-  {
-    "timestamp": "19m52s",
-    "similarity": 0.119,
-    "text": "greatee"
-  },
-  {
-    "timestamp": "19m56s",
-    "similarity": 0.072,
-    "text": "ek"
-  },
-  {
-    "timestamp": "19m57s",
-    "similarity": 0.021,
-    "text": "朝阳是存在的"
-  },
-  {
-    "timestamp": "20m04s",
-    "similarity": 0.118,
-    "text": "心系他人"
-  },
-  {
-    "timestamp": "20m07s",
-    "similarity": 0.15,
-    "text": "水晶也许就是因此而产生的吧"
-  },
-  {
-    "timestamp": "20m16s",
-    "similarity": 0.032,
-    "text": "远古时代来自其他行星的兄弟二人"
-  },
-  {
-    "timestamp": "20m22s",
-    "similarity": 0.131,
-    "text": "远古时代来自其他行星的兄弟二人"
-  },
-  {
-    "timestamp": "20m52s",
-    "similarity": 0.036,
-    "text": "eek"
-  },
-  {
-    "timestamp": "21m00s",
-    "similarity": 0.0,
-    "text": "湊カツミ平田雄也",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m22s",
-    "similarity": 0.082,
-    "text": "金木勲伍賀一統"
-  },
-  {
-    "timestamp": "21m24s",
-    "similarity": 0.126,
-    "text": "ノロナーツ\n鶴田羊伸\n吉野文\n(テレビ東京)",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m25s",
-    "similarity": 0.178,
-    "text": "ノロナーツ\n鶴田羊伸\n吉野文\n(テレビ東京)",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m31s",
-    "similarity": 0.206,
-    "text": "採演\nキャスティング\n制作担当\n根島\n石井\n和正\n誠",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m34s",
-    "similarity": 0.181,
-    "text": "爸爸妈妈キャラクターデザイン渡辺靖将後藤正行",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m40s",
-    "similarity": 0.153,
-    "text": "ドローン撮影応援村山茂樹設定監修原影孝",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m41s",
-    "similarity": 0.19,
-    "text": "ドローン撮影応援村山茂樹設定監修原影孝",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m48s",
-    "similarity": 0.119,
-    "text": "0.0\nカラリスト\n品島\n富\n田海\n控重\n大\n樹幸\n軼",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m49s",
-    "similarity": 0.14,
-    "text": "音響効果古谷友二選曲鈴木潤一朗"
-  },
-  {
-    "timestamp": "21m50s",
-    "similarity": 0.128,
-    "text": "作詞：園田健太郎作曲：園田健太郎"
-  },
-  {
-    "timestamp": "21m52s",
-    "similarity": 0.177,
-    "text": "作詞：園田健太郎\n作曲：園田健太郎",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m55s",
-    "similarity": 0.126,
-    "text": "作詞：しぼり\n作曲：光増ハジメ",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "21m56s",
-    "similarity": 0.273,
-    "text": "楽曲プロデュース：鎗水善史",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m03s",
-    "similarity": 0.153,
-    "text": "倉田友衣子森谷勇介"
-  },
-  {
-    "timestamp": "22m06s",
-    "similarity": 0.155,
-    "text": "美術製作\n有働英雄\n(マーブリングファインアーツ)\n加藤雄志",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m08s",
-    "similarity": 0.198,
-    "text": "美術製作\n有働英雄\n(マーブリングファインアーツ)\n加藤雄志",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m11s",
-    "similarity": 0.143,
-    "text": "好了我们回家吧持ち道具応援土橋麻衣子操演助手上田健一",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m13s",
-    "similarity": 0.201,
-    "text": "秀十民志尾形響聖卧督助千宫崎龍士"
-  },
-  {
-    "timestamp": "22m16s",
-    "similarity": 0.172,
-    "text": "一人明衣礼来福富風花李美登甲"
-  },
-  {
-    "timestamp": "22m27s",
-    "similarity": 0.201,
-    "text": "怎么了酒井剛介小神野貴嗣"
-  },
-  {
-    "timestamp": "22m28s",
-    "similarity": 0.168,
-    "text": "長谷川哲久三好智纪生"
-  },
-  {
-    "timestamp": "22m29s",
-    "similarity": 0.143,
-    "text": "長谷川哲久\n三好智紀\n製作主任\n筆田醫",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m31s",
-    "similarity": 0.144,
-    "text": "小潮\n\nVFXコンポジット\n荒上田輝政茂",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m32s",
-    "similarity": 0.14,
-    "text": "爸爸就像奥特战士一样啊青井泰輔及川将人"
-  },
-  {
-    "timestamp": "22m36s",
-    "similarity": 0.0,
-    "text": "佐之不良太江川千恵子岡木直树"
-  },
-  {
-    "timestamp": "22m40s",
-    "similarity": 0.0,
-    "text": "果美淘内山凉香中島遼大"
-  },
-  {
-    "timestamp": "22m43s",
-    "similarity": 0.0,
-    "text": "デジタル現像武内美恵子\n村田慎也",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m55s",
-    "similarity": 0.0,
-    "text": "VINA野七香\n丹羽春乃",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m56s",
-    "similarity": 0.244,
-    "text": "VINA野七香\n丹羽春乃",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "22m59s",
-    "similarity": 0.205,
-    "text": "我们就是五人M之家了岡田知浩小林奈穗子",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m01s",
-    "similarity": 0.111,
-    "text": "我们就是五人M之家了岡田知浩小林奈穂子"
-  },
-  {
-    "timestamp": "23m02s",
-    "similarity": 0.221,
-    "text": "能起个像样点的名字吗広報宣伝杢野純子北澤淳子"
-  },
-  {
-    "timestamp": "23m04s",
-    "similarity": 0.199,
-    "text": "爸爸的T恤上要写的アシスタントプロデューサー\n真岡士\n本公\n有公",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m08s",
-    "similarity": 0.196,
-    "text": "プレックス\n株式会社\n这不是也挺好的嘛",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m09s",
-    "similarity": 0.204,
-    "text": "プレックス\n株式会社\n这不是也挺好的嘛",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m15s",
-    "similarity": 0.189,
-    "text": "日本テレビアート\n日本活動装置\n我们今天吃寿喜锅哦",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m16s",
-    "similarity": 0.197,
-    "text": "日本テレビアート\n日本活動装置\n我们今天吃寿喜锅哦",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m18s",
-    "similarity": 0.174,
-    "text": "横浜市環境創造局中部水再生センター\n我会买豆腐和葱的",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m23s",
-    "similarity": 0.221,
-    "text": "⚠️稻城市\nペアリーロード稻城商店街",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m29s",
-    "similarity": 0.073,
-    "text": "Tshirts你这次一定要回来啊Storegraniph"
-  },
-  {
-    "timestamp": "23m30s",
-    "similarity": 0.083,
-    "text": "SYSEand LIPsOSSE日LROSSEN"
-  },
-  {
-    "timestamp": "23m31s",
-    "similarity": 0.2,
-    "text": "的合生日貝レデイースMonteeROSSECoAOPANICURDEN ROSSEN"
-  },
-  {
-    "timestamp": "23m34s",
-    "similarity": 0.097,
-    "text": "野田有紗开工干活吧レディース岩缘织菓株式会社©阳AAOPAURDENROSSEN"
-  },
-  {
-    "timestamp": "23m36s",
-    "similarity": 0.064,
-    "text": "SYSTEMウエットスーツ・チコDSSEENROSSEN8"
-  },
-  {
-    "timestamp": "23m37s",
-    "similarity": 0.1,
-    "text": "eSYSTEM好GアラタROSSUNCCRCRAPKTSUBAKIURDENROSS2"
-  },
-  {
-    "timestamp": "23m40s",
-    "similarity": 0.101,
-    "text": "OCTIGRAPHICA林デジタル工務店ROSSEPANICURDENROSSEN"
-  },
-  {
-    "timestamp": "23m42s",
-    "similarity": 0.053,
-    "text": "我走了\nシリーズ構成中野貴雄",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m45s",
-    "similarity": 0.029,
-    "text": "I伊藤公志"
-  },
-  {
-    "timestamp": "23m47s",
-    "similarity": 0.203,
-    "text": "shout监督武店正能",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m51s",
-    "similarity": 0.128,
-    "text": "我们兄弟之间的故事"
-  },
-  {
-    "timestamp": "23m53s",
-    "similarity": 0.094,
-    "text": "テレビ東京\n電通",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m55s",
-    "similarity": 0.028,
-    "text": "接下来开始的就是SCLA中国大陆地区独家版权所",
-    "vl_rechecked": true
-  },
-  {
-    "timestamp": "23m59s",
-    "similarity": 0.02,
-    "text": "我们一家人的故事了"
-  }
+ {
+  "timestamp": "0m00s",
+  "similarity": 0.052,
+  "text": "不好"
+ },
+ {
+  "timestamp": "0m03s",
+  "similarity": 0.07,
+  "text": "不管是谁获胜地球都会完蛋的"
+ },
+ {
+  "timestamp": "0m04s",
+  "text": "再这样下去",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "0m35s",
+  "similarity": 0.069,
+  "text": "小剑"
+ },
+ {
+  "timestamp": "0m36s",
+  "similarity": 0.132,
+  "text": "我真的很快乐"
+ },
+ {
+  "timestamp": "0m46s",
+  "similarity": 0.183,
+  "text": "小剑"
+ },
+ {
+  "timestamp": "1m15s",
+  "similarity": 0.071,
+  "text": "罗布极限水晶"
+ },
+ {
+  "timestamp": "1m19s",
+  "text": "就你了罗布水晶",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "1m21s",
+  "similarity": 0.0,
+  "text": "兄弟之力合二为一"
+ },
+ {
+  "timestamp": "1m30s",
+  "similarity": 0.028,
+  "text": "极致绊身金色宇宙"
+ },
+ {
+  "timestamp": "1m39s",
+  "similarity": 0.0,
+  "text": "罗布奥特曼"
+ },
+ {
+  "timestamp": "1m57s",
+  "similarity": 0.089,
+  "text": "罗布光轮"
+ },
+ {
+  "timestamp": "2m11s",
+  "similarity": 0.0,
+  "text": "备用电源无法继续供电"
+ },
+ {
+  "timestamp": "2m12s",
+  "text": "电缆受损",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m36s",
+  "similarity": 0.134,
+  "text": "刚刚那是什么"
+ },
+ {
+  "timestamp": "2m42s",
+  "similarity": 0.0,
+  "text": "屏障没有了"
+ },
+ {
+  "timestamp": "2m52s",
+  "similarity": 0.0,
+  "text": "正在地下流动的光之轨迹光谱图",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "2m53s",
+  "text": "马上调出",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "2m56s",
+  "similarity": 0.005,
+  "text": "将光之轨迹和怪兽拘捕系统关联到一起",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "3m29s",
+  "similarity": 0.065,
+  "text": "不要啊"
+ },
+ {
+  "timestamp": "3m46s",
+  "similarity": 0.109,
+  "text": "这是怎么回事啊"
+ },
+ {
+  "timestamp": "3m52s",
+  "similarity": 0.0,
+  "text": "被妈妈锁上了吗"
+ },
+ {
+  "timestamp": "3m55s",
+  "text": "系统关联完毕",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "3m56s",
+  "similarity": 0.114,
+  "text": "拘捕光线已强化"
+ },
+ {
+  "timestamp": "3m59s",
+  "text": "已锁定怪兽",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m00s",
+  "text": "发射",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m09s",
+  "similarity": 0.109,
+  "text": "成功拘捕怪兽"
+ },
+ {
+  "timestamp": "4m12s",
+  "similarity": 0.105,
+  "text": "强子冲突型加速器"
+ },
+ {
+  "timestamp": "4m14s",
+  "similarity": 0.0,
+  "text": "开始运行"
+ },
+ {
+  "timestamp": "4m17s",
+  "similarity": 0.0,
+  "text": "强子冲突型加速器"
+ },
+ {
+  "timestamp": "4m19s",
+  "similarity": 0.138,
+  "text": "系统正在运行"
+ },
+ {
+  "timestamp": "4m31s",
+  "similarity": 0.117,
+  "text": "朝阳你没事吧"
+ },
+ {
+  "timestamp": "4m38s",
+  "similarity": 0.078,
+  "text": "传送到这个坐标轴上"
+ },
+ {
+  "timestamp": "4m41s",
+  "similarity": 0.0,
+  "text": "按照这个数值传送的话",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m43s",
+  "similarity": 0.0,
+  "text": "爱染之塔也会被传送到虚数次元的",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m46s",
+  "similarity": 0.0,
+  "text": "维度洞穴的入口已经损坏了",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "4m50s",
+  "text": "以后再也无法回来了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "4m52s",
+  "similarity": 0.082,
+  "text": "这就是我的目的达令"
+ },
+ {
+  "timestamp": "5m03s",
+  "similarity": 0.073,
+  "text": "妈妈不会是要扭曲时空"
+ },
+ {
+  "timestamp": "5m05s",
+  "similarity": 0.068,
+  "text": "制造出维度洞穴吧",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m08s",
+  "similarity": 0.144,
+  "text": "简单来说就是连接异次元的洞穴",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m12s",
+  "text": "妈妈增幅了洞口的力量",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m14s",
+  "similarity": 0.051,
+  "text": "想要把那个怪兽扔进异次元中",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m17s",
+  "text": "恐怕妈妈也会一起被吸进去",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m19s",
+  "similarity": 0.168,
+  "text": "活海勇海朝阳",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m24s",
+  "similarity": 0.0,
+  "text": "你们快离开这里",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "5m29s",
+  "text": "快点逃得远远的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m30s",
+  "similarity": 0.081,
+  "text": "妈妈快住手"
+ },
+ {
+  "timestamp": "5m31s",
+  "similarity": 0.074,
+  "text": "除此之外别无他法了"
+ },
+ {
+  "timestamp": "5m34s",
+  "similarity": 0.085,
+  "text": "为了保护你们保护地球"
+ },
+ {
+  "timestamp": "5m40s",
+  "text": "只能这么做了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "5m41s",
+  "similarity": 0.046,
+  "text": "妈妈"
+ },
+ {
+  "timestamp": "5m44s",
+  "similarity": 0.019,
+  "text": "我们已经等了你十五年了"
+ },
+ {
+  "timestamp": "5m52s",
+  "similarity": 0.032,
+  "text": "你要是再离开的话就太过分了"
+ },
+ {
+  "timestamp": "5m54s",
+  "similarity": 0.114,
+  "text": "是啊我真是个不称职的母亲"
+ },
+ {
+  "timestamp": "6m00s",
+  "similarity": 0.146,
+  "text": "妈妈"
+ },
+ {
+  "timestamp": "6m01s",
+  "similarity": 0.138,
+  "text": "通话结束",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "6m04s",
+  "text": "哥哥我们走",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m09s",
+  "text": "朝阳你快和爸爸一起逃吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m16s",
+  "similarity": 0.084,
+  "text": "这栋大楼马上就要被传送到异次元了"
+ },
+ {
+  "timestamp": "6m20s",
+  "text": "请马上离开这里",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m27s",
+  "similarity": 0.034,
+  "text": "磁力脉冲上升"
+ },
+ {
+  "timestamp": "6m29s",
+  "similarity": 0.0,
+  "text": "距离传送到异次元还有5分钟"
+ },
+ {
+  "timestamp": "6m48s",
+  "similarity": 0.07,
+  "text": "你们两个"
+ },
+ {
+  "timestamp": "6m50s",
+  "similarity": 0.109,
+  "text": "妈妈先等一下"
+ },
+ {
+  "timestamp": "6m54s",
+  "similarity": 0.101,
+  "text": "你们为什么不听妈妈的话"
+ },
+ {
+  "timestamp": "6m57s",
+  "text": "快点离开这栋大楼",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "6m58s",
+  "similarity": 0.124,
+  "text": "我们不会逃跑的",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "7m01s",
+  "similarity": 0.091,
+  "text": "所以妈妈你也不能去"
+ },
+ {
+  "timestamp": "7m03s",
+  "similarity": 0.066,
+  "text": "这是唯一的办法了"
+ },
+ {
+  "timestamp": "7m04s",
+  "text": "我只能这么做",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m08s",
+  "similarity": 0.027,
+  "text": "在妈妈你眼中我们还是小孩子吧"
+ },
+ {
+  "timestamp": "7m11s",
+  "similarity": 0.008,
+  "text": "但是我们已经长大了能够独立了"
+ },
+ {
+  "timestamp": "7m13s",
+  "similarity": 0.054,
+  "text": "所以请相信我们"
+ },
+ {
+  "timestamp": "7m15s",
+  "similarity": 0.0,
+  "text": "不行就是不行"
+ },
+ {
+  "timestamp": "7m17s",
+  "similarity": 0.12,
+  "text": "我们可是一家人啊"
+ },
+ {
+  "timestamp": "7m19s",
+  "similarity": 0.151,
+  "text": "为什么你不肯相信我们啊"
+ },
+ {
+  "timestamp": "7m22s",
+  "text": "爸爸肯定也会这么说的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m23s",
+  "similarity": 0.09,
+  "text": "距离传送到异次元还有4分钟"
+ },
+ {
+  "timestamp": "7m36s",
+  "similarity": 0.198,
+  "text": "我好像听见有人提起了我啊",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "7m41s",
+  "similarity": 0.091,
+  "text": "小潮"
+ },
+ {
+  "timestamp": "7m44s",
+  "similarity": 0.121,
+  "text": "你受伤了吗"
+ },
+ {
+  "timestamp": "7m55s",
+  "text": "我说孩子他妈",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "7m57s",
+  "similarity": 0.077,
+  "text": "孩子们比我们想的要更加成熟"
+ },
+ {
+  "timestamp": "8m07s",
+  "similarity": 0.134,
+  "text": "和他们生活在一起就会明白的"
+ },
+ {
+  "timestamp": "8m13s",
+  "similarity": 0.058,
+  "text": "我也我也想和他们一起生活啊"
+ },
+ {
+  "timestamp": "8m24s",
+  "similarity": 0.034,
+  "text": "我也想赚钱养家"
+ },
+ {
+  "timestamp": "8m27s",
+  "similarity": 0.052,
+  "text": "担心他们的升学"
+ },
+ {
+  "timestamp": "8m31s",
+  "similarity": 0.063,
+  "text": "和他们一起哭一起笑啊"
+ },
+ {
+  "timestamp": "8m40s",
+  "similarity": 0.121,
+  "text": "但是我能为他们做的只有这件事了"
+ },
+ {
+  "timestamp": "8m50s",
+  "similarity": 0.019,
+  "text": "因为"
+ },
+ {
+  "timestamp": "8m54s",
+  "similarity": 0.108,
+  "text": "因为这都是我的错啊"
+ },
+ {
+  "timestamp": "8m57s",
+  "similarity": 0.095,
+  "text": "要是我没有发现回旋闪光就好了"
+ },
+ {
+  "timestamp": "9m03s",
+  "similarity": 0.071,
+  "text": "我无法承受孩子们死去的那段未来"
+ },
+ {
+  "timestamp": "9m13s",
+  "similarity": 0.0,
+  "text": "拘捕光线负荷过载"
+ },
+ {
+  "timestamp": "9m17s",
+  "similarity": 0.0,
+  "text": "拘捕光线严重受损"
+ },
+ {
+  "timestamp": "9m21s",
+  "similarity": 0.184,
+  "text": "鲁格赛特的能量远远超过计算值"
+ },
+ {
+  "timestamp": "9m26s",
+  "text": "不会吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "9m27s",
+  "similarity": 0.058,
+  "text": "距离传送到异次元还有3分钟"
+ },
+ {
+  "timestamp": "9m30s",
+  "similarity": 0.0,
+  "text": "妈妈所看到的未来"
+ },
+ {
+  "timestamp": "9m31s",
+  "similarity": 0.038,
+  "text": "只是其中一种可能罢了"
+ },
+ {
+  "timestamp": "9m36s",
+  "similarity": 0.038,
+  "text": "未来并不是唯一的"
+ },
+ {
+  "timestamp": "9m39s",
+  "similarity": 0.092,
+  "text": "我们会改变未来的"
+ },
+ {
+  "timestamp": "9m43s",
+  "similarity": 0.022,
+  "text": "一定会做到的"
+ },
+ {
+  "timestamp": "9m47s",
+  "similarity": 0.091,
+  "text": "因为我们是",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "9m51s",
+  "text": "奥特战士",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "10m00s",
+  "similarity": 0.106,
+  "text": "染上我的本色吧罗布"
+ },
+ {
+  "timestamp": "12m12s",
+  "similarity": 0.088,
+  "text": "活海哥勇海哥"
+ },
+ {
+  "timestamp": "12m25s",
+  "similarity": 0.085,
+  "text": "未来"
+ },
+ {
+  "timestamp": "12m28s",
+  "similarity": 0.056,
+  "text": "改变了"
+ },
+ {
+  "timestamp": "13m02s",
+  "text": "一不留神",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m04s",
+  "similarity": 0.0,
+  "text": "孩子们就长大了"
+ },
+ {
+  "timestamp": "13m09s",
+  "similarity": 0.12,
+  "text": "距离传送到异次元还有分钟"
+ },
+ {
+  "timestamp": "13m16s",
+  "similarity": 0.0,
+  "text": "强子冲突型加速器"
+ },
+ {
+  "timestamp": "13m18s",
+  "text": "系统关闭",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "13m24s",
+  "similarity": 0.124,
+  "text": "是啊他们要超越我们了"
+ },
+ {
+  "timestamp": "13m28s",
+  "similarity": 0.175,
+  "text": "是啊他们要超越我们了"
+ },
+ {
+  "timestamp": "14m06s",
+  "similarity": 0.0,
+  "text": "罗比姆光线"
+ },
+ {
+  "timestamp": "14m47s",
+  "similarity": 0.137,
+  "text": "朝阳"
+ },
+ {
+  "timestamp": "14m50s",
+  "similarity": 0.154,
+  "text": "小剑说过"
+ },
+ {
+  "timestamp": "14m53s",
+  "similarity": 0.185,
+  "text": "只要我们兄妹三人齐心协力"
+ },
+ {
+  "timestamp": "14m55s",
+  "text": "就能跨越这次的难关",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "14m57s",
+  "similarity": 0.198,
+  "text": "所以我也要"
+ },
+ {
+  "timestamp": "15m02s",
+  "text": "一起战斗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "15m41s",
+  "text": "没错",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "15m43s",
+  "similarity": 0.071,
+  "text": "我就是那时候诞生的",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "15m47s",
+  "similarity": 0.037,
+  "text": "我就是那时候诞生的",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "16m10s",
+  "similarity": 0.129,
+  "text": "朝阳"
+ },
+ {
+  "timestamp": "16m15s",
+  "text": "原来你是水晶啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "16m48s",
+  "similarity": 0.107,
+  "text": "闪耀吧希望之光"
+ },
+ {
+  "timestamp": "16m49s",
+  "text": "真谛水晶",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "16m55s",
+  "similarity": 0.152,
+  "text": "真谛旋涡光线",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "17m03s",
+  "similarity": 0.042,
+  "text": "活海哥勇海哥"
+ },
+ {
+  "timestamp": "17m09s",
+  "similarity": 0.121,
+  "text": "爸爸妈妈"
+ },
+ {
+  "timestamp": "17m14s",
+  "similarity": 0.136,
+  "text": "我很高兴你们做我的家人"
+ },
+ {
+  "timestamp": "17m23s",
+  "similarity": 0.106,
+  "text": "快乐"
+ },
+ {
+  "timestamp": "18m13s",
+  "similarity": 0.119,
+  "text": "朝阳你不要走啊",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "18m48s",
+  "similarity": 0.158,
+  "text": "朝阳究竟是什么人呢"
+ },
+ {
+  "timestamp": "18m57s",
+  "similarity": 0.092,
+  "text": "她也许是我的一部分吧"
+ },
+ {
+  "timestamp": "19m01s",
+  "similarity": 0.108,
+  "text": "不仅快乐还相信着光明的未来"
+ },
+ {
+  "timestamp": "19m08s",
+  "similarity": 0.114,
+  "text": "是我所遗忘的东西"
+ },
+ {
+  "timestamp": "19m14s",
+  "similarity": 0.054,
+  "text": "真是不可思议"
+ },
+ {
+  "timestamp": "19m18s",
+  "similarity": 0.05,
+  "text": "怪不得有种似曾相识的感觉"
+ },
+ {
+  "timestamp": "19m25s",
+  "similarity": 0.011,
+  "text": "毕竟只有快乐的记忆嘛"
+ },
+ {
+  "timestamp": "19m36s",
+  "similarity": 0.116,
+  "text": "朝阳是快乐之心的结晶"
+ },
+ {
+  "timestamp": "19m40s",
+  "similarity": 0.153,
+  "text": "是光明的未来是希望"
+ },
+ {
+  "timestamp": "19m45s",
+  "similarity": 0.201,
+  "text": "即便她不存在于这个世上"
+ },
+ {
+  "timestamp": "19m57s",
+  "similarity": 0.021,
+  "text": "朝阳是存在的"
+ },
+ {
+  "timestamp": "20m04s",
+  "similarity": 0.118,
+  "text": "心系他人"
+ },
+ {
+  "timestamp": "20m07s",
+  "similarity": 0.15,
+  "text": "水晶也许就是因此而产生的吧"
+ },
+ {
+  "timestamp": "20m16s",
+  "similarity": 0.032,
+  "text": "远古时代来自其他行星的兄弟二人"
+ },
+ {
+  "timestamp": "20m20s",
+  "similarity": 0.131,
+  "text": "远古时代来自其他行星的兄弟二人"
+ },
+ {
+  "timestamp": "20m23s",
+  "similarity": 0.0,
+  "text": "也是这样为他人着想的吧"
+ },
+ {
+  "timestamp": "20m41s",
+  "text": "快看",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "20m54s",
+  "text": "是朝阳",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m04s",
+  "text": "朝阳美剣木下彩音",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m06s",
+  "text": "爱染卜深水元基",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "21m36s",
+  "text": "爸爸妈妈装饰小林美智子",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m25s",
+  "text": "你怎么了爸爸",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m26s",
+  "text": "怎么了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m27s",
+  "text": "怎么了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m28s",
+  "text": "爸爸",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m29s",
+  "text": "我的腰長谷川哲久",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m32s",
+  "text": "爸爸就像奥特战士一样啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m34s",
+  "text": "爸爸就像奥特战士一样啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m35s",
+  "text": "你没事吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m36s",
+  "text": "你没事吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m37s",
+  "text": "你没事吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m38s",
+  "text": "真是的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m39s",
+  "text": "真是的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "22m40s",
+  "text": "真是的",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m08s",
+  "text": "有大圆团这个词吗",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m24s",
+  "text": "神奈川県立相模原公園",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m26s",
+  "text": "你这次一定要回来啊",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m28s",
+  "text": "小澪",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m31s",
+  "similarity": 0.073,
+  "text": "变得更加强大"
+ },
+ {
+  "timestamp": "23m32s",
+  "text": "好咧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m33s",
+  "text": "开工干活吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m34s",
+  "text": "开工干活吧",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m36s",
+  "text": "那我也走了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m37s",
+  "text": "那我也走了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m43s",
+  "text": "路上小心",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m49s",
+  "similarity": 0.128,
+  "text": "我们兄弟之间的故事"
+ },
+ {
+  "timestamp": "23m52s",
+  "text": "就到此结束了",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m53s",
+  "text": "宁東京電通",
+  "similarity": 0.0
+ },
+ {
+  "timestamp": "23m55s",
+  "similarity": 0.028,
+  "text": "接下来开始的就是",
+  "vl_rechecked": true
+ },
+ {
+  "timestamp": "23m57s",
+  "similarity": 0.02,
+  "text": "我们一家人的故事了"
+ }
 ]
