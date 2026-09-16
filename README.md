@@ -1,121 +1,131 @@
-# VV
+# 爱染诚 · 台词档案馆
 
-张维为语录查询项目，纯查询无需下载本项目，直接在[网页端](https://vv.cicada000.work)即可完成查询。
+> 《罗布奥特曼》(Ultraman R/B) 全 25 集字幕检索 —— **每句台词对应一帧原片画面**。
 
-> [!CAUTION]
-> 本项目仅供娱乐，请合理使用。
+**在线站点：<https://bonger34.github.io/aizen-subtitles/>**
 
-> [!CAUTION]
-> 本项目最近为流量高峰期，各个网址（如调用API）可能有变动，请仔细阅读README。
-
-## 致谢
-
-&emsp;&emsp;感谢[wen999di](https://github.com/wen999di)及其提交的[PR](https://github.com/Cicada000/VV/issues?q=is%3Apr+author%3Awen999di)，大幅提高了人脸检测准确率和字幕识别准确率，同时增加了向量检索的功能。感谢[undef-i](https://github.com/undef-i)及其提交的[PR](https://github.com/Cicada000/VV/issues?q=is%3Apr+author%3Aundef-i)，大幅提高了字幕检索速度，构建了更好看的前端页面，并且添加了GPU支持，大幅减少了新版本的人脸识别和字幕识别所需的时间。
+---
 
 ## 项目简介
 
-&emsp;&emsp;你还在为自己存放的VV表情包不够多，使用时觉得不够贴切而感到烦恼吗？快来试试这个项目吧！
+把 25 集 1080p 原片的字幕逐句转录成结构化数据，并为每一句配上一张"这句话正在被说出"的帧图，
+做成一个纯静态的台词检索站。搜索任意关键词，得到的是台词文本 + 时间戳 + 对应画面。
 
-<p align="center" style="margin-bottom: 0px !important;">
-<img width="480" alt="VV_GIF" src="https://raw.githubusercontent.com/Cicada000/VV/refs/heads/main/VV.GIF"><br/>
-</p>
+页面上的两个开关对应两种检索意图：
 
-<p align="center" style="margin-bottom: 0px !important;">
-<img width="480" alt="VV_meme_template" src="https://raw.githubusercontent.com/Cicada000/VV/refs/heads/main/VV_meme_template.png"><br/>
-</p>
+| 控件 | 作用 |
+|------|------|
+| 文本匹配度 | 0–100，默认 50。控制模糊匹配的宽松程度 |
+| 人脸相似度 | 0–1，默认 0。按帧图上的人脸相似度过滤 |
+| 仅列爱染诚档案 | 只保留"说这句话时画面里有爱染诚"的条目 |
+| 爱染诚优先 | 不筛选，但把上述条目排到前面 |
 
-&emsp;&emsp;本项目主要用于识别vv出现的视频片段（主要针对《这就是中国》节目，后续可能会增加其他视频源）及对应的字幕，并输出为json文件。
+## 数据规模（实测，非估计）
 
-## Web网页端使用说明
+| 项 | 数量 | 说明 |
+|---|---:|---|
+| 集数 | 25 | 全剧 |
+| 归档台词 | **6783** 条 | `subtitle_clean/`，站点唯一数据源 |
+| 爱染诚登场条目 | **539** 条 | 说话时画面含爱染诚 |
+| 帧图 | **6775** 张 | 960×540，另存 566 张已删条目留档帧 |
+| 帧图覆盖率 | **100.0%** | 6783 条全部有对应帧文件，无占位 |
+| 站点体积 | ≈457 MB | `docs/`，含 396.9 MB 帧图 |
 
-&emsp;&emsp;访问[vv.cicada000.work](https://vv.cicada000.work/)即可直接使用网页端的台词搜索功能，搜索具有一定的模糊匹配能力。在搜索框内搜索关键词即可匹配含有该关键词的台词。展开高级选项可调整文本匹配度（0-100，默认50）、人脸相似度（0-1，默认0.5）以及是否添加口吧水印。
+数据的可信度不是靠"看起来对"得来的。仓库里保留了完整的验证链，任何时候都能重跑：
 
-<center><img src="web_index.png" style="max-height:3000px"></center>
-
-<center><img src="search_result.png" style="max-height:3000px"></center>
-
-## Python脚本使用说明
-
-### 文件基本说明
-
-`requirements.txt`：项目包依赖，在使用本项目之前请先下载，否则可能导致项目无法正常运行。
-
-`generate_features.py`：用于生成人脸特征数据的脚本，如果没有自己的数据集可以不用，本项目已经附带了人脸数据集，即`face_features.npz`。如果需要用自己的数据集训练在同级目录新建`target`文件夹进行训练即可。
-
-`generate_features_insightface.py`：用于生成人脸特征数据的脚本，如果没有自己的数据集可以不用，本项目已经附带了人脸数据集，即`face_features_insightface.npz`。如果需要用自己的数据集训练在同级目录新建`target`文件夹进行训练即可。
-
-`target`文件夹，将人脸照片放入即可生成数据集文件，为了方便起见，GitHub仓库中的target文件夹可在Release中找到，解压放入项目中即可进行人脸识别的训练，正常运行识别项目可以不需要这个文件夹。
-
-`subtitle`：文件夹，本项目运行的人脸识别+字幕提取的json文件可以在文件夹中找到。
-
-`face_features.npz`：本项目附带的人脸数据集，可直接使用，针对`FaceRec.py`。
-
-`face_features_indightface.npz`：本项目附带的人脸数据集，可直接使用，针对`FaceRec_insightface.py`。
-
-`FaceRec.py`：人脸识别脚本，使用[dlib](https://github.com/davisking/dlib)的方案。
-
-`FaceRec_insightface.py`：使用了[insightface](https://github.com/deepinsight/insightface)的人脸识别方案，相比于`FaceRec.py`准确率更高。
-
-`CutSubtitle.py`：针对《这就是中国》节目视频的字幕裁剪识别脚本，使用[ddddocr](https://github.com/sml2h3/ddddocr)。
-
-`CutSubtitle_paddleocr.py`：字幕裁剪识别脚本，使用[PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)。
-
-`main.py`：主函数，程序入口。
-
-`api`：文件夹，网页API后端代码，API具体用法见下。
-
-`docs`：文件夹，网页前端代码。
-
-`search`: 文件夹，句意搜索
-
-### 运行本项目的说明
-
-> [!TIP]
-> 如果要使用GPU进行训练，推荐使用Linux环境~~因为我Windows配半天没配好~~。笔者环境为WSL2 Ubuntu24.04 + CUDA12.8 + libcudnn9
-
-正常使用CPU运行直接下载依赖运行即可（应该）。
-
-如需使用GPU运行（这玩意拿纯CPU运行慢的要死），在下载相关pip库时需下载GPU版本。例如`pip install paddlepaddle`需改为`pip install paddlepaddle-gpu`，使用高版本的CUDA时，则需要下载更高版本的库，可在官网找到[下载命令](https://www.paddlepaddle.org.cn/en/install/quick?docurl=/documentation/docs/en/develop/install/pip/linux-pip_en.html)。
-
-## API使用说明
-
-&emsp;&emsp;API具体请求示例如下：
-
-```
-https://vvapi.cicada000.work/search?query=测试&min_ratio=50&min_similarity=0.5&max_results=10
+```bash
+python scripts/pipeline/rebuild_map.py         # 6783 -> 6783 键, 缺帧 0
+python scripts/pipeline/make_subtitle_db.py    # 生成 docs/subtitle_db
+python scripts/pipeline/verify_consistency.py  # 缺键 0 / 缺文件 0 / 孤儿键 0
+python scripts/pipeline/duration_check.py      # 无条目超出视频长度
+python scripts/pipeline/dup_check.py           # 同秒重复组 0
+python scripts/pipeline/stat_coverage.py       # 覆盖率 100.0%
+node verify_search.js                          # 408 命中 / 缺帧 0
+python scripts/pipeline/q_audit.py             # 历史修正 195 处, 异常 0
 ```
 
-参数解释：
+## 仓库结构
 
-`query`：请求查询的关键词。
+```
+VV_Rob/
+├─ README.md                 本文件
+├─ 复刻运行手册.md            完整复刻流程（环境 → 取视频 → 人脸 → 字幕 → 站点）
+├─ 漏句检测方法论.md          漏句检测的采样数学保证与踩坑记录
+├─ requirements.txt
+├─ LICENSE                   GPL-3.0（继承自上游 VV）
+│
+├─ subtitle_clean/           【权威库】25 集 / 6783 条台词，站点的唯一数据源
+├─ subtitle/                 管线步骤 5 的原始输出目录（站点不读它）
+├─ docs/                     GitHub Pages 站点本体
+│   ├─ index.html  style.css  script.js  db_search.js
+│   ├─ subtitle_db           gzip 压缩的字幕库（前端 IndexedDB 缓存）
+│   ├─ frames_map.js         条目 → 帧文件名的映射
+│   ├─ aizen_frames.js       539 张"含爱染诚"的帧名单（编译期输入）
+│   └─ frames/               6775 张帧图
+│
+├─ scripts/                  全部 Python 脚本
+│   ├─ README.md             命名前缀速查表
+│   ├─ pipeline/             【22 个】复刻必需 —— 手册引用 + 依赖闭包
+│   └─ oneoff/               【286 个】一次性脚本，研究过程留档
+│
+├─ review/                   复核报告与判定记录（q_*.json + *.md）
+├─ archive/                  历史归档：早期数据集、实验、日志
+│
+├─ api/         ┐
+├─ search/      ├ 上游 VV 遗留的可选组件。本站不使用，复刻本站也不需要。
+├─ DataProcess/ ┘ 保留是为了尊重上游、便于对照；手册第 6/9 节有它们的用法。
+├─ tools/                     BBDown 视频下载器 + 爱染诚人脸候选抽取
+└─ vercel.json                上游的 Vercel 部署配置（本站走 GitHub Pages）
 
-`min_ratio`：关键词在句子中的最小匹配度。（这一部分算法还待优化）
+本地目录（未入库）：Videos/（24.4 GB 原片）、target/、clusters/、
+faces_candidates/、models_ppocrv5/、docs/frames_removed/
+```
 
-`min_similarity`：最小的人脸识别匹配度，一般认为0.5以上为VV。
+### 关于 `scripts/oneoff/`
 
-`max_results`：返回的结果最多的个数，如果不添加默认返回全部匹配的结果。
+那 286 个脚本是字幕清洗过程的研究留档，不是产品代码 —— 它们记录了 6783 条台词
+是怎么一条条核出来的（帧图错位修复、白边掩膜解字幕行、漏句扫描、共用配图纠正……）。
+按名字前缀可以大致定位：
 
-## 句意搜索使用说明
-<center><img src="search.GIF" style="max-height:3000px"></center>
+| 前缀 | 数量 | 用途 |
+|---|---:|---|
+| `q_` | 77 | 文本**质**量系列：交互式取证与核对 |
+| `dense*` | 22 | 密集扫描（扩窗 + 高采样率找漏句） |
+| `orphan_` | 17 | 孤儿帧：无库条目引用的帧图定性 |
+| `extract_` / `scan*` | 23 | 抽帧与全片扫描 |
+| `check_` / `fix_` / `apply_` | 32 | 断言检查 → 修复 → 落地 |
+| `_` | 8 | 临时/一次性 |
 
-运行`search/search.py`
-可从[Releases](https://github.com/wen999di/VV/releases/download/index/index.zip)下载构建完成的向量索引数据库，解压到search文件夹下
+完整清单见 `scripts/README.md`。
 
-## To-Do List
+## 复刻 / 二次开发
 
-- [x] 提高人脸识别精度
-- [x] 改进搜索算法
-- [x] 添加视频源
-- [ ] 网页端错误上报功能（真的需要吗）
+改字幕区域、换人脸目标、重跑全流程 —— 见 **[复刻运行手册.md](复刻运行手册.md)**。
+手册里的路径已与 `scripts/` 结构对齐，可直接照抄执行。
 
-## 主要使用的开源项目
+只想改站点外观：直接编辑 `docs/` 下的 5 个文件即可，无需重新构建数据。
 
-[ddddocr](https://github.com/sml2h3/ddddocr)
+## 上游与许可
 
-[PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+本项目是 **[Cicada000/VV](https://github.com/Cicada000/VV)**（《这就是中国》张维为语录查询）的
+fork。上游提供了一整套"视频 → 人脸识别 → 字幕 OCR → 静态检索站"的管线，
+本项目沿用了它的架构、前端检索算法（LCS 匹配 + IndexedDB 缓存）与 GPL-3.0 许可。
 
-[insightface](https://github.com/deepinsight/insightface)
+相对上游的主要改动：
 
-[dlib](https://github.com/davisking/dlib)
+| 方向 | 内容 |
+|------|------|
+| 数据 | 全部替换为《罗布奥特曼》—— 25 集字幕、6775 张帧图、爱染诚人脸特征 |
+| 管线 | `params.py` 新增 `SUBTITLE_AREA` / `REQUIRED_RESOLUTION`；解出"白边掩膜"字幕行切分法 |
+| 前端 | 品牌与文案改为爱染诚档案室；新增爱染诚筛选与优先排序 |
+| 数据源 | 站点改用本地 `docs/subtitle_db`，不再请求上游域名 |
+| 已移除 | 上游的 Telegram bot、云端 RAG、口吧水印等本站用不到的能力 |
 
-[BBDown](https://github.com/nilaoda/BBDown)
+完整清单见手册第 10 节。
+
+**许可**：GPL-3.0（见 [LICENSE](LICENSE)）。沿用上游许可，二次分发请保留同样的自由。
+
+## 声明
+
+本档案转录《罗布奥特曼》全剧字幕，帧图取自原片，**仅供对白检索与学习交流**。
+《罗布奥特曼》及相关角色、影像的著作权归圆谷制作株式会社等权利人所有。
