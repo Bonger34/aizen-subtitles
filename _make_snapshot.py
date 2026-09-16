@@ -14,6 +14,11 @@ out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(BASE, '_snapshot.html')
 
 html = open(os.path.join(BASE, 'index.html'), encoding='utf-8').read()
 
+# 去掉 HTML 注释再内联: 这些注释解释的是"某段代码为什么被删/被改", 内联后它们会和
+# 已经内联进来的样式表内容自相矛盾(实测: 快照里留着一条说"placeholder 是旧那句"的注释,
+# 而实际用的是新文案)。快照只是给人看的, 注释留在源文件里就够。
+html = re.sub(r'<!--(?!\[if).*?-->', '', html, flags=re.S)
+
 # 样式表: 把 href="style.css?v=NN" 整段换成内联 <style>
 css_ref = re.search(r'<link rel="stylesheet" href="style\.css[^"]*">', html)
 if not css_ref:
