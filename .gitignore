@@ -201,7 +201,6 @@ cluster_embeddings.npz
 __pycache__/
 
 # 二进制工具/大文件(不应入库)
-tools/bbdown/
 *.png
 *.GIF
 
@@ -224,8 +223,6 @@ _swap.py
 # 落盘前的自动备份(可再生产物)
 subtitle_clean/*.bak_*
 !review/q_revert_result.json
-# 删除条目后不再被引用的帧(留档, 不入库)
-docs/frames_removed/
 
 # 工具的运行期配置, 内含本机绝对路径(如 Chrome 的 exe 位置), 不是项目内容。
 # 2026-09 曾误入库过一个 .agent-browser/config/agent-browser.json。
