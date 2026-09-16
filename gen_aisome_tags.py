@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """gen_aisome_tags.py — 标注「画面含爱染诚」的帧
 
-对 web/frames 全部帧（960x540）用增强锚点(442)检测：
+对 docs/frames 全部帧（960x540）用增强锚点(442)检测：
 - max sim >= 0.4 → 该帧含爱染诚（正面/侧脸可信度足够）
 输出:
-  Web/aisome_frames.js    前端标记集（window.AISOME_FRAMES）
+  docs/aisome_frames.js    前端标记集（window.AISOME_FRAMES）
   review/aisome_frames.json   审计副本（帧名 -> sim）
 用法: python gen_aisome_tags.py   （约 5-8 分钟）
 """
@@ -17,7 +17,7 @@ import numpy as np
 from insightface.app import FaceAnalysis
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES_DIR = os.path.join(BASE, 'web', 'frames')
+FRAMES_DIR = os.path.join(BASE, 'docs', 'frames')
 ANCHOR = os.path.join(BASE, 'face_features_aisome_aug.npz')
 HIT_MIN = 0.4
 
@@ -52,7 +52,7 @@ def main():
     # 前端标记集（只保留帧名，体积最小）
     js = 'window.AISOME_FRAMES = ' + json.dumps({k: 1 for k in hits},
                                                 ensure_ascii=False, separators=(',', ':')) + ';'
-    with open(os.path.join(BASE, 'Web', 'aisome_frames.js'), 'w', encoding='utf-8') as fh:
+    with open(os.path.join(BASE, 'docs', 'aisome_frames.js'), 'w', encoding='utf-8') as fh:
         fh.write(js)
     with open(os.path.join(BASE, 'review', 'aisome_frames.json'), 'w', encoding='utf-8') as fh:
         json.dump(hits, fh, ensure_ascii=False, indent=0)

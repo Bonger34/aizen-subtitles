@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 FONTS = [r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\simhei.ttf']
 ROW_H = 250
 
@@ -31,7 +31,7 @@ def main():
     per = int(sys.argv[1]) if len(sys.argv) > 1 else 12
     d = json.load(open(os.path.join(REVIEW, 'q_unmatched_resolved.json'), encoding='utf-8'))
     rows = [r for r in d['candidate'] if r.get('kind') == 'add']
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     MAP = json.loads(s[s.index('{'):s.rindex('}') + 1])
     print(f'{len(rows)} 条')
     f1, f2 = font(26), font(22)

@@ -26,7 +26,7 @@ from q_rescan import rec_pair, tight_x, MIN_SEG_FILL, MIN_SEG_H, MAX_SEGS
 B = os.path.dirname(os.path.abspath(__file__))
 VIDEO_DIR = os.path.join(B, 'Videos')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 OUT_DIR = os.path.join(B, 'review')
 SZ = (64, 36)
 MAE_OK = 3.0        # 模板匹配判定阈值(逐帧顺序扫描实测精确命中 0.2~1, 画面相似但不同帧 >6)
@@ -39,7 +39,7 @@ def parse_ts(ts):
 
 
 def load_map():
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     return json.loads(s[s.index('{'):s.rindex('}') + 1])
 
 

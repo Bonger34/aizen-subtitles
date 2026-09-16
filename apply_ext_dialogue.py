@@ -14,7 +14,7 @@ import cv2
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 V = os.path.join(B, 'Videos')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 
 # (集, 原时间戳, 原文本片段, 新文本)  —— 替换碎片
 REPLACE = [('P11', '10m11s', '山十', '打败怪兽时的必杀技超帅'),

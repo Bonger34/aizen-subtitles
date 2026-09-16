@@ -18,7 +18,7 @@ from rapidocr_onnxruntime import RapidOCR
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN_DIR = os.path.join(BASE, 'subtitle_clean')
 VIDEO_DIR = os.path.join(BASE, 'Videos')
-FMAP_JS = os.path.join(BASE, 'Web', 'frames_map.js')
+FMAP_JS = os.path.join(BASE, 'docs', 'frames_map.js')
 CAND_DIR = os.path.join(BASE, 'review', 'cand_frames')
 SUBTITLE_AREA = (100, 895, 1820, 985)
 RANGE_BEFORE = 500

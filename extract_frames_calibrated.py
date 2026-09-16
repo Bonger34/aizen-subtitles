@@ -2,7 +2,7 @@
 """extract_frames_calibrated.py — 试点：对一集（ts 校准后）重抽帧并验证命中率
 
 逻辑：读 subtitle_clean/[EP].json（校准后 ts），每条按 ts 优先、ts±1 兜底，
-rapidocr 字幕匹配（LCS>=0.5 或包含）成功 → 保存 web/frames/P01_XmXXs.jpg
+rapidocr 字幕匹配（LCS>=0.5 或包含）成功 → 保存 docs/frames/P01_XmXXs.jpg
 （文件名秒 = 实际匹配帧的时刻，与 make_frames_map 的 FRAME_PATTERN 兼容）。
 执行前会先删除该集旧正式帧（旧 ts 帧已失效）。
 
@@ -19,7 +19,7 @@ from rapidocr_onnxruntime import RapidOCR
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN_DIR = os.path.join(BASE, 'subtitle_clean')
 VIDEO_DIR = os.path.join(BASE, 'Videos')
-FRAMES_DIR = os.path.join(BASE, 'web', 'frames')
+FRAMES_DIR = os.path.join(BASE, 'docs', 'frames')
 SUBTITLE_AREA = (100, 895, 1820, 985)
 W, H = 960, 540
 FRAME_OFFSET_MS = 800

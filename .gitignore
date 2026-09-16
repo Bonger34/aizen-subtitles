@@ -175,7 +175,10 @@ search/local/index/
 node_modules/
 entries.json
 cloud_entries.json
-frames/
+# 必须锚定根目录。写成 "frames/" 会连带忽略 docs/frames/ ——
+# 那 6775 张帧图是站点唯一的核心资产, 必须入库,
+# 否则 GitHub Pages 上每一格都是「无帧图」占位符。
+/frames/
 /DataProcess/*.index
 /DataProcess/*.webp
 # VV_Rob 特有(本轮排查产生的临时脚本)
@@ -184,8 +187,10 @@ _tmp_*.pyc
 # 审核/复核产物(大文件不入库, 但报告类 md 要入库 —— 注意必须写 review/*, 写 review/ 会把整目录排除、negation 失效)
 review/*
 !review/*.md
-# 帧图重抽的暂存目录(确认后再覆盖 Web/frames)
-Web/frames_fix/
+# 帧图重抽的暂存目录(确认后再覆盖 docs/frames)
+# 2026-09 已核实: 与 docs/frames 共有的 6386 个文件逐字节相同, 7 个独有帧零引用,
+# 目录内容已删(380 MB)。留这条规则防止它被重新生成时误入库。
+docs/frames_fix/
 # 人脸资产(大文件, 不入库)
 target/
 faces_candidates/
@@ -226,4 +231,4 @@ _swap.py
 subtitle_clean/*.bak_*
 !review/q_revert_result.json
 # 删除条目后不再被引用的帧(留档, 不入库)
-Web/frames_removed/
+docs/frames_removed/

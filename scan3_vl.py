@@ -3,7 +3,7 @@
 
 读阶段1的 review/cand_index.json + review/cand_frames/ 候选帧，
 用 PaddleOCR-VL 识别并对库文本做分行匹配（LCS>=0.5 或包含），
-命中保存 best 帧到 web/frames/；未命中保持空缺（宁缺毋滥）。
+命中保存 best 帧到 docs/frames/；未命中保持空缺（宁缺毋滥）。
 
 用法: python scan3_vl.py [--test]
 """
@@ -15,7 +15,7 @@ import sys
 import cv2
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES_DIR = os.path.join(BASE, 'web', 'frames')
+FRAMES_DIR = os.path.join(BASE, 'docs', 'frames')
 CAND_DIR = os.path.join(BASE, 'review', 'cand_frames')
 INDEX = os.path.join(BASE, 'review', 'cand_index.json')
 W, H = 960, 540

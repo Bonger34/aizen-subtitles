@@ -21,7 +21,7 @@ from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, Lang
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 V = os.path.join(B, 'Videos')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CANDS = [('P04', '10m38s', '逗你的我开玩笑的'), ('P07', '11m33s', '想到这'),
          ('P08', '16m02s', '十分常见的情形'), ('P10', '8m56s', '能守护他们笑容的'),
          ('P13', '5m32s', '但我还是很想知道'), ('P17', '3m49s', '还有点扎手呢'),

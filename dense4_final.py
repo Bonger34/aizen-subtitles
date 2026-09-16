@@ -24,7 +24,7 @@ from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, Lang
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 V = os.path.join(B, 'Videos')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 SRC = os.path.join(B, 'review', 'converge.json')
 
 # 更严格的排除词(片尾演职员表 / 图鉴预告 / 歌词)

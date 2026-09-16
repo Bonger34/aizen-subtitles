@@ -13,8 +13,8 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(BASE, 'subtitle_clean')
-FRAMES = os.path.join(BASE, 'Web', 'frames')
-FMAP = os.path.join(BASE, 'Web', 'frames_map.js')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
+FMAP = os.path.join(BASE, 'docs', 'frames_map.js')
 
 # 1. 删除 P02 4m50s 重复条目
 p02 = [x for x in os.listdir(CLEAN) if x.startswith('[P02]') and x.endswith('.json')][0]

@@ -17,7 +17,7 @@ import numpy as np
 
 B = os.path.dirname(os.path.abspath(__file__))
 VIDEO_DIR = os.path.join(B, 'Videos')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 OFFS = (-0.25, 0.0, 0.25, 0.55)
 
 
@@ -37,7 +37,7 @@ def band_of(img, h=None):
 def main():
     ep, tss = sys.argv[1], sys.argv[2:]
     MAP = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                               open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                               open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                                re.S).group(1))
     title = next(t for t in MAP if t.startswith(f'[{ep}]')).split('|')[0]
     vid = [os.path.join(VIDEO_DIR, v) for v in os.listdir(VIDEO_DIR)

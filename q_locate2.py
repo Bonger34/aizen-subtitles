@@ -29,7 +29,7 @@ from q_subband import read_subs
 
 B = os.path.dirname(os.path.abspath(__file__))
 VIDEO_DIR = os.path.join(B, 'Videos')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CLEAN = os.path.join(B, 'subtitle_clean')
 REVIEW = os.path.join(B, 'review')
 BAND_TOP, BAND_BOT = 820, 1080     # 缓存与匹配用的字幕带(1080p 坐标)
@@ -58,7 +58,7 @@ def iou(a, b, t=0.25):
 
 
 def load_map():
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     return json.loads(s[s.index('{'):s.rindex('}') + 1])
 
 

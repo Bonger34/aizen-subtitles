@@ -57,10 +57,10 @@ def main():
         for e in json.load(open(os.path.join(CLEAN, f), encoding='utf-8')):
             lib[(ep, e.get('timestamp'))] = e.get('text', '')
 
-    # 判据用"Web/frames_fix/ 里有没有这条的新帧" —— q_reframe 的 report 只在全部集跑完时才写,
+    # 判据用"docs/frames_fix/ 里有没有这条的新帧" —— q_reframe 的 report 只在全部集跑完时才写,
     # 中途停止时没有 report, 只能以产物为准。
     tg = json.load(open(os.path.join(REVIEW, 'q_allframes_tg.json'), encoding='utf-8'))
-    got = set(os.listdir(os.path.join(B, 'Web', 'frames_fix')))
+    got = set(os.listdir(os.path.join(B, 'docs', 'frames_fix')))
     hits, full_eps = set(), set()
     for r in tg:
         if r.get('frame') in got:

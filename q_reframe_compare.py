@@ -14,8 +14,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
-FIX = os.path.join(B, 'Web', 'frames_fix')
+FR = os.path.join(B, 'docs', 'frames')
+FIX = os.path.join(B, 'docs', 'frames_fix')
 FONTS = [r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\simhei.ttf']
 ROW_H = 300
 
@@ -33,7 +33,7 @@ def font(sz):
 def main():
     args = sys.argv[1:]
     M = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                             open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                             open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                              re.S).group(1))
     lib = {}
     for f in sorted(os.listdir(os.path.join(B, 'subtitle_clean'))):

@@ -13,8 +13,8 @@ import cv2
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 V = os.path.join(B, 'Videos')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
-FMAP = os.path.join(B, 'Web', 'frames_map.js')
+FR = os.path.join(B, 'docs', 'frames')
+FMAP = os.path.join(B, 'docs', 'frames_map.js')
 
 FIX = [('P06', '18m52s', '哥哥', 0.5, '哥哥'),
        ('P13', '14m19s', '重', 0.0, '这是'),

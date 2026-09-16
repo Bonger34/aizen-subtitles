@@ -4,7 +4,7 @@ import gzip
 import json
 import collections
 
-db = json.load(gzip.open('Web/subtitle_db', 'rt', encoding='utf-8'))
+db = json.load(gzip.open('docs/subtitle_db', 'rt', encoding='utf-8'))
 print('库条目数           =', len(db))
 print('字段               =', sorted(db[0].keys()))
 print('样本记录           =', json.dumps(db[0], ensure_ascii=False))

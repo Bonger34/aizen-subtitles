@@ -13,7 +13,7 @@
             }
         },
         {
-            "src": "Web/**/*",
+            "src": "docs/**/*",
             "use": "@vercel/static"
         }
     ],
@@ -38,7 +38,7 @@
         },
         {
             "src": "/((?!api/).*)",
-            "dest": "Web/$1"
+            "dest": "docs/$1"
         }
     ]
 } 

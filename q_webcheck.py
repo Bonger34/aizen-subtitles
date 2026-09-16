@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""q_webcheck.py — 用"搜索界面实际显示的帧图(Web/frames, 960x540)"重读字幕。
+"""q_webcheck.py — 用"搜索界面实际显示的帧图(docs/frames, 960x540)"重读字幕。
 
 动机: 用户搜索时看到的就是这张图, 文本必须与这张图一致。而 q_rescan 从视频按库时间戳取帧,
 实测大量条目取到的却是相邻句 —— 说明"库时间戳"与"帧图"未必同步。于是改为直接读帧图本身:
@@ -19,13 +19,13 @@ from q_common import (SCAN_TOP, SCAN_BOT, X0, X1, PAD_Y, build_engine, crop_norm
 from q_rescan import rec_pair, tight_x, MIN_SEG_FILL, MIN_SEG_H, MAX_SEGS
 
 B = os.path.dirname(os.path.abspath(__file__))
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CLEAN = os.path.join(B, 'subtitle_clean')
 OUT_DIR = os.path.join(B, 'review')
 
 
 def load_map():
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     return json.loads(s[s.index('{'):s.rindex('}') + 1])
 
 

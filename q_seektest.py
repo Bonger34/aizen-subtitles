@@ -16,7 +16,7 @@ import numpy as np
 
 B = os.path.dirname(os.path.abspath(__file__))
 VIDEO_DIR = os.path.join(B, 'Videos')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CLEAN = os.path.join(B, 'subtitle_clean')
 SZ = (64, 36)
 CANDS = (-0.8, -1.8, -2.8, -3.8, 0.2, -0.3, -1.3, -2.3)
@@ -35,7 +35,7 @@ def thumb(img):
 def main():
     ep = sys.argv[1]
     n_max = int(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2].isdigit() else 40
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     MAP = json.loads(s[s.index('{'):s.rindex('}') + 1])
     fn = [f for f in os.listdir(CLEAN) if f.startswith(f'[{ep}]') and f.endswith('.json')][0]
     title = fn[:-5]

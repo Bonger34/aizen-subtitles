@@ -17,7 +17,7 @@ from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, Lang
 
 sys.stdout.reconfigure(encoding='utf-8')
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES = os.path.join(BASE, 'Web', 'frames')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
 AREA = (100, 895, 1820, 985)
 
 PAIRS = [

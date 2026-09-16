@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""sample_face_check.py — 抽样检测当前 web/frames 帧的人脸命中情况（回答"是否人脸最优帧"）"""
+"""sample_face_check.py — 抽样检测当前 docs/frames 帧的人脸命中情况（回答"是否人脸最优帧"）"""
 import glob
 import os
 import random
@@ -9,7 +9,7 @@ import numpy as np
 from insightface.app import FaceAnalysis
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES_DIR = os.path.join(BASE, 'web', 'frames')
+FRAMES_DIR = os.path.join(BASE, 'docs', 'frames')
 
 # 随机抽 24 张（跨集）
 files = sorted(glob.glob(os.path.join(FRAMES_DIR, 'P*_*m*s.jpg')))

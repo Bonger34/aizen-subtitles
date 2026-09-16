@@ -15,9 +15,9 @@ import cv2
 sys.stdout.reconfigure(encoding='utf-8')
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 VIDEO_DIR = os.path.join(BASE, 'Videos')
-FRAMES = os.path.join(BASE, 'Web', 'frames')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
 CLEAN = os.path.join(BASE, 'subtitle_clean')
-FMAP = os.path.join(BASE, 'Web', 'frames_map.js')
+FMAP = os.path.join(BASE, 'docs', 'frames_map.js')
 REVIEW = os.path.join(BASE, 'review')
 
 # (集, 原扫描秒, 文本, 当前库中的秒)

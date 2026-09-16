@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 FONTS = [r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\simhei.ttf']
 ROW_H = 250
 
@@ -42,7 +42,7 @@ def main():
         src = sys.argv[sys.argv.index('--src') + 1]
     rows = json.load(open(os.path.join(REVIEW, src), encoding='utf-8'))
     M = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                             open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                             open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                              re.S).group(1))
     lib = {}
     for f in sorted(os.listdir(os.path.join(B, 'subtitle_clean'))):

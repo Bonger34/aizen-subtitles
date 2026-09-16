@@ -14,8 +14,8 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(BASE, 'subtitle_clean')
-FRAMES = os.path.join(BASE, 'Web', 'frames')
-FMAP = os.path.join(BASE, 'Web', 'frames_map.js')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
+FMAP = os.path.join(BASE, 'docs', 'frames_map.js')
 
 src = open(FMAP, encoding='utf-8').read()
 m = re.search(r'=\s*(\{.*?\})\s*;', src, re.S)

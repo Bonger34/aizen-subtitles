@@ -22,9 +22,9 @@ from rapidocr import RapidOCR
 from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, LangRec
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 MAP = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                           open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                           open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                            re.S).group(1))
 CASES = [('P06', '你好歹也考虑下当下的潮流嘛', '考虑下时间地点场合啊'),
          ('P22', '搞不好以后就流行了', '我早就想沐浴着阳光流流汗了'),

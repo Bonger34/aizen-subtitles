@@ -6,7 +6,7 @@ import re
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(BASE, 'subtitle_clean')
-FMAP = os.path.join(BASE, 'Web', 'frames_map.js')
+FMAP = os.path.join(BASE, 'docs', 'frames_map.js')
 
 
 def main():

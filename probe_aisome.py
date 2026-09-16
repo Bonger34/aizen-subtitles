@@ -8,7 +8,7 @@
 做法：
 A) 全剖面：对指定集每 2s 抽一帧（1080p 原帧），统计与爱染诚锚点(95张)的
    最大相似度分布 → 得到「爱染诚在该集画面中的真实占比」
-B) 已选帧：统计该集 web/frames 现有帧（960x540 缩略图）的相似度分布 →
+B) 已选帧：统计该集 docs/frames 现有帧（960x540 缩略图）的相似度分布 →
    得到「台词期间命中率」，与 A 对比。
 
 用法: python probe_aisome.py [P01] [P03] ...   （不带参数 = 默认 P03 P11 P01 P19 P24）
@@ -24,7 +24,7 @@ from insightface.app import FaceAnalysis
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 VIDEO_DIR = os.path.join(BASE, 'Videos')
-FRAMES_DIR = os.path.join(BASE, 'web', 'frames')
+FRAMES_DIR = os.path.join(BASE, 'docs', 'frames')
 REVIEW_DIR = os.path.join(BASE, 'review')
 SAMPLE_SEC = 2          # 全剖面采样间隔（秒）
 EPS = ('P01', 'P03', 'P11', 'P19', 'P24')

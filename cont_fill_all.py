@@ -15,11 +15,11 @@ import cv2
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 VIDEO_DIR = os.path.join(BASE, 'Videos')
-FRAMES = os.path.join(BASE, 'Web', 'frames')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
 GAP = os.path.join(BASE, 'review', 'cont_gap.json')
 REVIEW = os.path.join(BASE, 'review')
 CLEAN = os.path.join(BASE, 'subtitle_clean')
-FMAP = os.path.join(BASE, 'Web', 'frames_map.js')
+FMAP = os.path.join(BASE, 'docs', 'frames_map.js')
 
 CREDITS = ['演技', '撮影', '監督', '音響', '美術', '製作', '制作', '演出', '協力', '応援',
            '企画', '監修', '主題歌', '作詞', '作曲', '選曲', '整音', '録音', '照明', '造形',

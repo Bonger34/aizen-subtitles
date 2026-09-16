@@ -14,7 +14,7 @@ import cv2
 from q_common import split_lines, gray_white, SCAN_TOP, SCAN_BOT
 
 B = os.path.dirname(os.path.abspath(__file__))
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CLEAN = os.path.join(B, 'subtitle_clean')
 BAND = (895, 985)          # 原窄带下缘/上缘
 TAIL_START = 21 * 60 + 30  # 片尾段起点(保守)
@@ -27,7 +27,7 @@ def parse_ts(ts):
 
 def main():
     MAP = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                               open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                               open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                                re.S).group(1))
     titles = {}
     for fn in sorted(os.listdir(CLEAN)):

@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 
 V = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob\Videos'
-F = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob\Web\frames'
+F = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob\docs\frames'
 
 
 def small(img):

@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
 
-const BASE = 'D:/Bonger/Desktop/2026-08-21-18-21-50/VV_Rob/Web';
+const BASE = 'D:/Bonger/Desktop/2026-08-21-18-21-50/VV_Rob/docs';
 // 1. 加载 frames_map
 global.window = {};
 require(path.join(BASE, 'frames_map.js'));

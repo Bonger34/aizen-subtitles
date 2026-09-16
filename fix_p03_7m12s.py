@@ -6,7 +6,7 @@
   库文本   = 「到了我这一代后扩了规模」（差一个"大"字，OCR 漏字）
 动作：
   1. 库文本修正为「到了我这一代后扩大了规模」
-  2. 将人工核定的显示期帧复制入 web/frames/P03_7m12s.jpg
+  2. 将人工核定的显示期帧复制入 docs/frames/P03_7m12s.jpg
      （取 432.0s 帧：位于 7m10s~7m18s 字幕显示期内，画面即该句）
 """
 import json
@@ -16,7 +16,7 @@ import shutil
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(BASE, 'subtitle_clean', '[P03]3 欢迎来到爱染科技.json')
 SRC = os.path.join(BASE, 'review', 'p03_7m12s_frames', '7m12s_0.jpg')
-DST = os.path.join(BASE, 'web', 'frames', 'P03_7m12s.jpg')
+DST = os.path.join(BASE, 'docs', 'frames', 'P03_7m12s.jpg')
 NEW_TEXT = '到了我这一代后扩大了规模'
 
 d = json.load(open(CLEAN, encoding='utf-8'))

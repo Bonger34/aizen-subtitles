@@ -21,12 +21,12 @@ from q_rescan import rec_pair, tight_x, MIN_SEG_FILL, MIN_SEG_H, MAX_SEGS
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 MAX_DENSITY = 0.45      # 丢弃"整片白"的段(画面亮部), 见 q_common.split_lines 注释
 
 
 def load_map():
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     return json.loads(s[s.index('{'):s.rindex('}') + 1])
 
 

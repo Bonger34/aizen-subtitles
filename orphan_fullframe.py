@@ -22,7 +22,7 @@ from rapidocr import RapidOCR
 from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, LangRec
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CLEAN = os.path.join(B, 'subtitle_clean')
 TARGETS = ['P01_22m51s.jpg', 'P01_22m52s.jpg', 'P01_22m55s.jpg', 'P01_22m56s.jpg',
            'P01_22m57s.jpg', 'P01_22m58s.jpg', 'P18_0m56s.jpg', 'P18_1m00s.jpg',

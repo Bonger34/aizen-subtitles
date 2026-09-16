@@ -24,7 +24,7 @@ from q_common import diff_rel, norm, to_simp  # noqa: E402
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 FRAME_PAT = re.compile(r'^P(\d{1,2})_(\d+)m(\d+)s([+-]\d+s)?\.jpg$')
 
 
@@ -51,7 +51,7 @@ def parse_ts(ts):
 
 
 def load_map():
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     return json.loads(s[s.index('{'):s.rindex('}') + 1])
 
 

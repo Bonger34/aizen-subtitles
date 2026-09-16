@@ -5,9 +5,9 @@ import os
 import re
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 MAP = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                           open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                           open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                            re.S).group(1))
 ref = {v for v in MAP.values() if isinstance(v, str)}
 files = set(os.listdir(FR))

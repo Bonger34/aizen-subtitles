@@ -10,7 +10,7 @@
 (签名相同则不重复识别), 找到**字幕读数与库文本一致(sim>=0.95)** 的帧, 按原帧图规格
 (960x540 JPEG q80) 导出。找不到匹配帧的条目原样保留并报告。
 
-用法: python q_reframe.py --src q_reframe_tg.json [--out Web/frames_fix] [--dry]
+用法: python q_reframe.py --src q_reframe_tg.json [--out docs/frames_fix] [--dry]
 输出: <out>/<原帧名> + review/q_reframe_report.json
 """
 import json
@@ -28,8 +28,8 @@ from q_subband import read_subs
 B = os.path.dirname(os.path.abspath(__file__))
 VIDEO_DIR = os.path.join(B, 'Videos')
 REVIEW = os.path.join(B, 'review')
-FRAMES = os.path.join(B, 'Web', 'frames')
-OUT_DEF = os.path.join(B, 'Web', 'frames_fix')
+FRAMES = os.path.join(B, 'docs', 'frames')
+OUT_DEF = os.path.join(B, 'docs', 'frames_fix')
 W, H = 960, 540
 HALF = 1.6           # 向两侧各扩展的秒数
 SIG_IOU = 0.92       # 相邻帧字幕带签名 IoU 高于此值 -> 视为同一句, 跳过识别

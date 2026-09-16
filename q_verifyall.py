@@ -18,14 +18,14 @@ from q_rescan import rec_pair, tight_x, MIN_SEG_FILL, MIN_SEG_H, MAX_SEGS
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 OUT = os.path.join(REVIEW, 'q_verifyall.json')
 MAX_DENSITY = 0.60   # 帧图上亮背景会让整段白像素占比很高, 阈值放宽到 0.6
 WHITE_MIN = 230      # 帧图用更严的白阈值, 否则"明亮天空"整片算白, 把字幕行一起吃进大段
 
 
 def load_map():
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     return json.loads(s[s.index('{'):s.rindex('}') + 1])
 
 

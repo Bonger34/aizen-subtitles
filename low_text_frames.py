@@ -11,7 +11,7 @@ import cv2
 import numpy as np
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 BAND_BOT = 985
 LIMIT = 1062
 

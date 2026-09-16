@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""face_stats_all.py — 全量统计 web/frames 帧的主演命中分布（方案C验收）"""
+"""face_stats_all.py — 全量统计 docs/frames 帧的主演命中分布（方案C验收）"""
 import glob
 import os
 import sys
@@ -9,7 +9,7 @@ import numpy as np
 from insightface.app import FaceAnalysis
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES_DIR = os.path.join(BASE, 'web', 'frames')
+FRAMES_DIR = os.path.join(BASE, 'docs', 'frames')
 # 默认用增强锚点（95 基 + 全 25 集高置信爱染诚），可用 --base 切回原锚点
 ANCHOR = 'face_features_aisome_aug.npz'
 if '--base' in sys.argv:

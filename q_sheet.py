@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 FONT_CANDS = [r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\simhei.ttf',
               r'C:\Windows\Fonts\simsun.ttc']
 ROW_H = 210
@@ -36,7 +36,7 @@ def main():
     verdict = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith('-') else 'apply_add'
     per = int(sys.argv[2]) if len(sys.argv) > 2 else 22
     d = json.load(open(os.path.join(REVIEW, 'q_align_tl.json'), encoding='utf-8'))
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     MAP = json.loads(s[s.index('{'):s.rindex('}') + 1])
     rows = []
     for ep in sorted(d):

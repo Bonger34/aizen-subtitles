@@ -29,7 +29,7 @@ from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, Lang
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 V = os.path.join(B, 'Videos')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 EXT = os.path.join(B, 'review', 'ext_regions')
 OUTJSON = os.path.join(B, 'review', 'ext_cands.json')
 CROP = (100, 850, 1820, 1062)     # 扩大的裁剪区(x0,y0,x1,y1, 1920x1080)

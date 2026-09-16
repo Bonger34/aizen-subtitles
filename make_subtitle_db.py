@@ -5,8 +5,8 @@ import os, json, gzip, re, sys
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 SUBTITLE_DIR = os.path.join(BASE, "subtitle_clean")  # 使用清洗后数据
-WEB_DIR = os.path.join(BASE, "web")
-OUTPUT = os.path.join(WEB_DIR, "subtitle_db")
+SITE_DIR = os.path.join(BASE, "docs")
+OUTPUT = os.path.join(SITE_DIR, "subtitle_db")
 
 # 只匹配 [P01]~[P25]，排除旧项目《这就是中国》的 [P00x]/[Pxxx] 三位数文件
 PATTERN = re.compile(r'^\[P(0[1-9]|1[0-9]|2[0-5])\]')
@@ -22,10 +22,10 @@ def load_js_object(path):
 
 
 def main():
-    os.makedirs(WEB_DIR, exist_ok=True)
+    os.makedirs(SITE_DIR, exist_ok=True)
     # 爱染诚标记：帧名 -> 1（画面含爱染诚）；映射：f|t -> 帧名
-    AISOME = load_js_object(os.path.join(WEB_DIR, 'aisome_frames.js'))
-    FMAP = load_js_object(os.path.join(WEB_DIR, 'frames_map.js'))
+    AISOME = load_js_object(os.path.join(SITE_DIR, 'aisome_frames.js'))
+    FMAP = load_js_object(os.path.join(SITE_DIR, 'frames_map.js'))
     print(f'加载: 爱染诚帧标记 {len(AISOME)} 个，帧映射 {len(FMAP)} 条')
     records = []
     files = sorted(f for f in os.listdir(SUBTITLE_DIR)
@@ -65,7 +65,7 @@ def main():
         f.write(compressed)
 
     # 输出明文 JS 版（file:// 直开兼容：script 标签注入，不受 CORS 限制）
-    js_output = os.path.join(WEB_DIR, "subtitle_db.js")
+    js_output = os.path.join(SITE_DIR, "subtitle_db.js")
     js_content = "window.SUBTITLE_DB = " + raw + ";"
     with open(js_output, "w", encoding="utf-8") as f:
         f.write(js_content)

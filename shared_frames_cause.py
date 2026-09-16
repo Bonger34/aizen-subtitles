@@ -6,7 +6,7 @@ import re
 import collections
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 rows = json.load(open(os.path.join(B, 'review', 'shared_frames_ocr.json'), encoding='utf-8'))
 files = set(os.listdir(FR))
 

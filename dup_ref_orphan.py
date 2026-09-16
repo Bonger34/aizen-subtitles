@@ -5,7 +5,7 @@ import os
 import collections
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-fm = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+fm = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
 m = json.loads(fm[fm.index('{'):fm.rindex('}') + 1])
 scan = {r['f']: r for r in json.load(open(os.path.join(B, 'review', 'orphan_scan.json'), encoding='utf-8'))['recs']}
 

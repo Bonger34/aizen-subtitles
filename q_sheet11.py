@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 FONTS = [r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\simhei.ttf']
 ROW_H = 78
 BAND = (436, 504)      # 960x540 帧里的字幕带
@@ -42,7 +42,7 @@ def main():
         per = int(sys.argv[sys.argv.index('--per') + 1])
     rows = json.load(open(os.path.join(REVIEW, 'q_fv2_review.json'), encoding='utf-8'))
     M = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                             open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                             open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                              re.S).group(1))
     f1, f2 = font(20), font(17)
     print(f'{len(rows)} 条')

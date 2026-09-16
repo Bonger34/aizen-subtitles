@@ -12,7 +12,7 @@ import cv2
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 V = os.path.join(B, 'Videos')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 
 ADD = [('P22', 16 * 60 + 6, '休想得逞'), ('P22', 16 * 60 + 50, '勇海 我们上'),
        ('P24', 17 * 60 + 14, '明白发射牵引光束')]

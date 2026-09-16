@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 BAND = (895, 985)
 TARGETS = [('P21_24m10s.jpg', '资料卡中文字幕'), ('P21_24m15s.jpg', '正常对白(对照)'),
            ('P22_3m52s.jpg', '次回预告卡'), ('P18_0m56s.jpg', '新闻画面'),

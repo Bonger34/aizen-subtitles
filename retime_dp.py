@@ -16,7 +16,7 @@ import cv2
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 V = os.path.join(B, 'Videos')
 MAD_OK = 30.0
 PAD = 40          # DP 搜索窗口在主目标区间两侧各留的余量(秒)
@@ -48,7 +48,7 @@ def main():
     since = int(sys.argv[sys.argv.index('--since') + 1]) if '--since' in sys.argv else 0
     dur = int(duration(ep))
 
-    fm = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    fm = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     MAP = json.loads(fm[fm.index('{'):fm.rindex('}') + 1])
     path = [os.path.join(CLEAN, f) for f in os.listdir(CLEAN) if f.startswith(f'[{ep}]')][0]
     data = json.load(open(path, encoding='utf-8'))

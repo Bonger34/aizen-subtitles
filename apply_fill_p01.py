@@ -3,7 +3,7 @@
 apply_fill_p01.py — P01 试点回填
 1. 读 review/cont_fill_P01.json, 应用人工审查(修正文本/去重/排除)
 2. 追加 subtitle_clean/[P01]...json
-3. 更新 Web/frames_map.js(增量)
+3. 更新 docs/frames_map.js(增量)
 输出: 打印统计; 不重建 db(由 make_subtitle_db.py)
 """
 import json
@@ -12,7 +12,7 @@ import re
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(BASE, 'subtitle_clean')
-FMAP = os.path.join(BASE, 'Web', 'frames_map.js')
+FMAP = os.path.join(BASE, 'docs', 'frames_map.js')
 
 # 文本修正: (秒, 原文本) -> 修正文本
 FIX = {

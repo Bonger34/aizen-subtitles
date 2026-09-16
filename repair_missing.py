@@ -11,8 +11,8 @@ import re
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
-FMAP = os.path.join(B, 'Web', 'frames_map.js')
+FR = os.path.join(B, 'docs', 'frames')
+FMAP = os.path.join(B, 'docs', 'frames_map.js')
 
 
 def sec_of(ts):

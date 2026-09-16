@@ -29,8 +29,8 @@ from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, Lang
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 V = os.path.join(B, 'Videos')
-FR = os.path.join(B, 'Web', 'frames')
-FMAP = os.path.join(B, 'Web', 'frames_map.js')
+FR = os.path.join(B, 'docs', 'frames')
+FMAP = os.path.join(B, 'docs', 'frames_map.js')
 SRC = os.path.join(B, 'review', 'shared_frames_ocr.json')
 OUT = os.path.join(B, 'review', 'shared_fix_result.json')
 BAND = (100, 880, 1820, 1050)

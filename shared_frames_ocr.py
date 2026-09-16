@@ -24,7 +24,7 @@ from rapidocr import RapidOCR
 from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, LangRec
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CLEAN = os.path.join(B, 'subtitle_clean')
 BAND = (100, 880, 1820, 1050)
 
@@ -39,7 +39,7 @@ def sec(ts):
 
 
 MAP = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                           open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                           open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                            re.S).group(1))
 text_of = {}
 for fn in os.listdir(CLEAN):

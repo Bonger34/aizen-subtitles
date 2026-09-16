@@ -21,7 +21,7 @@ import cv2
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 V = os.path.join(B, 'Videos')
 MAD_MAX = 20.0
 SPAN = 8
@@ -52,7 +52,7 @@ def main():
     loc = json.load(open(sys.argv[1], encoding='utf-8'))['result']
     apply = '--apply' in sys.argv
     dur = durations()
-    fm = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    fm = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     MAP = json.loads(fm[fm.index('{'):fm.rindex('}') + 1])
 
     plan, skipped = [], []

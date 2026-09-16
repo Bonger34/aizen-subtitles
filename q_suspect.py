@@ -24,7 +24,7 @@ from q_common import is_subseq, norm, sim    # noqa: E402
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
 CLEAN = os.path.join(B, 'subtitle_clean')
-FR_FIX = os.path.join(B, 'Web', 'frames_fix')
+FR_FIX = os.path.join(B, 'docs', 'frames_fix')
 
 
 def parse_ts(ts):

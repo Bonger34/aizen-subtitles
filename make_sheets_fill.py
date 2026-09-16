@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES = os.path.join(BASE, 'Web', 'frames')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
 OUTD = os.path.join(BASE, 'review', 'cont_sheets')
 
 

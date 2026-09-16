@@ -6,7 +6,7 @@ import os
 import re
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FMAP_JS = os.path.join(BASE, 'Web', 'frames_map.js')
+FMAP_JS = os.path.join(BASE, 'docs', 'frames_map.js')
 
 m = re.search(r'=\s*(\{.*?\})\s*;', open(FMAP_JS, encoding='utf-8').read(), re.S)
 FMAP = json.loads(m.group(1))

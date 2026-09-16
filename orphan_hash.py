@@ -6,8 +6,8 @@ import os
 import collections
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
-fm = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+FR = os.path.join(B, 'docs', 'frames')
+fm = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
 m = json.loads(fm[fm.index('{'):fm.rindex('}') + 1])
 ref = {v for v in m.values() if isinstance(v, str)}
 

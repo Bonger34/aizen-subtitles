@@ -7,7 +7,7 @@ import numpy as np
 import cv2
 
 ROOT = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-WEB = os.path.join(ROOT, 'Web')
+WEB = os.path.join(ROOT, 'docs')
 FRAMES = os.path.join(WEB, 'frames')
 CLEAN = os.path.join(ROOT, 'subtitle_clean')
 OUT = os.path.join(ROOT, 'review', 'orphan_scan.json')

@@ -2,7 +2,7 @@
 """gen_anchor_aug2.py — 从已选帧提取增强锚点（快版）
 
 替代 gen_anchor_aug.py（全 25 集 2s 剖面太慢）：
-- 输入: web/frames/ 全部 4664 张台词帧（960x540）
+- 输入: docs/frames/ 全部 4664 张台词帧（960x540）
 - 对每帧取与现有锚点最大相似度 >= AUG_SIM_MIN 的人脸 embedding 加入增强集
 - 查重（与已有锚点相似度 > DUP_SIM_MAX 跳过）
 - 输出: face_features_aisome_aug.npz（95 基 + 增强）
@@ -18,7 +18,7 @@ import numpy as np
 from insightface.app import FaceAnalysis
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES_DIR = os.path.join(BASE, 'web', 'frames')
+FRAMES_DIR = os.path.join(BASE, 'docs', 'frames')
 AUG_SIM_MIN = 0.55
 DUP_SIM_MAX = 0.985
 

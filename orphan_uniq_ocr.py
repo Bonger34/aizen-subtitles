@@ -18,7 +18,7 @@ from orphan_ocr import make_ocr, band, binarize, ocr_text, load_lib  # noqa: E40
 from orphan_verdict import best  # noqa: E402
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 todo = json.load(open(os.path.join(B, 'review', 'orphan_uniq_todo.json'), encoding='utf-8'))
 ocr = make_ocr()
 print('OCR 就绪, 待补', len(todo), flush=True)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""q_frames_swap.py — 把 Web/frames_fix/ 里重抽的帧按原文件名覆盖到 Web/frames/。
+"""q_frames_swap.py — 把 docs/frames_fix/ 里重抽的帧按原文件名覆盖到 docs/frames/。
 
 文件名不变, 所以 frames_map.js / subtitle_db 都不需要重建; 只统计到底换了多少张、
 其中多少张内容其实与原来相同(可用作"原来就是对的"的判据)。
@@ -15,8 +15,8 @@ import sys
 import time
 
 B = os.path.dirname(os.path.abspath(__file__))
-FR = os.path.join(B, 'Web', 'frames')
-FIX = os.path.join(B, 'Web', 'frames_fix')
+FR = os.path.join(B, 'docs', 'frames')
+FIX = os.path.join(B, 'docs', 'frames_fix')
 REVIEW = os.path.join(B, 'review')
 
 
@@ -50,7 +50,7 @@ def main():
               ensure_ascii=False, indent=1)
     print(f"frames_fix {len(files)} 个: 覆盖 {len(replaced)} / 内容本来就相同 {len(same)} / "
           f"原本不存在 {len(new)}{'（预演）' if dry else ''}")
-    print(f"Web/frames 现有 {len([f for f in os.listdir(FR) if f.endswith('.jpg')])} 个 jpg")
+    print(f"docs/frames 现有 {len([f for f in os.listdir(FR) if f.endswith('.jpg')])} 个 jpg")
     print('输出: review/q_frames_swap.json')
 
 

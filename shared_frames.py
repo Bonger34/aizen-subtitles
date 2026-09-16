@@ -11,7 +11,7 @@ import collections
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 CLEAN = os.path.join(B, 'subtitle_clean')
 MAP = json.loads(re.search(r'=\s*(\{.*\})\s*;',
-                           open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read(),
+                           open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read(),
                            re.S).group(1))
 
 text_of = {}

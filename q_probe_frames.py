@@ -11,7 +11,7 @@ import cv2
 import numpy as np
 
 B = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 CLEAN = os.path.join(B, 'subtitle_clean')
 
 # 待查条目: (集号, 文本关键词)
@@ -25,7 +25,7 @@ TARGETS = [
 
 
 def load_map():
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     return json.loads(re.search(r'=\s*(\{.*\})\s*;', s, re.S).group(1))
 
 

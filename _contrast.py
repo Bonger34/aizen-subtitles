@@ -16,7 +16,7 @@ def ratio(a, b):
     return (hi + 0.05) / (lo + 0.05)
 
 
-css = open('Web/style.css', encoding='utf-8').read()
+css = open('docs/style.css', encoding='utf-8').read()
 vars_ = dict(re.findall(r'--([a-z-]+):\s*(#[0-9A-Fa-f]{6})', css))
 
 # body 背景是渐变, 取三个停靠色 + 卡片玻璃底层作为近似背景

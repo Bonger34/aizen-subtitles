@@ -2,7 +2,7 @@
 """
 extract_cont_frames.py — 连续读帧提取候选全帧(960x540 jpg)
 输入: review/cont_gap.json(未覆盖清单) + 排除规则(pass_filter)
-输出: Web/frames/Pxx_XmXXs.jpg + review/cont_fill_{ep}.json(候选→帧映射)
+输出: docs/frames/Pxx_XmXXs.jpg + review/cont_fill_{ep}.json(候选→帧映射)
 用法: python extract_cont_frames.py P01 [P02 ...]
 全程 cap.read() 顺序读(不 seek), 与扫描帧 fidx 100% 对齐
 """
@@ -15,7 +15,7 @@ import cv2
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
 VIDEO_DIR = os.path.join(BASE, 'Videos')
-FRAMES = os.path.join(BASE, 'Web', 'frames')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
 GAP = os.path.join(BASE, 'review', 'cont_gap.json')
 REVIEW = os.path.join(BASE, 'review')
 

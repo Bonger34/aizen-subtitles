@@ -16,7 +16,7 @@ import numpy as np
 
 B = os.path.dirname(os.path.abspath(__file__))
 VIDEO_DIR = os.path.join(B, 'Videos')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 SZ = (64, 36)
 
 
@@ -34,7 +34,7 @@ def main():
     ep = sys.argv[1]
     args = [a for a in sys.argv[2:] if not a.isdigit()]
     R = int(sys.argv[-1]) if sys.argv[-1].isdigit() else 30
-    s = open(os.path.join(B, 'Web', 'frames_map.js'), encoding='utf-8').read()
+    s = open(os.path.join(B, 'docs', 'frames_map.js'), encoding='utf-8').read()
     MAP = json.loads(s[s.index('{'):s.rindex('}') + 1])
     title = next(t for t in MAP if t.startswith(f'[{ep}]')).split('|')[0]
     vid = [os.path.join(VIDEO_DIR, v) for v in os.listdir(VIDEO_DIR)

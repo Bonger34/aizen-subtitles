@@ -30,7 +30,7 @@ from rapidocr import RapidOCR
 from rapidocr.utils.parse_parameters import ModelType, OCRVersion, LangDet, LangRec
 
 BASE = r'D:\Bonger\Desktop\2026-08-21-18-21-50\VV_Rob'
-FRAMES = os.path.join(BASE, 'Web', 'frames')
+FRAMES = os.path.join(BASE, 'docs', 'frames')
 CLEAN = os.path.join(BASE, 'subtitle_clean')
 SCAN = os.path.join(BASE, 'review', 'orphan_scan.json')
 OUT = os.path.join(BASE, 'review', 'orphan_ocr.json')

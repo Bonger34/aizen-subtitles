@@ -1,10 +1,10 @@
-# 生成 web/frames_map.js：filename|timestamp → 帧图文件名 映射
-# 扫描 web/frames/ 下的正式帧（Pxx_时间戳[±偏移].jpg），与 subtitle_clean 记录建立映射
+# 生成 docs/frames_map.js：filename|timestamp → 帧图文件名 映射
+# 扫描 docs/frames/ 下的正式帧（Pxx_时间戳[±偏移].jpg），与 subtitle_clean 记录建立映射
 import os, re, json
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-FRAMES_DIR = os.path.join(BASE, "web", "frames")
-OUTPUT = os.path.join(BASE, "web", "frames_map.js")
+FRAMES_DIR = os.path.join(BASE, "docs", "frames")
+OUTPUT = os.path.join(BASE, "docs", "frames_map.js")
 SUBTITLE_DIR = os.path.join(BASE, "subtitle_clean")
 
 # 帧文件名格式: P01_5m41s.jpg / P03_13m25s+1s.jpg / P08_0m18s-1s.jpg

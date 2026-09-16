@@ -18,7 +18,7 @@ from rapidocr.utils.parse_parameters import ModelType
 
 B = os.path.dirname(os.path.abspath(__file__))
 REVIEW = os.path.join(B, 'review')
-FR = os.path.join(B, 'Web', 'frames')
+FR = os.path.join(B, 'docs', 'frames')
 MAX_DENSITY, WHITE_MIN = 0.60, 230
 
 
