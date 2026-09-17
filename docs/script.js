@@ -462,7 +462,6 @@ function displayResults(data, append = false) {
       }
 
       const cardContent = `
-            ${result.aizen ? `<span class="seal" aria-hidden="true">\u8bda</span>` : ""}
             <div class="result-content">
                 <div class="result-text-block">
                     <h2>${episodeMatch ? `<span class="tag">${episodeMatch[1]}</span>${cleanFilename.replace(/P\d+/, "").trim()}` : cleanFilename}</h2>

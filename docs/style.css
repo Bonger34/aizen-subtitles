@@ -9,8 +9,8 @@
         预览窗的圆形按钮)。
      2. 线承担结构, 色块只承担身份 —— 分层靠规则线与留白, 不用阴影/辉光/玻璃。
         实测依据: 卡片底 #FBFAFC 与纸面 #F4F2F5 只有 1.070:1, 靠底色根本分不开。
-     3. 粉只表示爱染诚 —— 全站唯一彩色, 只出现在"爱染诚命中"的开关、印章、
-        结果记录的左缘。不做装饰, 不做交互反馈色。
+     3. 粉只表示爱染诚 —— 全站唯一彩色, 只出现在"爱染诚命中"的开关与结果记录的
+        左缘。不做装饰, 不做交互反馈色。
 
    两种材质(用户选定):
      材质 A 金属铭牌 = 顶栏 + 看图的地方。实测 P11 14m49s 墙面主体 #191617(占 32.4%)、
@@ -668,32 +668,19 @@ body {
 /* 六边形金水晶已整条移除(含 script.js 里生成它的那个 <span>)。
    理由: 那是本站自创的造型, 不是剧中道具 —— 剧中水晶是**圆形扁平徽章**(深蓝底 + 银边
    + 图案), 根本没有六边形立体水晶。按"非剧中元素不进站点"的原则撤掉。
-   爱染诚记录改用左侧粉边 + 右上印章标记, 两个都能追到剧中。 */
+   爱染诚记录改由左侧粉边标记, 那是版面结构而非造型, 不存在"像不像剧中"的问题。 */
 
-/* 火漆章(爱染诚档案) */
-.seal {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    width: 34px;
-    height: 34px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;           /* 圆 = 圆环语义, 这里是印章 */
-    background: var(--aizen);
-    color: var(--ink);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.82rem;
-    letter-spacing: 0.14em;
-    box-shadow: 0 0 0 2px var(--paper), 0 1px 3px color-mix(in srgb, var(--ink) 25%, transparent);
-    user-select: none;
-    pointer-events: none;
-}
+/* 火漆章「诚」已移除, 连同 script.js 里生成它的那个 <span>。
+   理由: 爱染诚记录已经有**左侧粉边**在标记了, 印章是同一件事的第二个信号 ——
+   设计上"出门前拿掉一件配饰"。两次对比渲染也确认了: 把圆章换成爱染科技 logo 在
+   34px 下会糊成一团(标的两个底角到圆心 0.588×边长, 而圆半径只有 0.5×容器),
+   放大到 44px + 纸白底虽然能读, 但那个标指的是**公司**、卡片要标的是**人登场**,
+   指称对象不对等; 而且顶栏已经用它代表公司了, 进了结果列表就只剩花纹的意思。
+   留下「诚」也留住了整站唯一写下他名字的地方 —— 但那属于再做一个标记,
+   与"只保留一个信号"冲突, 所以一并去掉。 */
 
-/* 爱染诚记录: 左缘一道墨边。用线而不是底色 —— 实测卡底与纸面只差 1.07:1, 底色分不开。 */
+/* 爱染诚记录: 左缘一道粉边。用线而不是底色 —— 实测卡底与纸面只差 1.07:1, 底色分不开。
+   现在它是卡片上**唯一**的爱染诚标记。对比度 #985D7B on #F4F2F5 = 4.51:1(图形需 3:1)。 */
 .result-card.is-aizen { border-left: 3px solid var(--aizen-deep); padding-left: calc(2.1rem - 3px); }
 
 /* 内容排版 */
@@ -1102,7 +1089,6 @@ body.preview-open { overflow: hidden; }
     .result-card.is-aizen { padding-left: calc(1.7rem - 3px); }
     .result-content { flex-direction: column; }
     .frame-thumb { width: 100%; max-width: 100%; order: -1; }
-    .seal { top: 8px; right: 8px; }
 }
 
 /* 尊重减弱动效偏好:全局停用动画与过渡 */
