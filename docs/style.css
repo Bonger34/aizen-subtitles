@@ -41,6 +41,9 @@
     /* ---- 唯一强调色: 爱染诚 ---- */
     --aizen:        #E38AB7;   /* hero 帧主色(实测, #F3A5CD/#E38AB7 合计 15.4%) 7.35:1 on 钢底 */
     --aizen-deep:   #985D7B;   /* 同色相压暗版 4.51:1 on 纸面(#E38AB7 在纸上只有 2.20:1, 不能当纸上文字) */
+    /* 爱染诚记录标记的线宽。这一个数同时决定: 左缘边框宽、内容左内边距的扣减量、
+       左上角标的高度 —— 共 5 处(基础与窄屏各一套)。提成 token, 才不会改一处漏四处。 */
+    --aizen-bar:    4px;
 
     /* ---- 线 ---- */
     --rule:         rgba(13, 4, 21, 0.14);
@@ -699,7 +702,12 @@ body {
     display: none;
     margin-top: 0.5rem;
     font-size: 0.8rem;
-    color: var(--aizen-deep);
+    /* 原来是 var(--aizen-deep) —— 那是爱染诚的粉。script.js 在检索抛错时会往这个容器里写
+       "搜索失败: …" 并把它显示出来, 于是"系统故障"被画成了爱染诚的颜色:
+       全站唯一的色彩语义被劈成两个, 违反"粉只表示爱染诚、不做交互反馈色"。
+       本站没有第二个颜色可用(也不该有), 所以**状态不用颜色表达** —— 用墨色 18.05:1。
+       与上面那行 --ink-3 的检索结论(4.53:1)拉开层次就够了; 措辞本身已经说清是什么错了。 */
+    color: var(--ink);
 }
 
 /* 结果区(初始为空,不占空间;有结果或有提示时加间距)
@@ -757,9 +765,43 @@ body {
    留下「诚」也留住了整站唯一写下他名字的地方 —— 但那属于再做一个标记,
    与"只保留一个信号"冲突, 所以一并去掉。 */
 
-/* 爱染诚记录: 左缘一道粉边。用线而不是底色 —— 实测卡底与纸面只差 1.07:1, 底色分不开。
-   现在它是卡片上**唯一**的爱染诚标记。对比度 #985D7B on #F4F2F5 = 4.51:1(图形需 3:1)。 */
-.result-card.is-aizen { border-left: 3px solid var(--aizen-deep); padding-left: calc(2.1rem - 3px); }
+/* 爱染诚记录: 左缘一道粉边 + 顶线在左栏的那一小段同样是粉 —— 两笔在左上角合成一个直角。
+   用线而不是底色: 实测卡底与纸面只差 1.07:1, 底色根本分不开。
+   现在它是卡片上**唯一**的爱染诚标记。对比度 #985D7B on #F4F2F5 = 4.51:1(图形需 3:1)。
+
+   为什么要把角封上(2026-09 改, 原来是 3px 粉边 + 1px 灰顶线):
+   两者在拐角处直接换色, 读起来是"一根粉条挂在一条灰线下面", 而不是这条记录自己的边界;
+   而且 3px x 203px 是 1:68 的细长比, 长列表里滚过去最容易被略过。
+   实测比过 4 个方向后才定的: 只加宽 / 整条顶线变粉 / 满栏色块 / 深粉外框+亮粉芯。
+   · 满栏色块(把 2.1rem 左栏整个填满)否掉 —— 打开「仅列爱染诚档案」时每张卡都带标记,
+     会连成一堵粉墙, 而"每张都有"等于不再区分任何东西。
+   · 整条顶线变粉否掉 —— 那是记录之间的分隔线, 全长 785px, 整条变成身份色就与
+     "线承担结构、色块只承担身份"打架。
+   现在只染 2.1rem(33.6px, 占那条线的 4%), 结构线的职责留住了, 角也封上了。
+   两笔同宽(都用 --aizen-bar), 是一个对称的直角, 不是"细线接粗条"。 */
+.result-card.is-aizen {
+    border-left: var(--aizen-bar) solid var(--aizen-deep);
+    padding-left: calc(2.1rem - var(--aizen-bar));
+}
+
+/* 左上角标: 盖住卡自己那条 1px 上边框的左端, 与左缘合成一个直角。
+   绝对定位的包含块是**内边距盒**(左缘边框之后、上边框之下), 所以:
+   · left 取负的边框宽, 才是卡片真正的左缘 x=0;
+   · top:-1px 才是压在卡的上边框上。
+   写成 left:0 会从 x=4 起(实测), 一来越过正文左缘 4px, 二来角上会留下 3px
+   的灰色斜接缺口(上边框与左缘边框的斜接, 两色不同就在角上劈出一个小三角)。
+   宽度就是左栏本身: 基础 2.1rem、窄屏 1.7rem, 于是角标正好停在正文左缘。
+   写 rem 而不是像素 —— 窄屏左内边距是 1.7rem, 写死 33.6px 会在窄屏多出 6.4px
+   压到「05」标签底下。 */
+.result-card.is-aizen::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: calc(-1 * var(--aizen-bar));
+    width: 2.1rem;
+    height: var(--aizen-bar);
+    background: var(--aizen-deep);
+}
 
 /* 内容排版 */
 .result-content { flex: 1; min-width: 0; display: flex; flex-direction: row; align-items: center; gap: 1.1rem; }
@@ -1174,7 +1216,8 @@ body.preview-open { overflow: hidden; }
     .control-bottom { width: auto; margin: 0 16px; justify-content: flex-start; gap: 0.6rem; }
     /* 窄屏卡片:纵向堆叠,帧图在上 */
     .result-card { flex-direction: column; align-items: stretch; padding: 1rem 0.15rem 0.9rem 1.7rem; }
-    .result-card.is-aizen { padding-left: calc(1.7rem - 3px); }
+    .result-card.is-aizen { padding-left: calc(1.7rem - var(--aizen-bar)); }
+    .result-card.is-aizen::before { width: 1.7rem; }
     .result-content { flex-direction: column; }
     .frame-thumb { width: 100%; max-width: 100%; order: -1; }
 }
