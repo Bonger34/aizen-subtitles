@@ -1218,7 +1218,13 @@ body.preview-open { overflow: hidden; }
     .result-card { flex-direction: column; align-items: stretch; padding: 1rem 0.15rem 0.9rem 1.7rem; }
     .result-card.is-aizen { padding-left: calc(1.7rem - var(--aizen-bar)); }
     .result-card.is-aizen::before { width: 1.7rem; }
-    .result-content { flex-direction: column; }
+    /* 窄屏把 result-content 改成纵向堆叠后, 必须**同时**把 align-items 从 center 改掉。
+       基础规则里的 align-items:center 是为了让正文块与帧图在**纵向**居中(那时是 row);
+       一改成 column, center 就变成了**横向**居中 —— 正文块收缩成 fit-content 并居中,
+       而帧图是 width:100%, 于是两者左缘错开。实测偏差:
+       375 差 32.4 / 390 差 39.9 / 414 差 51.9 / 640 差 164.9px(越宽越离谱)。
+       stretch 让两块都填满内容盒, 左缘对齐(实测四档全部 0)。 */
+    .result-content { flex-direction: column; align-items: stretch; }
     .frame-thumb { width: 100%; max-width: 100%; order: -1; }
 }
 
