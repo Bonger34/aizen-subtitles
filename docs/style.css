@@ -1,76 +1,68 @@
 /* ============================================================
-   爱染诚 · 台词档案馆 — 视觉体系 v4「液态玻璃 × 特摄剧」
-   设计语言:frontend-design(独特身份) × frontend-skill(克制质感) × miuix(HyperOS 液态玻璃实现)
-   视觉论点:一集罗布奥特曼的片头 — 变身宇宙 × 爱染诚研究所(液态玻璃检索终端)
+   爱染诚 · 台词档案馆 — 视觉体系 v5「爱染科技企业形象系统」
+   ------------------------------------------------------------
+   全部形状与颜色都来自剧中真实存在的爱染科技 logo(P11 15m36s 宣传册黑色印刷版 /
+   P11 14m49s 办公室墙面银色金属版), 没有自创造型。三条原则:
+
+     1. 形状只来自 logo —— 三角(A) 与 圆环, 以及全图唯一那一处倾角。
+        落实到代码: 全站直角, 唯一的圆是"圆环"语义的控件(搜索钮 / 开关拇指 /
+        预览窗的圆形按钮)。
+     2. 线承担结构, 色块只承担身份 —— 分层靠规则线与留白, 不用阴影/辉光/玻璃。
+        实测依据: 卡片底 #FBFAFC 与纸面 #F4F2F5 只有 1.070:1, 靠底色根本分不开。
+     3. 粉只表示爱染诚 —— 全站唯一彩色, 只出现在"爱染诚命中"的开关、印章、
+        结果记录的左缘。不做装饰, 不做交互反馈色。
+
+   两种材质(用户选定):
+     材质 A 金属铭牌 = 顶栏 + 看图的地方。实测 P11 14m49s 墙面主体 #191617(占 32.4%)、
+            银色立体标本体(最亮 1%)#D9D8D9、高光 #F7F2F1。
+     材质 B 纸白     = 正文与记录。实测 P11 15m36s 册子印刷黑(最暗 0.2%)#0D0415。
+            该帧纸面实测为 #69526D —— 那是剧中紫光打在纸上的结果, **不是纸的颜色**,
+            所以不直接采用; 只保留它的色相方向, 明度还原成纸白 #F4F2F5。
+
+   对比度全部实测(WCAG, 4.5:1 为正文标准), 见每条声明后的数字。
    ============================================================ */
 
 :root {
-    /* ---- 色彩体系(爱染诚世界) ---- */
-    --black: #0A0D14;          /* 变身宇宙深空 */
-    --deep: #1A2236;           /* 星云蓝 */
-    --violet: #4A3F8C;         /* 星际紫(仅作大面积装饰/渐变, 不承担正文对比度) */
-    --violet-soft: #9F8FE8;    /* 星际紫亮: 同色相提亮。原 #6E5FB8 实测 3.01:1(不达标),
-                                  改 #8E7BD8 只有 4.51:1 擦线, 最终取 #9F8FE8 = 5.72:1 */
-    --gold: #E8C87A;           /* 主色:光柱金(品牌/主操作) */
-    --gold-deep: #B8862F;      /* 金色深 */
-    --gold-light: #F2DDA0;     /* 金色亮 */
-    --white: #F7F2EA;          /* 白西装(普通文本) */
-    --pearl: #EFE6D8;          /* 珍珠米 */
-    --blush: #F2A7BC;          /* 副色:粉领带(爱染诚标记) */
-    --wine: #8C2F39;           /* 警示:红伞/火漆 */
-    --ink: #E9E4DA;            /* 正文亮 */
-    --ink-soft: #B8AFA3;       /* 次级文本 */
-    --ink-faint: #A9A3B2;      /* 弱化文本: 偏紫的中性灰, 4.5:1 达标(原 #7A7387 只有 3.49:1) */
+    /* ---- 材质 A: 金属铭牌(深色)—— 用于"看"的地方 ---- */
+    --steel-ground: #191617;   /* P11 14m49s 墙面主体色           */
+    --steel-deep:   #06080B;   /* 同帧最暗 0.2%, 用作顶栏下缘       */
+    --steel:        #D9D8D9;   /* 银色立体标本体   12.64:1 on 底   */
+    --steel-lite:   #F7F2F1;   /* 银色高光         16.20:1 on 底   */
+    --steel-dim:    #8A8586;   /* 由标本体与底色调和  4.95:1 on 底  */
 
-    /* ---- 液态玻璃体系(miuix) ---- */
-    --glass-dark-start: rgba(28, 36, 58, 0.72);    /* 深玻璃上 */
-    --glass-dark-end: rgba(10, 13, 20, 0.66);      /* 深玻璃下 */
-    --glass-light: rgba(255, 255, 255, 0.36);      /* 浅玻璃(输入框内) */
-    --glass-border: rgba(255, 255, 255, 0.24);     /* 玻璃描边 */
-    --glass-border-strong: rgba(255, 255, 255, 0.38);
-    --glass-hi: inset 0 1px 0 rgba(255, 255, 255, 0.22);   /* 内上缘高光 */
-    --glass-hi-strong: inset 0 1px 0 rgba(255, 255, 255, 0.38);
-    --blur-s: blur(14px) saturate(150%);
-    --blur-m: blur(20px) saturate(160%);
-    --blur-l: blur(28px) saturate(170%);
-    --shadow-glass:
-        0 8px 24px rgba(0, 0, 0, 0.40),
-        0 2px 8px rgba(0, 0, 0, 0.22),
-        var(--glass-hi);
+    /* ---- 材质 B: 纸白(浅色)—— 用于"读"的地方 ---- */
+    --paper:        #F4F2F5;   /* 册子纸面(色相取自实测, 明度还原成纸白) */
+    --paper-lift:   #FBFAFC;   /* 图版/记录抬升一档(与纸面 1.07:1, 只作底, 不靠它分层) */
+    --ink:          #0D0415;   /* 册子印刷黑 18.05:1 on 纸面        */
+    --ink-2:        #4A4650;   /* 次级文本    8.26:1 on 纸面        */
+    --ink-3:        #716D78;   /* 弱化文本    4.53:1 on 纸面(原 #7B7783 只有 3.92:1, 压暗后达标) */
 
-    /* ---- 圆角体系 ---- */
-    --r-xs: 10px;
-    --r-sm: 14px;
-    --r-md: 16px;
-    --r-lg: 24px;
-    --r-full: 999px;
+    /* ---- 唯一强调色: 爱染诚 ---- */
+    --aizen:        #E38AB7;   /* hero 帧主色(实测, #F3A5CD/#E38AB7 合计 15.4%) 7.35:1 on 钢底 */
+    --aizen-deep:   #985D7B;   /* 同色相压暗版 4.51:1 on 纸面(#E38AB7 在纸上只有 2.20:1, 不能当纸上文字) */
+
+    /* ---- 线 ---- */
+    --rule:         rgba(13, 4, 21, 0.14);
+    --rule-2:       rgba(13, 4, 21, 0.30);
+    --rule-steel:   rgba(217, 216, 217, 0.22);
+    --rule-steel-2: rgba(217, 216, 217, 0.42);
+
+    /* ---- 字体 ----
+       全部系统栈。识别力来自 logo 的几何构造与字距, 不来自下载字体。
+       font-weight 用 700 而不用 900: 本机的 "Noto Sans SC" 没有 Black 静态族,
+       请求 900 只会得到合成的假粗体(中文合成粗体边缘会糊)。 */
+    --font-display: "Noto Sans SC", "思源黑体", "Source Han Sans SC", "Microsoft YaHei", "微软雅黑", sans-serif;
+    --font-body:    "Noto Sans SC", "Segoe UI", "Microsoft YaHei", sans-serif;
+    --font-mono:    ui-monospace, "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
 
     /* ---- 动效 ----
        注意: 这两个值必须写成真正的缓动函数。曾经写成 `--ease-out: var(--ease-out)` 这种
        自我引用 —— 自定义属性引用自身会让它在**计算值阶段失效**, 而 `transition` 的简写里
        只要有一段的值无效, 浏览器会把**整条声明**丢掉(不是退回默认 ease, 而是连
-       `transition-property` 都变回初始值 all)。实测代价: 开关拇指、预览关闭/复制/下载
-       按钮、卡片入场、遮罩淡入、预览弹入 全部失去动效, 且控制台毫无提示。 */
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+       `transition-property` 都变回初始值 all)。 */
+    --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     --press: scale(0.97);
-
-    /* ---- 线(旧引用保持兼容) ---- */
-    --line: rgba(232, 200, 122, 0.22);
-    --line-strong: rgba(232, 200, 122, 0.42);
-    --shadow-gold: 0 0 0 3px rgba(232, 200, 122, 0.20), 0 6px 26px rgba(232, 200, 122, 0.24);
-    --shadow-blush: 0 0 0 3px rgba(242, 167, 188, 0.22), 0 6px 26px rgba(242, 167, 188, 0.20);
-    --shadow-deep: 0 14px 44px rgba(0, 0, 0, 0.55);
-
-    /* ---- 字体 ----
-       标题从站酷小薇(手写毛笔感)换成黑体 900 —— 顶栏已经是 IBM Plex Mono、概念是"爱染科技档案室",
-       手写体与科技铭牌气质相反。字体全部走系统栈, 在线字体只保留正文与等宽两个角色:
-       离线时标题也不再掉回 serif(而 ZCOOL XiaoWei 是远程字体, 断网必掉)。
-       注意: 栈里要写系统真实存在的 family 名 —— 本机是 "Noto Sans SC"(无 Black 静态族)、
-       思源黑体、微软雅黑; 不要写 web 端的 "Noto Sans SC Black" 族名, 那在本机并不存在。 */
-    --font-display: "Noto Sans SC", "思源黑体", "Source Han Sans SC", "Microsoft YaHei", "微软雅黑", sans-serif;
-    --font-body: "Noto Sans SC", "Segoe UI", "Microsoft YaHei", sans-serif;
-    --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
 }
 
 html {
@@ -87,18 +79,9 @@ html {
 }
 
 body {
-    background:
-        /* 星尘颗粒 */
-        radial-gradient(1.5px 1.5px at 12% 18%, rgba(255,255,255,0.5), transparent 50%),
-        radial-gradient(1px 1px at 32% 64%, rgba(255,255,255,0.35), transparent 50%),
-        radial-gradient(1.8px 1.8px at 55% 28%, rgba(232,200,122,0.45), transparent 50%),
-        radial-gradient(1px 1px at 72% 76%, rgba(255,255,255,0.3), transparent 50%),
-        radial-gradient(1.4px 1.4px at 88% 38%, rgba(110,95,184,0.5), transparent 50%),
-        radial-gradient(1px 1px at 45% 88%, rgba(255,255,255,0.28), transparent 50%),
-        /* 宇宙光晕 */
-        radial-gradient(900px 520px at 16% -6%, rgba(110, 95, 184, 0.28), transparent 60%),
-        radial-gradient(800px 400px at 86% 4%, rgba(232, 200, 122, 0.14), transparent 55%),
-        linear-gradient(175deg, #10152A 0%, var(--deep) 45%, #0C1220 100%);
+    /* 纸。原来是"星尘颗粒 + 宇宙光晕 + 星云渐变" —— 那是通用的特摄/宇宙套路,
+       跟 logo、跟剧中爱染科技的企业形象都没有关系, 整层删掉, 只留纸。 */
+    background: var(--paper);
     color: var(--ink);
     font-family: var(--font-body);
     line-height: 1.6;
@@ -110,7 +93,17 @@ body {
 
 .mono { font-family: var(--font-mono); }
 
-/* ---------- 顶带：爱染科技铭牌(特摄幕布) ----------
+/* 全站唯一的内容列宽。顶栏内层、主区、页脚共用它 —— 三者左边缘必须落在同一条竖轴上,
+   这是"整页属于同一份文件"这件事在版面上的表达。 */
+.main-content,
+.header-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+}
+
+/* ---------- 顶栏: 爱染科技铭牌(材质 A · 金属) ----------
    它是个**真按钮**(整条顶带可点=刷新), 所以键盘 Enter/Space 天然可用;
    旧版是 <header role="button" tabindex="0"> 只绑 click, 实测键盘 Enter 完全没反应。 */
 
@@ -127,159 +120,182 @@ body {
 }
 
 .header-band {
-    display: flex;
+    display: block;
     width: 100%;
+    background: var(--steel-ground);
+    border-bottom: 1px solid var(--steel-deep);
+}
+
+.header-inner {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.65rem 1.25rem;
-    background: linear-gradient(180deg, rgba(26, 34, 54, 0.96), rgba(10, 13, 20, 0.96));
-    color: var(--white);
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
-    backdrop-filter: var(--blur-s);
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
 }
 
 .header-brand {
     display: flex;
-    align-items: baseline;
-    gap: 0.65rem;
+    align-items: center;
+    gap: 0.6rem;
     min-width: 0;
 }
 
+/* logo 标本体: 与 docs/assets/aizen_logo.svg 同一组几何 */
+.brand-mark {
+    width: 26px;
+    height: 26px;
+    flex: none;
+    color: var(--steel);
+}
+
+.brand-lockup {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.25;
+}
+
+/* 字标: 靠字距 + 等宽立住, 不靠下载字体。这就是 logo 下方 AIZENTECH 那一行的排法。 */
 .brand-name {
     font-family: var(--font-mono);
     font-weight: 500;
     font-size: 0.82rem;
-    letter-spacing: 0.22em;
-    color: var(--gold);
+    letter-spacing: 0.24em;
+    color: var(--steel-lite);
     white-space: nowrap;
 }
 
 .brand-cn {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    opacity: 0.85;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--steel-dim);
     white-space: nowrap;
 }
 
 .header-meta {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.08em;
-    opacity: 0.8;
+    color: var(--steel-dim);
     white-space: nowrap;
-    color: var(--violet-soft);
 }
 
-/* ---------- 主区 ---------- */
-
-.main-content {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 0.9rem 1.1rem 0;
-}
-
-/* ---------- Hero：特摄片头 ---------- */
+/* ---------- 刊头(letterhead): 墨印在纸上 ---------- */
 
 .hero {
-    text-align: center;
+    text-align: left;
+    padding-top: 1.5rem;
 }
 
-/* 特摄剧标题块：斜切 + 光效描边 */
-.hero-titleblock {
-    position: relative;
-    padding: 0.45rem 0 0.55rem;
-}
+.hero-titleblock { padding: 0; }
 
 .hero-title {
     font-family: var(--font-display);
-    font-weight: 900;
-    font-size: clamp(2.2rem, 5.8vw, 3.2rem);
-    line-height: 1.08;
-    letter-spacing: 0.08em;
-    color: var(--gold);
-    transform: skewX(-4deg);
-    text-shadow:
-        0 0 22px rgba(232, 200, 122, 0.38),
-        0 2px 0 rgba(184, 134, 47, 0.55),
-        0 0 60px rgba(232, 200, 122, 0.18);
-    margin-bottom: 0.35rem;
+    font-weight: 700;
+    font-size: clamp(2rem, 5.2vw, 2.9rem);
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    /* 原为金色辉光 + 描边 + skewX(-4deg)。辉光是通用的"能量感"套路,
+       倾斜更是把唯一的斜用掉了 —— logo 里只有圆环那一处斜, 版面必须让位给它。 */
 }
 
 .hero-title .hero-sub {
     display: block;
-    font-size: 0.36em;
-    letter-spacing: 0.4em;
-    color: var(--white);
-    text-shadow: 0 0 14px rgba(247, 242, 234, 0.4);
-    margin-top: 0.22em;
+    font-size: 0.34em;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    color: var(--ink-2);
+    margin-top: 0.42em;
 }
 
+/* 数据条: 细线分隔的登记信息, 不是"大数字 + 小标签"的英雄统计 */
 .hero-stats {
     font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    color: var(--ink-soft);
-    margin-bottom: 0;
+    letter-spacing: 0.16em;
+    color: var(--ink-3);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.55rem;
+    margin-top: 1.1rem;
 }
 
-/* ---------- 搜索台：帧背景 + 分区控件(人脸/字幕零遮挡) ----------
-   布局: 弹性列 + 左列宽度(46%)。上下留白走 padding、两段控件之间走 gap —— 数值是从旧版
-   绝对定位的几何反推出来的(97 / 49 / 129), 所以折叠态的观感与旧版一致。
-   关键差别: **台面高度由内容决定**, 展开「高级选项」时整台自然长高, 不会再压住下面的开关。
-   (旧写法是 position:absolute + min-height:440px, 实测展开后面板底 518 压过开关行顶 495 共 23px。) */
+/* ---------- 检索台: 一块被装过表的图版 ----------
+   布局是**用户明确要求保留**的: 满幅剧照当背景, 控件留在左列(46%)。
+   实测这组几何(97 / 49 / 129)是按剧照里人脸右上、字幕底部的位置反推出来的,
+   所以 padding 与 gap 一个都没动, 只把材质换掉。
+
+   关键差别在这里: **控件全部改实底**。原先是 rgba(28,36,58,0.72) 的半透明玻璃压在
+   照片上, 照片一亮控件就糊(粉色帐篷那一片尤其明显)。改成不透明墨块之后, 控件的
+   对比度就与照片内容无关了 —— 这是用户选的"保留满幅背景, 只做局部调整"。 */
 
 .search-form {
     position: relative;
     max-width: 820px;
-    margin: 0 auto;
+    /* 与刊头之间的间距: 版面原先没有这一段, 数据条细线和图版顶边只隔 13px(实测),
+       刊头与图版会糊成一团。图版必须明显属于刊头之下, 而不是贴着它。 */
+    margin: 1.75rem auto 0;
     display: flex;
     flex-direction: column;
     padding: 97px 0 129px;
     gap: 49px;
-    border-radius: var(--r-lg);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.40),
-        0 8px 24px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-    backdrop-filter: var(--blur-l);
+    /* 图版落在纸上: 一道浅影就够, 它是"一张平放在文件上的照片", 不是浮起来的卡片 */
+    box-shadow: 0 12px 30px rgba(13, 4, 21, 0.16), 0 2px 8px rgba(13, 4, 21, 0.08);
+    /* 原先这里还有 backdrop-filter: blur(28px) —— 删掉。剧照就是这个元素自己的
+       background, 而 backdrop-filter 模糊的是元素**背后**的东西(也就是纸), 对照片
+       毫无作用, 只是白白让浏览器多开一层合成。 */
     overflow: hidden;
-    /* 帧背景:完整展示(人脸右上、字幕底部)
+    /* 帧背景: 完整展示(人脸右上、字幕底部)
        注意: 这张图放在 assets/ 而不是 frames/ —— frames/ 整个是"可再生成"的库配图目录,
        任何一次"清理未被库引用的帧"都会把它当孤儿删掉(2026-08-21 就发生过一次),
        而 assets/ 是入库的站点素材目录, 不受那条清理规则影响。
        末层那个深色是图加载失败时的兜底底色。 */
     background:
-        linear-gradient(180deg, rgba(10, 13, 20, 0.28) 0%, transparent 30%, transparent 62%, rgba(10, 13, 20, 0.30) 100%),
+        linear-gradient(180deg, rgba(10, 13, 20, 0.34) 0%, transparent 26%, transparent 66%, rgba(10, 13, 20, 0.38) 100%),
         url('assets/hero_aizen.jpg') center 52% / cover no-repeat,
-        #141A2A;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        var(--steel-ground);
+    transition: box-shadow 0.3s ease;
 }
 
 .search-form.searching {
-    border-color: rgba(232, 200, 122, 0.5);
-    box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.4),
-        0 0 0 4px rgba(232, 200, 122, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(13, 4, 21, 0.16), 0 0 0 2px var(--ink);
 }
 
-/* 顶部警戒斜纹条(怪兽警报) */
-.terminal-tape {
+/* 图版内嵌细框: 白线 + 外圈墨线。压在剧照亮处靠墨线看得见, 暗处靠白线看得见 ——
+   这样无论照片哪一块在框下面, 框都不会消失。 */
+.plate-frame {
     position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    border-radius: 3px;
-    background: repeating-linear-gradient(-45deg,
-        var(--wine) 0 10px, transparent 10px 20px);
-    opacity: 0.7;
+    inset: 9px;
+    border: 1px solid rgba(247, 242, 241, 0.55);
+    box-shadow: 0 0 0 1px rgba(6, 8, 11, 0.55);
     pointer-events: none;
 }
 
-/* 左列控件(帐篷区,避开右上人脸) */
+/* 铭牌: 钉在图版左上角, 说明这块板子是什么 */
+.plate-label {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.22rem 0.42rem 0.22rem 0.46rem;
+    background: var(--ink);
+    color: var(--steel);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    pointer-events: none;
+}
+
+.plate-mark {
+    width: 12px;
+    height: 12px;
+    flex: none;
+    color: var(--steel-dim);
+}
+
+/* 左列控件(帐篷区,避开右上人脸)—— 几何未改 */
 .control-top {
     width: 46%;
     margin-left: 22px;
@@ -289,86 +305,74 @@ body {
 
 .search-input-container { position: relative; width: 100%; }
 
-/* 搜索图标(miuix SearchBar):左内嵌玻璃圆钮 */
+/* 搜索图标 = logo 的圆环。全站唯一的圆角控件之一, 因为圆环就是 logo 的第二个原语。 */
 .search-icon {
     position: absolute;
-    left: 10px;
+    left: 9px;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.20);
-    backdrop-filter: var(--blur-s);
+    background: transparent;
+    border: 1.5px solid var(--steel-dim);
     z-index: 1;
 }
 
 .search-icon svg {
-    width: 14px;
-    height: 14px;
-    stroke: rgba(255, 255, 255, 0.85);
+    width: 13px;
+    height: 13px;
+    stroke: var(--steel);
     stroke-width: 2;
     stroke-linecap: round;
     fill: none;
 }
 
+/* 实底墨块。对比度只由 #0D0415 / #F7F2F1 决定, 与身下是什么照片无关。 */
 #query {
     width: 100%;
-    padding: 0.78rem 1.05rem 0.78rem 3rem;
+    padding: 0.78rem 1.05rem 0.78rem 2.85rem;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: #FFFFFF;
-    background: linear-gradient(135deg, var(--glass-dark-start), var(--glass-dark-end));
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: var(--r-md);
-    backdrop-filter: var(--blur-m);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.22),
-        0 4px 16px rgba(0, 0, 0, 0.22);
-    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    color: var(--steel-lite);       /* 16.2:1 以上 on #0D0415 */
+    background: var(--ink);
+    border: 1px solid var(--rule-steel);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-#query::placeholder { color: rgba(255, 255, 255, 0.66); }
+#query::placeholder { color: var(--steel-dim); }   /* 5.4:1 on #0D0415 */
 
-#query:hover { border-color: rgba(255, 255, 255, 0.42); }
+#query:hover { border-color: var(--rule-steel-2); }
 
 #query:focus {
     outline: none;
-    border-color: rgba(232, 200, 122, 0.85);
-    background: linear-gradient(135deg, rgba(28, 36, 58, 0.86), rgba(10, 13, 20, 0.80));
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.26),
-        0 0 0 4px rgba(232, 200, 122, 0.20),
-        0 6px 20px rgba(0, 0, 0, 0.26);
+    border-color: var(--steel-lite);
+    box-shadow: 0 0 0 2px var(--ink), 0 0 0 4px var(--steel-lite);
 }
 
 /* 高级选项 */
 .toggle-button {
-    background: linear-gradient(135deg, rgba(28, 36, 58, 0.72), rgba(10, 13, 20, 0.66));
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    color: #FFFFFF;
+    background: var(--ink);
+    border: 1px solid var(--rule-steel);
+    color: var(--steel-lite);
     cursor: pointer;
     font-family: var(--font-body);
     font-size: 0.82rem;
     padding: 0.5rem 0.8rem;
-    border-radius: var(--r-sm);
     width: 100%;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.4rem;
-    backdrop-filter: var(--blur-m);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 10px rgba(0, 0, 0, 0.18);
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.toggle-button:hover { background: linear-gradient(135deg, rgba(36, 46, 72, 0.80), rgba(14, 18, 30, 0.74)); }
+.toggle-button:hover { border-color: var(--rule-steel-2); }
 .toggle-button .arrow { font-size: 0.68rem; transition: transform 0.3s ease; }
 .toggle-button.active .arrow { transform: rotate(180deg); }
 
@@ -377,11 +381,9 @@ body {
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, var(--glass-dark-start), var(--glass-dark-end));
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: var(--r-sm);
+    background: var(--ink);
+    border: 1px solid var(--rule-steel);
     padding: 0 0.95rem;
-    backdrop-filter: var(--blur-m);
 }
 
 .advanced-options.show { max-height: 200px; opacity: 1; padding: 0.75rem 0.95rem; }
@@ -395,7 +397,7 @@ body {
 
 .input-row:last-child { margin-bottom: 0; }
 
-.input-row label { font-size: 0.82rem; color: rgba(255, 255, 255, 0.85); flex: 0 0 auto; min-width: 4.6em; }
+.input-row label { font-size: 0.82rem; color: var(--steel-lite); flex: 0 0 auto; min-width: 4.6em; }
 
 .input-row input {
     flex: 1;
@@ -403,13 +405,33 @@ body {
     padding: 0.45rem 0.6rem;
     font-family: var(--font-mono);
     font-size: 0.82rem;
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.26);
-    border-radius: var(--r-xs);
+    color: var(--steel-lite);
+    background: rgba(247, 242, 241, 0.08);
+    border: 1px solid var(--rule-steel);
 }
 
-.input-row input:focus { outline: none; border-color: rgba(232, 200, 122, 0.85); }
+.input-row input:focus { outline: none; border-color: var(--steel-lite); }
+
+/* 主操作: 纸白实底 + 墨字。整块图版上只有它是亮的 —— 全站唯一的主操作,
+   不需要用颜色来强调, 用明度反转就够了。 */
+.search-button {
+    width: 100%;
+    padding: 0.62rem 1rem;
+    background: var(--paper-lift);
+    color: var(--ink);              /* 19.31:1 */
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.search-button:hover { background: #FFFFFF; }
+
+.search-button:active { transform: translateY(1px); background: var(--steel); }
 
 /* 底部行动区:单选框与上列控件同宽对齐 */
 .control-bottom {
@@ -428,61 +450,32 @@ body {
     flex-wrap: wrap;
 }
 
-.search-button {
-    width: 100%;
-    padding: 0.62rem 1rem;
-    background: linear-gradient(180deg, rgba(232, 200, 122, 0.96), rgba(184, 134, 47, 0.96));
-    color: #14101A;
-    border: 1px solid rgba(255, 240, 200, 0.5);
-    border-radius: var(--r-sm);
-    font-family: var(--font-body);
-    font-weight: 900;
-    font-size: 0.95rem;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
-    cursor: pointer;
-    box-shadow: 0 6px 22px rgba(184, 134, 47, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    backdrop-filter: var(--blur-m);
-    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s;
-}
-
-.search-button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(232, 200, 122, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.45);
-}
-
-.search-button:active { transform: translateY(0) scale(0.99); background: var(--gold-deep); }
-
-/* 爱染诚开关行 */
+/* 爱染诚开关行: 实底墨块(pill 形的胶囊底已去掉 —— 圆角是"卡片"语言, 不是 logo 语言) */
 .switch-line {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
     font-size: 0.78rem;
-    color: #FFFFFF;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: var(--steel-lite);
     cursor: pointer;
     user-select: none;
-    background: linear-gradient(135deg, rgba(28, 36, 58, 0.72), rgba(10, 13, 20, 0.66));
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: var(--r-full);
-    padding: 0.28rem 0.58rem;
-    backdrop-filter: var(--blur-s);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
-    transition: background 0.2s ease;
+    background: var(--ink);
+    border: 1px solid var(--rule-steel);
+    padding: 0.28rem 0.6rem;
+    transition: border-color 0.2s ease;
 }
 
-.switch-line:hover { background: linear-gradient(135deg, rgba(36, 46, 72, 0.80), rgba(14, 18, 30, 0.74)); }
+.switch-line:hover { border-color: var(--rule-steel-2); }
 
-/* miuix 式滑块开关:圆角胶囊轨道 + 圆形拇指滑动 */
+/* 滑块开关: 方轨 + 圆拇指。方轨跟着 logo 的直角走, 圆拇指就是那个圆环。 */
 .switch-line input {
     appearance: none;
     -webkit-appearance: none;
     width: 32px;
     height: 18px;
-    border-radius: var(--r-full);
-    background: rgba(10, 13, 20, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 0;
+    background: var(--steel-deep);
+    border: 1px solid var(--rule-steel);
     cursor: pointer;
     position: relative;
     flex-shrink: 0;
@@ -497,30 +490,24 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    background: var(--steel-lite);
     transition: left 0.25s var(--ease-out), background 0.25s ease;
 }
 
+/* 开 = 粉。粉在这里是"爱染诚命中", 不是装饰色。 */
 .switch-line input:checked {
-    background: linear-gradient(180deg, var(--gold), var(--gold-deep));
-    border-color: rgba(255, 240, 200, 0.6);
+    background: var(--aizen);
+    border-color: var(--aizen);
 }
 
 .switch-line input:checked::after {
     left: 16px;
-    background: #FFFFFF;
+    background: var(--ink);       /* 墨拇指压在粉轨上, 明度反转, 状态一眼可辨 */
 }
 
 .switch-line input:focus-visible {
     outline: none;
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(232, 200, 122, 0.28);
-}
-
-.search-form.searching {
-    border-color: var(--gold);
-    box-shadow: var(--shadow-gold);
+    box-shadow: 0 0 0 2px var(--ink), 0 0 0 4px var(--steel-lite);
 }
 
 /* 开关行前的装饰点已删除(2026-08-21): 它是一枚写死的假指示灯 ——
@@ -529,27 +516,26 @@ body {
 
 /* ---------- 进度与提示 ---------- */
 
-.progress-section { margin-top: 0.4rem; min-height: 0; }
+.progress-section { margin-top: 0.55rem; min-height: 0; }
 
 .loading-container {
     height: 2px;
-    background: rgba(26, 34, 54, 0.8);
-    border-radius: 2px;
+    background: var(--rule);
     overflow: hidden;
 }
 
 #loadingBar {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, var(--gold), var(--blush));
+    background: var(--ink);
     transition: width 0.15s ease;
 }
 
 .random-string {
-    margin-top: 0;
+    margin-top: 0.4rem;
     font-size: 0.72rem;
     line-height: 1.1;
-    color: var(--ink-faint);
+    color: var(--ink-3);
     letter-spacing: 0.1em;
     min-height: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -564,73 +550,48 @@ body {
     display: none;
     margin-top: 0.5rem;
     font-size: 0.8rem;
-    color: var(--blush);
+    color: var(--aizen-deep);
 }
 
 /* 结果区(初始为空,不占空间;有结果时加间距) */
 #results { margin-top: 0; }
 #results:not(:has(.result-card)) { display: none; }
-#results:has(.result-card) { margin-top: 1.4rem; }
+#results:has(.result-card) { margin-top: 1.6rem; border-bottom: 1px solid var(--rule); }
 
-/* ---------- 结果：特摄帧卡 ---------- */
+/* ---------- 结果: 纸上的档案记录 ----------
+   注意本轮范围: **卡的 DOM、排版、尺寸、间距一行未动**(用户选定), 只换了表面材质 ——
+   同一张卡从深色玻璃印到了纸上。真正的卡内重构留到下一轮。 */
 
 .result-card {
     position: relative;
     display: flex;
     gap: 1.1rem;
     align-items: center;
-    background: linear-gradient(135deg, var(--glass-dark-start), var(--glass-dark-end));
-    border: 1px solid var(--glass-border);
-    border-radius: var(--r-md);
-    padding: 0.9rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow-glass);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--rule);
+    /* 左侧留出登记标记的边栏。这是本轮唯一改动的间距值, 目的是让记录标记
+       落在正文左侧的空白里, 而不是压在第一条横线上。 */
+    padding: 1.05rem 0.15rem 1.05rem 2.1rem;
+    margin-bottom: 0;
     animation: card-enter 0.32s var(--ease-out) both;
-    backdrop-filter: var(--blur-s);
 }
 
 @keyframes card-enter {
-    from { opacity: 0; transform: translateY(14px) scale(0.985); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-.result-card:hover {
-    border-color: var(--gold);
-    box-shadow: var(--shadow-gold);
-    transform: translateY(-2px) scale(1.004);
-}
+/* 记录级的悬停反馈刻意去掉: 卡片整体不可点, 给不可点的东西加悬停位移与辉光
+   只会制造"这里能点"的假承诺。可点的两个东西(帧图、时间码)各自有反馈。 */
 
-.result-card.is-aizen:hover {
-    border-color: var(--blush);
-    box-shadow: var(--shadow-blush);
-}
+/* 六边形金水晶已退役(display:none)。理由: 那是本站自创的造型, 不是剧中道具 ——
+   剧中的水晶是**圆形扁平徽章**(深蓝底 + 银边 + 图案), 根本没有六边形立体水晶。
+   按"非剧中元素不进站点"的原则撤掉。爱染诚记录改用左侧墨／粉边 + 右上火漆章标记。
+   下一轮改 results 卡结构时, 可把 script.js:517 那行 <span class="card-crystal"> 一并删掉。 */
+.card-crystal { display: none; }
 
-/* 卡片角标：六边形金水晶（亮=爱染诚 / 灰=普通档案） */
-.card-crystal {
-    position: absolute;
-    top: -8px;
-    left: 14px;
-    width: 22px;
-    height: 20px;
-    z-index: 2;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    background: linear-gradient(160deg, #4A4E66, #23273A);
-    border: none;
-    transition: filter 0.25s ease, transform 0.25s ease;
-}
-
-.result-card.is-aizen .card-crystal {
-    background: linear-gradient(160deg, #F2DDA0 8%, var(--gold) 55%, var(--gold-deep));
-    filter: drop-shadow(0 0 6px rgba(232, 200, 122, 0.9));
-}
-
-.result-card.is-aizen:hover .card-crystal,
-.result-card:hover.is-aizen .card-crystal {
-    filter: drop-shadow(0 0 10px rgba(232, 200, 122, 1));
-}
-
-/* 火漆章（爱染诚档案） */
+/* 火漆章(爱染诚档案) */
 .seal {
     position: absolute;
     top: 10px;
@@ -641,17 +602,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: radial-gradient(circle at 34% 30%, #B24A55, var(--wine) 55%, #5A1D24);
-    color: #FFE9E2;
+    border-radius: 50%;           /* 圆 = 圆环语义, 这里是印章 */
+    background: var(--aizen);
+    color: var(--ink);
     font-family: var(--font-display);
+    font-weight: 700;
     font-size: 0.82rem;
     letter-spacing: 0.14em;
-    transform: rotate(-8deg);
-    box-shadow: 0 2px 6px rgba(90, 29, 36, 0.5), inset 0 0 0 2px rgba(255, 233, 226, 0.35);
+    box-shadow: 0 0 0 2px var(--paper), 0 1px 3px rgba(13, 4, 21, 0.25);
     user-select: none;
     pointer-events: none;
 }
+
+/* 爱染诚记录: 左缘一道墨边。用线而不是底色 —— 实测卡底与纸面只差 1.07:1, 底色分不开。 */
+.result-card.is-aizen { border-left: 3px solid var(--aizen-deep); padding-left: calc(2.1rem - 3px); }
 
 /* 内容排版 */
 .result-content { flex: 1; min-width: 0; display: flex; flex-direction: row; align-items: center; gap: 1.1rem; }
@@ -660,10 +624,10 @@ body {
 
 .result-card h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 1.05rem;
-    letter-spacing: 0.04em;
-    color: var(--white);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-2);
     margin: 0;
     line-height: 1.4;
 }
@@ -671,118 +635,102 @@ body {
 .result-card h3 .tag {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    color: var(--gold);
-    background: rgba(232, 200, 122, 0.12);
-    border: 1px solid rgba(232, 200, 122, 0.32);
-    padding: 0.05rem 0.45rem;
-    border-radius: 4px;
+    color: var(--ink-2);
+    background: transparent;
+    border: 1px solid var(--rule-2);
+    padding: 0 0.35rem;
     margin-right: 0.5rem;
     vertical-align: middle;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
 }
 
+/* 台词正文: 一页纸上最该被读到的东西, 所以它最大、最黑, 不加任何特效 */
 .result-text {
-    font-size: 1.04rem;
+    font-size: 1.06rem;
     line-height: 1.7;
-    color: var(--white);
+    color: var(--ink);
     margin: 0;
     font-weight: 700;
-    text-shadow: 0 0 12px rgba(232, 200, 122, 0.12);
 }
 
 .result-meta {
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.05em;
-    color: var(--ink-faint);
+    color: var(--ink-3);
     margin: 0.1rem 0 0;
 }
 
-.aizen-badge {
-    display: inline-block;
-    font-family: var(--font-display);
-    font-size: 0.74rem;
-    letter-spacing: 0.2em;
-    color: var(--blush);
-    border: 1px solid rgba(242, 167, 188, 0.55);
-    border-radius: 3px;
-    padding: 0 0.35rem;
-    margin-left: 0.4rem;
-    background: rgba(242, 167, 188, 0.10);
-    vertical-align: 1px;
-}
-
-/* 帧图 */
+/* 帧图: 一张有编号的图版, 直角, 细线框 */
 .frame-thumb {
     flex-shrink: 0;
     width: 300px;
     max-width: 44%;
     aspect-ratio: 16 / 9;
-    border-radius: 8px;
     overflow: hidden;
-    background: var(--deep);
+    background: var(--steel-ground);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--rule-2);
 }
 
 .frame-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .frame-thumb.frame-placeholder,
 .frame-thumb.frame-missing {
-    color: var(--ink-faint);
+    color: var(--ink-3);
     font-size: 0.8rem;
-    background: rgba(10, 13, 20, 0.6);
-    border: 1px dashed var(--line);
+    background: transparent;
+    border: 1px dashed var(--rule-2);
 }
 
 /* 帧图可缩放(点击预览) */
 .frame-thumb.frame-zoomable {
     cursor: zoom-in;
     position: relative;
+    transition: border-color 0.2s ease;
 }
+
+.frame-thumb.frame-zoomable:hover { border-color: var(--ink); }
 
 .frame-zoomable .zoom-hint {
     position: absolute;
-    right: 8px;
-    bottom: 8px;
-    font-size: 0.72rem;
+    right: 0;
+    bottom: 0;
+    font-size: 0.7rem;
     opacity: 0;
-    color: #fff;
-    background: rgba(10, 13, 20, 0.65);
-    border-radius: 8px;
+    color: var(--steel-lite);
+    background: var(--ink);
     padding: 2px 7px;
-    backdrop-filter: var(--blur-s);
     transition: opacity 0.2s ease;
     pointer-events: none;
 }
 
-.frame-zoomable:hover .zoom-hint { opacity: 1; }
+.frame-zoomable:hover .zoom-hint,
+.frame-zoomable:focus-visible .zoom-hint { opacity: 1; }
 
-/* 时间戳超链接 */
+/* 时间戳超链接: 墨字 + 下划线。交互状态一律不用粉 —— 粉只表示爱染诚。 */
 .ts-link {
-    color: var(--gold);
+    color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid rgba(232, 200, 122, 0.5);
-    transition: color 0.2s ease, border-color 0.2s ease;
+    border-bottom: 1px solid var(--rule-2);
+    transition: border-color 0.2s ease, border-width 0.2s ease;
 }
 
-.ts-link:hover {
-    color: #F2DDA0;
-    border-bottom-color: #F2DDA0;
-}
+.ts-link:hover { border-bottom-color: var(--ink); border-bottom-width: 2px; }
 
-/* ---------- 帧图放大预览模态(Liquid Glass) ---------- */
+/* ---------- 帧图放大预览模态(材质 A · 金属) ----------
+   全站的分工: 深色 = 看片/终端, 纸白 = 文档/记录。看图落在深色里, 图片才不被纸白抢走。 */
 
 .preview-overlay {
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background: rgba(6, 8, 14, 0.66);
-    backdrop-filter: var(--blur-l);
+    background: rgba(6, 8, 11, 0.82);
+    backdrop-filter: blur(20px) saturate(160%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -815,21 +763,10 @@ body.preview-open { overflow: hidden; }
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;
-    /* 液态玻璃相框:白描边 + 内上缘高光 + 外圈柔和光泽 */
     padding: 10px;
-    border-radius: var(--r-lg);
-    background: linear-gradient(160deg,
-        rgba(255, 255, 255, 0.16),
-        rgba(255, 255, 255, 0.05) 40%,
-        rgba(10, 13, 20, 0.22));
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    box-shadow:
-        0 40px 100px rgba(0, 0, 0, 0.55),
-        0 10px 30px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.38),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.06),
-        0 0 0 1px rgba(232, 200, 122, 0.08);
-    backdrop-filter: var(--blur-m);
+    background: var(--steel-ground);
+    border: 1px solid var(--rule-steel);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55), 0 10px 30px rgba(0, 0, 0, 0.35);
     animation: preview-pop 0.3s var(--ease-out);
     transform-origin: center;
 }
@@ -851,21 +788,19 @@ body.preview-open { overflow: hidden; }
 .preview-img {
     max-width: 100%;
     max-height: 82vh;
-    border-radius: var(--r-sm);
     object-fit: contain;
     display: block;
-    background: rgba(0, 0, 0, 0.22);
+    background: var(--steel-deep);
 }
 
 .preview-info {
     font-size: 0.72rem;
     letter-spacing: 0.1em;
-    color: rgba(247, 242, 234, 0.92);
-    background: rgba(10, 13, 20, 0.42);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: var(--r-full);
-    padding: 0.3rem 0.9rem;
-    backdrop-filter: var(--blur-m);
+    color: var(--steel);
+    border-top: 1px solid var(--rule-steel);
+    padding-top: 0.45rem;
+    width: 100%;
+    text-align: center;
 }
 
 /* 图片渐显:轻微模糊 → 清晰 */
@@ -878,51 +813,43 @@ body.preview-open { overflow: hidden; }
     to   { opacity: 1; filter: blur(0); }
 }
 
-/* 右上角:圆形叉叉(液态玻璃) */
+/* 圆形按钮(叉叉 / 复制 / 下载): 圆环语义, 全站允许用圆的地方 */
+.preview-close,
+.preview-copy,
+.preview-download {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid var(--rule-steel-2);
+    background: var(--steel-ground);
+    color: var(--steel-lite);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.18s var(--ease-spring), border-color 0.2s ease, background 0.2s ease;
+}
+
+.preview-close:hover,
+.preview-copy:hover,
+.preview-download:hover {
+    transform: scale(1.1);
+    border-color: var(--steel-lite);
+}
+
+.preview-close:active,
+.preview-copy:active,
+.preview-download:active { transform: scale(0.96); }
+
 .preview-close {
     position: absolute;
     top: -16px;
     right: -16px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.38);
-    background: linear-gradient(150deg,
-        rgba(50, 62, 92, 0.92),
-        rgba(14, 18, 30, 0.92));
-    color: #fff;
-    cursor: pointer;
-    backdrop-filter: var(--blur-m);
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.18s var(--ease-spring), box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.preview-close:hover {
-    transform: scale(1.1) rotate(90deg);
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.55),
-        0 0 18px rgba(232, 200, 122, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.45);
-}
+.preview-close:hover { transform: scale(1.1) rotate(90deg); }
 
-.preview-close:active { transform: scale(0.96); }
-
-.preview-close svg {
-    width: 16px;
-    height: 16px;
-    stroke: currentColor;
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    fill: none;
-}
-
-/* 右下角:复制/下载 圆形按钮(垂直分布,液态玻璃) */
 .preview-side {
     position: absolute;
     right: -16px;
@@ -932,39 +859,14 @@ body.preview-open { overflow: hidden; }
     gap: 0.7rem;
 }
 
-.preview-copy,
-.preview-download {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.38);
-    background: linear-gradient(150deg,
-        rgba(50, 62, 92, 0.92),
-        rgba(14, 18, 30, 0.92));
-    color: #fff;
-    cursor: pointer;
-    backdrop-filter: var(--blur-m);
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.18s var(--ease-spring), box-shadow 0.2s ease, background 0.2s ease;
+.preview-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    fill: none;
 }
-
-.preview-copy:hover,
-.preview-download:hover {
-    transform: scale(1.1);
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.55),
-        0 0 18px rgba(232, 200, 122, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.45);
-}
-
-.preview-copy:active,
-.preview-download:active { transform: scale(0.96); }
 
 .preview-copy svg,
 .preview-download svg {
@@ -977,59 +879,103 @@ body.preview-open { overflow: hidden; }
     fill: none;
 }
 
+/* ---------- 轻量提示 ----------
+   script.js:851 的 showToast() 一直在造 <div class="copy-toast">, 但本站从来没有给
+   它写过任何规则 —— 它就是个裸块级元素, 被追加到 body 末尾。页面有结果时它落在几千
+   像素之下, 于是"已复制图片到剪贴板"这个反馈实际上永远看不见。这里补上。 */
+.copy-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 2.2rem;
+    transform: translateX(-50%);
+    z-index: 3000;
+    background: var(--ink);
+    color: var(--steel-lite);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 8px 24px rgba(13, 4, 21, 0.35);
+    pointer-events: none;
+    animation: toast-in 0.22s var(--ease-out);
+}
+
+@keyframes toast-in {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.copy-toast.fade-out {
+    opacity: 0;
+    transform: translate(-50%, 6px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 /* ---------- 关键词标签 ---------- */
 
 .keywords-container {
     display: none;
-    margin: 0.8rem 0 1.1rem;
-    padding: 0.7rem 0.9rem;
-    border-radius: var(--r-xs);
-    background: linear-gradient(130deg, rgba(26, 34, 54, 0.9), rgba(14, 18, 30, 0.9));
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    margin: 1.1rem 0 1.4rem;
+    padding: 0.85rem 0;
+    background: transparent;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
 }
 
 .keywords-container.show { display: block; animation: card-enter 0.35s ease both; }
 
-.keywords-tags { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; justify-content: space-between; }
+.keywords-tags { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; }
 
 .keyword-tag {
-    background: rgba(10, 13, 20, 0.6);
-    color: var(--ink-soft);
-    padding: 0.2rem 0.55rem;
-    border-radius: 6px;
+    background: transparent;
+    color: var(--ink-2);
+    padding: 0.18rem 0.55rem;
     font-size: 0.76rem;
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--rule-2);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
-.keyword-tag:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
-.keyword-tag:active { transform: translateY(0); }
-.keyword-tag.disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+.keyword-tag:hover { border-color: var(--ink); color: var(--ink); background: var(--paper-lift); }
+.keyword-tag.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 
 /* ---------- 无结果提示（由 JS 生成 .error-message） ---------- */
 
 .error-message {
-    background: linear-gradient(135deg, var(--glass-dark-start), var(--glass-dark-end));
-    border: 1px solid var(--glass-border);
-    border-left: 4px solid var(--wine);
-    border-radius: var(--r-xs);
-    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--rule-2);
+    border-left: 3px solid var(--ink);
+    color: var(--ink-2);
     padding: 1.1rem 1.2rem;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
-.error-message h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.1rem; color: var(--white); margin-bottom: 0.4rem; }
+.error-message h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.4rem; }
 .error-message ul { margin: 0.4rem 0 0; padding-left: 1.4rem; }
 
 /* ---------- 页脚 ---------- */
 
+/* 页脚那条线也必须落在同一条竖轴上 —— 原先是通栏 border-top, 在 1280 下横跨整个
+   视口, 而图版只有 784.8, 于是页脚看起来不属于这份文件。
+   这里不能用 border-top: 页脚的 border-box 是 820, 而 .main-content 的内容宽度是
+   820 减去两侧 1.1rem 内边距 = 784.8(实测), 直接加边框会比图版左右各宽出 17.6px。
+   用伪元素画线(而不是 background-size: calc()), 因为 calc 的背景尺寸浏览器会原样
+   回显, 量不出实际渲染结果; 伪元素的 left/right 是实打实的计算值, 可以直接验收。 */
 .site-footer {
+    position: relative;
+    max-width: 820px;
+    margin: 2.4rem auto 0;
     text-align: center;
-    padding: 0.9rem 1rem 1rem;
-    color: var(--ink-faint);
+    padding: 1.4rem 1.1rem 1.6rem;
+    color: var(--ink-3);
+}
+
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.1rem;
+    right: 1.1rem;
+    border-top: 1px solid var(--rule);
 }
 
 .footer-line {
@@ -1041,50 +987,33 @@ body.preview-open { overflow: hidden; }
 
 .footer-note {
     display: inline;
-    font-family: var(--font-display);
     font-size: 0.74rem;
-    color: var(--gold);
-    opacity: 0.85;
+    color: var(--ink-2);
     margin-left: 0.6rem;
 }
-
-.footer-line::after { content: ""; }
 
 /* ---------- 滚动条 ---------- */
 
 ::-webkit-scrollbar { width: 12px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: #2C3654; border: 3px solid var(--black); border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: var(--violet); }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: rgba(13, 4, 21, 0.28); border: 3px solid var(--paper); }
+::-webkit-scrollbar-thumb:hover { background: rgba(13, 4, 21, 0.45); }
 
-/* ---------- 动效 ---------- */
+/* ---------- 全局交互统一 ---------- */
 
-@keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translate(-50%, 10px); }
-    to   { opacity: 1; transform: translate(-50%, 0); }
-}
-
-@keyframes fade-out {
-    from { opacity: 1; transform: translate(-50%, 0); }
-    to   { opacity: 0; transform: translate(-50%, 10px); }
-}
-
-/* ---------- 全局交互统一(miuix BasicComponent) ---------- */
-
-/* 键盘可达性:所有可交互元素 focus 金环 */
+/* 键盘可达性: 纸面上的焦点环用墨, 深色块上的用钢色 —— 单一颜色环在两种材质上必有一处看不见 */
 :where(button, .ts-link, .frame-zoomable, .keyword-tag, #query, .switch-line input,
        .input-row input, .site-header):focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(232, 200, 122, 0.35);
+    box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink);
 }
 
-/* 统一按下反馈 */
-:where(.search-button, .jump-btn, .preview-close, .preview-copy, .preview-download,
+/* 深色块内的控件换成钢色环 */
+:where(#query, .switch-line input, .input-row input, .toggle-button):focus-visible {
+    box-shadow: 0 0 0 2px var(--ink), 0 0 0 4px var(--steel-lite);
+}
+
+:where(.search-button, .preview-close, .preview-copy, .preview-download,
        .keyword-tag, .frame-zoomable):active {
     transform: var(--press);
 }
@@ -1092,21 +1021,20 @@ body.preview-open { overflow: hidden; }
 /* ---------- 响应式 ---------- */
 
 @media (max-width: 640px) {
-    .main-content { padding: 1rem 0.9rem 2.4rem; }
-    .hero-title { font-size: clamp(2.2rem, 10vw, 3rem); }
+    .main-content { padding-top: 1.1rem; }
+    .hero-title { font-size: clamp(1.9rem, 9vw, 2.6rem); }
     .header-meta { display: none; }
-    .brand-cn { font-size: 0.72rem; }
-    /* 移动端:帧背景,控件改上部/下部,人脸中间留白 */
+    .brand-cn { font-size: 0.66rem; }
+    /* 移动端:帧背景,控件改上部/下部,人脸中间留白 —— 几何未改 */
     .search-form { padding: 112px 0 88px; gap: 48px; background-position: center 30%; }
-    .control-top { width: auto; margin: 0 14px; }
-    .control-bottom { width: auto; margin: 0 14px; justify-content: flex-start; gap: 0.6rem; }
+    .control-top { width: auto; margin: 0 16px; }
+    .control-bottom { width: auto; margin: 0 16px; justify-content: flex-start; gap: 0.6rem; }
     /* 窄屏卡片:纵向堆叠,帧图在上 */
-    .result-card { flex-direction: column; align-items: stretch; padding: 0.95rem 0.9rem 0.8rem; }
+    .result-card { flex-direction: column; align-items: stretch; padding: 1rem 0.15rem 0.9rem 1.7rem; }
+    .result-card.is-aizen { padding-left: calc(1.7rem - 3px); }
     .result-content { flex-direction: column; }
     .frame-thumb { width: 100%; max-width: 100%; order: -1; }
-    .result-text { font-size: 0.98rem; }
     .seal { top: 8px; right: 8px; }
-    .card-crystal { left: 10px; }
 }
 
 /* 尊重减弱动效偏好:全局停用动画与过渡 */

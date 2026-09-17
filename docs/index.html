@@ -8,19 +8,32 @@
     <link rel="icon" href="./favicon.ico" sizes="any">
     <link rel="icon" href="./icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=15">
+    <!-- 不再引入 Google Fonts。理由(实测): 那支 CSS 有 121 KB, 且 fonts.googleapis.com 在墙内
+         不可达时 <link rel=stylesheet> 会**阻塞首屏渲染**直到超时。本站的识别力来自 logo 的几何
+         构造与字距, 不来自某个下载字体 —— 字体全部走系统栈(本机已有 Noto Sans SC / 思源黑体 /
+         微软雅黑 / Consolas), 断网与墙内都是同样的观感。 -->
+    <link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
     <button type="button" class="site-header" id="refreshDiv" title="刷新档案室">
         <span class="header-band">
-            <span class="header-brand">
-                <span class="brand-name">AIZENTECH</span>
-                <span class="brand-cn">爱染科技 · 档案科</span>
+            <span class="header-inner">
+                <span class="header-brand">
+                    <!-- 爱染科技 logo 标: 与 docs/assets/aizen_logo.svg 同一组几何,
+                         viewBox 按实际墨迹外框(11.8,8.2,80.8,80.8)裁过, 用作行内标时四周留白才均匀。 -->
+                    <svg class="brand-mark" viewBox="11.8 8.2 80.8 80.8" aria-hidden="true" focusable="false">
+                        <g fill="none" stroke="currentColor" stroke-linecap="butt">
+                            <circle cx="62" cy="41.2" r="23.2" stroke-width="5.3"/>
+                            <path d="M50 12 L20.4 85.2 M50 12 L79.6 85.2 M31.1 58.8 L68.9 58.8" stroke-width="7.6"/>
+                        </g>
+                    </svg>
+                    <span class="brand-lockup">
+                        <span class="brand-name">AIZENTECH</span>
+                        <span class="brand-cn">爱染科技 · 档案科</span>
+                    </span>
+                </span>
+                <span class="header-meta mono">怪兽水晶档案室 —— 全剧字幕对白检索</span>
             </span>
-            <span class="header-meta mono">怪兽水晶档案室 —— 全剧字幕对白检索</span>
         </span>
     </button>
 
@@ -32,9 +45,19 @@
             </div>
 
             <form id="searchForm" class="search-form">
-                <div class="terminal-tape" aria-hidden="true"></div>
+                <!-- 图版内嵌细框: 白线 + 外侧一圈墨线, 保证压在剧照的亮处/暗处都看得见 -->
+                <span class="plate-frame" aria-hidden="true"></span>
+                <span class="plate-label" aria-hidden="true">
+                    <svg class="plate-mark" viewBox="11.8 8.2 80.8 80.8" focusable="false">
+                        <g fill="none" stroke="currentColor" stroke-linecap="butt">
+                            <circle cx="62" cy="41.2" r="23.2" stroke-width="5.3"/>
+                            <path d="M50 12 L20.4 85.2 M50 12 L79.6 85.2 M31.1 58.8 L68.9 58.8" stroke-width="7.6"/>
+                        </g>
+                    </svg>检索终端
+                </span>
                 <div class="control-top">
                     <div class="search-input-container">
+                        <!-- 圆环 = logo 的第二个几何原语, 这里当"找"的落点用 -->
                         <span class="search-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 L21 21"/></svg>
                         </span>
@@ -65,7 +88,7 @@
                              实测: 亮的那个对应【未勾选】的"仅列爱染诚档案", 暗的对应【已勾选】的
                              "爱染诚优先" —— 明暗与真实状态相反, 且都不随勾选变化。做成水晶形状时
                              还能当纹样看, 一旦简化成圆点就会被读成"状态指示灯", 于是成了假指示。
-                             直接删掉: 开关滑块自己已经在准确表达开/关(金=开)。 -->
+                             直接删掉: 开关滑块自己已经在准确表达开/关(粉=开)。 -->
                         <label class="switch-line"><input type="checkbox" id="aizenOnly"> 仅列爱染诚档案</label>
                         <label class="switch-line"><input type="checkbox" id="aizenFirst" checked> 爱染诚优先</label>
                     </div>
@@ -93,6 +116,6 @@
     <script src="subtitle_db.js"></script>
     <script src="frames_map.js"></script>
     <script src="db_search.js"></script>
-    <script src="script.js?v=11"></script>
+    <script src="script.js?v=12"></script>
 </body>
 </html>
