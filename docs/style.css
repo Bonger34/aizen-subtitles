@@ -107,9 +107,12 @@ html {
 
        改成 auto 之后: 检索前整页正好一屏、没有滚动条, 顶栏铺满整宽(实测 80/80 像素全深色);
        检索出结果时滚动条才出现 —— 那也正是它该出现的时候。
-       代价: 首次检索时内容列会因为滚动条出现而横移 6px。这是浏览器的常规行为,
-       比"首屏永远挂着一条 12px 白边"要好。 */
+       随之而来的"滚动条出现 → 内容列横移 6px"由 body 的 width: 100vw 解决, 见那一处。 */
     overflow-y: auto;
+    /* 横向裁切必须在这一层。见 body 的 width: 100vw —— 有滚动条时 body 会比
+       html 的内容盒宽出 12px, 需要在这里裁掉, 否则会多出一条横向滚动条。
+       （裁掉的那 12px 正好被滚动条自己盖住, 所以看不出差别。） */
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -128,6 +131,21 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    /* 宽度写 100vw 而不是让它跟着滚动条变 —— 这是"检索时整页横移 6px"的修复。
+       vw 是**含滚动条宽度**的(这正是"width:100vw 会撑出横向滚动条"那个老问题的由来),
+       而 body 默认的宽度是 html 的内容盒(不含滚动条)。于是:
+         没有滚动条: 内容盒 = 视口宽      → body 与 100vw 相等
+         有滚动条:   内容盒 = 视口宽 - 12 → body 默认会窄 12px
+       居中列(max-width: 820px + margin:auto)就跟着横移 12/2 = 6px。
+       钉成 100vw 之后两种状态下 body 一样宽, 居中位置恒定。
+       实测(1300 视口, 用 scrollbar-gutter 模拟滚动条占位):
+         改前 无滚动条 body=1300 标题左=257.6 / 有滚动条 body=1288 标题左=251.6 → 横移 -6px
+         改后 两种状态都是 body=1300 标题左=257.6                        → 横移 0
+       有滚动条时 body 会比 html 的内容盒宽 12px, 多出的部分由 html 的
+       overflow-x: hidden 裁掉 —— 那 12px 正好是滚动条自己的位置, 看不出差别。
+       另一个副作用: position:fixed 的元素(预览模态)仍按不含滚动条的视口定位,
+       所以模态与正文会有 6px 的居中差 —— 肉眼不可辨。 */
+    width: 100vw;
     overflow-x: hidden;
     /* 首屏锁一屏: 检索前内容比视口矮时, 由主区吃掉多余空间, 把页脚压到首屏底边
        (见 .main-content 与 --room 那段注释)。用 svh(small viewport height)而不是 vh:
