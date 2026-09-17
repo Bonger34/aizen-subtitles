@@ -5,7 +5,7 @@
 1. **校验链的工作目录** —— `duration_check.py` 往这里写 `duration_check.txt`，
    `stat_coverage.py` 写 `coverage_final.json`，`q_rescan.py` / `q_timeline.py` /
    `q_align_tl.py` / `q_reframe.py` 在这里读写中间结果。
-2. **判定源文件的存放处** —— 下面这 8 个 JSON 是那 195 条修正的可复现依据，**不要删**。
+2. **判定源文件的存放处** —— 下面这 9 个 JSON 是那 195 条修正与 255 条时间戳重排的可复现依据，**不要删**。
 
 ## 报告
 
@@ -19,7 +19,7 @@
 > 收尾时逐条实测，**三条残留全是误判**（两条的帧图与库文本逐字一致，一条是真台词只是
 > 时间戳偏了 6 秒），清单已清空并删除；过程和结论记在 `复核总报告.md` 3.7 节。
 
-## 已入库 · 8 个判定源文件
+## 已入库 · 9 个判定源文件
 
 「谁在读」一列是**当前仓库里实际读它**的脚本；空表示读者已随一次性脚本删除，这些文件现在
 只是**证据留档**。
@@ -29,26 +29,31 @@
 | `q_manual_verdicts.json` | `q_audit.py`（校验链第 8 步） | 23 KB |
 | `q_apply_result.json` | `q_audit.py` | 14 KB |
 | `q_revert_result.json` | `q_audit.py` | 567 B |
+| **`q_retime_applied.json`** | **`q_audit.py`** —— 255 条时间戳重排的记录（2026-09） | 30 KB |
 | `q_reframe_tg.json` | `q_reframe.py`（帧图重抽的默认 `--src`） | 220 KB |
 | `q_locate2_verdicts.json` | —（读者 `q_locate2_apply.py` 已删） | 8.5 KB |
 | `q_apply2_result.json` | —（读者 `q_apply2.py` / `q_review9_apply.py` 已删） | 31 KB |
 | `q_suspect_class.json` | —（读者 `q_sheet8.py` 已删） | 23 KB |
 | `q_targets.json` | —（读者 `q_diag3.py` / `q_fillalign.py` / `q_locate2.py` 已删） | 65 KB |
 
-**前四个一旦删掉，校验链的收尾两步会直接报错** —— `q_audit.py` 读不到输入，
+**前五个一旦删掉，校验链的收尾两步会直接报错** —— `q_audit.py` 读不到输入，
 `q_reframe.py` 找不到待重抽清单。用 `scripts/pipeline/q_audit.py` 自检：
 
 ```
 修正总数 195 | 已落盘 193 | 已回退 2 | 异常 0
 ```
 
+> ⚠️ `q_retime_applied.json` 是**必须**的：修正记录（`q_apply_result` / `q_manual_verdicts`）
+> 里存的时间戳是**重排前**的。少了这张表，`q_audit.py` 会按老时间戳查不到那 17 条，
+> 把它们长期误报成「异常」，掩盖真正的漏落盘。
+>
 > ⚠️ 这个 195 **只覆盖到第 4 轮**。后两批字幕带对照表另有 39 条修正确已落盘，
 > 但它们的应用记录 `q_review9_apply.json` / `q_sheet10_apply.json` / `q_sheet11_apply.json`
 > **从未提交 git、也不在归档 zip 里，已永久丢失**。详见 `复核总报告.md` 第 6 节。
 
 ## 未入库
 
-`.gitignore` 在这里只放行 `*.md` 和上表那 8 个 JSON，其余全是本地产物：
+`.gitignore` 在这里只放行 `*.md` 和上表那 9 个 JSON，其余全是本地产物：
 
 - `*.png` 截图与对照图（`live_*.png`、`compare_*.png`、`master_*.png` …）；
 - `*.txt` / 中间 `*.json`（`band_position.txt`、`orphan_*.txt`、`q_sheet*_apply.json`、

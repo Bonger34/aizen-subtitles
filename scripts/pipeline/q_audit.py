@@ -5,6 +5,11 @@
   读 review/q_apply_result.json(apply_add 76 条) 与 review/q_manual_verdicts.json(frame_apply 36 条),
   逐条核对库里该 timestamp 的当前文本是否等于目标新文本。
 输出: review/q_fixes_final.json + 控制台汇总
+
+2026-09 起还要读 review/q_retime_applied.json: 那是一次时间戳重排的记录
+(255 条条目的 timestamp 被改成实测到的真实秒)。修正记录里的 (集, 时间戳) 是**重排前**的,
+所以按老时间戳查不到 —— 命中不到时用重排表换算出新时间戳再查一次。
+不这样做的话这 17 条会被长期误报成"异常", 掩盖真正的漏落盘。
 """
 import json
 import os
@@ -42,9 +47,22 @@ if os.path.exists(pr):
         # 回退记录里 from=被撤销的修正文本, to=恢复后的原文本; 换算成 (ep, ts, 原文本, 修正文本)
         reverted.add((r['ep'], r['ts'], r['to'], r['from']))
 
+# 时间戳重排表: (集, 重排前时间戳) -> 重排后时间戳。修正记录里的时间戳是重排前的,
+# 直接用会查不到; 先按老时间戳查, 查不到再按重排后的查一次。
+retimed = {}
+prt = os.path.join(REVIEW, 'q_retime_applied.json')
+if os.path.exists(prt):
+    for r in json.load(open(prt, encoding='utf-8')):
+        retimed[(r['ep'], r['old_ts'])] = r['new_ts']
+
 applied, undone, problem = [], [], []
 for f in fixes:
     cur = lib.get((f['ep'], f['ts']))
+    if cur is None and (f['ep'], f['ts']) in retimed:
+        # 该条被重排过: 文本应当出现在新时间戳上
+        cur = lib.get((f['ep'], retimed[(f['ep'], f['ts'])]))
+        if cur is not None:
+            f = dict(f, ts=retimed[(f['ep'], f['ts'])], retimed_from=f['ts'])
     if cur == f['new']:
         applied.append(f)
     elif (f['ep'], f['ts'], f['old'], f['new']) in reverted and cur == f['old']:

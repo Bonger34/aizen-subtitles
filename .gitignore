@@ -220,6 +220,9 @@ _swap.py
 !review/q_suspect_class.json
 !review/q_targets.json
 !review/q_reframe_tg.json
+# 时间戳重排记录(2026-09: 255 条条目的 timestamp 改成实测到的真实秒)。
+# q_audit.py 必须读它 —— 修正记录里存的是**重排前**的时间戳, 少了它那 17 条会被长期误报成异常。
+!review/q_retime_applied.json
 # 落盘前的自动备份(可再生产物)
 subtitle/*.bak_*
 !review/q_revert_result.json
