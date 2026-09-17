@@ -8,12 +8,13 @@
 
 2026-09 起还要读两张表:
   * review/q_retime_applied.json —— 一次时间戳重排(255 条改到实测到的真实秒);
-  * review/q_dedup_applied.json  —— 一次重复条目清理(84 条"同文本、片子里只说了一遍"的
-    冗余被删, 幸存条另有若干条改到实测时刻)。
+  * review/q_dedup*_applied.json —— 重复条目清理台账, 每轮一张(第一轮 84 条、第二轮 6 条
+    "同文本、片子里只说了一遍"的冗余被删, 幸存条另有若干条改到实测时刻)。
 两张表里的时间戳都是**改动前**的, 所以按老时间戳查不到 —— 命中不到时用它们换算出新时间戳
 再查一次; 被删条目的修正记作"已删条目", 不算异常。不这样做的话这几十条会被长期误报成
 "异常", 掩盖真正的漏落盘。
 """
+import glob
 import json
 import os
 from collections import Counter, defaultdict
@@ -58,14 +59,14 @@ if os.path.exists(prt):
     for r in json.load(open(prt, encoding='utf-8')):
         retimed[(r['ep'], r['old_ts'])] = r['new_ts']
 
-# 重复条目清理表(review/q_dedup_applied.json):
+# 重复条目清理表(review/q_dedup*_applied.json, 可多轮):
 #   removed  —— 这些条目是"同文本、片子里只说了一遍"的冗余, 已删除。针对它们的修正
-#               随之作废(实测 23 条被删条与幸存条文本完全相同, 修正没有丢), 记作"已删除"
+#               随之作废(实测被删条与幸存条文本完全相同, 修正没有丢), 记作"已删除"
 #               而不是"异常", 否则会长期报红。
 #   retimed  —— 幸存条被改到实测时刻, 与上面的重排表合并使用。
+# 用通配而不是写死文件名: 这类清理还会继续做, 每轮一张表, 不必再改本脚本。
 dropped = set()
-pdd = os.path.join(REVIEW, 'q_dedup_applied.json')
-if os.path.exists(pdd):
+for pdd in sorted(glob.glob(os.path.join(REVIEW, 'q_dedup*_applied.json'))):
     _d = json.load(open(pdd, encoding='utf-8'))
     for r in _d.get('removed', []):
         dropped.add((r['ep'], r['ts']))

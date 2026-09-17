@@ -226,6 +226,8 @@ _swap.py
 # 重复条目清理记录(2026-09: 84 条"同文本、片子里只说了一遍"的冗余被删, 48 条幸存条改到实测时刻)。
 # 同样必须入库: 被删的 23 条原本带修正记录, 少了它会全被报成异常。
 !review/q_dedup_applied.json
+# 第二轮清理(2026-09: 5 组"时间线判不了"里证据最齐的, 删 6 条、7 条改到实测时刻)。
+!review/q_dedup2_applied.json
 # 落盘前的自动备份(可再生产物)
 subtitle/*.bak_*
 !review/q_revert_result.json
