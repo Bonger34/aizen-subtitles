@@ -774,12 +774,24 @@ function openPreviewFrame(frameFile, infoText) {
     const last = items[items.length - 1];
     const active = document.activeElement;
     const inside = items.indexOf(active) >= 0;
-    if (items.length === 1 || (!inside && e.shiftKey) || active === last) {
+    // 只拦"会跑出模态"的两端, 中间的移动一律交回浏览器默认行为。
+    // 原写法 `else if (!inside || active === first)` 在 active===first 且**正向** Tab
+    // 时也命中, preventDefault 之后又把焦点设回 first —— 结果是焦点被钉死在关闭钮上。
+    // 实测: 正向 Tab 连按 6 次落点全是 preview-close, 反向 Shift+Tab 连按 6 次全是
+    // preview-download, 可达元素只有这两个, **预览窗里的"复制图片"按钮任何键盘路径
+    // 都到不了**。这是焦点锁写反了, 不是"正确的自循环"。
+    if (items.length === 1) {
+      e.preventDefault();
+      first.focus();
+    } else if (!inside) {
       e.preventDefault();
       (e.shiftKey ? last : first).focus();
-    } else if (!inside || active === first) {
+    } else if (e.shiftKey && active === first) {
       e.preventDefault();
-      (e.shiftKey ? last : first).focus();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
     }
   }
 

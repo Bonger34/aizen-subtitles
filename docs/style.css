@@ -380,13 +380,29 @@ body {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.3s ease;
+    /* visibility: hidden 在这里是**功能性**的, 不是装饰。
+       只靠 max-height:0 + overflow:hidden 折叠时, 里面两个输入框仍然留在 Tab 序列
+       里, 而它们的焦点环会被这层 overflow 裁掉 —— 实测折叠态渲染高度只剩 2px(上下
+       边框), #minRatio 自身有 31.4px 的盒子却"完全不可见: true", Tab 真的会停上去、
+       焦点环也真的画了、但被裁没了, 键盘用户连续两次 Tab 看不到任何焦点指示。
+       visibility: hidden 会把整棵子树移出 Tab 序列。
+       收起时延迟 0.3s 生效、展开时立即生效, 否则收起动画会被瞬间掐断。
+       必须写成具体属性: 原写法 transition: all 会把 visibility 也一起过渡, 延时
+       控制就会失效(transition: all 本身也是审查里的一条 P2)。 */
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, visibility 0s linear 0.3s;
     background: var(--ink);
     border: 1px solid var(--rule-steel);
     padding: 0 0.95rem;
 }
 
-.advanced-options.show { max-height: 200px; opacity: 1; padding: 0.75rem 0.95rem; }
+.advanced-options.show {
+    max-height: 200px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0.75rem 0.95rem;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, visibility 0s;
+}
 
 .input-row {
     display: flex;
@@ -553,10 +569,16 @@ body {
     color: var(--aizen-deep);
 }
 
-/* 结果区(初始为空,不占空间;有结果时加间距) */
+/* 结果区(初始为空,不占空间;有结果或有提示时加间距)
+   注意 :not(:has(.result-card)) 会把**无结果提示一起藏掉** —— 实测搜无结果时
+   #results 计算值是 display:none, 里面的 .error-message 虽然 display:block 却
+   完全不可见, 于是"未找到 + 4 条建议"从来没被人看到过。此规则先于本次改版就存在
+   (与 HEAD 逐字相同), 不是改版引入的。必须把"有提示"也算作有内容。 */
 #results { margin-top: 0; }
-#results:not(:has(.result-card)) { display: none; }
-#results:has(.result-card) { margin-top: 1.6rem; border-bottom: 1px solid var(--rule); }
+#results:not(:has(.result-card)):not(:has(.error-message)) { display: none; }
+#results:has(.result-card),
+#results:has(.error-message) { margin-top: 1.6rem; }
+#results:has(.result-card) { border-bottom: 1px solid var(--rule); }
 
 /* ---------- 结果: 纸上的档案记录 ----------
    注意本轮范围: **卡的 DOM、排版、尺寸、间距一行未动**(用户选定), 只换了表面材质 ——
