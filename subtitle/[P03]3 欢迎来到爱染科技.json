@@ -1321,11 +1321,6 @@
         "text": "喂你突然飞起来是要去哪里啊"
     },
     {
-        "timestamp": "21m01s",
-        "text": "不是说一波刚平一飞冲天嘛",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "21m00s",
         "text": "不是说一波刚平一飞冲天嘛",
         "similarity": 0.0
@@ -1371,11 +1366,6 @@
         "similarity": 0.17,
         "text": "搞什么啊那是什么啊",
         "vl_rechecked": true
-    },
-    {
-        "timestamp": "21m41s",
-        "similarity": 0.155,
-        "text": "搞什么啊那是什么啊"
     },
     {
         "timestamp": "21m43s",

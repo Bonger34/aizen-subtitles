@@ -304,18 +304,13 @@
         "vl_rechecked": true
     },
     {
-        "timestamp": "4m43s",
-        "text": "你说什么你再说一遍",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "4m44s",
         "similarity": 0.129,
         "text": "吵架可就一点都不快乐了",
         "vl_rechecked": true
     },
     {
-        "timestamp": "4m45s",
+        "timestamp": "4m40s",
         "text": "你说什么你再说一遍",
         "similarity": 0.0
     },
@@ -1145,11 +1140,6 @@
     },
     {
         "timestamp": "22m17s",
-        "similarity": 0.236,
-        "text": "警方认为爱染社长可能被卷入了某起案件之中"
-    },
-    {
-        "timestamp": "22m19s",
         "similarity": 0.0,
         "text": "警方认为爱染社长可能被卷入了某起案件之中"
     },

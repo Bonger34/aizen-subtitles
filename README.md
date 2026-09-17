@@ -25,23 +25,23 @@
 | 项 | 数量 | 说明 |
 |---|---:|---|
 | 集数 | 25 | 全剧 |
-| 归档台词 | **6783** 条 | `subtitle/`，站点唯一数据源 |
-| 爱染诚登场条目 | **539** 条 | 说话时画面含爱染诚 |
-| 帧图 | **6775** 张 | 960×540 |
-| 帧图覆盖率 | **100.0%** | 6783 条全部有对应帧文件，无占位 |
+| 归档台词 | **6699** 条 | `subtitle/`，站点唯一数据源 |
+| 爱染诚登场条目 | **534** 条 | 说话时画面含爱染诚 |
+| 帧图 | **6696** 张 | 960×540 |
+| 帧图覆盖率 | **100.0%** | 6699 条全部有对应帧文件，无占位 |
 | 站点体积 | **398 MB** | `docs/`，其中帧图 396.9 MB |
 
 数据的可信度不是靠"看起来对"得来的。仓库里保留了完整的验证链，任何时候都能重跑：
 
 ```bash
-python scripts/pipeline/rebuild_map.py         # 6783 -> 6783 键, 缺帧 0
+python scripts/pipeline/rebuild_map.py         # 6699 -> 6699 键, 缺帧 0
 python scripts/pipeline/make_subtitle_db.py    # 生成 docs/subtitle_db
 python scripts/pipeline/verify_consistency.py  # 缺键 0 / 缺文件 0 / 孤儿键 0
 python scripts/pipeline/duration_check.py      # 无条目超出视频长度
 python scripts/pipeline/dup_check.py           # 同秒重复组 0
 python scripts/pipeline/stat_coverage.py       # 覆盖率 100.0%
 node   scripts/pipeline/verify_search.js       # 408 命中 / 缺帧 0
-python scripts/pipeline/q_audit.py             # 历史修正 195 处, 异常 0
+python scripts/pipeline/q_audit.py             # 历史修正 195 处(落盘 170 · 回退 2 · 已删 23), 异常 0
 ```
 
 ## 仓库结构
@@ -54,14 +54,14 @@ VV_Rob/
 ├─ requirements.txt
 ├─ LICENSE                   GPL-3.0（继承自上游 VV）
 │
-├─ subtitle/                 【权威库】25 集 / 6783 条台词，站点的唯一数据源
+├─ subtitle/                 【权威库】25 集 / 6699 条台词，站点的唯一数据源
 ├─ subtitle_raw/             main.py 的输出目录（重跑管线时创建，站点不读它）
 ├─ docs/                     GitHub Pages 站点本体
 │   ├─ index.html  style.css  script.js  db_search.js
 │   ├─ subtitle_db           gzip 压缩的字幕库（前端 IndexedDB 缓存）
 │   ├─ frames_map.js         条目 → 帧文件名的映射
-│   ├─ aizen_frames.js       539 张"含爱染诚"的帧名单（编译期输入）
-│   └─ frames/               6775 张帧图
+│   ├─ aizen_frames.js       534 张"含爱染诚"的帧名单（编译期输入）
+│   └─ frames/               6696 张帧图
 │
 ├─ scripts/                  构建与校验脚本（全部可移植，无硬编码路径）
 │   ├─ README.md             逐个脚本的索引
@@ -69,7 +69,7 @@ VV_Rob/
 │
 ├─ review/                   复核报告与判定记录；同时是校验链的工作目录
 │   ├─ 复核总报告.md          全过程记录与证据清单（合并了原先 10 篇分轮报告）
-│   └─ *.json                 9 个判定源文件
+│   └─ *.json                 10 个判定源文件
 ├─ archive/                  历史归档
 │   └─ datasets/             早期数据集：各轮清洗快照（5232 / 5797 等）+ 另两次 OCR/VL 跑的结果
 │

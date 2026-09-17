@@ -557,14 +557,9 @@
         "text": "好可怕好可怕"
     },
     {
-        "timestamp": "9m41s",
+        "timestamp": "9m40s",
         "similarity": 0.116,
         "text": "关闭系统"
-    },
-    {
-        "timestamp": "9m42s",
-        "text": "关闭系统",
-        "similarity": 0.0
     },
     {
         "timestamp": "9m44s",
@@ -604,11 +599,6 @@
     {
         "timestamp": "10m19s",
         "similarity": 0.09,
-        "text": "可是我觉得好难受"
-    },
-    {
-        "timestamp": "10m23s",
-        "similarity": 0.195,
         "text": "可是我觉得好难受"
     },
     {

@@ -56,11 +56,6 @@
         "text": "这是美剑当时的原话"
     },
     {
-        "timestamp": "0m29s",
-        "text": "小剑才不是坏人呢",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "0m27s",
         "text": "小剑才不是坏人呢",
         "similarity": 0.0
@@ -468,17 +463,12 @@
         "vl_rechecked": true
     },
     {
-        "timestamp": "6m47s",
-        "text": "之前我就觉得她不是个普通的女孩子",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "6m50s",
         "similarity": 0.167,
         "text": "她只不过是想一个人去"
     },
     {
-        "timestamp": "6m51s",
+        "timestamp": "6m44s",
         "text": "之前我就觉得她不是个普通的女孩子",
         "similarity": 0.0
     },
@@ -542,11 +532,6 @@
         "similarity": 0.178,
         "text": "NASA和国立天文台等各国机构",
         "vl_rechecked": true
-    },
-    {
-        "timestamp": "7m15s",
-        "text": "10点30分左右",
-        "similarity": 0.0
     },
     {
         "timestamp": "7m17s",
@@ -621,12 +606,7 @@
         "text": "说不定能印在T恤上呢"
     },
     {
-        "timestamp": "8m20s",
-        "text": "朝阳这个借我一下吧",
-        "similarity": 0.0
-    },
-    {
-        "timestamp": "8m21s",
+        "timestamp": "8m18s",
         "text": "朝阳这个借我一下吧",
         "similarity": 0.0
     },
@@ -1281,17 +1261,12 @@
         "text": "真是厉害"
     },
     {
-        "timestamp": "17m47s",
-        "text": "这可不得了",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "17m48s",
         "similarity": 0.0,
         "text": "她竟然变成怪兽了"
     },
     {
-        "timestamp": "17m49s",
+        "timestamp": "17m44s",
         "text": "这可不得了",
         "similarity": 0.0
     },
@@ -1426,12 +1401,7 @@
         "similarity": 0.0
     },
     {
-        "timestamp": "21m34s",
-        "text": "快下决心吧",
-        "similarity": 0.0
-    },
-    {
-        "timestamp": "21m35s",
+        "timestamp": "21m32s",
         "text": "快下决心吧",
         "similarity": 0.0
     },
@@ -1451,12 +1421,7 @@
         "text": "你们也就这点能耐了"
     },
     {
-        "timestamp": "21m51s",
-        "text": "哥哥你的斗志呢",
-        "similarity": 0.0
-    },
-    {
-        "timestamp": "21m53s",
+        "timestamp": "21m48s",
         "text": "哥哥你的斗志呢",
         "similarity": 0.0
     },

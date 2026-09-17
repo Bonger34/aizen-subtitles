@@ -261,12 +261,7 @@
         "text": "这对我们来说很重要的"
     },
     {
-        "timestamp": "5m15s",
-        "text": "也借我用一下嘛",
-        "similarity": 0.0
-    },
-    {
-        "timestamp": "5m16s",
+        "timestamp": "5m11s",
         "text": "也借我用一下嘛",
         "similarity": 0.0
     },
@@ -354,12 +349,6 @@
         "timestamp": "5m58s",
         "similarity": 0.134,
         "text": "郊游郊游郊游郊游郊游郊游"
-    },
-    {
-        "timestamp": "6m04s",
-        "similarity": 0.144,
-        "text": "郊游郊游郊游郊游郊游郊游",
-        "vl_rechecked": true
     },
     {
         "timestamp": "6m07s",
@@ -533,17 +522,12 @@
         "text": "我们身为奥特战士有使命在身"
     },
     {
-        "timestamp": "8m31s",
-        "text": "玩得开心点吧",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "8m32s",
         "similarity": 0.1,
         "text": "哪有时间玩"
     },
     {
-        "timestamp": "8m33s",
+        "timestamp": "8m28s",
         "text": "玩得开心点吧",
         "similarity": 0.0
     },
@@ -553,13 +537,8 @@
         "text": "我认为休息也是很重要的"
     },
     {
-        "timestamp": "8m40s",
+        "timestamp": "8m41s",
         "similarity": 0.013,
-        "text": "而且我们现在是凑勇海和凑活海"
-    },
-    {
-        "timestamp": "8m45s",
-        "similarity": 0.146,
         "text": "而且我们现在是凑勇海和凑活海"
     },
     {
@@ -859,11 +838,6 @@
         "vl_rechecked": true
     },
     {
-        "timestamp": "11m16s",
-        "similarity": 0.242,
-        "text": "喂你们也太没礼貌了吧"
-    },
-    {
         "timestamp": "11m18s",
         "text": "爱染先生真是非常抱歉",
         "similarity": 0.0
@@ -927,12 +901,6 @@
         "timestamp": "11m46s",
         "similarity": 0.0,
         "text": "你听人家对你们多好"
-    },
-    {
-        "timestamp": "11m48s",
-        "similarity": 0.202,
-        "text": "谁会去你的公司工作",
-        "vl_rechecked": true
     },
     {
         "timestamp": "11m49s",
@@ -1032,7 +1000,7 @@
         "text": "你们的目光太狭隘了"
     },
     {
-        "timestamp": "12m34s",
+        "timestamp": "12m33s",
         "text": "这样吧我有一个提案",
         "similarity": 0.0
     },
@@ -1040,11 +1008,6 @@
         "timestamp": "12m36s",
         "similarity": 0.771,
         "text": "现在我要看看你们是不是"
-    },
-    {
-        "timestamp": "12m33s",
-        "text": "这样吧我有一个提案",
-        "similarity": 0.0
     },
     {
         "timestamp": "12m38s",
@@ -1480,11 +1443,6 @@
     {
         "timestamp": "23m45s",
         "similarity": 0.042,
-        "text": "接下来要介绍的是关于罗布水晶的研究"
-    },
-    {
-        "timestamp": "23m46s",
-        "similarity": 0.0,
         "text": "接下来要介绍的是关于罗布水晶的研究"
     },
     {

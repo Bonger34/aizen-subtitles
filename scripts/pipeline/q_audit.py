@@ -6,10 +6,13 @@
   逐条核对库里该 timestamp 的当前文本是否等于目标新文本。
 输出: review/q_fixes_final.json + 控制台汇总
 
-2026-09 起还要读 review/q_retime_applied.json: 那是一次时间戳重排的记录
-(255 条条目的 timestamp 被改成实测到的真实秒)。修正记录里的 (集, 时间戳) 是**重排前**的,
-所以按老时间戳查不到 —— 命中不到时用重排表换算出新时间戳再查一次。
-不这样做的话这 17 条会被长期误报成"异常", 掩盖真正的漏落盘。
+2026-09 起还要读两张表:
+  * review/q_retime_applied.json —— 一次时间戳重排(255 条改到实测到的真实秒);
+  * review/q_dedup_applied.json  —— 一次重复条目清理(84 条"同文本、片子里只说了一遍"的
+    冗余被删, 幸存条另有若干条改到实测时刻)。
+两张表里的时间戳都是**改动前**的, 所以按老时间戳查不到 —— 命中不到时用它们换算出新时间戳
+再查一次; 被删条目的修正记作"已删条目", 不算异常。不这样做的话这几十条会被长期误报成
+"异常", 掩盖真正的漏落盘。
 """
 import json
 import os
@@ -55,8 +58,25 @@ if os.path.exists(prt):
     for r in json.load(open(prt, encoding='utf-8')):
         retimed[(r['ep'], r['old_ts'])] = r['new_ts']
 
-applied, undone, problem = [], [], []
+# 重复条目清理表(review/q_dedup_applied.json):
+#   removed  —— 这些条目是"同文本、片子里只说了一遍"的冗余, 已删除。针对它们的修正
+#               随之作废(实测 23 条被删条与幸存条文本完全相同, 修正没有丢), 记作"已删除"
+#               而不是"异常", 否则会长期报红。
+#   retimed  —— 幸存条被改到实测时刻, 与上面的重排表合并使用。
+dropped = set()
+pdd = os.path.join(REVIEW, 'q_dedup_applied.json')
+if os.path.exists(pdd):
+    _d = json.load(open(pdd, encoding='utf-8'))
+    for r in _d.get('removed', []):
+        dropped.add((r['ep'], r['ts']))
+    for r in _d.get('retimed', []):
+        retimed[(r['ep'], r['old_ts'])] = r['new_ts']
+
+applied, undone, removed, problem = [], [], [], []
 for f in fixes:
+    if (f['ep'], f['ts']) in dropped:
+        removed.append(f)
+        continue
     cur = lib.get((f['ep'], f['ts']))
     if cur is None and (f['ep'], f['ts']) in retimed:
         # 该条被重排过: 文本应当出现在新时间戳上
@@ -75,16 +95,20 @@ for a in applied:
     by_src[a['src']] += 1
     by_ep[a['ep']] += 1
 out = {'n_total': len(fixes), 'n_applied': len(applied), 'n_reverted': len(undone),
-       'n_problem': len(problem), 'by_src': dict(by_src), 'by_ep': dict(sorted(by_ep.items())),
-       'applied': applied, 'reverted': undone, 'problem': problem}
+       'n_removed': len(removed), 'n_problem': len(problem),
+       'by_src': dict(by_src), 'by_ep': dict(sorted(by_ep.items())),
+       'applied': applied, 'reverted': undone, 'removed': removed, 'problem': problem}
 json.dump(out, open(os.path.join(REVIEW, 'q_fixes_final.json'), 'w', encoding='utf-8'),
           ensure_ascii=False, indent=1)
-print(f"修正总数 {len(fixes)} | 已落盘 {len(applied)} | 已回退 {len(undone)} | 异常 {len(problem)}")
+print(f"修正总数 {len(fixes)} | 已落盘 {len(applied)} | 已回退 {len(undone)} | "
+      f"已删条目 {len(removed)} | 异常 {len(problem)}")
 print('来源分布:', dict(by_src))
 print('按集:', dict(sorted(by_ep.items())))
 if undone:
     for p in undone:
         print('  已回退:', p['ep'], p['ts'], f"[{p['old']}] -> [{p['new']}]")
+if removed:
+    print(f'  已删条目(重复清理) {len(removed)} 条, 修正随之作废')
 if problem:
     for p in problem[:10]:
         print('  异常:', p)

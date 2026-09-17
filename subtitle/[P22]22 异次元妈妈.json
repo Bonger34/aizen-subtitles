@@ -857,11 +857,6 @@
         "text": "是把体内的细菌全部杀光的好细胞"
     },
     {
-        "timestamp": "12m49s",
-        "similarity": 0.158,
-        "text": "是把体内的细菌全部杀光的好细胞"
-    },
-    {
         "timestamp": "12m52s",
         "text": "基本回答正确",
         "similarity": 0.0
@@ -1216,12 +1211,6 @@
     {
         "timestamp": "18m47s",
         "similarity": 0.184,
-        "text": "咦小澪小澪",
-        "vl_rechecked": true
-    },
-    {
-        "timestamp": "18m51s",
-        "similarity": 0.194,
         "text": "咦小澪小澪",
         "vl_rechecked": true
     },

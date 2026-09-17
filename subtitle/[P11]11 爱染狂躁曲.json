@@ -50,11 +50,6 @@
         "text": "别忘了我们也是奥特战士"
     },
     {
-        "timestamp": "0m28s",
-        "text": "哥哥你好帅呀",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "0m27s",
         "text": "哥哥你好帅呀",
         "similarity": 0.0
@@ -236,17 +231,12 @@
         "text": "我一看到那只可怕的怪兽"
     },
     {
-        "timestamp": "7m13s",
-        "text": "我们很担心你呢",
-        "similarity": 0.0
-    },
-    {
         "timestamp": "7m14s",
         "similarity": 0.719,
         "text": "就被吓得晕过去了"
     },
     {
-        "timestamp": "7m15s",
+        "timestamp": "7m10s",
         "text": "我们很担心你呢",
         "similarity": 0.0
     },
@@ -554,12 +544,7 @@
         "vl_rechecked": true
     },
     {
-        "timestamp": "10m10s",
-        "text": "打败怪兽时的必杀技超帅",
-        "similarity": 0.0
-    },
-    {
-        "timestamp": "10m11s",
+        "timestamp": "10m06s",
         "text": "打败怪兽时的必杀技超帅",
         "similarity": 0.0
     },
@@ -1014,13 +999,8 @@
         "text": "为什么要来妨碍我"
     },
     {
-        "timestamp": "18m01s",
+        "timestamp": "18m02s",
         "similarity": 0.15,
-        "text": "我不是说了不许你们再变身了吗"
-    },
-    {
-        "timestamp": "18m03s",
-        "similarity": 0.0,
         "text": "我不是说了不许你们再变身了吗"
     },
     {

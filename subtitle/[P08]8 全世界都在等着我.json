@@ -394,17 +394,12 @@
         "text": "这样的话不管流多少汗"
     },
     {
-        "timestamp": "7m52s",
-        "similarity": 0.185,
-        "text": "毕竟这上面就印了汗渍嘛"
-    },
-    {
         "timestamp": "7m53s",
         "text": "汗渍都不会很明显",
         "similarity": 0.0
     },
     {
-        "timestamp": "7m56s",
+        "timestamp": "7m52s",
         "similarity": 0.094,
         "text": "毕竟这上面就印了汗渍嘛"
     },
@@ -654,7 +649,7 @@
         "text": "喂我们走吧"
     },
     {
-        "timestamp": "10m05s",
+        "timestamp": "10m04s",
         "text": "好的吧",
         "similarity": 0.0
     },
@@ -662,16 +657,6 @@
         "timestamp": "10m07s",
         "similarity": 0.141,
         "text": "真是太好了呢"
-    },
-    {
-        "timestamp": "10m09s",
-        "text": "好的吧",
-        "similarity": 0.0
-    },
-    {
-        "timestamp": "10m10s",
-        "text": "好的吧",
-        "similarity": 0.0
     },
     {
         "timestamp": "10m28s",
