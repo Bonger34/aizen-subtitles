@@ -33,6 +33,7 @@
     /* ---- 材质 B: 纸白(浅色)—— 用于"读"的地方 ---- */
     --paper:        #F4F2F5;   /* 册子纸面(色相取自实测, 明度还原成纸白) */
     --paper-lift:   #FBFAFC;   /* 图版/记录抬升一档(与纸面 1.07:1, 只作底, 不靠它分层) */
+    --paper-bright: #FFFFFF;   /* 纯纸白 —— logo 就是黑墨印在白纸上, 纯白属于这套材质本身 */
     --ink:          #0D0415;   /* 册子印刷黑 18.05:1 on 纸面        */
     --ink-2:        #4A4650;   /* 次级文本    8.26:1 on 纸面        */
     --ink-3:        #716D78;   /* 弱化文本    4.53:1 on 纸面(原 #7B7783 只有 3.92:1, 压暗后达标) */
@@ -87,11 +88,26 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    padding-right: 0 !important;
     min-height: 100vh;
 }
 
 .mono { font-family: var(--font-mono); }
+
+/* 仅供读屏的文本: 视觉上不占位, 但会进入可访问名计算。
+   用途见 index.html 里 #query 的 <label> —— 那个输入框原先只有 placeholder,
+   可访问名完全来自它(实测 CDP 算出 name = "检索爱染诚的台词，如：水晶"),
+   而"用 placeholder 当标签"是明确的可用性缺陷。 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
 
 /* 全站唯一的内容列宽。顶栏内层、主区、页脚共用它 —— 三者左边缘必须落在同一条竖轴上,
    这是"整页属于同一份文件"这件事在版面上的表达。 */
@@ -104,22 +120,13 @@ body {
 }
 
 /* ---------- 顶栏: 爱染科技铭牌(材质 A · 金属) ----------
-   它是个**真按钮**(整条顶带可点=刷新), 所以键盘 Enter/Space 天然可用;
-   旧版是 <header role="button" tabindex="0"> 只绑 click, 实测键盘 Enter 完全没反应。 */
+   这里原来把**整条顶带做成一个 <button>**(点哪都刷新)。实测它的可访问名是整串铭牌
+   文字 "AIZENTECH 爱染科技 · 档案科 怪兽水晶档案室 —— 全剧字幕对白检索", 而动作只
+   藏在 title 生成的 description 里 —— 读屏用户听到一长串品牌名, 无从得知它是刷新键。
+   也不能简单加 aria-label 覆盖: 那会把可见文字从可访问名里抹掉, 同样是被禁止的写法。
+   所以铭牌回归非交互的 <header>, 刷新做成里面一个具名的图标按钮。 */
 
 .site-header {
-    display: block;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: none;
-    font: inherit;
-    color: inherit;
-    text-align: left;
-    cursor: pointer;
-}
-
-.header-band {
     display: block;
     width: 100%;
     background: var(--steel-ground);
@@ -181,6 +188,46 @@ body {
     white-space: nowrap;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+/* 刷新键: 直角方块(与全站一致; 圆只留给"圆环"语义的控件), 圆弧只出现在图标里。
+   图标按钮没有可见文字, 所以 aria-label 是它唯一的可访问名 —— 这是正当用法,
+   与"用 aria-label 覆盖可见文字"是两回事。 */
+.refresh-btn {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--rule-steel);
+    color: var(--steel-dim);
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.refresh-btn:hover {
+    border-color: var(--rule-steel-2);
+    color: var(--steel-lite);
+}
+
+.refresh-btn svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
 /* ---------- 刊头(letterhead): 墨印在纸上 ---------- */
 
 .hero {
@@ -239,8 +286,14 @@ body {
     flex-direction: column;
     padding: 97px 0 129px;
     gap: 49px;
-    /* 图版落在纸上: 一道浅影就够, 它是"一张平放在文件上的照片", 不是浮起来的卡片 */
-    box-shadow: 0 12px 30px rgba(13, 4, 21, 0.16), 0 2px 8px rgba(13, 4, 21, 0.08);
+    /* 图版落在纸上: 一道浅影就够, 它是"一张平放在文件上的照片", 不是浮起来的卡片。
+       下面的颜色一律用 color-mix 从 token 派生, 不写 rgba() 字面量 —— 审查发现上一版
+       有 14 处字面量绕过了 token, 改 :root 时它们会留在旧色上, 配色就没有单一来源了。
+       color-mix 的浏览器支持面比本站已经在用的 :has() 更宽
+       (Chrome 111 / Safari 16.2 / Firefox 113 对 Chrome 105 / Safari 15.4 / Firefox 121)。 */
+    box-shadow:
+        0 12px 30px color-mix(in srgb, var(--ink) 16%, transparent),
+        0 2px 8px color-mix(in srgb, var(--ink) 8%, transparent);
     /* 原先这里还有 backdrop-filter: blur(28px) —— 删掉。剧照就是这个元素自己的
        background, 而 backdrop-filter 模糊的是元素**背后**的东西(也就是纸), 对照片
        毫无作用, 只是白白让浏览器多开一层合成。 */
@@ -251,14 +304,17 @@ body {
        而 assets/ 是入库的站点素材目录, 不受那条清理规则影响。
        末层那个深色是图加载失败时的兜底底色。 */
     background:
-        linear-gradient(180deg, rgba(10, 13, 20, 0.34) 0%, transparent 26%, transparent 66%, rgba(10, 13, 20, 0.38) 100%),
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--steel-deep) 34%, transparent) 0%,
+            transparent 26%, transparent 66%,
+            color-mix(in srgb, var(--steel-deep) 38%, transparent) 100%),
         url('assets/hero_aizen.jpg') center 52% / cover no-repeat,
         var(--steel-ground);
     transition: box-shadow 0.3s ease;
 }
 
 .search-form.searching {
-    box-shadow: 0 12px 30px rgba(13, 4, 21, 0.16), 0 0 0 2px var(--ink);
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--ink) 16%, transparent), 0 0 0 2px var(--ink);
 }
 
 /* 图版内嵌细框: 白线 + 外圈墨线。压在剧照亮处靠墨线看得见, 暗处靠白线看得见 ——
@@ -266,8 +322,8 @@ body {
 .plate-frame {
     position: absolute;
     inset: 9px;
-    border: 1px solid rgba(247, 242, 241, 0.55);
-    box-shadow: 0 0 0 1px rgba(6, 8, 11, 0.55);
+    border: 1px solid color-mix(in srgb, var(--steel-lite) 55%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--steel-deep) 55%, transparent);
     pointer-events: none;
 }
 
@@ -422,7 +478,7 @@ body {
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--steel-lite);
-    background: rgba(247, 242, 241, 0.08);
+    background: color-mix(in srgb, var(--steel-lite) 8%, transparent);
     border: 1px solid var(--rule-steel);
 }
 
@@ -445,7 +501,7 @@ body {
     transition: transform 0.15s ease, background 0.2s ease;
 }
 
-.search-button:hover { background: #FFFFFF; }
+.search-button:hover { background: var(--paper-bright); }
 
 .search-button:active { transform: translateY(1px); background: var(--steel); }
 
@@ -547,20 +603,19 @@ body {
     transition: width 0.15s ease;
 }
 
-.random-string {
+.result-status {
     margin-top: 0.4rem;
     font-size: 0.72rem;
     line-height: 1.1;
     color: var(--ink-3);
     letter-spacing: 0.1em;
     min-height: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-#randomStringDisplay:empty { display: none; }
-
-#randomStringDisplay.fade-out { opacity: 0; transform: translateY(-8px); }
-#randomStringDisplay.fade-in  { opacity: 1; transform: translateY(0); }
+/* 检索结论行: 既给眼睛看, 也是一个常驻的 role="status" 区域 —— 读屏用户否则听不到
+   "没有结果"这件事(审查里的一条 P2)。原来这里放的是随机提示语, 而生成它的
+   UIController 从来没被调用过, 所以它一直是空的。 */
+#resultStatus:empty { display: none; }
 
 .error-display {
     display: none;
@@ -578,7 +633,10 @@ body {
 #results:not(:has(.result-card)):not(:has(.error-message)) { display: none; }
 #results:has(.result-card),
 #results:has(.error-message) { margin-top: 1.6rem; }
-#results:has(.result-card) { border-bottom: 1px solid var(--rule); }
+/* 这里原来还有一条 border-bottom 当"记录区收尾线"。删掉: 结果超过 20 条时
+   script.js 会往 #results 里追加 #scroll-trigger(内联 height:20px; margin:20px 0),
+   于是这条线落在最后一张卡下方 61px 处, 与页脚那条线只隔 39.4px(实测) —— 页尾出现
+   两条同色横线夹一段空白。收尾的职责交给 .site-footer::before 一条就够。 */
 
 /* ---------- 结果: 纸上的档案记录 ----------
    注意本轮范围: **卡的 DOM、排版、尺寸、间距一行未动**(用户选定), 只换了表面材质 ——
@@ -607,11 +665,10 @@ body {
 /* 记录级的悬停反馈刻意去掉: 卡片整体不可点, 给不可点的东西加悬停位移与辉光
    只会制造"这里能点"的假承诺。可点的两个东西(帧图、时间码)各自有反馈。 */
 
-/* 六边形金水晶已退役(display:none)。理由: 那是本站自创的造型, 不是剧中道具 ——
-   剧中的水晶是**圆形扁平徽章**(深蓝底 + 银边 + 图案), 根本没有六边形立体水晶。
-   按"非剧中元素不进站点"的原则撤掉。爱染诚记录改用左侧墨／粉边 + 右上火漆章标记。
-   下一轮改 results 卡结构时, 可把 script.js:517 那行 <span class="card-crystal"> 一并删掉。 */
-.card-crystal { display: none; }
+/* 六边形金水晶已整条移除(含 script.js 里生成它的那个 <span>)。
+   理由: 那是本站自创的造型, 不是剧中道具 —— 剧中水晶是**圆形扁平徽章**(深蓝底 + 银边
+   + 图案), 根本没有六边形立体水晶。按"非剧中元素不进站点"的原则撤掉。
+   爱染诚记录改用左侧粉边 + 右上印章标记, 两个都能追到剧中。 */
 
 /* 火漆章(爱染诚档案) */
 .seal {
@@ -631,7 +688,7 @@ body {
     font-weight: 700;
     font-size: 0.82rem;
     letter-spacing: 0.14em;
-    box-shadow: 0 0 0 2px var(--paper), 0 1px 3px rgba(13, 4, 21, 0.25);
+    box-shadow: 0 0 0 2px var(--paper), 0 1px 3px color-mix(in srgb, var(--ink) 25%, transparent);
     user-select: none;
     pointer-events: none;
 }
@@ -644,7 +701,9 @@ body {
 
 .result-text-block { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem; }
 
-.result-card h3 {
+/* 记录标题用 h2 而不是 h3: 页面里 h1 是刊头标题, 结果记录是它的下一级。原先是 h3,
+   中间没有 h2 —— 标题层级跳级(审查里的一条 P3)。 */
+.result-card h2 {
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 0.9rem;
@@ -654,7 +713,7 @@ body {
     line-height: 1.4;
 }
 
-.result-card h3 .tag {
+.result-card h2 .tag {
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 0.68rem;
@@ -751,7 +810,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background: rgba(6, 8, 11, 0.82);
+    background: color-mix(in srgb, var(--steel-deep) 82%, transparent);
     backdrop-filter: blur(20px) saturate(160%);
     display: flex;
     align-items: center;
@@ -788,7 +847,9 @@ body.preview-open { overflow: hidden; }
     padding: 10px;
     background: var(--steel-ground);
     border: 1px solid var(--rule-steel);
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55), 0 10px 30px rgba(0, 0, 0, 0.35);
+    box-shadow:
+        0 40px 100px color-mix(in srgb, var(--steel-deep) 55%, transparent),
+        0 10px 30px color-mix(in srgb, var(--steel-deep) 35%, transparent);
     animation: preview-pop 0.3s var(--ease-out);
     transform-origin: center;
 }
@@ -813,6 +874,15 @@ body.preview-open { overflow: hidden; }
     object-fit: contain;
     display: block;
     background: var(--steel-deep);
+    animation: img-in 0.35s var(--ease-out) both;
+}
+
+/* 图片渐显。原写法是 filter: blur(6px) → blur(0), 在一张最大 1200px 的图上逐帧做
+   高斯模糊是纯粹的合成开销; 换成 opacity + 极轻微缩放, 观感相近但走合成器。
+   (本条原先把 .preview-img 拆成两个块写, 一并合并。) */
+@keyframes img-in {
+    from { opacity: 0; transform: scale(1.015); }
+    to   { opacity: 1; transform: scale(1); }
 }
 
 .preview-info {
@@ -823,16 +893,6 @@ body.preview-open { overflow: hidden; }
     padding-top: 0.45rem;
     width: 100%;
     text-align: center;
-}
-
-/* 图片渐显:轻微模糊 → 清晰 */
-.preview-img {
-    animation: img-in 0.35s ease both;
-}
-
-@keyframes img-in {
-    from { opacity: 0; filter: blur(6px); }
-    to   { opacity: 1; filter: blur(0); }
 }
 
 /* 圆形按钮(叉叉 / 复制 / 下载): 圆环语义, 全站允许用圆的地方 */
@@ -849,7 +909,7 @@ body.preview-open { overflow: hidden; }
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--steel-deep) 50%, transparent);
     transition: transform 0.18s var(--ease-spring), border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -916,7 +976,7 @@ body.preview-open { overflow: hidden; }
     font-size: 0.8rem;
     letter-spacing: 0.08em;
     padding: 0.5rem 1rem;
-    box-shadow: 0 8px 24px rgba(13, 4, 21, 0.35);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 35%, transparent);
     pointer-events: none;
     animation: toast-in 0.22s var(--ease-out);
 }
@@ -932,33 +992,14 @@ body.preview-open { overflow: hidden; }
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* ---------- 关键词标签 ---------- */
-
-.keywords-container {
-    display: none;
-    margin: 1.1rem 0 1.4rem;
-    padding: 0.85rem 0;
-    background: transparent;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-}
-
-.keywords-container.show { display: block; animation: card-enter 0.35s ease both; }
-
-.keywords-tags { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; }
-
-.keyword-tag {
-    background: transparent;
-    color: var(--ink-2);
-    padding: 0.18rem 0.55rem;
-    font-size: 0.76rem;
-    border: 1px solid var(--rule-2);
-    cursor: pointer;
-    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
-}
-
-.keyword-tag:hover { border-color: var(--ink); color: var(--ink); background: var(--paper-lift); }
-.keyword-tag.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+/* ---------- 关键词标签 · 已整条移除 ----------
+   移除依据(实测): 6667 条语料里**没有任何一条带 type 字段**, 而这条路径唯一的入口是
+   script.js 里的 `data.data[0].type === "keywords"`, 所以关键词容器从来没被填充过 ——
+   displayResults 里那段、.keywords-* / .keyword-tag 的样式、以及 #keywordsContainer
+   元素都是死代码。
+   顺带一提: 那些关键词标签是**只能鼠标点**的 <span>(只绑了 click, 没有 tabindex 也没有
+   键盘处理), 一旦哪天真被激活就是一处键盘不可达的交互。要恢复这个功能, 请连同键盘
+   可达性一起做, 而不是把这段 CSS 抄回去。 */
 
 /* ---------- 无结果提示（由 JS 生成 .error-message） ---------- */
 
@@ -971,7 +1012,7 @@ body.preview-open { overflow: hidden; }
     margin-bottom: 1rem;
 }
 
-.error-message h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.4rem; }
+.error-message h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.4rem; }
 .error-message ul { margin: 0.4rem 0 0; padding-left: 1.4rem; }
 
 /* ---------- 页脚 ---------- */
@@ -1018,14 +1059,14 @@ body.preview-open { overflow: hidden; }
 
 ::-webkit-scrollbar { width: 12px; }
 ::-webkit-scrollbar-track { background: var(--paper); }
-::-webkit-scrollbar-thumb { background: rgba(13, 4, 21, 0.28); border: 3px solid var(--paper); }
-::-webkit-scrollbar-thumb:hover { background: rgba(13, 4, 21, 0.45); }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--ink) 28%, transparent); border: 3px solid var(--paper); }
+::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--ink) 45%, transparent); }
 
 /* ---------- 全局交互统一 ---------- */
 
 /* 键盘可达性: 纸面上的焦点环用墨, 深色块上的用钢色 —— 单一颜色环在两种材质上必有一处看不见 */
-:where(button, .ts-link, .frame-zoomable, .keyword-tag, #query, .switch-line input,
-       .input-row input, .site-header):focus-visible {
+:where(button, .ts-link, .frame-zoomable, #query, .switch-line input,
+       .input-row input):focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink);
 }
@@ -1036,14 +1077,19 @@ body.preview-open { overflow: hidden; }
 }
 
 :where(.search-button, .preview-close, .preview-copy, .preview-download,
-       .keyword-tag, .frame-zoomable):active {
+       .frame-zoomable):active {
     transform: var(--press);
 }
 
 /* ---------- 响应式 ---------- */
 
 @media (max-width: 640px) {
-    .main-content { padding-top: 1.1rem; }
+    /* 窄屏留白必须写全。原写法只写 padding-top: 1.1rem, 于是左右沿用到基础规则、
+       底部直接归零 —— "移动端到底收不收紧"这个意图在代码里根本看不见(审查里的一条 P2)。
+       左右保持 1.1rem: 顶栏 .header-inner 用的是同一个值,
+       「铭牌 = 刊头 = 图版 = 记录」这条竖轴在窄屏也不能断。
+       (更早那版这里是 0.9rem, 比顶栏多缩进 3.2px, 窄屏竖轴本来就是断的。) */
+    .main-content { padding: 1.1rem 1.1rem 2.4rem; }
     .hero-title { font-size: clamp(1.9rem, 9vw, 2.6rem); }
     .header-meta { display: none; }
     .brand-cn { font-size: 0.66rem; }

@@ -12,30 +12,39 @@
          不可达时 <link rel=stylesheet> 会**阻塞首屏渲染**直到超时。本站的识别力来自 logo 的几何
          构造与字距, 不来自某个下载字体 —— 字体全部走系统栈(本机已有 Noto Sans SC / 思源黑体 /
          微软雅黑 / Consolas), 断网与墙内都是同样的观感。 -->
-    <link rel="stylesheet" href="style.css?v=20">
+    <link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
-    <button type="button" class="site-header" id="refreshDiv" title="刷新档案室">
-        <span class="header-band">
-            <span class="header-inner">
-                <span class="header-brand">
-                    <!-- 爱染科技 logo 标: 与 docs/assets/aizen_logo.svg 同一组几何,
-                         viewBox 按实际墨迹外框(11.8,8.2,80.8,80.8)裁过, 用作行内标时四周留白才均匀。 -->
-                    <svg class="brand-mark" viewBox="11.8 8.2 80.8 80.8" aria-hidden="true" focusable="false">
-                        <g fill="none" stroke="currentColor" stroke-linecap="butt">
-                            <circle cx="62" cy="41.2" r="23.2" stroke-width="5.3"/>
-                            <path d="M50 12 L20.4 85.2 M50 12 L79.6 85.2 M31.1 58.8 L68.9 58.8" stroke-width="7.6"/>
-                        </g>
-                    </svg>
-                    <span class="brand-lockup">
-                        <span class="brand-name">AIZENTECH</span>
-                        <span class="brand-cn">爱染科技 · 档案科</span>
-                    </span>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <!-- 爱染科技 logo 标: 与 docs/assets/aizen_logo.svg 同一组几何,
+                     viewBox 按实际墨迹外框(11.8,8.2,80.8,80.8)裁过, 用作行内标时四周留白才均匀。 -->
+                <svg class="brand-mark" viewBox="11.8 8.2 80.8 80.8" aria-hidden="true" focusable="false">
+                    <g fill="none" stroke="currentColor" stroke-linecap="butt">
+                        <circle cx="62" cy="41.2" r="23.2" stroke-width="5.3"/>
+                        <path d="M50 12 L20.4 85.2 M50 12 L79.6 85.2 M31.1 58.8 L68.9 58.8" stroke-width="7.6"/>
+                    </g>
+                </svg>
+                <span class="brand-lockup">
+                    <span class="brand-name">AIZENTECH</span>
+                    <span class="brand-cn">爱染科技 · 档案科</span>
                 </span>
+            </div>
+            <div class="header-right">
                 <span class="header-meta mono">怪兽水晶档案室 —— 全剧字幕对白检索</span>
-            </span>
-        </span>
-    </button>
+                <!-- 铭牌不再整体可点。原先整条顶带是个 <button>, 可访问名就变成了整串品牌
+                     文字、动作只藏在 title 里(实测 name = "AIZENTECH 爱染科技 · 档案科 …",
+                     description = "刷新档案室"), 读屏用户听不出它能干嘛。 -->
+                <button type="button" class="refresh-btn" id="refreshDiv" title="刷新档案室" aria-label="刷新档案室">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20.5 12a8.5 8.5 0 1 1-2.5-6"/>
+                        <path d="M20.5 3.5V9H15"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <main class="main-content">
         <section class="hero">
@@ -64,6 +73,10 @@
                         <!-- placeholder 必须能整句显示: 原句「…如：我是爱与善意的传播者、水晶」实测需 365px,
                              而输入框内容宽在 1280 下只有 293px(46% 列)、375 下 237px —— 任何视口都放不下,
                              会被拦腰切断。换成下面这句(198px), 375/640/1024/1280 四个视口全部放得下(CDP 实测)。 -->
+                        <!-- 必须有真标签: 原先可访问名只来自 placeholder(实测 CDP 算出
+                             name = "检索爱染诚的台词，如：水晶"), 而"用 placeholder 当标签"
+                             是明确的可用性缺陷。标签视觉隐藏, placeholder 继续当提示。 -->
+                        <label class="sr-only" for="query">检索台词</label>
                         <input type="text" id="query" placeholder="检索爱染诚的台词，如：水晶" required>
                     </div>
                     <button type="button" id="toggleAdvancedOptions" class="toggle-button" aria-expanded="false">
@@ -99,12 +112,16 @@
                 <div class="loading-container">
                     <div id="loadingBar"></div>
                 </div>
-                <div id="randomStringDisplay" class="random-string" role="status" aria-live="polite"></div>
+                <!-- 检索结论行。它是一个**常驻**的 role="status" 区域: JS 在检索开始时写
+                     "检索中…"、结束时写"找到 N 条"或"没有匹配的档案"。读屏用户否则听不到
+                     检索的结果 —— 包括"没有结果"这件事。 -->
+                <div id="resultStatus" class="result-status" role="status" aria-live="polite"></div>
                 <div id="errorDisplay" class="error-display" role="alert" aria-live="assertive"></div>
             </div>
         </section>
 
-        <div id="keywordsContainer" class="keywords-container"></div>
+        <!-- 关键词容器已移除: 见 style.css 里的说明 —— 6667 条语料无一带 type 字段,
+             这条路径从未被激活过。 -->
         <section id="results"></section>
     </main>
 
@@ -116,6 +133,6 @@
     <script src="subtitle_db.js"></script>
     <script src="frames_map.js"></script>
     <script src="db_search.js"></script>
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>

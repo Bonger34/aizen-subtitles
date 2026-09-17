@@ -135,7 +135,6 @@ async function loadMapping() {
 }
 const AppState = {
   isSearching: false,
-  randomStringDisplayed: false,
   searchResults: [],
   currentPage: 1,
   itemsPerPage: 20,
@@ -146,48 +145,18 @@ const AppState = {
   dbLoaded: false,
   dbLoading: false,
 };
-const CONFIG = {
-  randomStrings: [
-    "搜索罗布奥特曼的经典台词",
-    "寻找爱染诚的身影",
-    "搜索你想要的内容",
-  ],
-};
-class UIController {
-  static updateSearchFormPosition(isSearching) {
-    const searchForm = document.getElementById("searchForm");
-    const randomStringDisplay = document.getElementById("randomStringDisplay");
-    if (isSearching) {
-      searchForm.classList.add("searching");
-      if (!AppState.randomStringDisplayed) this.showRandomString();
-    } else {
-      searchForm.classList.remove("searching");
-      this.clearRandomString();
-    }
-  }
-  static showRandomString() {
-    if (!AppState.randomStringDisplayed) {
-      const randomStringDisplay = document.getElementById(
-        "randomStringDisplay",
-      );
-      const randomIndex = Math.floor(
-        Math.random() * CONFIG.randomStrings.length,
-      );
-      randomStringDisplay.textContent = CONFIG.randomStrings[randomIndex];
-      AppState.randomStringDisplayed = true;
-      randomStringDisplay.classList.remove("fade-out");
-      randomStringDisplay.classList.add("fade-in");
-    }
-  }
-  static clearRandomString() {
-    const randomStringDisplay = document.getElementById("randomStringDisplay");
-    randomStringDisplay.classList.remove("fade-in");
-    randomStringDisplay.classList.add("fade-out");
-    setTimeout(() => {
-      randomStringDisplay.textContent = "";
-      AppState.randomStringDisplayed = false;
-    }, 300);
-  }
+/* UIController 与 CONFIG 已整条删除(2026-09-17)。
+   依据是实测而非估计: updateSearchFormPosition 从来没有被任何地方调用过(全文件只有它
+   自己的定义), 所以"随机提示语"这个功能其实从未生效过 —— #randomStringDisplay 一直
+   是空的。那个元素现在改成检索结论行 #resultStatus, 由下面的 announce() 负责写。 */
+
+/* 检索结论播报。
+   为什么需要它: #resultStatus 是一个**常驻**的 role="status" aria-live="polite" 区域,
+   读屏用户靠它得知"检索中"以及"结果是什么" —— 否则提交检索之后得不到任何反馈,
+   包括"没有结果"这件事(审查里的一条 P2)。 */
+function announce(text) {
+  const el = document.getElementById("resultStatus");
+  if (el) el.textContent = text || "";
 }
 class SearchController {
   static validateSearchInput(query) {
@@ -237,6 +206,7 @@ async function handleSearch(event) {
   const searchForm = document.getElementById("searchForm");
   searchForm.classList.add("searching");
   startNaturalLoadingBar();
+  announce("正在检索…");
 
   try {
     const results = await SearchController.performSearch(
@@ -266,6 +236,10 @@ async function handleSearch(event) {
 
       displayResults(searchData);
       completeLoadingBar();
+      // 结论既要给眼睛看, 也要播报给读屏(见 announce() 的说明)。
+      // 无结果时 data 里是 db_search.js 包的那个 {count:0} 包装对象, 不是真的记录。
+      const noResult = data.length === 1 && data[0] && data[0].count === 0;
+      announce(noResult ? "没有匹配的档案" : `找到 ${data.length} 条档案`);
     } else {
       throw new Error("Invalid search results format");
     }
@@ -274,9 +248,9 @@ async function handleSearch(event) {
     document.getElementById("errorDisplay").textContent =
       `搜索失败: ${error.message}`;
     document.getElementById("errorDisplay").style.display = "block";
+    announce(`检索失败: ${error.message}`);
     completeLoadingBar();
   } finally {
-    enableKeywordTags();
     searchForm.classList.remove("searching");
   }
 }
@@ -402,45 +376,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 function displayResults(data, append = false) {
   const resultsDiv = document.getElementById("results");
-  const keywordsContainer = document.getElementById("keywordsContainer");
 
   document.getElementById("errorDisplay").style.display = "none";
 
   if (!append) {
     resultsDiv.innerHTML = "";
     AppState.displayedCount = 0;
-    keywordsContainer.innerHTML = "";
-    keywordsContainer.classList.remove("show");
   }
 
-  if (!append && data.data.length > 0 && data.data[0].type === "keywords") {
-    const keywords = data.data[0].keywords;
-    if (keywords && keywords.length > 0) {
-      keywordsContainer.innerHTML = `
-        <div class="keywords-tags">
-          ${keywords.map(keyword => `<span class="keyword-tag">${keyword}</span>`).join("")}
-        </div>
-      `;
-      keywordsContainer.classList.add("show");
-      
-      keywordsContainer.querySelectorAll('.keyword-tag').forEach(tag => {
-        tag.addEventListener('click', () => {
-          if (AppState.isSearching) return;
-          
-          const keyword = tag.textContent;
-          document.getElementById('query').value = keyword;
-          
-          keywordsContainer.querySelectorAll('.keyword-tag').forEach(t => {
-            t.classList.add('disabled');
-          });
-          
-          document.getElementById('searchForm').dispatchEvent(new Event('submit'));
-        });
-      });
-    }
-    
-    data.data = data.data.slice(1);
-  }
+  /* 关键词分支已整条删除(2026-09-17)。依据是实测: 它的唯一入口是
+     `data.data[0].type === "keywords"`, 而 6667 条语料里没有任何一条带 type 字段,
+     所以这段代码从未执行过 —— #keywordsContainer 永远是空的。
+     那些标签本身也只是一堆只绑了 click、没有 tabindex 的 <span>, 真被激活就是一处
+     键盘不可达的交互; 要恢复这个功能, 请连键盘可达性一起做, 别只把这段抄回来。 */
 
   if (data.data && data.data.length === 1 && data.data[0].count === 0) {
     const noResultData = data.data[0];
@@ -462,7 +410,7 @@ function displayResults(data, append = false) {
 
       resultsDiv.innerHTML = `
                 <div class="error-message">
-                    <h3>${message}</h3>
+                    <h2>${message}</h2>
                     <p>建议：</p>
                     <ul>
                         ${suggestions.map((suggestion) => `<li>${suggestion}</li>`).join("")}
@@ -514,11 +462,10 @@ function displayResults(data, append = false) {
       }
 
       const cardContent = `
-            <span class="card-crystal" aria-hidden="true"></span>
             ${result.aizen ? `<span class="seal" aria-hidden="true">\u8bda</span>` : ""}
             <div class="result-content">
                 <div class="result-text-block">
-                    <h3>${episodeMatch ? `<span class="tag">${episodeMatch[1]}</span>${cleanFilename.replace(/P\d+/, "").trim()}` : cleanFilename}</h3>
+                    <h2>${episodeMatch ? `<span class="tag">${episodeMatch[1]}</span>${cleanFilename.replace(/P\d+/, "").trim()}` : cleanFilename}</h2>
                     <p class="result-text">${result.text || ""}</p>
                     ${
                       result.timestamp
@@ -866,10 +813,4 @@ function showToast(msg) {
   document.body.appendChild(t);
   setTimeout(() => t.classList.add("fade-out"), 1600);
   setTimeout(() => t.remove(), 2000);
-}
-function enableKeywordTags() {
-  const keywordsContainer = document.getElementById("keywordsContainer");
-  keywordsContainer.querySelectorAll('.keyword-tag').forEach(tag => {
-    tag.classList.remove('disabled');
-  });
 }
