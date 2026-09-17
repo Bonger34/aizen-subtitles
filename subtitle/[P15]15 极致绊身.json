@@ -386,15 +386,10 @@
         "text": "该小组由负责灾后重建的官员带领"
     },
     {
-        "timestamp": "5m49s",
+        "timestamp": "5m50s",
         "similarity": 0.088,
         "text": "你回来了学校怎么样了",
         "vl_rechecked": true
-    },
-    {
-        "timestamp": "5m50s",
-        "similarity": 0.049,
-        "text": "你回来了学校怎么样了"
     },
     {
         "timestamp": "5m53s",
@@ -1114,13 +1109,8 @@
         "similarity": 0.0
     },
     {
-        "timestamp": "22m00s",
+        "timestamp": "22m01s",
         "similarity": 0.175,
-        "text": "关于此次事故爱染社长是否发生意外也尚不得知"
-    },
-    {
-        "timestamp": "22m04s",
-        "similarity": 0.185,
         "text": "关于此次事故爱染社长是否发生意外也尚不得知"
     },
     {
