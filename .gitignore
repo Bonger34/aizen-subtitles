@@ -203,6 +203,10 @@ __pycache__/
 # 二进制工具/大文件(不应入库)
 *.png
 *.GIF
+# 例外: 站点图标资源必须入库 —— apple-touch-icon.png 是 iOS 主屏图标, 被 *.png 挡掉
+# 就不会部署; aizen_logo.png 是爱染科技 logo 的位图版(矢量版见同名 .svg)。
+!docs/apple-touch-icon.png
+!docs/assets/aizen_logo.png
 
 # 文本修正时的库备份(不应入库)
 subtitle/*.bak_qapply*
@@ -212,6 +216,10 @@ subtitle/*.bak_qapply*
 _p.py
 _q.py
 _swap.py
+scripts/pipeline/_aizen_probe.py
+scripts/pipeline/_aizen_xcheck.py
+scripts/pipeline/_favicon_probe.py
+scripts/pipeline/_favicon_scene.py
 # 判定源文件入库(review/ 仍忽略大文件, 只放行这几个小体积来源记录)
 !review/q_manual_verdicts.json
 !review/q_locate2_verdicts.json
